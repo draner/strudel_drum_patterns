@@ -22,16 +22,12 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [~ ~ ~ sd] ~ ~] [~ [~ ~ ~ sd] [~ sd ~ ~] ~]").bank(bank_sd).n(n_sd),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ [~ ~ hh ~] [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("[~ [~ ~ ~ sd] ~ ~] [~ [~ ~ ~ sd] [~ sd ~ ~] ~]").bank(bank_sd),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("~ [~ ~ [~ ~ hh ~] [~ ~ hh ~]]").gain("0.85").bank(bank_hh),
+  s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -67,13 +63,10 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*4").bank(bank_sd).n(n_sd),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd bd]").bank(bank_bd).n(n_bd)
+  s("sd*4").bank(bank_sd),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd bd]").bank(bank_bd)
 )
 ```
 
@@ -108,14 +101,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -146,14 +135,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -184,14 +169,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -226,18 +207,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ lt*4").gain("1.0 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt mt] [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ ~ lt*4").gain("1.0 0.6 0.6 1.0").bank(bank_lt),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -267,14 +242,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -302,14 +273,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -339,18 +306,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [mt ~ ~ ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ lt ~] [lt ~]*2 ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [mt ~ ~ ~] ~ ~").bank(bank_mt),
+  s("~ [~ ~ lt ~] [lt ~]*2 ~").bank(bank_lt),
+  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[sd sd ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -382,18 +343,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -424,16 +379,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ mt ~] [mt ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ mt ~] [mt ~ ~ ~]").bank(bank_mt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -463,16 +413,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ mt mt] ~ [mt mt ~ ~] [~ ~ mt mt]").gain("0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("[hh ~ ~ ~] [hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [~ sd]*2 [~ ~ ~ sd] [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[~ ~ mt mt] ~ [mt mt ~ ~] [~ ~ mt mt]").gain("0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_mt),
+  s("[hh ~ ~ ~] [hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_hh),
+  s("[~ sd ~ ~] [~ sd]*2 [~ ~ ~ sd] [~ sd ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -503,18 +448,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] ~ ~ ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] ~ ~ ~").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -546,18 +485,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -588,16 +521,11 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [ht ~]*2 ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ sd] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ [ht ~]*2 ~ ~").bank(bank_ht),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt),
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ sd] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -628,18 +556,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -669,14 +591,10 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[sd ~]*2 [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd)
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[sd ~]*2 [~ ~ sd ~] ~ ~").bank(bank_sd)
 )
 ```
 
@@ -706,18 +624,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -747,14 +659,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -784,18 +692,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ lt*4").gain("0.6 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ ~ lt*4").gain("0.6 0.6 0.6 1.0").bank(bank_lt),
+  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -825,14 +727,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -860,14 +758,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -897,18 +791,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ lt*4").gain("1.0 0.6 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd sd] [sd ~]*2 ~ ~").gain("0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("~ ~ ~ lt*4").gain("1.0 0.6 0.6 0.6").bank(bank_lt),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd sd] [sd ~]*2 ~ ~").gain("0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -939,16 +827,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -977,14 +860,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -1013,16 +892,11 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ht ht] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ sd sd] ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd bd ~ ~] [bd bd ~ ~] [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ht ht] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ sd sd] ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd bd ~ ~] [bd bd ~ ~] [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -1052,16 +926,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -1090,14 +959,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -1126,16 +991,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ mt mt ~] ~ [~ ~ mt ~] [mt mt ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("~ [~ hh ~ ~] [hh ~ ~ ~] ~").gain("1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[~ mt mt ~] ~ [~ ~ mt ~] [mt mt ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_mt),
+  s("~ [~ hh ~ ~] [hh ~ ~ ~] ~").gain("1.0 0.6").bank(bank_hh),
+  s("[~ ~ ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -1164,14 +1024,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").gain("1.0 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").gain("1.0 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -1199,14 +1055,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -1238,22 +1090,14 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ ~ oh] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("hh*4 [hh hh hh ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [~ ~ ~ oh] ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("hh*4 [hh hh hh ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -1286,16 +1130,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -1324,14 +1163,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -1359,14 +1194,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 hh*4 [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("sd*12").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4 hh*4 [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("sd*12").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4 bd*4 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -1394,14 +1225,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*12").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*12").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -1429,14 +1256,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*12").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*12").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -1464,14 +1287,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -1499,14 +1318,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [bd ~]*2 [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [bd ~]*2 [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -1534,14 +1349,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*12").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*12").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -1572,20 +1383,13 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] ~ ~ ~").bank(bank_rim).n(n_rim),
-  s("[~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr),
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt),
+  s("[~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[rim ~ ~ ~] ~ ~ ~").bank(bank_rim),
+  s("[~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1616,14 +1420,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1651,14 +1451,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1685,12 +1481,9 @@ let bank_default = "RolandTR808";
 let bank_mt = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ mt ~] [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank_lt).n(n_lt)
+  s("[~ ~ mt ~] [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank_lt)
 )
 ```
 
@@ -1718,16 +1511,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ rim] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cr*8").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ rim] ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1757,16 +1545,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cr*8").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1796,16 +1579,11 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [lt ~]*2 ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ~] ~ [ht ~ ~ ~] ~").bank(bank_ht),
+  s("~ [lt ~]*2 ~ ~").bank(bank_lt),
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd)
 )
 ```
 
@@ -1836,18 +1614,12 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1879,18 +1651,12 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ht ht] ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ lt lt] ~ [~ ~ lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ht ht] ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ lt lt] ~ [~ ~ lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -1923,20 +1689,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[hh hh ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ sd] [~ sd sd sd] [sd sd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("0.6 1.0 1.0 1.0").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[hh hh ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd sd ~ sd] [~ sd sd sd] [sd sd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("bd*4").gain("0.6 1.0 1.0 1.0").bank(bank_bd)
 )
 ```
 
@@ -1967,14 +1726,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2003,16 +1758,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh ~ hh hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh ~ hh hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2041,14 +1791,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh hh ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [sd ~]*2 [sd ~]*2 [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh hh hh ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [sd ~]*2 [sd ~]*2 [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2077,16 +1823,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2116,16 +1857,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[hh ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[hh ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2156,18 +1892,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cb ~ cb cb]").bank(bank_cb).n(n_cb),
-  s("~ ~ [mt ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("hh*4 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cb ~ cb cb]").bank(bank_cb),
+  s("~ ~ [mt ~ ~ mt] ~").bank(bank_mt),
+  s("hh*4 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2197,14 +1927,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2232,14 +1958,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2268,16 +1990,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [~ hh ~ ~] [~ hh ~ ~] [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ ~] [~ hh ~ ~] [~ hh ~ ~] [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2307,16 +2024,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2346,16 +2058,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -2387,20 +2094,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ mt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ oh oh] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[hh hh ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ mt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ oh oh] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[hh hh ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2432,16 +2132,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh oh] [~ ~ oh ~] [~ ~ oh oh] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [~ hh]*2 [hh hh ~ ~] [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh oh] [~ ~ oh ~] [~ ~ oh oh] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ ~] [~ hh]*2 [hh hh ~ ~] [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2471,16 +2166,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh hh] hh*4 [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh hh] hh*4 [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -2508,12 +2198,9 @@ let bank_default = "RolandTR808";
 let bank_cr = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -2539,12 +2226,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -2571,14 +2255,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] [hh ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] [~ ~ sd sd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] [hh ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_hh),
+  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] [~ ~ sd sd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -2606,14 +2286,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -2642,16 +2318,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -2680,14 +2351,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ hh ~ ~] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("~ [~ bd ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ hh ~ ~] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("[sd sd ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_sd),
+  s("~ [~ bd ~ ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -2715,14 +2382,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [~ hh hh hh] hh*4 [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("hh*4 [~ hh hh hh] hh*4 [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -2750,14 +2413,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [~ hh hh hh] hh*4 [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*4 [~ hh hh hh] hh*4 [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -2785,14 +2444,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [~ ht ht ~] [~ ~ ~ ht] ~").gain("0.6 0.6 1.0").bank(bank_ht).n(n_ht),
-  s("[lt ~ ~ ~] [~ ~ ~ lt] ~ [lt ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[~ ~ sd sd] [sd ~ ~ ~] [sd sd sd ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ [~ ht ht ~] [~ ~ ~ ht] ~").gain("0.6 0.6 1.0").bank(bank_ht),
+  s("[lt ~ ~ ~] [~ ~ ~ lt] ~ [lt ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_lt),
+  s("[~ ~ sd sd] [sd ~ ~ ~] [sd sd sd ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -2820,14 +2475,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -2855,14 +2506,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -2891,16 +2538,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ ~ mt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[oh ~]*2 ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ sd]*2 sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("~ ~ mt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[oh ~]*2 ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ sd]*2 sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -2930,16 +2572,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ oh]*2 [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh ~]*2 [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ oh]*2 [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh ~]*2 [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -2969,16 +2606,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -3007,14 +2639,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ mt mt ~] ~ [~ mt]*2").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] [sd ~ ~ ~] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [~ mt mt ~] ~ [~ mt]*2").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ sd] [sd ~ ~ ~] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -3043,16 +2671,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [hh hh ~ ~] [hh hh hh ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [sd ~]*2").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh hh ~] [hh hh ~ ~] [hh hh hh ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [sd ~]*2").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -3082,16 +2705,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [hh hh ~ ~] [hh hh hh ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh hh ~] [hh hh ~ ~] [hh hh hh ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -3120,14 +2738,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ sd] [sd ~ ~ ~] [sd ~]*2 [sd sd ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").gain("0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ sd] [sd ~ ~ ~] [sd ~]*2 [sd sd ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").gain("0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3155,14 +2769,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -3190,14 +2800,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -3225,14 +2831,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ [~ ~ hh ~] ~").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~]*2 [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ [~ ~ hh ~] ~").gain("0.6 1.0").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~]*2 [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3260,14 +2862,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -3295,14 +2893,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -3330,14 +2924,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [~ hh ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ ~ sd sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [~ bd ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [~ hh ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ ~ sd sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [~ bd ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3366,16 +2956,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ oh] [~ oh]*2 ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh hh hh ~] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ oh] [~ oh]*2 ~").bank(bank_oh),
+  s("[hh ~]*2 [hh hh hh ~] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -3404,14 +2989,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -3439,14 +3020,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [~ ~ ~ hh] ~ [~ ~ hh ~]").gain("0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ sd sd sd] [sd sd sd ~] [~ sd sd sd] [sd ~]*2").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [~ ~ ~ hh] ~ [~ ~ hh ~]").gain("0.6 0.6 1.0").bank(bank_hh),
+  s("[~ sd sd sd] [sd sd sd ~] [~ sd sd sd] [sd ~]*2").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -3473,12 +3050,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3504,12 +3078,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3536,14 +3107,10 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ht*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("sd*4 ~ sd*4 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ht*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("sd*4 ~ sd*4 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -3571,14 +3138,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 hh*4 [~ ~ hh ~] [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 hh*4 [~ ~ hh ~] [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -3606,14 +3169,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -3642,16 +3201,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ht*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[hh ~]*2 [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ht*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[hh ~]*2 [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -3680,14 +3234,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd sd ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("0.6 1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -3715,14 +3265,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh hh hh ~] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh hh hh ~] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -3750,14 +3296,10 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [sd ~ ~ ~] ~ [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [sd ~ ~ ~] ~ [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -3785,14 +3327,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd sd ~ sd] [~ ~ sd ~] [sd sd ~ sd]").gain("0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd sd ~ sd] [~ ~ sd ~] [sd sd ~ sd]").gain("0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -3822,18 +3360,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ ~] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd sd ~ ~] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -3863,14 +3395,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~]*2 ~ ~").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ sd] ~ [~ sd]*2 sd*4").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[~ bd ~ ~] [bd ~]*2 ~ ~").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ [hh ~]*2 ~ ~").gain("0.6 1.0").bank(bank_hh),
+  s("[sd ~ ~ sd] ~ [~ sd]*2 sd*4").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[~ bd ~ ~] [bd ~]*2 ~ ~").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -3899,16 +3427,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -3939,18 +3462,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt),
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -3981,16 +3498,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ mt ~ ~] [~ mt ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~]*2 [sd ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ ~ bd] [bd ~]*2").gain("0.6 1.0 1.0").bank(bank_bd).n(n_bd)
+  s("~ [~ mt ~ ~] [~ mt ~ ~] ~").bank(bank_mt),
+  s("~ ~ ~ [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[sd ~]*2 [sd ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ [~ ~ ~ bd] [bd ~]*2").gain("0.6 1.0 1.0").bank(bank_bd)
 )
 ```
 
@@ -4019,14 +3531,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*4").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("oh*4").bank(bank_oh),
+  s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -4054,14 +3562,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*4").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ sd ~] ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("oh*4").bank(bank_oh),
+  s("~ [~ ~ sd ~] ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -4089,14 +3593,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -4125,16 +3625,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [hh hh hh ~] [hh hh hh ~] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ [hh hh hh ~] [hh hh hh ~] hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -4164,16 +3659,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ oh]*2 [~ oh]*2 ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ hh hh] [hh ~ ~ ~] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ oh]*2 [~ oh]*2 ~").bank(bank_oh),
+  s("[hh ~ hh hh] [hh ~ ~ ~] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -4203,16 +3693,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ lt ~] [lt ~]*2 [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~]*2 [sd ~ sd sd] [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ lt ~] [lt ~]*2 [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~]*2 [sd ~ sd sd] [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -4241,14 +3726,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -4276,14 +3757,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -4311,14 +3788,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [mt mt ~ ~] ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd sd] ~ ~ sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [mt mt ~ ~] ~").gain("0.6 1.0").bank(bank_mt),
+  s("[~ ~ sd sd] ~ ~ sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -4346,14 +3819,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -4381,14 +3850,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ ~ sd ~] [~ sd ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ ~ sd ~] [~ sd ~ ~]").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -4417,16 +3882,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ ~] ~ [~ ~ sd sd] ~").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt),
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ ~] ~ [~ ~ sd sd] ~").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -4455,14 +3915,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ sd] ~ [sd ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("~ [bd ~ bd bd] [~ bd ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ sd] ~ [sd ~ ~ sd] ~").bank(bank_sd),
+  s("~ [bd ~ bd bd] [~ bd ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -4490,14 +3946,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -4525,14 +3977,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 [sd ~ ~ ~] [sd ~ sd sd]").gain("0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~]*2 [sd ~ ~ ~] [sd ~ sd sd]").gain("0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -4560,14 +4008,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -4595,14 +4039,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -4630,14 +4070,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*4").bank(bank_oh).n(n_oh),
-  s("[~ sd sd sd] [sd ~ sd sd] [sd sd sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("oh*4").bank(bank_oh),
+  s("[~ sd sd sd] [sd ~ sd sd] [sd sd sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -4665,14 +4101,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -4700,14 +4132,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [hh ~ ~ ~] [hh ~ ~ ~] [hh hh ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [hh ~ ~ ~] [hh ~ ~ ~] [hh hh ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -4736,16 +4164,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~]*2 ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~]*2 ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -4774,14 +4197,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ rim] [~ rim ~ ~] [rim ~ ~ rim]").bank(bank_rim).n(n_rim),
-  s("~ bd ~ bd").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ [rim ~ ~ rim] [~ rim ~ ~] [rim ~ ~ rim]").bank(bank_rim),
+  s("~ bd ~ bd").bank(bank_bd)
 )
 ```
 
@@ -4809,14 +4228,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim rim] [~ ~ rim ~] [~ ~ rim rim] [~ ~ rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("~ bd ~ bd").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ rim rim] [~ ~ rim ~] [~ ~ rim rim] [~ ~ rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("~ bd ~ bd").bank(bank_bd)
 )
 ```
 
@@ -4846,18 +4261,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_mt),
+  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_lt),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -4888,16 +4297,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("~ bd ~ bd").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim),
+  s("~ bd ~ bd").bank(bank_bd)
 )
 ```
 
@@ -4927,16 +4331,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ rim ~ rim").bank(bank_rim).n(n_rim),
-  s("~ bd ~ bd").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] ~").gain("0.85").bank(bank_hh),
+  s("~ rim ~ rim").bank(bank_rim),
+  s("~ bd ~ bd").bank(bank_bd)
 )
 ```
 
@@ -4967,18 +4366,12 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[sd ~]*2 ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").bank(bank_lt),
+  s("[sd ~]*2 ~ ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -5008,14 +4401,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh hh hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh hh hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -5043,14 +4432,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -5079,16 +4464,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd sd ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[sd sd sd ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -5118,16 +4498,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("~ [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("~ [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -5157,16 +4532,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -5197,18 +4567,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ mt] [~ mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ lt]*2 ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ mt] [~ mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [~ lt]*2 ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -5238,14 +4602,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -5274,16 +4634,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh oh] [~ ~ oh oh] [~ ~ oh oh] [~ ~ oh oh]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ ~] ~ [rim ~ ~ rim]").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh oh] [~ ~ oh oh] [~ ~ oh oh] [~ ~ oh oh]").bank(bank_oh),
+  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [rim ~ ~ ~] ~ [rim ~ ~ rim]").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -5312,14 +4667,10 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ mt ~] ~ [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ sd] [~ sd sd sd] [~ sd]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[~ ~ mt ~] ~ [mt ~ ~ ~] ~").bank(bank_mt),
+  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt),
+  s("[sd sd ~ sd] [~ sd sd sd] [~ sd]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -5347,14 +4698,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -5382,14 +4729,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -5418,16 +4761,11 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ ~] ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[sd sd ~ ~] ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -5456,14 +4794,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd]*2 [~ ~ bd bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ bd]*2 [~ ~ bd bd] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -5491,14 +4825,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("sd*4").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ bd] [~ bd bd ~] [~ bd]*2 [~ bd bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("sd*4").bank(bank_sd),
+  s("[~ ~ ~ bd] [~ bd bd ~] [~ bd]*2 [~ bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -5528,18 +4858,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[hh ~ ~ hh] [hh ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] ~ [sd ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("[hh ~ ~ hh] [hh ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] ~ [sd ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -5569,14 +4893,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -5604,14 +4924,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ sd sd] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ bd bd] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -5640,16 +4956,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] [mt ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ hh] ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] [mt ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ hh] ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -5678,14 +4989,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -5714,16 +5021,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -5754,18 +5056,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [mt mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [lt lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] ~ ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [mt mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [lt lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] ~ ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -5795,14 +5091,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -5830,14 +5122,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -5866,16 +5154,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ ht] [ht ~ ~ ht] [ht ~ ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] sd*4").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ ht] [ht ~ ~ ht] [ht ~ ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] sd*4").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -5904,14 +5187,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -5939,14 +5218,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -5976,18 +5251,12 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("~ mt*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ lt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("sd*4 ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~]*2 [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cr ~]*2").bank(bank_cr),
+  s("~ mt*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ lt*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("sd*4 ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~]*2 [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -6018,16 +5287,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("hh*4 hh*4 hh*4 [hh hh hh ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("hh*4 hh*4 hh*4 [hh hh hh ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -6057,16 +5321,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -6096,16 +5355,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -6134,14 +5388,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -6169,14 +5419,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -6203,12 +5449,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*16").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("sd*16").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6235,14 +5478,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6270,14 +5509,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank_sd),
+  s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -6305,14 +5540,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -6340,14 +5571,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -6375,14 +5602,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -6411,16 +5634,11 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ sd sd] [sd ~ ~ ~] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ sd sd] [sd ~ ~ ~] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -6452,20 +5670,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[~ hh hh ~] [~ hh hh ~] [~ hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt),
+  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[~ hh hh ~] [~ hh hh ~] [~ hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6497,16 +5708,11 @@ let bank_mt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~]*2 [cb cb ~ cb] [~ cb cb ~] [cb cb ~ cb]").bank(bank_cb).n(n_cb),
-  s("~ ~ [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cb ~]*2 [cb cb ~ cb] [~ cb cb ~] [cb cb ~ cb]").bank(bank_cb),
+  s("~ ~ [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6535,14 +5741,10 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[mt ~ ~ mt] [~ ~ mt ~] [~ mt ~ ~] [mt ~ ~ mt]").bank(bank_mt).n(n_mt),
-  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[mt ~ ~ mt] [~ ~ mt ~] [~ mt ~ ~] [mt ~ ~ mt]").bank(bank_mt),
+  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt),
+  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -6572,18 +5774,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ ~] ~").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6616,20 +5812,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ mt] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ mt] ~ ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6664,22 +5853,14 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ lt] [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[hh hh ~ ~] [~ ~ hh hh] [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ lt] [~ ~ lt ~]").bank(bank_lt),
+  s("[hh hh ~ ~] [~ ~ hh hh] [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -6711,14 +5892,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -6746,14 +5923,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ hh] [~ ~ hh ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[sd ~]*2 [sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ hh] [~ ~ hh ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("[sd ~]*2 [sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -6781,14 +5954,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -6816,14 +5985,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -6851,14 +6016,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -6886,14 +6047,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] sd*4 [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] sd*4 [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -6921,14 +6078,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -6956,14 +6109,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -6991,14 +6140,10 @@ let bank_mt = bank_default;
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [mt ~]*2 ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ sd sd] ~ [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ [mt ~]*2 ~ ~").bank(bank_mt),
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ sd sd] ~ [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -7026,14 +6171,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7062,16 +6203,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -7100,14 +6236,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd sd] sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ sd sd] sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -7134,12 +6266,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7166,14 +6295,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7201,14 +6326,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ ~ sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ ~ sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7236,14 +6357,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7271,14 +6388,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7307,16 +6420,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[oh ~ ~ oh] [~ ~ oh ~] [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[oh ~ ~ oh] [~ ~ oh ~] [~ oh ~ ~] ~").bank(bank_oh),
+  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -7345,14 +6453,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2 ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2 ~").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -7380,14 +6484,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -7416,16 +6516,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [mt ~]*2 ~ ~").bank(bank_mt).n(n_mt),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ [mt ~]*2 ~ ~").bank(bank_mt),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -7454,14 +6549,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7489,14 +6580,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -7524,14 +6611,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ [sd ~]*2 ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("~ [sd ~]*2 ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7559,14 +6642,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7594,14 +6673,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -7633,14 +6708,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -7671,20 +6742,13 @@ let bank_rim = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ rim] ~ ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("[~ ~ ~ rim] ~ ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -7718,20 +6782,13 @@ let bank_rim = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7763,16 +6820,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -7803,18 +6855,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.6 0.6 1.0 1.0").bank(bank_hh).n(n_hh),
-  s("[mt ~ ~ ~] ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd sd] [~ sd sd ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("bd*4").gain("1.0 0.6 1.0 1.0").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.6 0.6 1.0 1.0").bank(bank_hh),
+  s("[mt ~ ~ ~] ~ [mt ~]*2 ~").bank(bank_mt),
+  s("[~ ~ sd sd] [~ sd sd ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("bd*4").gain("1.0 0.6 1.0 1.0").bank(bank_bd)
 )
 ```
 
@@ -7845,16 +6891,11 @@ let bank_rim = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ rim rim] [~ rim]*2 [rim ~]*2 [rim rim ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[cb ~ cb cb] [~ cb]*2 [cb ~]*2 [cb cb ~ cb]").bank(bank_cb).n(n_cb),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[rim ~ rim rim] [~ rim]*2 [rim ~]*2 [rim rim ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[cb ~ cb cb] [~ cb]*2 [cb ~]*2 [cb cb ~ cb]").bank(bank_cb),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -7886,20 +6927,13 @@ let bank_rim = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~]*2 [cr ~ cr cr] [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ [rim ~ ~ ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~]*2 [cr ~ cr cr] [cr ~]*2").bank(bank_cr),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("~ [rim ~ ~ ~] ~ ~").bank(bank_rim),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -7932,18 +6966,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.6 0.6 1.0 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ [ht ht ht ~] ~").gain("0.6 0.6 1.0").bank(bank_ht).n(n_ht),
-  s("[mt ~ ~ ~] ~ ~ [mt mt mt ~]").gain("1.0 0.6 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd sd] [~ sd sd ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.6 0.6 1.0 1.0").bank(bank_hh),
+  s("~ ~ [ht ht ht ~] ~").gain("0.6 0.6 1.0").bank(bank_ht),
+  s("[mt ~ ~ ~] ~ ~ [mt mt mt ~]").gain("1.0 0.6 0.6 1.0").bank(bank_mt),
+  s("[~ ~ sd sd] [~ sd sd ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -7977,22 +7005,14 @@ let bank_lt = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ ht] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] ~ [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ sd sd ~] [~ sd sd ~] [~ sd sd ~] [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ ht] ~ ~").bank(bank_ht),
+  s("[~ ~ ~ mt] ~ [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ sd sd ~] [~ sd sd ~] [~ sd sd ~] [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("cb*4").bank(bank_cb),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -8027,20 +7047,13 @@ let bank_lt = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [ht ~ ~ ~]").gain("1.1 0.7").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~] ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[cb ~ cb cb] [cb ~]*2 ~ ~").bank(bank_cb).n(n_cb),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [ht ~ ~ ~]").gain("1.1 0.7").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("[~ ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~] ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[cb ~ cb cb] [cb ~]*2 ~ ~").bank(bank_cb),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -8073,18 +7086,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ mt] ~ [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd]").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] [lt ~ ~ ~] [~ ~ lt ~]").gain("0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("[~ ~ ~ mt] ~ [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd]").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("~ [~ ~ lt ~] [lt ~ ~ ~] [~ ~ lt ~]").gain("0.6 1.0 0.6").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -8115,16 +7122,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [~ ht ht ~] ~").gain("0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.6").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.6 0.6").bank(bank_lt).n(n_lt)
+  s("~ ~ [~ ht ht ~] ~").gain("0.6 1.0").bank(bank_ht),
+  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.6").bank(bank_mt),
+  s("[sd sd ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.6 1.0 1.0").bank(bank_sd),
+  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.6 0.6").bank(bank_lt)
 )
 ```
 
@@ -8154,16 +7156,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_cb = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_cb = 0;
-
 stack(
-  s("~ ~ ~ [ht ~ ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [mt mt ~ mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[cb ~ cb cb] ~ [~ ~ cb cb] ~").bank(bank_cb).n(n_cb)
+  s("~ ~ ~ [ht ~ ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [mt mt ~ mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[cb ~ cb cb] ~ [~ ~ cb cb] ~").bank(bank_cb)
 )
 ```
 
@@ -8193,16 +7190,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_cb = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_cb = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [mt ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd ~ sd sd] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ [cb ~]*2 [cb ~]*2").bank(bank_cb).n(n_cb)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ [mt ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd ~ sd sd] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ [cb ~]*2 [cb ~]*2").bank(bank_cb)
 )
 ```
 
@@ -8232,16 +7224,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ [ht ~]*2 ~ ~").bank(bank_ht).n(n_ht),
-  s("[mt mt ~ mt] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [sd sd ~ sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt)
+  s("~ [ht ~]*2 ~ ~").bank(bank_ht),
+  s("[mt mt ~ mt] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [sd sd ~ sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt)
 )
 ```
 
@@ -8270,14 +7257,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] hh*4 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd]*2 ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] hh*4 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd]*2 ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -8305,14 +7288,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*12").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*12").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8341,16 +7320,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 hh*4 [hh hh ~ hh] ~").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*4 hh*4 [hh hh ~ hh] ~").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -8381,18 +7355,12 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ ~] ~").bank(bank_cr),
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8421,12 +7389,9 @@ let bank_default = "RolandTR808";
 let bank_cr = bank_default;
 let bank_hh = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr),
+  s("[~ ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh)
 )
 ```
 
@@ -8454,16 +7419,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] cr*4 ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] cr*4 ~").bank(bank_cr),
+  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("~ ~ [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8494,18 +7454,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [~ mt ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ ~ lt] ~ ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ [~ mt ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ [~ ~ ~ lt] ~ ~").gain("1.1 0.7").bank(bank_lt),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8536,16 +7490,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ cr] ~").bank(bank_cr).n(n_cr),
-  s("[hh ~ ~ ~] [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd sd] [~ ~ ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd bd bd ~] [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ cr] ~").bank(bank_cr),
+  s("[hh ~ ~ ~] [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd sd] [~ ~ ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 1.1").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd bd bd ~] [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8575,16 +7524,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ hh] [~ ~ hh ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd sd] sd*4 [sd sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("[~ ~ ~ hh] [~ ~ hh ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ sd sd sd] sd*4 [sd sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.1").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8613,14 +7557,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("cr*4").bank(bank_cr),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -8648,14 +7588,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr]").bank(bank_cr).n(n_cr),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr]").bank(bank_cr),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8683,14 +7619,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr]").bank(bank_cr).n(n_cr),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr] [cr ~ ~ cr]").bank(bank_cr),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -8720,18 +7652,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr),
+  s("~ [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -8761,14 +7687,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ ~ mt] [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd sd ~] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt)
+  s("[~ ~ ~ mt] [mt mt ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd sd ~] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt)
 )
 ```
 
@@ -8796,14 +7718,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ ~ mt] ~ [~ mt ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[lt ~ ~ ~] [~ ~ lt ~] ~ ~").bank(bank_lt).n(n_lt)
+  s("[~ ~ ~ mt] ~ [~ mt ~ ~] ~").bank(bank_mt),
+  s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[lt ~ ~ ~] [~ ~ lt ~] ~ ~").bank(bank_lt)
 )
 ```
 
@@ -8832,16 +7750,11 @@ let bank_mt = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ mt ~] ~ [mt ~ ~ ~] [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cr*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ mt ~] ~ [mt ~ ~ ~] [~ ~ mt ~]").bank(bank_mt),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -8870,14 +7783,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim ~] [rim ~ ~ ~] [rim ~]*2 [~ ~ rim ~]").gain("0.6 1.0 0.6 0.6 0.6").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("[~ ~ rim ~] [rim ~ ~ ~] [rim ~]*2 [~ ~ rim ~]").gain("0.6 1.0 0.6 0.6 0.6").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -8906,16 +7815,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -8945,16 +7849,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -8984,16 +7883,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~]*2 [~ ~ rim ~] [rim ~ ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cr*4").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[rim ~]*2 [~ ~ rim ~] [rim ~ ~ ~] ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9024,18 +7918,12 @@ let bank_rim = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").gain("1.0 0.6").bank(bank_rim).n(n_rim),
-  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cr*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").gain("1.0 0.6").bank(bank_rim),
+  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9066,16 +7954,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[mt ~ ~ ~] ~ ~ ~").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 [~ ~ sd ~] [sd ~ ~ sd] ~").gain("0.6 1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[~ ~ lt ~] [~ ~ lt ~] [lt ~ ~ ~] ~").gain("1.0 0.6 0.6").bank(bank_lt).n(n_lt)
+  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[mt ~ ~ ~] ~ ~ ~").bank(bank_mt),
+  s("[sd ~]*2 [~ ~ sd ~] [sd ~ ~ sd] ~").gain("0.6 1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[~ ~ lt ~] [~ ~ lt ~] [lt ~ ~ ~] ~").gain("1.0 0.6 0.6").bank(bank_lt)
 )
 ```
 
@@ -9106,18 +7989,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ mt ~] ~ ~ [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [~ bd]*2 ~ [~ ~ bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("[~ ~ mt ~] ~ ~ [~ ~ mt ~]").bank(bank_mt),
+  s("[sd ~ ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[bd ~ ~ ~] [~ bd]*2 ~ [~ ~ bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -9149,18 +8026,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ht ~] ~ ~ ~").gain("1.1 0.7").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.1").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt).n(n_lt)
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ht ~] ~ ~ ~").gain("1.1 0.7").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.1").bank(bank_sd),
+  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt)
 )
 ```
 
@@ -9193,20 +8064,13 @@ let bank_rim = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [mt ~]*2").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ rim ~] ~ [~ ~ rim ~] ~").bank(bank_rim).n(n_rim),
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [mt ~]*2").bank(bank_mt),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("[~ ~ rim ~] ~ [~ ~ rim ~] ~").bank(bank_rim),
+  s("cb*4").bank(bank_cb),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9241,22 +8105,14 @@ let bank_lt = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~]*2 ~ [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("oh ~ oh ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [hh ~]*2 ~ [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("oh ~ oh ~").bank(bank_oh),
+  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("cb*4").bank(bank_cb),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9290,18 +8146,12 @@ let bank_lt = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("cb*4").bank(bank_cb),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9333,18 +8183,12 @@ let bank_lt = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt ~] ~ [~ ~ mt ~]").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[~ ~ lt ~] ~ [lt ~ ~ ~] ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ cb ~]").bank(bank_cb).n(n_cb),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt ~] ~ [~ ~ mt ~]").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd),
+  s("[~ ~ lt ~] ~ [lt ~ ~ ~] ~").gain("1.1 0.7").bank(bank_lt),
+  s("~ ~ ~ [~ ~ cb ~]").bank(bank_cb),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -9374,14 +8218,10 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_cb = bank_default;
 
-let n_mt = 0;
-let n_lt = 0;
-let n_cb = 0;
-
 stack(
-  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.6 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ ~ lt] [lt ~ ~ ~] [~ lt lt ~]").gain("1.0 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[cb ~ ~ ~] ~ ~ ~").bank(bank_cb).n(n_cb)
+  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.6 1.0 0.6").bank(bank_mt),
+  s("~ [~ ~ ~ lt] [lt ~ ~ ~] [~ lt lt ~]").gain("1.0 0.6 1.0 0.6").bank(bank_lt),
+  s("[cb ~ ~ ~] ~ ~ ~").bank(bank_cb)
 )
 ```
 
@@ -9409,14 +8249,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ mt ~] [~ ~ mt mt] ~ ~").gain("0.6 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt ~] [lt lt ~ lt]").gain("0.6 1.0 0.6 0.6").bank(bank_lt).n(n_lt)
+  s("[~ ~ mt ~] [~ ~ mt mt] ~ ~").gain("0.6 1.0 0.6").bank(bank_mt),
+  s("~ [sd ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [~ ~ lt ~] [lt lt ~ lt]").gain("0.6 1.0 0.6 0.6").bank(bank_lt)
 )
 ```
 
@@ -9445,16 +8281,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [cr ~ ~ cr] [cr ~ ~ ~] [cr ~ ~ cr]").bank(bank_cr).n(n_cr),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [cr ~ ~ cr] [cr ~ ~ ~] [cr ~ ~ cr]").bank(bank_cr),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -9483,14 +8314,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -9519,16 +8346,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ ~ hh hh] hh*4 [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ oh ~ oh").bank(bank_oh).n(n_oh),
-  s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ ~ hh hh] hh*4 [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ oh ~ oh").bank(bank_oh),
+  s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9559,18 +8381,12 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9602,18 +8418,12 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 ~ [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ oh ~ ~] ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ cp ~ ~] [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 ~ [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ oh ~ ~] ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ cp ~ ~] [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -9644,16 +8454,11 @@ let bank_sd = bank_default;
 let bank_tamb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_tamb = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb).n(n_tamb),
-  s("[bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd]").bank(bank_sd),
+  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb),
+  s("[bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -9683,16 +8488,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ ~ hh hh] hh*4 [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ oh ~ oh").bank(bank_oh).n(n_oh),
-  s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ ~ hh hh] hh*4 [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ oh ~ oh").bank(bank_oh),
+  s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9722,16 +8522,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ cp ~] [cp ~ ~ ~] ~ [cp ~]*2").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[~ ~ cp ~] [cp ~ ~ ~] ~ [cp ~]*2").bank(bank_cp),
+  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -9762,18 +8557,12 @@ let bank_cp = bank_default;
 let bank_tamb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_tamb = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh hh hh] [~ hh hh hh] [~ hh]*2 [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb).n(n_tamb),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ hh hh hh] [~ hh hh hh] [~ hh]*2 [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]").bank(bank_sd),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9805,18 +8594,12 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [~ hh hh hh] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4 [~ hh hh hh] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9848,18 +8631,12 @@ let bank_sd = bank_default;
 let bank_tamb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_tamb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[sd sd sd ~] [sd ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("tamb*8").bank(bank_tamb).n(n_tamb),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[sd sd sd ~] [sd ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("tamb*8").bank(bank_tamb),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -9891,18 +8668,12 @@ let bank_cp = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh hh hh] [~ hh hh hh] [~ ~ ~ hh] [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ [cp ~ ~ ~] [cp ~ ~ ~] [cp cp ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[cb ~ ~ ~] [cb ~ ~ ~] [cb cb cb ~] [cb ~ ~ ~]").bank(bank_cb).n(n_cb),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ hh hh hh] [~ hh hh hh] [~ ~ ~ hh] [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("~ [cp ~ ~ ~] [cp ~ ~ ~] [cp cp ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[cb ~ ~ ~] [cb ~ ~ ~] [cb cb cb ~] [cb ~ ~ ~]").bank(bank_cb),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9934,18 +8705,12 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ oh] [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[cp ~]*2 [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh hh hh ~] [~ hh hh ~] [hh hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ oh] [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[cp ~]*2 [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -9977,18 +8742,12 @@ let bank_cp = bank_default;
 let bank_cb = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_cb = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh hh] [~ ~ hh ~] [~ ~ hh hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~]*2").bank(bank_cp).n(n_cp),
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh hh] [~ ~ hh ~] [~ ~ hh hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~]*2").bank(bank_cp),
+  s("cb*4").bank(bank_cb),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -10020,18 +8779,12 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] [~ ~ oh ~] ~").bank(bank_oh),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("[bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -10064,20 +8817,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ sd]*2 ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [~ sd]*2 ~").bank(bank_sd),
+  s("~ ~ ~ [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -10110,18 +8856,12 @@ let bank_sd = bank_default;
 let bank_tamb = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_tamb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ mt ~] ~ ~ ~").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] ~ [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ tamb ~] [tamb ~ ~ ~] ~ ~").bank(bank_tamb).n(n_tamb),
-  s("~ bd ~ bd").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("[~ ~ mt ~] ~ ~ ~").bank(bank_mt),
+  s("[sd sd ~ ~] ~ [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ tamb ~] [tamb ~ ~ ~] ~ ~").bank(bank_tamb),
+  s("~ bd ~ bd").bank(bank_bd)
 )
 ```
 
@@ -10151,14 +8891,10 @@ let bank_ht = bank_default;
 let bank_mt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ [ht ~]*2 ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ mt*4").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] ~ sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("~ [ht ~]*2 ~ ~").bank(bank_ht),
+  s("~ ~ ~ mt*4").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ sd ~] ~ sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -10188,18 +8924,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ mt] [mt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [sd sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ [~ ~ ~ mt] [mt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [sd sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -10228,12 +8958,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("sd*8").bank(bank_sd).n(n_sd)
+  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("sd*8").bank(bank_sd)
 )
 ```
 
@@ -10262,18 +8989,12 @@ let bank_sd = bank_default;
 let bank_tamb = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_tamb = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ mt ~] ~ ~ [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb).n(n_tamb),
-  s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ~ ~ ~] ~").bank(bank_ht),
+  s("[~ ~ mt ~] ~ ~ [~ ~ mt ~]").bank(bank_mt),
+  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank_tamb),
+  s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -10302,12 +9023,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_sd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -10336,18 +9054,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~ ~ ~] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] ~ [~ ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [hh ~ ~ ~] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ sd ~] ~ [~ ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -10376,12 +9088,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -10409,16 +9118,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr),
+  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -10449,18 +9153,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr),
+  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt),
+  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -10491,16 +9189,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -10530,16 +9223,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ hh ~] [~ ~ ~ hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[oh ~ ~ oh] [~ ~ ~ oh] [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ sd sd ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~]").gain("0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ hh ~] [~ ~ ~ hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[oh ~ ~ oh] [~ ~ ~ oh] [~ oh ~ ~] ~").bank(bank_oh),
+  s("[~ sd sd ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~]").gain("0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -10569,16 +9257,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [hh ~ ~ ~] [~ hh hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ oh]*2 ~ ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ sd] [~ sd ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd]*2 [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [hh ~ ~ ~] [~ hh hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ oh]*2 ~ ~").bank(bank_oh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ sd] [~ sd ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd]*2 [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -10608,16 +9291,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] [sd ~]*2 [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ [sd ~ ~ sd] [sd ~]*2 [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -10647,16 +9325,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ oh] ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ oh] ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -10686,16 +9359,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ oh] ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [~ hh hh ~] [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ oh] ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -10725,16 +9393,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ sd] [~ sd]*2 [~ sd ~ ~] [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ ~ sd] [~ sd]*2 [~ sd ~ ~] [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -10766,20 +9429,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ sd ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ [~ sd ~ ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -10812,18 +9468,12 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ sd ~ ~] ~ [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("[~ sd ~ ~] ~ [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -10855,18 +9505,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").gain("0.6 1.0").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -10898,18 +9542,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ ~ mt]").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] ~ ~ [sd sd ~ ~]").gain("0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ bd bd ~] [~ ~ bd ~]").gain("0.6 1.0 1.0 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ ~ mt]").bank(bank_mt),
+  s("[~ ~ ~ sd] ~ ~ [sd sd ~ ~]").gain("0.6 1.0 0.6").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ bd bd ~] [~ ~ bd ~]").gain("0.6 1.0 1.0 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -10940,16 +9578,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("1.0 1.0 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ oh ~ ~] [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd bd]").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("1.0 1.0 0.6 0.6").bank(bank_hh),
+  s("~ [~ oh ~ ~] [~ ~ oh ~] ~").bank(bank_oh),
+  s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd bd]").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -10978,14 +9611,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] [hh ~ ~ hh] [hh ~ hh hh] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ sd sd ~] [~ sd ~ ~] [sd ~ ~ sd]").gain("0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] [hh ~ ~ hh] [hh ~ hh hh] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ sd sd ~] [~ sd ~ ~] [sd ~ ~ sd]").gain("0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -11014,16 +9643,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh hh hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -11053,16 +9677,11 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh hh ~ ~] [hh ~ ~ hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ sd] [~ ~ sd sd] [~ sd sd ~] [~ sd]*2").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh hh ~ ~] [hh ~ ~ hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht),
+  s("[~ ~ ~ sd] [~ ~ sd sd] [~ sd sd ~] [~ sd]*2").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11094,20 +9713,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ sd sd ~] sd*4 [~ sd sd ~] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt),
+  s("[~ sd sd ~] sd*4 [~ sd sd ~] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11140,18 +9752,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cr ~ ~ ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ [~ ~ sd sd] ~").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cr ~ ~ ~]").bank(bank_cr),
+  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ [~ ~ sd sd] ~").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt),
+  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -11183,18 +9789,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ mt ~ ~]").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ ~ [~ mt ~ ~]").bank(bank_mt),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -11226,18 +9826,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] ~ [hh ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ sd sd ~] sd*4 [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] ~ [hh ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ sd sd ~] sd*4 [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11270,20 +9864,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [mt mt mt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11314,14 +9901,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.1 0.7").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -11349,14 +9932,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.1 0.7").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11387,20 +9966,13 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [ht ht ~ ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ ~ [ht ht ~ ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt),
+  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11435,22 +10007,14 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ oh]*2 ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [sd ~]*2 ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ bd] ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ oh]*2 ~ ~ ~").bank(bank_oh),
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [sd ~]*2 ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd bd ~ bd] ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -11481,12 +10045,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank_sd),
+  s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11514,16 +10075,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ [~ ~ ht ht] ~ ~").gain("0.6 1.0").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] ~ ~ [sd ~ sd sd]").gain("0.6 1.0 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank_lt).n(n_lt)
+  s("~ [~ ~ ht ht] ~ ~").gain("0.6 1.0").bank(bank_ht),
+  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_mt),
+  s("[sd sd ~ ~] ~ ~ [sd ~ sd sd]").gain("0.6 1.0 0.6 1.0 1.0").bank(bank_sd),
+  s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank_lt)
 )
 ```
 
@@ -11552,14 +10108,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ sd] [~ ~ sd ~] [~ ~ sd sd]").gain("0.6 1.0 1.0 1.1 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").gain("1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd sd ~ sd] [~ ~ sd ~] [~ ~ sd sd]").gain("0.6 1.0 1.0 1.1 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").gain("1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -11587,14 +10139,10 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[~ sd sd sd] [sd ~ sd sd] [sd ~ sd ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[~ sd sd sd] [sd ~ sd sd] [sd ~ sd ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -11623,16 +10171,11 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("[sd ~ ~ sd] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("~ [~ bd ~ ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("[sd ~ ~ sd] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0 0.6 1.1").bank(bank_sd),
+  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt),
+  s("~ [~ bd ~ ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11662,16 +10205,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [ht ht ~ ~] ~").gain("0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] ~ ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("sd*4 ~ ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank_lt).n(n_lt)
+  s("~ ~ [ht ht ~ ~] ~").gain("0.6 1.0").bank(bank_ht),
+  s("~ [~ ~ mt mt] ~ ~").gain("0.6 1.0").bank(bank_mt),
+  s("sd*4 ~ ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank_lt)
 )
 ```
 
@@ -11700,14 +10238,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11735,14 +10269,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ sd ~] ~ [~ sd]*2 ~").gain("0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ sd ~] ~ [~ sd]*2 ~").gain("0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11770,14 +10300,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -11805,14 +10331,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ sd ~] ~ [sd ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ sd ~] ~ [sd ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11840,14 +10362,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -11875,14 +10393,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("~ [~ sd ~ ~] [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("~ [~ sd ~ ~] [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11911,16 +10425,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr ~ ~] ~ ~").gain("0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ mt mt mt] ~").gain("1.0 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr ~ ~] ~ ~").gain("0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("~ ~ [~ mt mt mt] ~").gain("1.0 0.6 0.6").bank(bank_mt),
+  s("[~ ~ ~ sd] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11950,16 +10459,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ mt*4 ~").gain("0.6 1.0 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd sd] [sd sd sd ~] ~ ~").gain("0.6 1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ ~ mt*4 ~").gain("0.6 1.0 0.6 0.6").bank(bank_mt),
+  s("[~ ~ sd sd] [sd sd sd ~] ~ ~").gain("0.6 1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -11988,14 +10492,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] ~ ~").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ sd*4 ~").gain("1.0 0.6 1.0 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] ~ ~").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ sd*4 ~").gain("1.0 0.6 1.0 0.6 0.6").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -12023,14 +10523,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~]*2 [sd sd ~ sd] [sd ~]*2 sd*4").gain("1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~]*2 [sd sd ~ sd] [sd ~]*2 sd*4").gain("1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12058,14 +10554,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ sd sd] [sd ~ sd sd] [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd ~ sd sd] [sd ~ sd sd] [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12096,20 +10588,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ ~ [ht ~ ~ ~] ~").gain("1.1 0.7").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~ ~ ~]").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr),
+  s("~ ~ [ht ~ ~ ~] ~").gain("1.1 0.7").bank(bank_ht),
+  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ ~ [lt ~ ~ ~]").gain("1.1 0.7").bank(bank_lt),
+  s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -12140,14 +10625,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] ~").gain("0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[sd ~ sd sd] [~ ~ sd ~] sd*4 [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] ~").gain("0.6 1.0 0.6").bank(bank_hh),
+  s("[sd ~ sd sd] [~ ~ sd ~] sd*4 [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12176,16 +10657,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~]*2 [cr ~]*2 [cr ~ cr cr] [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~]*2 [cr ~]*2 [cr ~ cr cr] [cr ~]*2").bank(bank_cr),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12215,16 +10691,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").bank(bank_cr).n(n_cr),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cr*8").bank(bank_cr),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12252,12 +10723,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12286,18 +10754,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ sd]*2 ~ ~ [sd ~ sd ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt]*2 ~").bank(bank_lt).n(n_lt),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ [~ mt mt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ sd]*2 ~ ~ [sd ~ sd ~]").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [~ lt]*2 ~").bank(bank_lt),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12327,14 +10789,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] [~ bd]*2 [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ bd] [~ bd]*2 [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12363,16 +10821,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 hh*4 hh*4 ~").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ oh]*2").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("hh*4 hh*4 hh*4 ~").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_hh),
+  s("~ ~ ~ [~ oh]*2").bank(bank_oh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -12401,14 +10854,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd]*2 [~ ~ bd ~] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd]*2 [~ ~ bd ~] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -12437,16 +10886,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [~ hh]*2 hh*4 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("hh*4 [~ hh]*2 hh*4 [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -12475,14 +10919,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd bd] [bd ~]*2 [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd bd] [bd ~]*2 [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12511,16 +10951,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ hh] [hh ~]*2 [hh ~ ~ hh]").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] [~ bd ~ ~] [bd bd ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ hh] [hh ~]*2 [hh ~ ~ hh]").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ bd] [~ bd ~ ~] [bd bd ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -12550,16 +10985,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12588,14 +11018,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] ~ [bd bd ~ bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ bd] ~ [bd bd ~ bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12623,14 +11049,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] ~ [bd bd ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ bd] ~ [bd bd ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -12658,14 +11080,10 @@ let bank_hh = bank_default;
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [~ ~ hh ~] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ oh ~ oh").bank(bank_oh).n(n_oh),
-  s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [~ ~ hh ~] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ oh ~ oh").bank(bank_oh),
+  s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -12694,16 +11112,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -12733,16 +11146,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ sd ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ [~ ~ sd ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -12773,18 +11181,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ mt] ~ ~").bank(bank_mt).n(n_mt),
-  s("sd*4 ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [mt ~ ~ mt] ~ ~").bank(bank_mt),
+  s("sd*4 ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -12816,18 +11218,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ht ~] ~ ~").gain("1.1 0.7").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt ~ ~] ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("[~ bd bd ~] [bd bd ~ bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ht ~] ~ ~").gain("1.1 0.7").bank(bank_ht),
+  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [~ lt ~ ~] ~").gain("1.1 0.7").bank(bank_lt),
+  s("[~ bd bd ~] [bd bd ~ bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -12859,18 +11255,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ ~ [~ ht ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt mt ~ mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] [~ ~ sd ~] ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ ~ ~ [~ ht ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [mt mt ~ mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ sd ~] [~ ~ sd ~] ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -12899,12 +11289,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank_sd),
+  s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -12933,18 +11320,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cr cr ~ ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ [~ sd ~ ~] ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cr cr ~ ~]").bank(bank_cr),
+  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ [~ sd ~ ~] ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank_lt),
+  s("~ ~ ~ [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -12977,20 +11358,13 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [mt mt mt ~] ~ ~").gain("1.0 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] [~ ~ ~ sd] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ ~ lt] [lt lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank_lt).n(n_lt)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ [mt mt mt ~] ~ ~").gain("1.0 0.6 0.6").bank(bank_mt),
+  s("[sd ~ ~ ~] [~ ~ ~ sd] ~ ~").bank(bank_sd),
+  s("~ ~ [~ ~ ~ lt] [lt lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank_lt)
 )
 ```
 
@@ -13022,16 +11396,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] ~ [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] ~ [hh ~]*2 [hh ~]*2").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("bd*4").gain("0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -13061,16 +11430,11 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ rim rim] [~ ~ rim rim] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("[~ ~ rim rim] [~ ~ rim rim] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -13100,16 +11464,11 @@ let bank_oh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ oh ~ ~] [oh ~ ~ ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ oh ~ ~] [oh ~ ~ ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim),
+  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -13138,14 +11497,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [rim ~ ~ ~] ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -13173,14 +11528,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ ~] ~ [rim ~]*2").gain("1.0 1.0 0.6").bank(bank_rim).n(n_rim),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [rim ~ ~ ~] ~ [rim ~]*2").gain("1.0 1.0 0.6").bank(bank_rim),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -13208,14 +11559,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh hh] [~ ~ hh ~] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [rim ~ ~ ~] [~ rim ~ ~] [rim ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh hh] [~ ~ hh ~] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [rim ~ ~ ~] [~ rim ~ ~] [rim ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_rim),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -13243,14 +11590,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ rim ~ rim").bank(bank_rim).n(n_rim),
-  s("~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ rim ~ rim").bank(bank_rim),
+  s("~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -13278,14 +11621,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -13313,14 +11652,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ [rim ~]*2 ~ [rim ~]*2").bank(bank_rim).n(n_rim),
-  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ [rim ~]*2 ~ [rim ~]*2").bank(bank_rim),
+  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -13348,14 +11683,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ rim ~ ~] [~ rim ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_rim).n(n_rim),
-  s("~ [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("[rim ~ ~ ~] [~ rim ~ ~] [~ rim ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_rim),
+  s("~ [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13384,16 +11715,11 @@ let bank_oh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13422,14 +11748,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] ~ [~ rim]*2 ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ hh hh ~] [~ hh]*2 ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] ~ [~ rim]*2 ~").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13461,22 +11783,14 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [ht ht ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [ht ht ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -13510,18 +11824,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [ht ~ ~ ~] ~").bank(bank_ht),
+  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -13554,20 +11862,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[~ ~ mt mt] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[~ ~ mt mt] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -13599,16 +11900,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("[sd ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.0 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("[sd ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.0 1.0 1.0").bank(bank_sd),
+  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -13638,16 +11934,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [oh ~ ~ ~] [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [oh ~ ~ ~] [~ ~ oh ~] ~").bank(bank_oh),
+  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -13679,20 +11970,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd),
+  s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13725,18 +12009,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd sd sd] ~ ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd sd sd] ~ ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -13770,22 +12048,14 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ ht] [ht ht ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt ~] [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[~ ~ ~ ht] [ht ht ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ mt ~] [mt ~ ~ ~] ~").bank(bank_mt),
+  s("[sd ~]*2 ~ ~ ~").bank(bank_sd),
+  s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13819,18 +12089,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.6").bank(bank_ht).n(n_ht),
-  s("[~ ~ mt mt] [~ ~ mt mt] ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("~ [sd sd ~ ~] [sd sd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.6").bank(bank_ht),
+  s("[~ ~ mt mt] [~ ~ mt mt] ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_mt),
+  s("~ [sd sd ~ ~] [sd sd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -13860,14 +12124,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] [~ bd bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd ~] [~ bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -13895,14 +12155,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -13931,16 +12187,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -13970,16 +12221,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd bd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd bd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -14008,14 +12254,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd]*2 [~ ~ ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd]*2 [~ ~ ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -14043,14 +12285,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ bd]*2 [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ bd]*2 [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -14078,14 +12316,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14113,14 +12347,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd bd ~] [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd bd ~] [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14148,14 +12378,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [~ bd]*2 [~ bd bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [~ bd]*2 [~ bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14184,16 +12410,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ bd bd] ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -14222,14 +12443,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -14258,16 +12475,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -14298,18 +12510,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~]*2 ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~]*2 ~ ~ ~").bank(bank_cr),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~]*2 ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -14339,14 +12545,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] [~ sd sd sd] [~ ~ sd sd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [bd bd ~ ~]").gain("0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh),
+  s("~ [sd ~ sd sd] [~ sd sd sd] [~ ~ sd sd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [bd bd ~ ~]").gain("0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -14376,18 +12578,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd sd] [sd sd ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ sd sd] [sd sd ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -14417,14 +12613,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cr ~ ~ ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] [bd ~ bd bd] [~ bd bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cr ~ ~ ~]").bank(bank_cr),
+  s("[~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").gain("1.1 0.7").bank(bank_sd),
+  s("[bd bd ~ bd] [bd ~ bd bd] [~ bd bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -14453,16 +12645,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ ~ mt] [mt ~ ~ ~] ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("~ [sd sd ~ ~] [~ ~ sd sd] ~").gain("1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ [cr ~]*2").bank(bank_cr),
+  s("~ [~ ~ ~ mt] [mt ~ ~ ~] ~").gain("0.6 1.0").bank(bank_mt),
+  s("~ [sd sd ~ ~] [~ ~ sd sd] ~").gain("1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -14492,16 +12679,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ mt ~] ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr),
+  s("~ [~ ~ mt ~] ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd),
+  s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -14530,14 +12712,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -14565,14 +12743,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").gain("0.6 1.0").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -14600,14 +12774,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14635,14 +12805,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14670,14 +12836,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -14706,16 +12868,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14744,14 +12901,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14779,14 +12932,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14814,14 +12963,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14849,14 +12994,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14884,14 +13025,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -14919,14 +13056,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -14954,14 +13087,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -14989,14 +13118,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd]").gain("1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd]").gain("1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -15026,18 +13151,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] [sd ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.6 0.6").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("[~ ~ sd ~] [sd ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15069,18 +13188,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ ~ ~] [sd ~]*2 [~ ~ sd sd]").gain("1.0 1.0 1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ ~ [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [sd ~ ~ ~] [sd ~]*2 [~ ~ sd sd]").gain("1.0 1.0 1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15111,16 +13224,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").gain("0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr),
+  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").gain("0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15151,18 +13259,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [mt mt ~ mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ sd] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [mt mt ~ mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd ~ sd] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -15195,20 +13297,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ cr]").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 [sd sd sd ~] ~ ~").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ lt*4").gain("0.6 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ cr]").bank(bank_cr),
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd ~]*2 [sd sd sd ~] ~ ~").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ lt*4").gain("0.6 0.6 0.6 1.0").bank(bank_lt),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -15238,12 +13333,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank_sd).n(n_sd),
-  s("[lt ~]*2 [lt ~]*2 [lt ~]*2 ~").bank(bank_lt).n(n_lt)
+  s("[sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank_sd),
+  s("[lt ~]*2 [lt ~]*2 [lt ~]*2 ~").bank(bank_lt)
 )
 ```
 
@@ -15270,14 +13362,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr),
+  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").gain("1.1 0.7").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15308,20 +13396,13 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt ~]*2 ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.6 1.0").bank(bank_ht),
+  s("~ ~ [mt ~]*2 ~").gain("0.6 1.0").bank(bank_mt),
+  s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.6 0.6").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -15355,20 +13436,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ cr]").bank(bank_cr).n(n_cr),
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 [sd sd sd ~] [~ sd sd sd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd]").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ cr]").bank(bank_cr),
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ ~ ~ [mt ~ ~ ~]").bank(bank_mt),
+  s("[sd ~]*2 [sd sd sd ~] [~ sd sd sd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd]").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15401,18 +13475,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.1").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.1").bank(bank_sd),
+  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -15442,14 +13510,10 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("lt*8").gain("0.6 0.6 1.0 1.0 0.6 1.0 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("lt*8").gain("0.6 0.6 1.0 1.0 0.6 1.0 1.0 0.6").bank(bank_lt),
+  s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -15480,20 +13544,13 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [ht ht ht ~]").gain("0.6 0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt mt ~ mt] ~").gain("0.6 1.0 1.0").bank(bank_mt).n(n_mt),
-  s("~ [sd ~]*2 ~ ~").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").gain("1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [ht ht ht ~]").gain("0.6 0.6 1.0").bank(bank_ht),
+  s("~ ~ [mt mt ~ mt] ~").gain("0.6 1.0 1.0").bank(bank_mt),
+  s("~ [sd ~]*2 ~ ~").bank(bank_sd),
+  s("bd ~ bd ~").gain("1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -15525,16 +13582,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[mt ~]*2 [~ ~ ~ mt] [~ mt ~ ~] ~").gain("0.6 1.0 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[mt ~]*2 [~ ~ ~ mt] [~ mt ~ ~] ~").gain("0.6 1.0 0.6 0.6").bank(bank_mt),
+  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -15564,16 +13616,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[mt ~]*2 ~ [mt ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[mt ~]*2 ~ [mt ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_mt),
+  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -15603,16 +13650,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[mt ~]*2 ~ [mt ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr] [cr ~ cr cr]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[mt ~]*2 ~ [mt ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank_mt),
+  s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -15644,20 +13686,13 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ hh] [~ ~ hh ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[ht ~]*2 ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [mt mt ~ mt] ~ ~").gain("0.6 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ hh] [~ ~ hh ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_hh),
+  s("[ht ~]*2 ~ ~ ~").bank(bank_ht),
+  s("~ [mt mt ~ mt] ~ ~").gain("0.6 0.6 1.0").bank(bank_mt),
+  s("~ ~ [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -15690,18 +13725,12 @@ let bank_mt = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [cr ~ cr cr] [~ cr cr ~] [cr cr ~ ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ mt ~ ~] ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ rim ~] ~ [rim ~ ~ rim] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [cr ~ cr cr] [~ cr cr ~] [cr cr ~ ~]").bank(bank_cr),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ mt ~ ~] ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ rim ~] ~ [rim ~ ~ rim] ~").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -15733,18 +13762,12 @@ let bank_mt = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_mt = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~]*2 cr*4 [~ cr]*2 [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[rim ~]*2 [~ ~ ~ rim] [~ rim]*2 ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~]*2 cr*4 [~ cr]*2 [cr ~]*2").bank(bank_cr),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ mt mt]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[rim ~]*2 [~ ~ ~ rim] [~ rim]*2 ~").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -15776,18 +13799,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ~]*2 ~").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ mt mt] ~ ~").gain("1.0 0.6 0.6").bank(bank_mt).n(n_mt),
-  s("[sd sd sd ~] ~ ~ ~").gain("0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt lt lt ~]").gain("0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ~]*2 ~").bank(bank_ht),
+  s("~ [mt ~ mt mt] ~ ~").gain("1.0 0.6 0.6").bank(bank_mt),
+  s("[sd sd sd ~] ~ ~ ~").gain("0.6 0.6 1.0").bank(bank_sd),
+  s("~ ~ ~ [lt lt lt ~]").gain("0.6 0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -15817,14 +13834,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("[sd sd sd ~] ~ ~ [sd ~]*2").gain("1.0 0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ [lt ~]*2 ~ ~").bank(bank_lt).n(n_lt)
+  s("~ ~ [mt ~]*2 ~").bank(bank_mt),
+  s("[sd sd sd ~] ~ ~ [sd ~]*2").gain("1.0 0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("~ [lt ~]*2 ~ ~").bank(bank_lt)
 )
 ```
 
@@ -15854,18 +13867,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[mt ~]*2 ~ ~ ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ lt ~] [lt ~ ~ ~] ~").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[mt ~]*2 ~ ~ ~").gain("0.6 1.0").bank(bank_mt),
+  s("[sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 0.6 1.0 1.0").bank(bank_sd),
+  s("~ [~ ~ lt ~] [lt ~ ~ ~] ~").gain("0.6 1.0").bank(bank_lt),
+  s("~ ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -15895,14 +13902,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -15930,14 +13933,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -15965,14 +13964,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ sd]*2 [sd sd ~ ~] ~").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ sd]*2 [sd sd ~ ~] ~").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -16000,14 +13995,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -16035,14 +14026,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ ~ ~ sd] [sd sd ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ ~ ~ sd] [sd sd ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -16070,14 +14057,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[sd ~ sd sd] [~ sd sd ~] [sd sd ~ sd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ bd bd ~] [bd bd ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [~ cr cr ~] [cr cr ~ cr] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[sd ~ sd sd] [~ sd sd ~] [sd sd ~ sd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~ bd bd] [~ bd bd ~] [bd bd ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -16107,18 +14090,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("sd*4 [sd sd ~ ~] ~ ~").gain("1.0 0.6 1.0 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ lt lt] ~").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_mt),
+  s("sd*4 [sd sd ~ ~] ~ ~").gain("1.0 0.6 1.0 1.0 0.6 1.0").bank(bank_sd),
+  s("~ ~ [~ ~ lt lt] ~").gain("0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -16149,16 +14126,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ ht] [~ ht]*2 ~").gain("0.6 1.0 1.0").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt ~] [mt ~]*2 ~").gain("1.0 1.0 0.6").bank(bank_mt).n(n_mt),
-  s("[~ sd sd sd] [sd sd ~ ~] ~ ~").gain("0.6 1.0 1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ ht] [~ ht]*2 ~").gain("0.6 1.0 1.0").bank(bank_ht),
+  s("~ [~ ~ mt ~] [mt ~]*2 ~").gain("1.0 1.0 0.6").bank(bank_mt),
+  s("[~ sd sd sd] [sd sd ~ ~] ~ ~").gain("0.6 1.0 1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -16187,14 +14159,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ mt mt mt] ~").gain("1.0 0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[~ sd]*2 [sd sd ~ sd] ~ ~").gain("0.6 1.0 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ mt mt mt] ~").gain("1.0 0.6 1.0").bank(bank_mt),
+  s("[~ sd]*2 [sd sd ~ sd] ~ ~").gain("0.6 1.0 0.6 1.0 0.6").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -16223,16 +14191,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -16261,14 +14224,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -16297,16 +14256,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -16333,10 +14287,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("[sd ~ sd sd] [sd ~]*2 [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_sd).n(n_sd)
+  s("[sd ~ sd sd] [sd ~]*2 [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_sd)
 )
 ```
 
@@ -16362,14 +14314,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh ~ oh ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ sd sd] [sd ~]*2 [~ ~ sd sd] sd*4").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("oh ~ oh ~").bank(bank_oh),
+  s("[~ ~ sd sd] [sd ~]*2 [~ ~ sd sd] sd*4").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -16401,22 +14349,14 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ [~ ~ mt ~] ~ ~").bank(bank_mt),
+  s("[~ ~ sd ~] ~ ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -16448,14 +14388,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -16484,16 +14420,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -16523,16 +14454,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4 [hh hh hh ~] hh*4 [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ oh] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -16562,16 +14488,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 [hh hh ~ hh] hh*4 [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*4 [hh hh ~ hh] hh*4 [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -16600,14 +14521,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -16635,14 +14552,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -16671,16 +14584,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh hh hh ~] [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ oh] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh hh hh ~] [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ oh] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -16709,14 +14617,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -16745,16 +14649,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -16784,16 +14683,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -16822,14 +14716,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~]*2 ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~]*2 ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -16858,16 +14748,11 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ ~ hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ ~ hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -16896,14 +14781,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -16933,18 +14814,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [mt ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [mt ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -16976,18 +14851,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ [~ sd ~ ~] [sd sd ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("~ [~ lt ~ ~] ~ ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ ~ mt] ~ ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ [~ sd ~ ~] [sd sd ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("~ [~ lt ~ ~] ~ ~").gain("1.1 0.7").bank(bank_lt),
+  s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -17021,22 +14890,14 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] [sd ~]*2 ~ ~").gain("0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [mt ~ ~ ~] ~").bank(bank_mt),
+  s("[~ ~ ~ sd] [sd ~]*2 ~ ~").gain("0.6 1.0 0.6").bank(bank_sd),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -17070,18 +14931,12 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [mt ~ ~ ~] ~ [~ mt mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ [~ sd]*2 [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh),
+  s("~ [mt ~ ~ ~] ~ [~ mt mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ [~ sd]*2 [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17114,20 +14969,13 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr cr ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ ht ~]").gain("1.1 0.7").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr cr ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ ht ~]").gain("1.1 0.7").bank(bank_ht),
+  s("~ [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -17158,14 +15006,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -17193,14 +15037,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd]*2 ~").gain("1.0 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd]*2 ~").gain("1.0 1.0 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17228,14 +15068,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -17263,14 +15099,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -17298,14 +15130,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -17332,12 +15160,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~]*2 [sd ~]*2 [sd ~]*2 ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("[~ bd]*2 [~ bd]*2 [~ bd]*2 ~").bank(bank_bd).n(n_bd)
+  s("[sd ~]*2 [sd ~]*2 [sd ~]*2 ~").gain("1.1 0.7").bank(bank_sd),
+  s("[~ bd]*2 [~ bd]*2 [~ bd]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -17366,18 +15191,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ht ht] ~ ~").gain("0.6 1.0").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] ~ ~ ~").gain("0.6 1.0").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ht ht] ~ ~").gain("0.6 1.0").bank(bank_ht),
+  s("[~ ~ ~ mt] [mt ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank_mt),
+  s("[sd sd ~ ~] ~ ~ ~").gain("0.6 1.0").bank(bank_sd),
+  s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank_lt),
+  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -17408,16 +15227,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ sd] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] ~ ~ ~").bank(bank_cr),
+  s("~ ~ [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ sd] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -17446,14 +15260,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.0").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -17481,14 +15291,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -17517,16 +15323,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("hh*4").gain("0.6 0.6 0.6 1.0").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -17555,14 +15356,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cr*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr).n(n_cr),
-  s("[~ ~ sd ~] [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("cr*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_cr),
+  s("[~ ~ sd ~] [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -17591,16 +15388,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [cr ~]*2 [cr ~ ~ ~] [cr ~ ~ ~]").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_cr).n(n_cr),
-  s("hh*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [cr ~]*2 [cr ~ ~ ~] [cr ~ ~ ~]").gain("0.6 0.6 1.0 0.6 0.6").bank(bank_cr),
+  s("hh*8").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_hh),
+  s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -17629,14 +15421,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[mt ~]*2 [mt ~]*2 [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("[sd ~]*2 [sd ~]*2 ~ [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.1 1.1").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt)
+  s("[mt ~]*2 [mt ~]*2 [mt ~]*2 ~").bank(bank_mt),
+  s("[sd ~]*2 [sd ~]*2 ~ [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.1 1.1").bank(bank_sd),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt)
 )
 ```
 
@@ -17664,14 +15452,10 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ mt ~] [mt ~]*2 ~ ~").bank(bank_mt).n(n_mt),
-  s("[sd ~ sd ~] [sd ~]*2 [sd ~]*2 sd*4").gain("1.1 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt)
+  s("[~ ~ mt ~] [mt ~]*2 ~ ~").bank(bank_mt),
+  s("[sd ~ sd ~] [sd ~]*2 [sd ~]*2 sd*4").gain("1.1 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_sd),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt)
 )
 ```
 
@@ -17700,16 +15484,11 @@ let bank_hh = bank_default;
 let bank_mt = bank_default;
 let bank_sd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [mt mt ~ mt] [~ mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ sd] [~ sd sd sd] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ ~ [mt mt ~ mt] [~ mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd ~ sd] [~ sd sd sd] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -17739,16 +15518,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [cr ~ ~ cr] [cr ~ ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [cr ~ ~ cr] [cr ~ ~ ~] ~").bank(bank_cr),
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17778,16 +15552,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17817,16 +15586,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [cr ~ ~ ~] [cr ~ ~ cr] ~").bank(bank_cr).n(n_cr),
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [cr ~ ~ ~] [cr ~ ~ cr] ~").bank(bank_cr),
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17856,16 +15620,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 [sd ~]*2 ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~]*2 [sd ~]*2 ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17896,18 +15655,12 @@ let bank_sd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~ ~ ~] ~").gain("1.1 0.7").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [mt ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [lt ~ ~ ~] ~").gain("1.1 0.7").bank(bank_lt),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -17938,16 +15691,11 @@ let bank_mt = bank_default;
 let bank_sd = bank_default;
 let bank_lt = bank_default;
 
-let n_hh = 0;
-let n_mt = 0;
-let n_sd = 0;
-let n_lt = 0;
-
 stack(
-  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [mt ~]*2 ~ ~").bank(bank_mt).n(n_mt),
-  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd).n(n_sd),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt)
+  s("~ [hh ~ ~ ~] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ [mt ~]*2 ~ ~").bank(bank_mt),
+  s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank_sd),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt)
 )
 ```
 
@@ -17982,21 +15730,17 @@ let bank_bd = bank_default;
 let bank_sd = bank_default;
 let bank_hh = bank_default;
 
-let n_bd = 0;
-let n_sd = 0;
-let n_hh = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("bd ~ bd ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("bd ~ bd ~").gain("1.0 0.8").bank(bank_bd),
   s("[[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [x ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~]*2 ~]").bank(bank_sd).n(n_sd),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ [hh ~]*2 ~ [hh ~ ~ ~]] [~ [hh hh hh ~] ~ [hh ~ ~ ~]] [~ [hh ~]*2 ~ [hh hh ~ ~]] [~ [hh ~]*2 ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~]*2 ~]").bank(bank_sd),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ [hh ~]*2 ~ [hh ~ ~ ~]] [~ [hh hh hh ~] ~ [hh ~ ~ ~]] [~ [hh ~]*2 ~ [hh hh ~ ~]] [~ [hh ~]*2 ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh),
   s("[[x ~ ~ ~] ~ ~ ~] ~ [~ ~ [~ ~ x ~] ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -18038,18 +15782,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ [sd ~ ~ ~] ~ [sd ~ sd sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ [sd ~ ~ ~] ~ [sd ~ sd sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18087,20 +15825,13 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[mt ~ ~ mt] [~ ~ mt ~] [mt mt ~ ~] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[mt ~ ~ mt] [~ ~ mt ~] [mt mt ~ ~] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18133,18 +15864,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ oh oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [~ ~ hh hh] [~ hh hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ oh oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ hh ~] [~ ~ hh hh] [~ hh hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18176,18 +15901,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_tamb = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("tamb*16 [tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]]").bank(bank_tamb).n(n_tamb),
-  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("tamb*16 [tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]]").bank(bank_tamb),
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18217,14 +15936,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*32").bank(bank_oh).n(n_oh),
-  s("[[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4] [[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("oh*32").bank(bank_oh),
+  s("[[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4] [[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18252,14 +15967,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18287,14 +15998,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ ~] ~ [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ ~] ~ [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18322,14 +16029,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2] hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ ~ ~ [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2] hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ ~ ~ [sd ~ ~ ~]]").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18357,14 +16060,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ bd ~] ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -18393,16 +16092,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [~ ~ oh ~] [~ ~ oh ~] ~] [~ [~ ~ oh ~] [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4] [hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [~ ~ oh ~] [~ ~ oh ~] ~] [~ [~ ~ oh ~] [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4] [hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18432,16 +16126,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [~ ~ ~ oh] ~ [~ oh ~ ~]] [~ [~ ~ ~ oh] ~ [~ oh ~ ~]]").bank(bank_oh).n(n_oh),
-  s("[hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]] [hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [~ ~ ~ oh] ~ [~ oh ~ ~]] [~ [~ ~ ~ oh] ~ [~ oh ~ ~]]").bank(bank_oh),
+  s("[hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]] [hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18470,14 +16159,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -18506,16 +16191,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18544,14 +16224,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18579,14 +16255,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18615,16 +16287,11 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]] [~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]] [~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18653,14 +16320,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] [~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] [~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18688,14 +16351,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18724,16 +16383,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh),
+  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18763,18 +16417,13 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2] [~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2]").bank(bank_sd).n(n_sd),
-  s("[sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [[bd ~ ~ bd] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2] [~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2]").bank(bank_sd),
+  s("[sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh),
+  s("[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [[bd ~ ~ bd] ~ [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18805,14 +16454,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ oh ~ oh] [~ oh ~ oh]").bank(bank_oh).n(n_oh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ oh ~ oh] [~ oh ~ oh]").bank(bank_oh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18840,14 +16485,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ [sd ~ ~ ~] [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ ~ [sd ~ ~ ~] [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -18876,16 +16517,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[oh ~ ~ ~] ~ ~ ~] [[oh ~ ~ ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("[[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2] [[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~] [[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[[oh ~ ~ ~] ~ ~ ~] [[oh ~ ~ ~] ~ ~ ~]").bank(bank_oh),
+  s("[[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2] [[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~] [[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18914,14 +16550,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~] [[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~] [[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18951,18 +16583,12 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ rd ~] [~ ~ rd ~] [~ ~ rd ~] [~ ~ rd ~]").bank(bank_rd).n(n_rd),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ rd ~] [~ ~ rd ~] [~ ~ rd ~] [~ ~ rd ~]").bank(bank_rd),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -18995,20 +16621,13 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh).n(n_oh),
-  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [cp ~ ~ ~] ~ [cp ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh),
+  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ [cp ~ ~ ~] ~ [cp ~ ~ cp]").bank(bank_cp),
+  s("[~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -19041,18 +16660,12 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ mt] [~ ~ mt ~] [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("[hh hh hh ~] [~ hh hh hh] [hh hh hh ~] [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ [~ ~ ~ mt] [~ ~ mt ~] [~ ~ mt ~]").bank(bank_mt),
+  s("[hh hh hh ~] [~ hh hh hh] [hh hh hh ~] [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19084,18 +16697,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lc = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [~ ~ lc ~] ~ [~ ~ lc ~]] [~ [~ ~ lc ~] ~ [~ ~ lc ~]]").bank(bank_lc).n(n_lc),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ [hh ~ hh hh] ~ [hh ~ hh hh]] [~ [hh ~ hh hh] ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[[~ ~ ~ sd] ~ [~ ~ ~ sd] ~] [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [~ ~ lc ~] ~ [~ ~ lc ~]] [~ [~ ~ lc ~] ~ [~ ~ lc ~]]").bank(bank_lc),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ [hh ~ hh hh] ~ [hh ~ hh hh]] [~ [hh ~ hh hh] ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh),
+  s("[[~ ~ ~ sd] ~ [~ ~ ~ sd] ~] [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19126,16 +16733,11 @@ let bank_sd = bank_default;
 let bank_mt = bank_default;
 let bank_bd = bank_default;
 
-let n_cl = 0;
-let n_sd = 0;
-let n_mt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ cl ~ ~] ~ [~ cl ~ ~] ~").bank(bank_cl).n(n_cl),
-  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ mt ~] [~ ~ ~ mt] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ cl ~ ~] ~ [~ cl ~ ~] ~").bank(bank_cl),
+  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[~ ~ mt ~] [~ ~ ~ mt] [~ ~ mt ~] ~").bank(bank_mt),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19166,19 +16768,13 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp),
+  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19212,20 +16808,13 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~ ~ ~]").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19258,19 +16847,13 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd sd sd ~] [sd ~ sd sd] [sd sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ oh]*2 [~ oh]*2 [~ oh]*2 [~ oh]*2").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[sd sd sd ~] [sd ~ sd sd] [sd sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ oh]*2 [~ oh]*2 [~ oh]*2 [~ oh]*2").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19302,16 +16885,11 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]]").bank(bank_cp).n(n_cp),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]]").bank(bank_cp),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19342,18 +16920,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19385,18 +16957,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ [cp cp ~ cp] [~ ~ cp cp] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ [cp cp ~ cp] [~ ~ cp cp] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19428,18 +16994,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh),
+  s("[~ ~ mt ~] ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19472,20 +17032,13 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cl = 0;
-let n_bon = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cl ~]*2").bank(bank_cl).n(n_cl),
-  s("~ [~ ~ bon ~] ~ [~ ~ bon ~]").bank(bank_bon).n(n_bon),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~ ~ ~] [hh hh ~ ~] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cl ~]*2").bank(bank_cl),
+  s("~ [~ ~ bon ~] ~ [~ ~ bon ~]").bank(bank_bon),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~ ~ ~] [hh ~ ~ ~] [hh hh ~ ~] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19518,18 +17071,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ [~ rim ~ ~] ~ [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("~ [~ rim ~ ~] ~ [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19560,16 +17107,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]]").bank(bank_cp).n(n_cp),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]]").bank(bank_cp),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19600,18 +17142,12 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ sd ~] [~ sd sd sd] [~ ~ sd ~] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ sd ~] [~ sd sd sd] [~ ~ sd ~] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -19643,18 +17179,12 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd sd ~ sd] [~ ~ sd ~] [sd sd ~ sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ oh ~ ~] ~ [~ oh]*2 ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[sd sd ~ sd] [~ ~ sd ~] [sd sd ~ sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ oh ~ ~] ~ [~ oh]*2 ~").bank(bank_oh),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -19685,16 +17215,11 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_cp = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-
 stack(
-  s("sd*16").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ oh oh] [~ ~ oh oh] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp)
+  s("sd*16").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ oh oh] [~ ~ oh oh] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp)
 )
 ```
 
@@ -19726,20 +17251,13 @@ let bank_cp = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cl = 0;
-let n_tamb = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ [cl ~ ~ ~]] [~ ~ ~ [cl ~ ~ ~]]").bank(bank_cl).n(n_cl),
-  s("[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]").bank(bank_tamb).n(n_tamb),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
-  s("[[~ ~ ~ rim] ~ [~ rim ~ ~] ~] [[~ ~ ~ rim] ~ [~ rim ~ ~] ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [cl ~ ~ ~]] [~ ~ ~ [cl ~ ~ ~]]").bank(bank_cl),
+  s("[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]").bank(bank_tamb),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp),
+  s("[[~ ~ ~ rim] ~ [~ rim ~ ~] ~] [[~ ~ ~ rim] ~ [~ rim ~ ~] ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19772,18 +17290,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19815,18 +17327,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_tamb = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]").bank(bank_tamb).n(n_tamb),
-  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2] [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~]] [~ [sd ~ sd sd] ~ [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4 [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]").bank(bank_tamb),
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2] [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~]] [~ [sd ~ sd sd] ~ [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4 [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19857,16 +17363,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]").bank(bank_oh).n(n_oh),
-  s("[~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]] [~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]").bank(bank_oh),
+  s("[~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]] [~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19897,18 +17398,12 @@ let bank_cp = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_cp = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]").bank(bank_oh).n(n_oh),
-  s("[~ [~ ~ mt ~] ~ [~ ~ mt ~]] [~ [~ ~ mt ~] ~ [~ ~ mt ~]]").bank(bank_mt).n(n_mt),
-  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] [~ ~ ~ cp] ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ [rim ~ ~ ~] ~] [~ ~ [rim ~ ~ rim] ~]").bank(bank_rim).n(n_rim),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]").bank(bank_oh),
+  s("[~ [~ ~ mt ~] ~ [~ ~ mt ~]] [~ [~ ~ mt ~] ~ [~ ~ mt ~]]").bank(bank_mt),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] [~ ~ ~ cp] ~]").bank(bank_cp),
+  s("[~ ~ [rim ~ ~ ~] ~] [~ ~ [rim ~ ~ rim] ~]").bank(bank_rim),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19942,22 +17437,14 @@ let bank_cp = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*4 sd*4").bank(bank_sd).n(n_sd),
-  s("oh*4 oh*4").bank(bank_oh).n(n_oh),
-  s("[[~ ~ mt ~] ~ ~ ~] [[~ ~ mt ~] ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp).n(n_cp),
-  s("[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("sd*4 sd*4").bank(bank_sd),
+  s("oh*4 oh*4").bank(bank_oh),
+  s("[[~ ~ mt ~] ~ ~ ~] [[~ ~ mt ~] ~ ~ ~]").bank(bank_mt),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp),
+  s("[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -19991,18 +17478,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
-  s("[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp),
+  s("[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20035,20 +17516,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2] [[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ [~ ~ hh ~] ~ [~ ~ hh ~]] [~ [~ ~ hh ~] ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2] [[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ [~ ~ hh ~] ~ [~ ~ hh ~]] [~ [~ ~ hh ~] ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20083,22 +17557,14 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_lc = 0;
-let n_bon = 0;
-let n_rd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[~ ~ ~ lc] ~ [~ ~ ~ lc] ~] [[~ ~ ~ lc] ~ [~ ~ ~ lc] ~]").bank(bank_lc).n(n_lc),
-  s("[~ [~ ~ bon ~] ~ [~ ~ bon ~]] [~ [~ ~ bon ~] ~ [~ ~ bon ~]]").bank(bank_bon).n(n_bon),
-  s("[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]").bank(bank_rd).n(n_rd),
-  s("oh*4 oh*4").bank(bank_oh).n(n_oh),
-  s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[~ ~ ~ lc] ~ [~ ~ ~ lc] ~] [[~ ~ ~ lc] ~ [~ ~ ~ lc] ~]").bank(bank_lc),
+  s("[~ [~ ~ bon ~] ~ [~ ~ bon ~]] [~ [~ ~ bon ~] ~ [~ ~ bon ~]]").bank(bank_bon),
+  s("[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]").bank(bank_rd),
+  s("oh*4 oh*4").bank(bank_oh),
+  s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank_hh),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20134,22 +17600,14 @@ let bank_cp = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_oh = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("rd*4 rd*4").bank(bank_rd).n(n_rd),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ [~ ~ mt ~]] [~ ~ ~ [~ ~ mt ~]]").bank(bank_mt).n(n_mt),
-  s("hh*32").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2] [[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2]").bank(bank_cp).n(n_cp),
-  s("[[rim ~]*2 ~ ~ ~] [[rim ~]*2 ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("rd*4 rd*4").bank(bank_rd),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ ~ [~ ~ mt ~]] [~ ~ ~ [~ ~ mt ~]]").bank(bank_mt),
+  s("hh*32").gain("0.85").bank(bank_hh),
+  s("[[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2] [[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2]").bank(bank_cp),
+  s("[[rim ~]*2 ~ ~ ~] [[rim ~]*2 ~ ~ ~]").bank(bank_rim),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20187,18 +17645,12 @@ let bank_lc = bank_default;
 let bank_hc = bank_default;
 let bank_hh = bank_default;
 
-let n_cl = 0;
-let n_sd = 0;
-let n_lc = 0;
-let n_hc = 0;
-let n_hh = 0;
-
 stack(
-  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl).n(n_cl),
-  s("sd*8 sd*8").bank(bank_sd).n(n_sd),
-  s("[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]").bank(bank_lc).n(n_lc),
-  s("[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]").bank(bank_hc).n(n_hc),
-  s("[[~ ~ hh ~] ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh)
+  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl),
+  s("sd*8 sd*8").bank(bank_sd),
+  s("[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]").bank(bank_lc),
+  s("[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]").bank(bank_hc),
+  s("[[~ ~ hh ~] ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh)
 )
 ```
 
@@ -20229,16 +17681,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] [~ [sd ~ ~ ~] [~ ~ sd ~] ~]").bank(bank_sd).n(n_sd),
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] [~ [rim ~ ~ ~] [~ ~ rim ~] ~]").bank(bank_rim).n(n_rim),
-  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
+  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] [~ [sd ~ ~ ~] [~ ~ sd ~] ~]").bank(bank_sd),
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] [~ [rim ~ ~ ~] [~ ~ rim ~] ~]").bank(bank_rim),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -20267,15 +17714,11 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ sd ~] [sd ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[~ hh ~ hh] [~ hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[sd ~ sd ~] [sd ~ sd ~]").bank(bank_sd),
+  s("[~ hh ~ hh] [~ hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -20303,12 +17746,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -20336,16 +17776,11 @@ let bank_lc = bank_default;
 let bank_hc = bank_default;
 let bank_rim = bank_default;
 
-let n_sd = 0;
-let n_lc = 0;
-let n_hc = 0;
-let n_rim = 0;
-
 stack(
-  s("sd*8 sd*8").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc).n(n_lc),
-  s("[~ [~ ~ hc ~] [hc ~ ~ ~] ~] [~ [~ ~ hc ~] [hc ~ ~ ~] ~]").bank(bank_hc).n(n_hc),
-  s("rim*4 rim*4").bank(bank_rim).n(n_rim)
+  s("sd*8 sd*8").bank(bank_sd),
+  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc),
+  s("[~ [~ ~ hc ~] [hc ~ ~ ~] ~] [~ [~ ~ hc ~] [hc ~ ~ ~] ~]").bank(bank_hc),
+  s("rim*4 rim*4").bank(bank_rim)
 )
 ```
 
@@ -20374,14 +17809,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -20411,18 +17842,12 @@ let bank_lc = bank_default;
 let bank_hc = bank_default;
 let bank_bd = bank_default;
 
-let n_cl = 0;
-let n_sd = 0;
-let n_lc = 0;
-let n_hc = 0;
-let n_bd = 0;
-
 stack(
-  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl).n(n_cl),
-  s("[[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2] [[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc).n(n_lc),
-  s("[~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~]] [~ ~ [~ ~ hc ~] [~ ~ hc ~]]").bank(bank_hc).n(n_hc),
-  s("[[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl),
+  s("[[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2] [[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc),
+  s("[~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~]] [~ ~ [~ ~ hc ~] [~ ~ hc ~]]").bank(bank_hc),
+  s("[[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20452,14 +17877,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~]*2 ~ [sd ~ ~ ~]] [~ [sd ~]*2 ~ [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~]*2 ~ [sd ~ ~ ~]] [~ [sd ~]*2 ~ [sd ~ ~ ~]]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -20487,14 +17908,10 @@ let bank_sd = bank_default;
 let bank_lc = bank_default;
 let bank_hc = bank_default;
 
-let n_sd = 0;
-let n_lc = 0;
-let n_hc = 0;
-
 stack(
-  s("sd*8 sd*8").bank(bank_sd).n(n_sd),
-  s("[~ ~ [lc ~ ~ ~] ~] [~ ~ [lc ~ ~ ~] ~]").bank(bank_lc).n(n_lc),
-  s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [[~ ~ hc ~] [~ ~ hc ~] ~ ~]").bank(bank_hc).n(n_hc)
+  s("sd*8 sd*8").bank(bank_sd),
+  s("[~ ~ [lc ~ ~ ~] ~] [~ ~ [lc ~ ~ ~] ~]").bank(bank_lc),
+  s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [[~ ~ hc ~] [~ ~ hc ~] ~ ~]").bank(bank_hc)
 )
 ```
 
@@ -20522,14 +17939,10 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [sd ~ ~ sd]]").bank(bank_sd).n(n_sd),
-  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [sd ~ ~ sd]]").bank(bank_sd),
+  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -20557,14 +17970,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ [~ ~ hh ~]] [~ ~ ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2] [[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [~ ~ hh ~]] [~ ~ ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh),
+  s("[[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2] [[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20592,14 +18001,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [[sd ~ ~ ~] [sd ~]*2 ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [[sd ~ ~ ~] [sd ~]*2 ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -20634,16 +18039,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ [~ ~ ~ cr]]").bank(bank_cr).n(n_cr),
-  s("oh*8 oh*8").bank(bank_oh).n(n_oh),
-  s("cp*4 cp*4").bank(bank_cp).n(n_cp),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ [~ ~ ~ cr]]").bank(bank_cr),
+  s("oh*8 oh*8").bank(bank_oh),
+  s("cp*4 cp*4").bank(bank_cp),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20679,15 +18079,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ [~ ~ hh ~] ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ [~ ~ hh ~] ~] [[~ ~ ~ hh] ~ ~ [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ [~ ~ hh ~] ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ [~ ~ hh ~] ~] [[~ ~ ~ hh] ~ ~ [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20719,14 +18115,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ ~] [~ ~ bd ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -20759,8 +18151,6 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
@@ -20768,7 +18158,7 @@ let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "
 stack(
   s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("x*8").gain("1.0 0.8").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20797,8 +18187,6 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
@@ -20806,7 +18194,7 @@ let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "
 stack(
   s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("[x ~]*2 [x ~]*2 ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -20841,14 +18229,10 @@ let bank_sd = bank_default;
 let bank_cr = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_cr = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("cr*4").bank(bank_cr),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -20879,14 +18263,10 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ sd]*2 [~ sd]*2 [~ sd]*2 [~ sd]*2").bank(bank_sd).n(n_sd),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("bd*8").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ sd]*2 [~ sd]*2 [~ sd]*2 [~ sd]*2").bank(bank_sd),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("bd*8").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20917,14 +18297,10 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("bd*16").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("bd*16").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -20960,20 +18336,15 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd),
   s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -21011,14 +18382,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -21049,14 +18416,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -21087,14 +18450,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -21129,14 +18488,10 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -21167,14 +18522,10 @@ let bank_sd = bank_default;
 let bank_cr = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_cr = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("cr*4").bank(bank_cr),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -21207,15 +18558,11 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ sd sd] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ bd bd ~] bd*4 ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("~ ~ [~ ~ sd sd] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ bd bd ~] bd*4 ~ ~").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -21246,19 +18593,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ cp cp] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd bd ~] [bd bd bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh),
+  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt),
+  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt),
+  s("~ [~ ~ cp cp] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd bd ~] [bd bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -21289,14 +18630,10 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ hh ~] ~ [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ cp ~] ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd bd] [bd ~ ~ bd] [bd bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ hh ~] ~ [~ ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ cp ~] ~").bank(bank_cp),
+  s("[~ ~ bd bd] [bd ~ ~ bd] [bd bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -21326,18 +18663,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ rd ~ ~]").bank(bank_rd).n(n_rd),
-  s("[ht ~ ~ ~] [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ lt lt] ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ bd ~ ~] [bd ~ bd bd] [~ ~ bd bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ rd ~ ~]").bank(bank_rd),
+  s("[ht ~ ~ ~] [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("[~ ~ lt lt] ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ bd ~ ~] [bd ~ bd bd] [~ ~ bd bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -21371,22 +18702,14 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bon = 0;
-let n_cb = 0;
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [bon ~ ~ ~]").bank(bank_bon).n(n_bon),
-  s("~ [cb ~ ~ ~] ~ ~").bank(bank_cb).n(n_cb),
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ hh ~ ~] [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[sd ~ ~ ~] ~ ~ ~").bank(bank_sd),
+  s("~ ~ ~ [bon ~ ~ ~]").bank(bank_bon),
+  s("~ [cb ~ ~ ~] ~ ~").bank(bank_cb),
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("[~ hh ~ ~] [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -21421,24 +18744,17 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ cr ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ cp cp] [cp ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ cr ~ ~] ~").bank(bank_cr),
+  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd),
+  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ cp cp] [cp ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd),
   s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -21474,20 +18790,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd).n(n_rd),
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ oh] [oh ~ ~ ~] ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ cp ~] ~ ~ ~").bank(bank_cp).n(n_cp),
-  s("[bd bd ~ ~] [~ bd bd bd] [~ bd ~ ~] [bd bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd),
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("[~ ~ ~ oh] [oh ~ ~ ~] ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[~ ~ cp ~] ~ ~ ~").bank(bank_cp),
+  s("[bd bd ~ ~] [~ bd bd bd] [~ bd ~ ~] [bd bd bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -21517,12 +18826,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~ bd bd] bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~ bd bd] bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -21551,18 +18857,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [~ lt lt lt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd bd] [bd ~ ~ ~] ~ [~ bd bd ~]").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ [~ lt lt lt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[~ ~ bd bd] [bd ~ ~ ~] ~ [~ bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -21594,22 +18894,16 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ ~ ~ rd]").bank(bank_rd).n(n_rd),
-  s("~ ~ ~ [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ bd bd ~] bd*4 [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ ~ ~ rd]").bank(bank_rd),
+  s("~ ~ ~ [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ bd bd ~] bd*4 [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank_bd),
   s("~ ~ [~ ~ x ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -21642,16 +18936,11 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ cp ~ ~] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("bd*4 [~ ~ ~ bd] [~ ~ ~ bd] [bd ~]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh),
+  s("~ [~ cp ~ ~] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("bd*4 [~ ~ ~ bd] [~ ~ ~ bd] [bd ~]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -21683,20 +18972,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ hh] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[cp ~ ~ ~] [~ ~ cp ~] ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ bd ~ ~] ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] ~ ~ [ht ~ ~ ~]").bank(bank_ht),
+  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh),
+  s("~ [~ ~ ~ hh] [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt),
+  s("[cp ~ ~ ~] [~ ~ cp ~] ~ ~").bank(bank_cp),
+  s("[~ bd ~ ~] ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -21728,16 +19010,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt lt ~] [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("cp*4 [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ [~ bd bd bd] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ ~ [~ lt lt ~] [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("cp*4 [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ [~ bd bd bd] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -21767,16 +19044,11 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ sd ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("[lt ~ ~ ~] [~ ~ lt ~] [lt ~ ~ ~] [~ lt]*2").bank(bank_lt).n(n_lt),
-  s("~ [~ bd]*2 [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ ~] ~ ~ ~").bank(bank_sd),
+  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("[lt ~ ~ ~] [~ ~ lt ~] [lt ~ ~ ~] [~ lt]*2").bank(bank_lt),
+  s("~ [~ bd]*2 [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -21806,16 +19078,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ lt]*2 [lt ~ ~ ~] ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ cp ~ ~] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ lt]*2 [lt ~ ~ ~] ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ cp ~ ~] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -21845,20 +19112,15 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ oh]*2 ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ bd bd] [bd ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("[~ oh]*2 ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt),
+  s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ bd bd] [bd ~ bd bd]").gain("1.0 0.8").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -21891,22 +19153,16 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[~ oh]*2 [oh oh ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ cp] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("[~ oh]*2 [oh oh ~ ~] ~ ~").bank(bank_oh),
+  s("~ ~ ~ hh*4").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ cp] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -21939,17 +19195,12 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt).n(n_lt),
-  s("[~ lt lt lt] [lt ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ bd ~ ~] [bd bd bd ~] [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt),
+  s("[~ lt lt lt] [lt ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ bd ~ ~] [bd bd bd ~] [~ bd bd bd]").bank(bank_bd)
 )
 ```
 
@@ -21980,20 +19231,15 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ cr ~ ~]").bank(bank_cr).n(n_cr),
-  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt ~ ~] [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[bd ~ bd bd] [~ bd bd bd] [~ ~ bd bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ cr ~ ~]").bank(bank_cr),
+  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ lt ~ ~] [~ ~ ~ lt]").bank(bank_lt),
+  s("[bd ~ bd bd] [~ bd bd bd] [~ ~ bd bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd),
   s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -22025,20 +19271,15 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("[~ oh ~ ~] [~ oh ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [~ ~ ~ bd] bd*4 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht),
+  s("[~ oh ~ ~] [~ oh ~ ~] ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[~ ~ bd ~] [~ ~ ~ bd] bd*4 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd),
   s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(3).decay(0.2).sustain(0).sound(bass_synth),
   s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
@@ -22072,16 +19313,11 @@ let bank_sd = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ cp ~] ~").bank(bank_cp).n(n_cp),
-  s("[bd bd ~ ~] [bd ~ ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd),
+  s("~ ~ [~ ~ cp ~] ~").bank(bank_cp),
+  s("[bd bd ~ ~] [bd ~ ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22112,18 +19348,12 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hc = 0;
-let n_ht = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ hc] ~").bank(bank_hc).n(n_hc),
-  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ bd bd bd] [bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ hc] ~").bank(bank_hc),
+  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht),
+  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ bd bd bd] [bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -22153,18 +19383,14 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("~ ~ [~ lt lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [~ bd ~ ~]").bank(bank_bd),
   s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -22198,22 +19424,14 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ sd ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("~ [oh ~]*2 ~ [~ oh oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[lt ~]*2 ~ [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ cp] ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ bd] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [~ sd ~ ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("~ [oh ~]*2 ~ [~ oh oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[lt ~]*2 ~ [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ ~ ~ cp] ~ ~").bank(bank_cp),
+  s("[~ ~ ~ bd] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -22244,12 +19462,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("bd*4 [bd ~ bd bd] [~ ~ bd bd] bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("bd*4 [bd ~ bd bd] [~ ~ bd bd] bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22276,14 +19491,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ht] ~ [~ ht]*2 [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [lt ~]*2 ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [bd bd ~ bd] ~ [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ht] ~ [~ ht]*2 [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [lt ~]*2 ~").bank(bank_lt),
+  s("[~ ~ bd ~] [bd bd ~ bd] ~ [~ bd bd bd]").bank(bank_bd)
 )
 ```
 
@@ -22314,20 +19525,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("[~ ~ ht ht] [~ ~ ~ ht] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[oh oh ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ cp ~] ~ ~").bank(bank_cp).n(n_cp),
-  s("~ [bd ~ ~ ~] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd),
+  s("[~ ~ ht ht] [~ ~ ~ ht] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[oh oh ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ [~ ~ cp ~] ~ ~").bank(bank_cp),
+  s("~ [bd ~ ~ ~] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22359,16 +19563,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ ht] [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [oh oh oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [lt ~ lt lt] [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ ht] [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ ~ [oh oh oh ~]").bank(bank_oh),
+  s("~ [lt ~ lt lt] [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -22400,24 +19599,17 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hc = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[hc ~ ~ ~] ~ ~ ~").bank(bank_hc).n(n_hc),
-  s("~ ~ [~ ~ ~ oh] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ lt ~] [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ cp ~ ~] ~ ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank_bd).n(n_bd),
+  s("[hc ~ ~ ~] ~ ~ ~").bank(bank_hc),
+  s("~ ~ [~ ~ ~ oh] [~ oh ~ ~]").bank(bank_oh),
+  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ lt ~] [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ cp ~ ~] ~ ~ ~").bank(bank_cp),
+  s("[~ ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank_bd),
   s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).transpose(2).decay(0.2).sustain(0).sound(bass_synth),
   s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
@@ -22451,13 +19643,10 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[lt ~ ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ bd]*2 [bd bd ~ bd] [bd bd ~ ~] [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt),
+  s("[lt ~ ~ ~] ~ ~ ~").bank(bank_lt),
+  s("[~ bd]*2 [bd bd ~ bd] [bd bd ~ ~] [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22485,14 +19674,10 @@ let bank_hh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ hh] [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ hh] [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -22520,14 +19705,10 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ [cp ~ ~ ~] ~ ~").bank(bank_cp).n(n_cp),
-  s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("~ ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("~ [cp ~ ~ ~] ~ ~").bank(bank_cp),
+  s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd bd bd]").bank(bank_bd)
 )
 ```
 
@@ -22555,15 +19736,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ lt ~] [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] [bd bd ~ ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ lt ~] [~ ~ lt ~]").bank(bank_lt),
+  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt),
+  s("[bd bd ~ ~] [bd bd ~ ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -22594,22 +19771,16 @@ let bank_oh = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ~ rd ~] ~ ~ ~").bank(bank_rd).n(n_rd),
-  s("[~ ht ~ ~] ~ [~ ~ ~ ht] [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("[oh ~ ~ ~] [~ ~ ~ oh] [oh oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ cp] [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ ~ [~ ~ bd ~] [bd ~]*2").bank(bank_bd).n(n_bd),
+  s("[~ ~ rd ~] ~ ~ ~").bank(bank_rd),
+  s("[~ ht ~ ~] ~ [~ ~ ~ ht] [~ ~ ~ ht]").bank(bank_ht),
+  s("[oh ~ ~ ~] [~ ~ ~ oh] [oh oh ~ ~] ~").bank(bank_oh),
+  s("[~ ~ ~ cp] [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ ~ [~ ~ bd ~] [bd ~]*2").bank(bank_bd),
   s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -22646,24 +19817,15 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_cb = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[bon ~ ~ ~] ~ ~ ~").bank(bank_bon).n(n_bon),
-  s("~ ~ ~ [~ cb ~ ~]").bank(bank_cb).n(n_cb),
-  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ hh hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ cp]*2 [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd bd] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[bon ~ ~ ~] ~ ~ ~").bank(bank_bon),
+  s("~ ~ ~ [~ cb ~ ~]").bank(bank_cb),
+  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd),
+  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ hh hh] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ [~ cp]*2 [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ ~ bd bd] [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -22697,16 +19859,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [~ oh oh oh] ~ ~").bank(bank_oh).n(n_oh),
-  s("[lt ~ ~ ~] ~ [~ ~ lt ~] [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ bd bd bd] ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ [~ oh oh oh] ~ ~").bank(bank_oh),
+  s("[lt ~ ~ ~] ~ [~ ~ lt ~] [~ lt ~ ~]").bank(bank_lt),
+  s("[~ bd bd bd] ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank_bd)
 )
 ```
 
@@ -22737,18 +19894,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ hh] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [lt lt lt ~] [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ cp ~ ~]").bank(bank_cp).n(n_cp),
-  s("bd*4 ~ [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ [~ ~ ~ hh] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [lt lt lt ~] [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [~ cp ~ ~]").bank(bank_cp),
+  s("bd*4 ~ [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22779,16 +19930,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ lt ~ ~] ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ cp] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ bd] [~ bd ~ ~] ~ [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("[~ lt ~ ~] ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ [~ ~ ~ cp] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~ ~ bd] [~ bd ~ ~] ~ [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -22817,18 +19963,14 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ bd] [bd bd bd ~] [bd bd bd ~] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd),
+  s("[bd bd ~ bd] [bd bd bd ~] [bd bd bd ~] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -22858,14 +20000,10 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ lt lt ~] ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd bd bd ~] [~ ~ ~ bd] bd*4 [bd bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh),
+  s("~ [~ lt lt ~] ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd bd bd ~] [~ ~ ~ bd] bd*4 [bd bd bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22896,20 +20034,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ cb ~] ~").bank(bank_cb).n(n_cb),
-  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ hh]*2 [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ cb ~] ~").bank(bank_cb),
+  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ ~ [~ hh]*2 [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -22942,18 +20073,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ oh] ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[cp cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ [~ bd bd bd] [~ bd bd bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("[~ ~ ~ oh] ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[cp cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ [~ bd bd bd] [~ bd bd bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -22984,20 +20109,15 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[ht ~ ~ ~] [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ hh hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
+  s("[ht ~ ~ ~] [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ hh hh] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").bank(bank_bd),
   s("[~ x ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23031,21 +20151,14 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("[~ lt lt ~] ~ ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ [cp ~]*2 ~ ~").bank(bank_cp).n(n_cp),
-  s("~ ~ [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd),
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("[~ lt lt ~] ~ ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("~ [cp ~]*2 ~ ~").bank(bank_cp),
+  s("~ ~ [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -23077,18 +20190,14 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ lt ~ ~] [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("bd*4 [bd ~ ~ ~] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ [~ lt ~ ~] [~ ~ lt ~] ~").bank(bank_lt),
+  s("bd*4 [bd ~ ~ ~] ~ ~").gain("1.0 0.8").bank(bank_bd),
   s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23119,16 +20228,11 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ht] ~ [~ ~ ht ~] [~ ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ oh ~] [~ oh ~ ~] [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd bd ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ ~ bd bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ht] ~ [~ ~ ht ~] [~ ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ oh ~] [~ oh ~ ~] [oh ~ ~ ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("[bd bd ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ ~ bd bd]").bank(bank_bd)
 )
 ```
 
@@ -23157,18 +20261,14 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ [~ ~ ~ bd] bd*4 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ [~ ~ ~ bd] bd*4 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd),
   s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23200,22 +20300,16 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ oh ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ hh] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("bd*4 [bd ~ ~ ~] [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ [~ oh ~ ~] ~ ~").bank(bank_oh),
+  s("~ [~ ~ ~ hh] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("bd*4 [bd ~ ~ ~] [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank_bd),
   s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23246,12 +20340,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("bd*4 [bd bd ~ ~] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("bd*4 [bd bd ~ ~] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23280,18 +20371,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] [ht ~]*2").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ ~ oh] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[bd bd bd ~] [bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht ~] [ht ~]*2").bank(bank_ht),
+  s("~ ~ [~ ~ ~ oh] ~").bank(bank_oh),
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[bd bd bd ~] [bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -23324,20 +20409,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ oh ~ ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ lt ~ ~] [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ ~ cp] ~").bank(bank_cp).n(n_cp),
-  s("[bd ~ bd bd] ~ [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ oh ~ ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ lt ~ ~] [~ ~ ~ lt] ~ ~").bank(bank_lt),
+  s("~ ~ [~ ~ ~ cp] ~").bank(bank_cp),
+  s("[bd ~ bd bd] ~ [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -23370,18 +20448,12 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ hh ~ ~] [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ bd ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[~ hh ~ ~] [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ bd ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23412,20 +20484,15 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("~ [~ ~ ~ oh] oh*4 [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ bd]*2 [bd ~]*2 ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
+  s("~ [~ rd ~ ~] ~ ~").bank(bank_rd),
+  s("~ [~ ~ ~ oh] oh*4 [oh ~ ~ ~]").bank(bank_oh),
+  s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt),
+  s("[~ bd]*2 [bd ~]*2 ~ [~ bd ~ ~]").bank(bank_bd),
   s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23458,18 +20525,12 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ ht ~] [~ ht ~ ~] ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ bd] [bd ~ ~ ~] [~ bd bd ~] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[~ ~ ht ~] [~ ht ~ ~] ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ ~ ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ [~ ~ lt ~] ~ ~").bank(bank_lt),
+  s("[bd bd ~ bd] [bd ~ ~ ~] [~ bd bd ~] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23500,16 +20561,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] [~ ~ ~ ht] [~ ~ ht ~] [~ ~ ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ bd]*2 [~ ~ bd ~] [bd bd ~ bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] [~ ~ ~ ht] [~ ~ ht ~] [~ ~ ht ht]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("[~ bd]*2 [~ ~ bd ~] [bd bd ~ bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23539,16 +20595,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] [~ ~ ~ ht] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [lt ~ ~ ~] [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ cp] ~ ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ bd bd ~] [~ bd bd ~] ~ [bd bd bd ~]").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] [~ ~ ~ ht] ~ ~").bank(bank_ht),
+  s("~ [lt ~ ~ ~] [lt ~ ~ ~] ~").bank(bank_lt),
+  s("[~ ~ ~ cp] ~ ~ ~").bank(bank_cp),
+  s("[~ bd bd ~] [~ bd bd ~] ~ [bd bd bd ~]").bank(bank_bd)
 )
 ```
 
@@ -23578,16 +20629,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh oh oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [bd bd bd ~] [~ bd bd bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[oh oh oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("~ [bd bd bd ~] [~ bd bd bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -23615,12 +20661,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ hh ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd] bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ hh ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd] bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23649,22 +20692,16 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ oh] [oh ~ ~ ~] ~ [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [hh ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("[~ ~ ~ oh] [oh ~ ~ ~] ~ [oh ~ ~ ~]").bank(bank_oh),
+  s("~ ~ [hh ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[bd bd ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd),
   s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23698,22 +20735,16 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ht ~ ~] ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ lt ~ ~] ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd bd] [bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd bd]").bank(bank_bd).n(n_bd),
+  s("[~ ht ~ ~] ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [~ lt ~ ~] ~ [lt ~ ~ ~]").bank(bank_lt),
+  s("[~ ~ bd bd] [bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd bd]").bank(bank_bd),
   s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23744,13 +20775,10 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ lt] ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ bd bd ~] [bd bd ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ lt] ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt),
+  s("~ [~ bd bd ~] [bd bd ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -23778,15 +20806,11 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ [~ ht ~ ~] [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ ~ lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] [~ bd bd bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] ~ [~ ht ~ ~] [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [~ ~ ~ lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("[bd bd ~ ~] [~ bd bd bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23816,16 +20840,11 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt lt lt] [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ bd] [bd bd ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("~ ~ [~ lt lt lt] [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd bd ~ bd] [bd bd ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -23854,18 +20873,14 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("~ [lt ~ ~ ~] [~ lt lt lt] [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ bd bd bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht),
+  s("~ [lt ~ ~ ~] [~ lt lt lt] [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ bd bd bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd),
   s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23895,18 +20910,14 @@ let bank_ht = bank_default;
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ oh oh oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ [~ oh oh oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -23936,14 +20947,10 @@ let bank_ht = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ ht] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd bd bd ~] [bd ~ bd bd] [bd bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ ht] ~ ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("[bd bd bd ~] [bd ~ bd bd] [bd bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -23971,18 +20978,14 @@ let bank_cr = bank_default;
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ ~ [oh oh oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ bd bd bd] [~ ~ bd bd] bd*4 ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr),
+  s("~ ~ ~ [oh oh oh ~]").bank(bank_oh),
+  s("[~ bd bd bd] [~ ~ bd bd] bd*4 ~").gain("1.0 0.8").bank(bank_bd),
   s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24013,16 +21016,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ lt lt] [~ lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("~ [~ ~ lt lt] [~ lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -24050,12 +21048,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [lt ~ ~ ~] [lt lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 ~ ~ [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("~ [lt ~ ~ ~] [lt lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~]*2 ~ ~ [~ bd bd bd]").bank(bank_bd)
 )
 ```
 
@@ -24082,18 +21077,14 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ~ ~ oh] [oh ~ oh oh] [oh ~]*2 ~").bank(bank_oh).n(n_oh),
-  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] ~ ~ ~").bank(bank_bd).n(n_bd),
+  s("[~ ~ ~ oh] [oh ~ oh oh] [oh ~]*2 ~").bank(bank_oh),
+  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt),
+  s("[~ ~ bd ~] ~ ~ ~").bank(bank_bd),
   s("~ [~ x ~ ~] [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24126,20 +21117,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[~ hh ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ cp ~ ~] ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[~ hh ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt),
+  s("~ [~ cp ~ ~] ~ ~").bank(bank_cp),
+  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -24171,16 +21155,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [bd bd ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ht ~ ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ ~ ~ bd] [bd bd ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -24209,15 +21188,11 @@ let bank_rd = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ rd] ~ ~ ~").bank(bank_rd).n(n_rd),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd bd bd ~] [bd ~]*2 bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ rd] ~ ~ ~").bank(bank_rd),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt),
+  s("[bd bd bd ~] [bd ~]*2 bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -24246,14 +21221,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ ht] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("[lt ~ ~ ~] ~ [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("[~ bd bd ~] [bd ~]*2 [bd bd ~ bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ ht] ~ ~ ~").bank(bank_ht),
+  s("[lt ~ ~ ~] ~ [~ ~ lt ~] ~").bank(bank_lt),
+  s("[~ bd bd ~] [bd ~]*2 [bd bd ~ bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -24281,18 +21252,14 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ht ~ ~] [ht ~ ~ ~] ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd bd bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("[~ ht ~ ~] [ht ~ ~ ~] ~ [ht ~ ~ ~]").bank(bank_ht),
+  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd bd bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd),
   s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24324,18 +21291,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("~ [lt ~]*2 ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht ~] [ht ~ ~ ~]").bank(bank_ht),
+  s("~ ~ [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("~ [lt ~]*2 ~ ~").bank(bank_lt),
+  s("[~ cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -24367,22 +21328,16 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[~ sd ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [~ bd bd bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp),
+  s("[~ sd ~ ~] ~ ~ ~").bank(bank_sd),
+  s("~ [~ bd bd bd] [~ ~ bd ~] ~").bank(bank_bd),
   s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24414,18 +21369,14 @@ let bank_ht = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("~ ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd),
   s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24455,18 +21406,14 @@ let bank_cr = bank_default;
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_ht = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("[~ ht ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("[bd ~ ~ bd] ~ [bd bd bd ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr),
+  s("[~ ht ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] ~").bank(bank_ht),
+  s("[bd ~ ~ bd] ~ [bd bd bd ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24495,12 +21442,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 [~ bd bd bd] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt),
+  s("[bd ~]*2 [~ bd bd bd] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -24528,20 +21472,15 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ht ~ ht").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[lt ~ ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ bd bd bd] [~ bd bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
+  s("~ ht ~ ht").bank(bank_ht),
+  s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh),
+  s("[lt ~ ~ ~] ~ ~ ~").bank(bank_lt),
+  s("~ [~ bd bd bd] [~ bd bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd),
   s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24573,16 +21512,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [lt ~ ~ ~] ~ [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ cp cp cp] [~ ~ ~ cp] [~ cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ [lt ~ ~ ~] ~ [~ lt ~ ~]").bank(bank_lt),
+  s("[~ cp cp cp] [~ ~ ~ cp] [~ cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -24612,16 +21546,11 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("~ [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -24653,25 +21582,18 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ rd ~ ~] ~").bank(bank_rd).n(n_rd),
-  s("~ ~ [~ ~ ~ ht] [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp ~ ~ ~] [~ cp cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[bd bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ rd ~ ~] ~").bank(bank_rd),
+  s("~ ~ [~ ~ ~ ht] [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ ~ [~ ~ ~ oh]").bank(bank_oh),
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("~ ~ [cp ~ ~ ~] [~ cp cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[bd bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd),
   s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24706,16 +21628,11 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon).n(n_bon),
-  s("~ ~ [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ sd] ~ ~").bank(bank_sd).n(n_sd),
-  s("bd*4 [bd bd ~ ~] ~ [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon),
+  s("~ ~ [~ lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ ~ ~ sd] ~ ~").bank(bank_sd),
+  s("bd*4 [bd bd ~ ~] ~ [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -24749,24 +21666,15 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cb ~ ~ ~]").bank(bank_cb).n(n_cb),
-  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd).n(n_rd),
-  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ oh oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ ~ lt] [lt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cb ~ ~ ~]").bank(bank_cb),
+  s("~ [~ ~ rd ~] ~ ~").bank(bank_rd),
+  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ ~ [~ oh oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ ~ lt] [lt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -24800,20 +21708,15 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("ht ~ ht ~").bank(bank_ht).n(n_ht),
-  s("[~ lt lt ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank_bd).n(n_bd),
+  s("ht ~ ht ~").bank(bank_ht),
+  s("[~ lt lt ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank_bd),
   s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24845,16 +21748,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [ht ~ ~ ~] [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ lt ~ ~] ~ [~ ~ lt lt] [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[bd ~ bd bd] [~ bd bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [ht ~ ~ ~] [ht ~ ~ ~] ~").bank(bank_ht),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[~ lt ~ ~] ~ [~ ~ lt lt] [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[bd ~ bd bd] [~ bd bd bd] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -24884,20 +21782,15 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[ht ~ ~ ht] ~ [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ lt lt ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd]").bank(bank_bd).n(n_bd),
+  s("[ht ~ ~ ht] ~ [ht ~ ~ ~] ~").bank(bank_ht),
+  s("~ ~ [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh),
+  s("[~ lt lt ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd]").bank(bank_bd),
   s("~ ~ [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24929,21 +21822,16 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ cp cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd]*2").bank(bank_bd).n(n_bd),
+  s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ ~ [~ ~ cp cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ ~ ~ bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd]*2").bank(bank_bd),
   s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -24977,22 +21865,16 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[~ ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd bd bd] [~ ~ bd bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd),
+  s("[~ ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd bd bd] [~ ~ bd bd] [~ bd ~ ~]").bank(bank_bd),
   s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -25026,18 +21908,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ lt]*2 [~ ~ ~ lt] [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ cp ~] ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd ~] ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ lt]*2 [~ ~ ~ lt] [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ [~ ~ cp ~] ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ ~ bd ~] ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -25069,18 +21945,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ hh] [hh hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[lt ~ ~ ~] [~ ~ lt ~] [~ ~ lt ~] [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ bd bd bd] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ht ~ ~] ~ ~").bank(bank_ht),
+  s("~ [~ ~ ~ hh] [hh hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[lt ~ ~ ~] [~ ~ lt ~] [~ ~ lt ~] [~ ~ ~ lt]").bank(bank_lt),
+  s("~ ~ [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ bd bd bd] [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -25110,14 +21980,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[~ bd bd ~] [~ bd ~ ~] [~ bd bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[~ bd bd ~] [~ bd ~ ~] [~ bd bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -25145,14 +22011,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ~ ~ ~] [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ bd bd bd] [bd ~ bd bd] [~ bd]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ~ ~ ~] [~ ~ ht ~]").bank(bank_ht),
+  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("[~ bd bd bd] [bd ~ bd bd] [~ bd]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -25181,20 +22043,15 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd bd bd]").bank(bank_bd).n(n_bd),
+  s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd bd bd]").bank(bank_bd),
   s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -25227,10 +22084,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25257,17 +22112,12 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ht ht]").gain("0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ ~ oh] ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [bd ~]*2 [bd ~]*2 ~").gain("1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ht ht]").gain("0.6 1.0").bank(bank_ht),
+  s("~ ~ [~ ~ ~ oh] ~").bank(bank_oh),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ bd] [bd ~]*2 [bd ~]*2 ~").gain("1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25296,12 +22146,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_cp = bank_default;
 
-let n_lt = 0;
-let n_cp = 0;
-
 stack(
-  s("[lt lt ~ ~] ~ [~ ~ ~ lt] [~ ~ ~ lt]").gain("1.0 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp ~ ~ ~] [~ ~ cp ~]").gain("0.6 1.0").bank(bank_cp).n(n_cp)
+  s("[lt lt ~ ~] ~ [~ ~ ~ lt] [~ ~ ~ lt]").gain("1.0 0.6 1.0 0.6").bank(bank_lt),
+  s("~ ~ [cp ~ ~ ~] [~ ~ cp ~]").gain("0.6 1.0").bank(bank_cp)
 )
 ```
 
@@ -25326,14 +22173,12 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ ~ ~ bd] [bd bd bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ ~ ~ bd] [bd bd bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd),
   s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).decay(0.2).sustain(0).sound(bass_synth),
   s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
   s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
@@ -25366,16 +22211,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [oh ~ oh oh]").gain("0.6 1.0 0.6").bank(bank_oh).n(n_oh),
-  s("~ [lt ~ ~ lt] [~ ~ lt ~] ~").gain("0.6 1.0 1.0").bank(bank_lt).n(n_lt),
-  s("[cp ~]*2 ~ ~ ~").gain("1.0 0.6").bank(bank_cp).n(n_cp),
-  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [oh ~ oh oh]").gain("0.6 1.0 0.6").bank(bank_oh),
+  s("~ [lt ~ ~ lt] [~ ~ lt ~] ~").gain("0.6 1.0 1.0").bank(bank_lt),
+  s("[cp ~]*2 ~ ~ ~").gain("1.0 0.6").bank(bank_cp),
+  s("~ ~ ~ [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -25407,20 +22247,13 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ cr] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ rd ~] ~ [~ ~ ~ rd]").gain("1.0 0.6").bank(bank_rd).n(n_rd),
-  s("[~ ht ht ~] [~ ht]*2 [~ ht ht ht] [~ ht ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("[oh ~ ~ ~] [oh ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_oh).n(n_oh),
-  s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ cr] ~ ~ ~").bank(bank_cr),
+  s("~ [~ ~ rd ~] ~ [~ ~ ~ rd]").gain("1.0 0.6").bank(bank_rd),
+  s("[~ ht ht ~] [~ ht]*2 [~ ht ht ht] [~ ht ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_ht),
+  s("[oh ~ ~ ~] [oh ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_oh),
+  s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank_lt),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -25449,14 +22282,12 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd),
+  s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_bd),
   s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -25487,20 +22318,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon).n(n_bon),
-  s("~ ~ ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ lt ~] [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon),
+  s("~ ~ ~ [~ oh ~ ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.6 1.0").bank(bank_hh),
+  s("[~ ~ lt ~] [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -25529,10 +22353,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("[~ ~ bd _] [_ bd ~ bd] [_ _ bd bd] [_ bd bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ bd _] [_ bd ~ bd] [_ _ bd bd] [_ bd bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25557,12 +22379,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ lt lt] lt*4").gain("0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("bd*4 bd*4 [bd bd ~ ~] ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ lt lt] lt*4").gain("0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_lt),
+  s("bd*4 bd*4 [bd bd ~ ~] ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -25588,12 +22407,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_cp = bank_default;
 
-let n_hh = 0;
-let n_cp = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ hh] hh*4").gain("0.6 1.0 1.0 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("cp*4 cp*4 [cp cp cp ~] ~").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_cp).n(n_cp)
+  s("~ ~ [~ ~ ~ hh] hh*4").gain("0.6 1.0 1.0 0.6 0.6").bank(bank_hh),
+  s("cp*4 cp*4 [cp cp cp ~] ~").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_cp)
 )
 ```
 
@@ -25619,12 +22435,9 @@ let bank_default = "RolandTR808";
 let bank_oh = bank_default;
 let bank_lt = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [~ oh oh oh] oh*4").gain("1.0 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank_oh).n(n_oh),
-  s("lt*4 lt*4 [lt ~ ~ ~] ~").gain("1.0 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6").bank(bank_lt).n(n_lt)
+  s("~ ~ [~ oh oh oh] oh*4").gain("1.0 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank_oh),
+  s("lt*4 lt*4 [lt ~ ~ ~] ~").gain("1.0 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6").bank(bank_lt)
 )
 ```
 
@@ -25650,12 +22463,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("lt*4 lt*4 [lt lt lt ~] ~").gain("0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ ~ bd] bd*4").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("lt*4 lt*4 [lt lt lt ~] ~").gain("0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank_lt),
+  s("~ ~ [~ ~ ~ bd] bd*4").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -25681,12 +22491,9 @@ let bank_default = "RolandTR808";
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ cp*4 cp*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0").bank(bank_cp).n(n_cp),
-  s("bd*4 bd*4 ~ ~").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ cp*4 cp*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0").bank(bank_cp),
+  s("bd*4 bd*4 ~ ~").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -25712,12 +22519,9 @@ let bank_default = "RolandTR808";
 let bank_oh = bank_default;
 let bank_cp = bank_default;
 
-let n_oh = 0;
-let n_cp = 0;
-
 stack(
-  s("~ ~ [~ oh oh oh] oh*4").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_oh).n(n_oh),
-  s("cp*4 cp*4 [cp ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_cp).n(n_cp)
+  s("~ ~ [~ oh oh oh] oh*4").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_oh),
+  s("cp*4 cp*4 [cp ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_cp)
 )
 ```
 
@@ -25743,12 +22547,9 @@ let bank_default = "RolandTR808";
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ _ _ _] [~ _ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd _] [bd _ bd bd] [bd ~ ~ ~] [bd ~ bd bd]").gain("1.0 0.6 1.0 0.6 1.0 1.0 1.0 1.0 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ _ _ _] [~ _ ~ ~]").bank(bank_cp),
+  s("[~ ~ bd _] [bd _ bd bd] [bd ~ ~ ~] [bd ~ bd bd]").gain("1.0 0.6 1.0 0.6 1.0 1.0 1.0 1.0 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -25776,16 +22577,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ _] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [_ _ ~ ~] [~ _ ~ ~] [~ ~ ~ _]").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ bd] [~ ~ bd ~] [bd ~]*2 [bd ~]*2").gain("0.6 0.6 1.0 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ [~ ~ ~ _] ~ ~").bank(bank_lt),
+  s("~ [_ _ ~ ~] [~ _ ~ ~] [~ ~ ~ _]").bank(bank_cp),
+  s("[~ ~ ~ bd] [~ ~ bd ~] [bd ~]*2 [bd ~]*2").gain("0.6 0.6 1.0 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25813,12 +22609,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ [~ bd bd _] [bd bd bd _] [~ bd _ bd]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht),
+  s("~ [~ bd bd _] [bd bd bd _] [~ bd _ bd]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25844,12 +22637,9 @@ let bank_default = "RolandTR808";
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh _] [_ _ _ _] [~ oh ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_oh).n(n_oh),
-  s("[bd _ _ bd] [_ _ ~ ~] ~ [~ ~ bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh _] [_ _ _ _] [~ oh ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_oh),
+  s("[bd _ _ bd] [_ _ ~ ~] ~ [~ ~ bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25877,16 +22667,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ oh ~] ~ ~").gain("0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[~ bd bd ~] [~ ~ ~ bd] [~ ~ ~ bd] [~ bd ~ ~]").gain("0.6 1.0 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ oh ~] ~ ~").gain("0.6 1.0").bank(bank_oh),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp),
+  s("[~ bd bd ~] [~ ~ ~ bd] [~ ~ ~ bd] [~ bd ~ ~]").gain("0.6 1.0 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -25916,16 +22701,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [oh oh ~ ~] ~ ~").gain("0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ cp] ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd bd] [~ ~ bd ~] [bd bd ~ bd] bd*4").gain("0.6 1.0 0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ [oh oh ~ ~] ~ ~").gain("0.6 1.0").bank(bank_oh),
+  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt),
+  s("~ [~ ~ ~ cp] ~ ~").bank(bank_cp),
+  s("[~ ~ bd bd] [~ ~ bd ~] [bd bd ~ bd] bd*4").gain("0.6 1.0 0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25953,12 +22733,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ht _] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ bd bd] [bd _ ~ ~] [bd bd ~ ~] [~ ~ bd _]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ht _] ~").bank(bank_ht),
+  s("[~ ~ bd bd] [bd _ ~ ~] [bd bd ~ ~] [~ ~ bd _]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -25985,14 +22762,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ht ~ ~] [_ ~ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ bd] [bd bd _ ~] [~ ~ bd bd] [~ ~ ~ bd]").gain("0.6 1.0 1.0 1.0 0.6 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ht ~ ~] [_ ~ ~ ~]").bank(bank_ht),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[bd bd ~ bd] [bd bd _ ~] [~ ~ bd bd] [~ ~ ~ bd]").gain("0.6 1.0 1.0 1.0 0.6 0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26019,12 +22792,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("[bd _ _ _] [_ _ bd bd] [_ _ _ _] [bd bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht),
+  s("[bd _ _ _] [_ _ bd bd] [_ _ _ _] [bd bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26053,18 +22823,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [lt ~ lt _] [~ ~ _ lt] [~ lt ~ ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ [cp cp ~ ~] [_ ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_cp).n(n_cp),
-  s("[bd bd _ _] [~ _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("~ [lt ~ lt _] [~ ~ _ lt] [~ lt ~ ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_lt),
+  s("~ ~ [cp cp ~ ~] [_ ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank_cp),
+  s("[bd bd _ _] [~ _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26092,10 +22856,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("[bd _ _ _] [bd _ _ bd] [_ bd _ _] [_ ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[bd _ _ _] [bd _ _ bd] [_ bd _ _] [_ ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -26120,12 +22882,9 @@ let bank_default = "RolandTR808";
 let bank_oh = bank_default;
 let bank_hh = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-
 stack(
-  s("oh*4 oh*4 [oh ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ hh hh hh] hh*4").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh).n(n_hh)
+  s("oh*4 oh*4 [oh ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_oh),
+  s("~ ~ [~ hh hh hh] hh*4").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank_hh)
 )
 ```
 
@@ -26151,12 +22910,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ht*4 ht*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 1.0 1.0").bank(bank_ht).n(n_ht),
-  s("bd*4 bd*4 ~ ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ht*4 ht*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 1.0 1.0").bank(bank_ht),
+  s("bd*4 bd*4 ~ ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26185,18 +22941,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ cp ~ ~]").bank(bank_cp).n(n_cp),
-  s("[bd bd bd _] [~ bd _ ~] [bd _ ~ bd] [_ ~ bd _]").bank(bank_bd).n(n_bd)
+  s("~ [oh ~ ~ ~] ~ ~").bank(bank_oh),
+  s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ lt ~] ~").bank(bank_lt),
+  s("~ ~ ~ [~ cp ~ ~]").bank(bank_cp),
+  s("[bd bd bd _] [~ bd _ ~] [bd _ ~ bd] [_ ~ bd _]").bank(bank_bd)
 )
 ```
 
@@ -26227,16 +22977,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [oh _ ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ hh] [_ ~ ~ ~] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [lt ~ ~ ~] [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[bd bd bd ~] [~ bd bd _] [~ bd _ bd] ~").gain("1.0 0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [oh _ ~ ~]").bank(bank_oh),
+  s("[~ ~ ~ hh] [_ ~ ~ ~] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [lt ~ ~ ~] [~ ~ ~ lt]").bank(bank_lt),
+  s("[bd bd bd ~] [~ bd bd _] [~ bd _ bd] ~").gain("1.0 0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26264,12 +23009,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ _ ~] [hh ~ ~ ~] [~ ~ ~ hh]").gain("0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("[bd _ bd _] [_ bd ~ ~] [~ _ bd _] [_ bd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ _ ~] [hh ~ ~ ~] [~ ~ ~ hh]").gain("0.6 1.0 0.6").bank(bank_hh),
+  s("[bd _ bd _] [_ bd ~ ~] [~ _ bd _] [_ bd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26298,18 +23040,12 @@ let bank_ht = bank_default;
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_cb = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ cb ~] ~ ~").bank(bank_cb).n(n_cb),
-  s("[~ ~ ~ ht] [_ ~ ~ ~] [~ ~ _ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ _] ~ ~").bank(bank_oh).n(n_oh),
-  s("[bd _ bd ~] [~ bd ~ ~] [bd ~ ~ bd] [_ bd _ bd]").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("~ [~ ~ cb ~] ~ ~").bank(bank_cb),
+  s("[~ ~ ~ ht] [_ ~ ~ ~] [~ ~ _ ~] ~").bank(bank_ht),
+  s("~ [~ ~ ~ _] ~ ~").bank(bank_oh),
+  s("[bd _ bd ~] [~ bd ~ ~] [bd ~ ~ bd] [_ bd _ bd]").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26339,14 +23075,10 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ lt] [~ lt ~ ~] [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd _] [_ bd ~ ~] [_ ~ ~ bd] [_ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [~ ~ ~ lt] [~ lt ~ ~] [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank_lt),
+  s("[~ ~ bd _] [_ bd ~ ~] [_ ~ ~ bd] [_ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26374,14 +23106,10 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ lt lt] [_ ~ ~ lt] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[~ bd]*2 [_ _ ~ ~] [~ bd ~ ~] [~ bd _ _]").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [~ ~ lt lt] [_ ~ ~ lt] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_lt),
+  s("[~ bd]*2 [_ _ ~ ~] [~ bd ~ ~] [~ bd _ _]").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26409,14 +23137,10 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ lt] [_ _ lt ~] [~ lt _ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd _] [_ bd ~ ~] ~ [bd ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [~ ~ ~ lt] [_ _ lt ~] [~ lt _ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_lt),
+  s("[~ ~ bd _] [_ bd ~ ~] ~ [bd ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -26444,14 +23168,10 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[lt ~ ~ lt] [_ _ lt _] [~ ~ lt ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[~ bd bd ~] ~ [bd ~ ~ bd] [_ bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[lt ~ ~ lt] [_ _ lt _] [~ ~ lt ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_lt),
+  s("[~ bd bd ~] ~ [bd ~ ~ bd] [_ bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26478,13 +23198,10 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd bd bd _] [~ ~ bd bd] [_ bd ~ ~] [_ bd bd bd]").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd bd bd _] [~ ~ bd bd] [_ bd ~ ~] [_ bd bd bd]").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26515,21 +23232,14 @@ let bank_cr = bank_default;
 let bank_rd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hc = 0;
-let n_cb = 0;
-let n_cr = 0;
-let n_rd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ hc ~ ~]").bank(bank_hc).n(n_hc),
-  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ ~ cb] ~ ~").bank(bank_cb).n(n_cb),
-  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd).n(n_rd),
-  s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd),
+  s("~ ~ ~ [~ hc ~ ~]").bank(bank_hc),
+  s("[~ ~ ~ sd] ~ ~ ~").bank(bank_sd),
+  s("~ [~ ~ ~ cb] ~ ~").bank(bank_cb),
+  s("~ ~ ~ [~ ~ cr ~]").bank(bank_cr),
+  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd),
+  s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26559,10 +23269,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("bd*16").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("bd*16").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26589,16 +23297,11 @@ let bank_cr = bank_default;
 let bank_rd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_cr = 0;
-let n_rd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd).n(n_rd),
-  s("[bd bd ~ bd] ~ [~ _ bd ~] [bd bd _ _]").gain("1.0 1.0 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ sd ~] ~ ~ ~").bank(bank_sd),
+  s("~ [~ ~ cr ~] ~ ~").bank(bank_cr),
+  s("~ ~ [~ ~ ~ rd] ~").bank(bank_rd),
+  s("[bd bd ~ bd] ~ [~ _ bd ~] [bd bd _ _]").gain("1.0 1.0 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26627,14 +23330,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] ~ [ht ~ ~ ~] [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] ~ [ht ~ ~ ~] [~ ~ ~ ht]").bank(bank_ht),
+  s("[~ ~ ~ lt] ~ ~ ~").bank(bank_lt),
+  s("~ [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2").gain("1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26662,14 +23361,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ht] [~ ~ ~ ht] [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ lt ~ ~] ~ [lt ~ ~ ~] [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [bd bd bd ~] [~ ~ bd bd] [bd bd ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ht] [~ ~ ~ ht] [~ ht ~ ~] ~").bank(bank_ht),
+  s("[~ lt ~ ~] ~ [lt ~ ~ ~] [~ ~ lt ~]").bank(bank_lt),
+  s("[~ ~ bd ~] [bd bd bd ~] [~ ~ bd bd] [bd bd ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -26697,14 +23392,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht _ _ ~] ~ [ht _ _ ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ [~ bd _ _] [~ ~ ~ bd] [_ _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[ht _ _ ~] ~ [ht _ _ ~] ~").bank(bank_ht),
+  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt),
+  s("~ [~ bd _ _] [~ ~ ~ bd] [_ _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26732,14 +23423,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("[~ lt ~ ~] ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ bd ~ ~] [bd bd ~ ~] [_ ~ ~ ~]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] [~ ~ ~ ht]").bank(bank_ht),
+  s("[~ lt ~ ~] ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ bd ~ ~] [bd bd ~ ~] [_ ~ ~ ~]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26767,14 +23454,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ht] [~ ~ ~ ht] [_ _ _ _] [_ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("[~ lt ~ ~] ~ ~ [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [bd bd bd ~] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ht] [~ ~ ~ ht] [_ _ _ _] [_ ~ ht ~]").bank(bank_ht),
+  s("[~ lt ~ ~] ~ ~ [~ lt ~ ~]").bank(bank_lt),
+  s("[~ ~ bd ~] [bd bd bd ~] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26802,14 +23485,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [ht ~ ~ ht] ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ bd ~] [bd bd _ ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [ht ~ ~ ht] ~").bank(bank_ht),
+  s("~ ~ [~ lt ~ ~] ~").bank(bank_lt),
+  s("~ ~ [~ ~ bd ~] [bd bd _ ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26837,14 +23516,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ~ ~ ~] [ht ~ ~ ~] [_ _ ~ ~] [ht ~]*2").bank(bank_ht).n(n_ht),
-  s("[~ lt _ ~] ~ ~ [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ bd bd bd] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[ht ~ ~ ~] [ht ~ ~ ~] [_ _ ~ ~] [ht ~]*2").bank(bank_ht),
+  s("[~ lt _ ~] ~ ~ [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ bd bd bd] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -26872,14 +23547,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht _ _ _] ~ [~ ~ ~ ht] [_ _ ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ [lt _ _ _] ~ ~").gain("1.0 0.6 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ [bd _ _ ~] [~ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[ht _ _ _] ~ [~ ~ ~ ht] [_ _ ~ ~]").bank(bank_ht),
+  s("~ [lt _ _ _] ~ ~").gain("1.0 0.6 0.6 0.6").bank(bank_lt),
+  s("~ ~ [bd _ _ ~] [~ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -26905,14 +23576,12 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ bd bd bd] [bd ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ bd bd bd] [bd ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd),
   s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).decay(0.2).sustain(0).sound(bass_synth),
   s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
   s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
@@ -26947,20 +23616,13 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ cr] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ rd ~] ~ [~ ~ ~ rd]").gain("1.0 0.6").bank(bank_rd).n(n_rd),
-  s("[~ ht ht ~] [~ ht]*2 [~ ht ht ht] [~ ht ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("[oh ~ ~ ~] [oh ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_oh).n(n_oh),
-  s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ cr] ~ ~ ~").bank(bank_cr),
+  s("~ [~ ~ rd ~] ~ [~ ~ ~ rd]").gain("1.0 0.6").bank(bank_rd),
+  s("[~ ht ht ~] [~ ht]*2 [~ ht ht ht] [~ ht ~ ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank_ht),
+  s("[oh ~ ~ ~] [oh ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_oh),
+  s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank_lt),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -26994,20 +23656,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon).n(n_bon),
-  s("~ ~ ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("[~ ~ lt ~] [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ bon ~]").bank(bank_bon),
+  s("~ ~ ~ [~ oh ~ ~]").bank(bank_oh),
+  s("~ ~ [~ ~ ~ hh] [hh ~ ~ ~]").gain("0.6 1.0").bank(bank_hh),
+  s("[~ ~ lt ~] [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27040,19 +23695,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ _] [_ ~ ~ ~] [cp ~ ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[bd _ ~ ~] [~ ~ ~ bd] [~ ~ _ ~] [~ bd _ ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[~ ~ ~ _] [_ ~ ~ ~] [cp ~ ~ ~] ~").bank(bank_cp),
+  s("[bd _ ~ ~] [~ ~ ~ bd] [~ ~ _ ~] [~ bd _ ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27085,19 +23734,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [lt _ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ _ ~] ~ ~ [~ ~ ~ lt]").gain("0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ ~ cp] [~ ~ _ ~]").gain("1.0 0.6").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ bd] [~ ~ bd _] [~ ~ bd ~] [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[~ oh ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [lt _ ~ ~] ~").bank(bank_lt),
+  s("[~ ~ _ ~] ~ ~ [~ ~ ~ lt]").gain("0.6 1.0").bank(bank_lt),
+  s("~ ~ [~ ~ ~ cp] [~ ~ _ ~]").gain("1.0 0.6").bank(bank_cp),
+  s("[bd ~ ~ bd] [~ ~ bd _] [~ ~ bd ~] [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27126,11 +23769,9 @@ let bank_default = "RolandTR808";
 
 let bank_lt = bank_default;
 
-let n_lt = 0;
-
 stack(
-  s("[~ ~ lt ~] [~ lt ~ ~] [~ ~ ~ lt] [lt ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ [lt lt ~ ~] [~ ~ lt lt]").gain("1.0 0.6 1.0 0.6").bank(bank_lt).n(n_lt)
+  s("[~ ~ lt ~] [~ lt ~ ~] [~ ~ ~ lt] [lt ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank_lt),
+  s("~ ~ [lt lt ~ ~] [~ ~ lt lt]").gain("1.0 0.6 1.0 0.6").bank(bank_lt)
 )
 ```
 
@@ -27156,12 +23797,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ _ ~] ~ [~ _ ~ ~]").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ bd]*2 [~ bd bd ~] [bd ~]*2").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ _ ~] ~ [~ _ ~ ~]").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ bd]*2 [~ bd bd ~] [bd ~]*2").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -27186,10 +23824,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("~ bd*4 ~ bd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ bd*4 ~ bd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -27216,17 +23852,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ lt] [~ lt]*2 ~").gain("1.0 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ [~ cp ~ ~] ~ ~").bank(bank_cp).n(n_cp),
-  s("[bd bd bd ~] ~ ~ ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt),
+  s("~ [~ ~ ~ lt] [~ lt]*2 ~").gain("1.0 1.0 0.6").bank(bank_lt),
+  s("~ [~ cp ~ ~] ~ ~").bank(bank_cp),
+  s("[bd bd bd ~] ~ ~ ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -27257,16 +23888,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] ~ ~ ~").gain("1.0 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [lt ~ lt lt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ cp cp ~] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] ~ ~ ~").gain("1.0 1.0 0.6").bank(bank_hh),
+  s("~ [lt ~ lt lt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [~ cp cp ~] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ ~ ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -27294,12 +23920,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").gain("0.6 1.0 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd bd bd ~]").gain("0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").gain("0.6 1.0 0.6 1.0").bank(bank_lt),
+  s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd bd bd ~]").gain("0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -27326,14 +23949,10 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ lt] [lt ~ ~ ~] ~ [lt lt ~ ~]").gain("1.0 0.6 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("~ [~ ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.6").bank(bank_cp).n(n_cp),
-  s("[bd ~]*2 [~ bd bd ~] [~ ~ bd bd] [~ ~ bd bd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ lt] [lt ~ ~ ~] ~ [lt lt ~ ~]").gain("1.0 0.6 0.6 0.6").bank(bank_lt),
+  s("~ [~ ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.6").bank(bank_cp),
+  s("[bd ~]*2 [~ bd bd ~] [~ ~ bd bd] [~ ~ bd bd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27360,16 +23979,13 @@ let bank_default = "RolandTR808";
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[cp ~ ~ ~] ~ ~ ~").bank(bank_cp).n(n_cp),
-  s("~ ~ [~ ~ bd bd] [_ bd ~ bd]").bank(bank_bd).n(n_bd),
+  s("[cp ~ ~ ~] ~ ~ ~").bank(bank_cp),
+  s("~ ~ [~ ~ bd bd] [_ bd ~ bd]").bank(bank_bd),
   s("[~ x _ x] [~ x x _] ~ ~").note(bass_key).octave(bass_octave).transpose(2).decay(0.2).sustain(0).sound(bass_synth),
   s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
@@ -27398,10 +24014,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("[bd _ _ bd] [_ _ bd _] [_ bd _ _] [bd _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("[bd _ _ bd] [_ _ bd _] [_ bd _ _] [bd _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27426,12 +24040,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_oh = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-
 stack(
-  s("~ [~ ~ ht ~] [ht ~ ~ _] [ht ~ ~ ~]").gain("0.6 1.0 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("[oh _ _ oh] [_ _ ~ ~] [~ _ oh ~] [~ _ oh oh]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_oh).n(n_oh)
+  s("~ [~ ~ ht ~] [ht ~ ~ _] [ht ~ ~ ~]").gain("0.6 1.0 0.6 0.6").bank(bank_ht),
+  s("[oh _ _ oh] [_ _ ~ ~] [~ _ oh ~] [~ _ oh oh]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_oh)
 )
 ```
 
@@ -27457,12 +24068,9 @@ let bank_default = "RolandTR808";
 let bank_ht = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
-  s("[lt _ lt _] [_ lt _ _] [lt _ ~ ~] [~ ~ lt lt]").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_lt).n(n_lt)
+  s("~ ~ [~ ~ ht ~] ~").bank(bank_ht),
+  s("[lt _ lt _] [_ lt _ _] [lt _ ~ ~] [~ ~ lt lt]").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank_lt)
 )
 ```
 
@@ -27491,18 +24099,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ ht] [~ ~ _ ~] [~ ~ _ ~] ~").gain("1.0 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("~ [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[lt ~ ~ ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp).n(n_cp),
-  s("[~ ~ bd ~] ~ [~ bd]*2 ~").gain("0.6 1.0 1.0").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ ht] [~ ~ _ ~] [~ ~ _ ~] ~").gain("1.0 0.6 0.6").bank(bank_ht),
+  s("~ [~ hh ~ ~] ~ ~").gain("0.85").bank(bank_hh),
+  s("[lt ~ ~ ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.6 0.6").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ cp]").bank(bank_cp),
+  s("[~ ~ bd ~] ~ [~ bd]*2 ~").gain("0.6 1.0 1.0").bank(bank_bd)
 )
 ```
 
@@ -27531,12 +24133,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ lt ~ ~] [lt ~ ~ lt]").gain("0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ lt ~ ~] [lt ~ ~ lt]").gain("0.6 0.6 1.0").bank(bank_lt),
+  s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -27563,14 +24162,10 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [oh ~ ~ ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [~ hh ~ ~] ~ ~").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ bd] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ ~ [oh ~ ~ ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ ~ hh ~] [~ hh ~ ~] ~ ~").gain("0.6 1.0").bank(bank_hh),
+  s("~ ~ [~ ~ ~ bd] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -27599,16 +24194,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ oh]*2").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ hh hh] ~").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ lt lt] [lt ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 [bd ~ ~ ~] ~ [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ oh]*2").bank(bank_oh),
+  s("~ ~ [~ ~ hh hh] ~").gain("0.6 1.0").bank(bank_hh),
+  s("~ [~ ~ lt lt] [lt ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_lt),
+  s("[bd ~]*2 [bd ~ ~ ~] ~ [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27636,12 +24226,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt),
+  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -27669,16 +24256,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [oh ~]*2 ~").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ lt] [lt lt ~ ~] ~ [~ ~ lt ~]").gain("1.0 1.0 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("[bd bd bd ~] ~ [~ bd]*2 [bd bd ~ bd]").gain("1.0 1.0 0.6 1.0 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [oh ~]*2 ~").bank(bank_oh),
+  s("~ [~ ~ hh hh] ~ ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ lt] [lt lt ~ ~] ~ [~ ~ lt ~]").gain("1.0 1.0 0.6 0.6").bank(bank_lt),
+  s("[bd bd bd ~] ~ [~ bd]*2 [bd bd ~ bd]").gain("1.0 1.0 0.6 1.0 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27707,14 +24289,10 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ lt ~] [~ lt ~ ~] [lt ~ ~ ~]").gain("1.0 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[bd ~ ~ bd] [~ bd ~ ~] ~ ~").gain("1.0 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ [~ ~ lt ~] [~ lt ~ ~] [lt ~ ~ ~]").gain("1.0 1.0 0.6").bank(bank_lt),
+  s("[bd ~ ~ bd] [~ bd ~ ~] ~ ~").gain("1.0 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27744,18 +24322,12 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("[~ ~ oh ~] [~ oh ~ ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt).n(n_lt),
-  s("~ [bd ~]*2 [bd ~]*2 [~ bd ~ ~]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("[~ ~ oh ~] [~ oh ~ ~] ~ ~").bank(bank_oh),
+  s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ lt] ~").bank(bank_lt),
+  s("~ [bd ~]*2 [bd ~]*2 [~ bd ~ ~]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -27787,19 +24359,13 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ ht] [_ ~ ~ ~] ~").gain("1.0 0.6").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [lt _ _ _]").gain("1.0 0.6 0.6 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ lt _] ~").gain("1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ cp ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[bd bd _ bd] [bd _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ ht] [_ ~ ~ ~] ~").gain("1.0 0.6").bank(bank_ht),
+  s("~ [~ ~ oh ~] ~ ~").bank(bank_oh),
+  s("~ ~ ~ [lt _ _ _]").gain("1.0 0.6 0.6 0.6").bank(bank_lt),
+  s("~ ~ [~ ~ lt _] ~").gain("1.0 0.6").bank(bank_lt),
+  s("~ ~ [~ cp ~ ~] ~").bank(bank_cp),
+  s("[bd bd _ bd] [bd _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -27828,14 +24394,12 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("~ ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
+  s("~ ~ [~ ~ bd ~] ~").bank(bank_bd),
   s("[x _ _ x] [_ x ~ ~] ~ [x x _ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 1.0 1.0 0.6").note(bass_key).octave(bass_octave).transpose(3).decay(0.2).sustain(0).sound(bass_synth),
   s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note(bass_key).octave(bass_octave).transpose(1).decay(0.2).sustain(0).sound(bass_synth),
   s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
@@ -27867,14 +24431,10 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ lt _ ~] [~ ~ lt ~]").gain("0.6 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("[sd _ _ ~] [~ ~ sd _] ~ ~").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ bd] [_ bd ~ ~] [bd ~ ~ bd] [bd _ ~ bd]").gain("0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ lt _ ~] [~ ~ lt ~]").gain("0.6 0.6 1.0").bank(bank_lt),
+  s("[sd _ _ ~] [~ ~ sd _] ~ ~").gain("1.0 0.6 0.6 1.0 0.6").bank(bank_sd),
+  s("[~ ~ ~ bd] [_ bd ~ ~] [bd ~ ~ bd] [bd _ ~ bd]").gain("0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -27933,18 +24493,14 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
-  s("[lt _ _ lt] [_ _ ~ lt] [lt _ _ ~] [lt _ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ cp ~]").bank(bank_cp).n(n_cp),
-  s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd),
+  s("[lt _ _ lt] [_ _ ~ lt] [lt _ _ ~] [lt _ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 0.6").bank(bank_lt),
+  s("~ ~ ~ [~ ~ cp ~]").bank(bank_cp),
+  s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd),
   s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
@@ -27974,15 +24530,11 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] [hh ~ ~ ~] ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ lt]*2 [lt ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [~ ~ ~ _]").bank(bank_lt).n(n_lt),
-  s("[~ ~ _ ~] [~ ~ _ ~] [~ bd _ bd] [bd _ bd ~]").gain("0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] [hh ~ ~ ~] ~ ~").gain("1.0 0.6 1.0 0.6").bank(bank_hh),
+  s("~ [~ lt]*2 [lt ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_lt),
+  s("~ ~ ~ [~ ~ ~ _]").bank(bank_lt),
+  s("[~ ~ _ ~] [~ ~ _ ~] [~ bd _ bd] [bd _ bd ~]").gain("0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -28011,14 +24563,10 @@ let bank_cb = bank_default;
 let bank_cr = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_cr = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ cb _] [_ ~ ~ ~]").bank(bank_cb).n(n_cb),
-  s("~ [~ cr ~ ~] ~ ~").bank(bank_cr).n(n_cr),
-  s("[bd _ _ bd] [~ ~ bd _] [bd _ ~ ~] [~ bd]*2").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ cb _] [_ ~ ~ ~]").bank(bank_cb),
+  s("~ [~ cr ~ ~] ~ ~").bank(bank_cr),
+  s("[bd _ _ bd] [~ ~ bd _] [bd _ ~ ~] [~ bd]*2").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -28046,15 +24594,11 @@ let bank_sd = bank_default;
 let bank_rd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_rd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ [rd _ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_rd).n(n_rd),
-  s("[bd _ _ bd] [~ ~ bd _] [bd bd ~ bd] [_ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ sd ~]").bank(bank_sd),
+  s("~ ~ ~ [~ sd ~ ~]").bank(bank_sd),
+  s("~ [rd _ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_rd),
+  s("[bd _ _ bd] [~ ~ bd _] [bd bd ~ bd] [_ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -28082,12 +24626,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.6 1.0").bank(bank_lt).n(n_lt),
-  s("~ [bd ~ ~ bd] [_ bd ~ bd] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.6 1.0").bank(bank_lt),
+  s("~ [bd ~ ~ bd] [_ bd ~ bd] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -28113,12 +24654,9 @@ let bank_default = "RolandTR808";
 let bank_hh = bank_default;
 let bank_lt = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-
 stack(
-  s("hh*4 [_ hh hh ~] [hh hh hh ~] [hh ~ hh hh]").gain("0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0 0.6 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ _] ~").bank(bank_lt).n(n_lt)
+  s("hh*4 [_ hh hh ~] [hh hh hh ~] [hh ~ hh hh]").gain("0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0 0.6 0.6").bank(bank_hh),
+  s("~ ~ [~ ~ ~ _] ~").bank(bank_lt)
 )
 ```
 
@@ -28144,12 +24682,9 @@ let bank_default = "RolandTR808";
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
-  s("~ [sd _ _ sd] [~ ~ sd _] [~ sd sd sd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_sd).n(n_sd)
+  s("~ ~ ~ [lt ~ ~ ~]").bank(bank_lt),
+  s("~ [sd _ _ sd] [~ ~ sd _] [~ sd sd sd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank_sd)
 )
 ```
 
@@ -28176,14 +24711,10 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ sd ~] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd).n(n_sd)
+  s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank_hh),
+  s("~ [~ lt ~ ~] ~ ~").bank(bank_lt),
+  s("[~ ~ sd ~] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank_sd)
 )
 ```
 
@@ -28212,16 +24743,11 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ lt] ~ [lt ~ ~ ~] ~").bank(bank_lt).n(n_lt),
-  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ bd ~] [~ bd bd ~]").gain("1.0 0.6 1.0 0.6 1.0 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ lt] ~ [lt ~ ~ ~] ~").bank(bank_lt),
+  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ bd ~] [~ bd bd ~]").gain("1.0 0.6 1.0 0.6 1.0 1.0").bank(bank_bd)
 )
 ```
 
@@ -28252,18 +24778,12 @@ let bank_lt = bank_default;
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [_ ~ ~ ~] [_ ~ ~ ~] [_ ~ ~ ht]").gain("0.6 0.6 0.6 1.0").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[lt ~ ~ ~] ~ [~ ~ ~ lt] ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ cp ~] ~ ~ ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ [_ ~ ~ ~] [_ ~ ~ ~] [_ ~ ~ ht]").gain("0.6 0.6 0.6 1.0").bank(bank_ht),
+  s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[lt ~ ~ ~] ~ [~ ~ ~ lt] ~").bank(bank_lt),
+  s("[~ ~ cp ~] ~ ~ ~").bank(bank_cp),
+  s("[~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -28293,14 +24813,10 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [hh _ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[bd ~]*2 [bd _ bd ~] [~ ~ bd ~] [bd _ bd ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ [hh _ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[bd ~]*2 [bd _ bd ~] [~ ~ bd ~] [bd _ bd ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank_bd)
 )
 ```
 
@@ -28326,10 +24842,8 @@ let bank_default = "RolandTR808";
 
 let bank_cp = bank_default;
 
-let n_cp = 0;
-
 stack(
-  s("[cp _ cp _] [cp ~ cp _] [cp ~ cp cp] [_ cp ~ cp]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_cp).n(n_cp)
+  s("[cp _ cp _] [cp ~ cp _] [cp ~ cp cp] [_ cp ~ cp]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank_cp)
 )
 ```
 
@@ -28356,16 +24870,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ht ht]").gain("1.0 0.6").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [oh oh ~ ~]").gain("0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
-  s("[~ ~ bd ~] [~ bd ~ ~] [~ ~ bd ~] ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ht ht]").gain("1.0 0.6").bank(bank_ht),
+  s("~ ~ ~ [oh oh ~ ~]").gain("0.6 1.0").bank(bank_oh),
+  s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt),
+  s("[~ ~ bd ~] [~ bd ~ ~] [~ ~ bd ~] ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -28394,14 +24903,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_cp = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_cp = 0;
-
 stack(
-  s("[~ ~ ~ ht] [ht ~ ~ ~] [~ ht ~ ~] [ht ~ ~ ~]").gain("0.6 1.0 1.0 0.6").bank(bank_ht).n(n_ht),
-  s("[~ ~ lt ~] [~ lt]*2 [~ ~ lt ~] [~ lt]*2").gain("0.6 1.0 0.6 0.6 1.0 1.0").bank(bank_lt).n(n_lt),
-  s("[cp cp ~ ~] [~ ~ cp ~] [cp ~ ~ cp] [~ ~ cp ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_cp).n(n_cp)
+  s("[~ ~ ~ ht] [ht ~ ~ ~] [~ ht ~ ~] [ht ~ ~ ~]").gain("0.6 1.0 1.0 0.6").bank(bank_ht),
+  s("[~ ~ lt ~] [~ lt]*2 [~ ~ lt ~] [~ lt]*2").gain("0.6 1.0 0.6 0.6 1.0 1.0").bank(bank_lt),
+  s("[cp cp ~ ~] [~ ~ cp ~] [cp ~ ~ cp] [~ ~ cp ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_cp)
 )
 ```
 
@@ -28432,20 +24937,13 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [bon ~ ~ ~]").bank(bank_bon).n(n_bon),
-  s("~ ~ ~ [~ ~ rd rd]").bank(bank_rd).n(n_rd),
-  s("~ ~ [~ ~ ht ht] [~ _ ~ ~]").gain("1.0 0.6 0.6").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ oh] [~ oh ~ ~] ~").gain("0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("[bd ~ bd _] [~ bd ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [bon ~ ~ ~]").bank(bank_bon),
+  s("~ ~ ~ [~ ~ rd rd]").bank(bank_rd),
+  s("~ ~ [~ ~ ht ht] [~ _ ~ ~]").gain("1.0 0.6 0.6").bank(bank_ht),
+  s("~ [~ ~ ~ oh] [~ oh ~ ~] ~").gain("0.6 1.0").bank(bank_oh),
+  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt),
+  s("[bd ~ bd _] [~ bd ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -28477,16 +24975,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ oh _] [oh ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ lt _] ~ ~").gain("1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[~ ~ ~ bd] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht),
+  s("~ ~ [~ ~ oh _] [oh ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank_oh),
+  s("~ [~ ~ lt _] ~ ~").gain("1.0 0.6").bank(bank_lt),
+  s("[~ ~ ~ bd] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -28518,20 +25011,13 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_bon = 0;
-let n_rd = 0;
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ bon ~ ~]").bank(bank_bon).n(n_bon),
-  s("~ ~ ~ [~ ~ rd ~]").bank(bank_rd).n(n_rd),
-  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ oh] [_ oh ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[bd bd ~ ~] [~ bd ~ ~] ~ ~").gain("1.0 0.6 1.0").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ bon ~ ~]").bank(bank_bon),
+  s("~ ~ ~ [~ ~ rd ~]").bank(bank_rd),
+  s("~ ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ ~ oh] [_ oh ~ ~] ~").gain("1.0 0.6 1.0").bank(bank_oh),
+  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt),
+  s("[bd bd ~ ~] [~ bd ~ ~] ~ ~").gain("1.0 0.6 1.0").bank(bank_bd)
 )
 ```
 
@@ -28563,16 +25049,11 @@ let bank_oh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ ~ oh] [_ _ _ _] [_ oh _ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt).n(n_lt),
-  s("[bd _ bd ~] [~ bd _ ~] ~ ~").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht),
+  s("~ [~ ~ ~ oh] [_ _ _ _] [_ oh _ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank_oh),
+  s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank_lt),
+  s("[bd _ bd ~] [~ bd _ ~] ~ ~").gain("0.6 0.6 0.6 1.0 0.6").bank(bank_bd)
 )
 ```
 
@@ -28602,16 +25083,11 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-
 stack(
-  s("[~ ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ oh ~] [oh ~ ~ ~] [_ _ ~ ~]").gain("1.0 1.0 0.6 0.6").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ hh]*2 ~").gain("0.6 1.0").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt)
+  s("[~ ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ oh ~] [oh ~ ~ ~] [_ _ ~ ~]").gain("1.0 1.0 0.6 0.6").bank(bank_oh),
+  s("~ ~ [~ hh]*2 ~").gain("0.6 1.0").bank(bank_hh),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt)
 )
 ```
 
@@ -28642,18 +25118,12 @@ let bank_hh = bank_default;
 let bank_lt = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_lt = 0;
-let n_bd = 0;
-
 stack(
-  s("[ht ht ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[~ ~ oh oh] [_ ~ ~ ~] ~ ~").gain("1.0 1.0 0.6").bank(bank_oh).n(n_oh),
-  s("~ [~ hh hh _] ~ ~").gain("0.6 1.0 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [lt lt _ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ ~ [~ ~ ~ bd] [_ bd _ bd]").bank(bank_bd).n(n_bd)
+  s("[ht ht ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[~ ~ oh oh] [_ ~ ~ ~] ~ ~").gain("1.0 1.0 0.6").bank(bank_oh),
+  s("~ [~ hh hh _] ~ ~").gain("0.6 1.0 0.6").bank(bank_hh),
+  s("~ ~ [lt lt _ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ ~ [~ ~ ~ bd] [_ bd _ bd]").bank(bank_bd)
 )
 ```
 
@@ -28689,14 +25159,10 @@ let bank_cp = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]] [~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]] [~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -28727,14 +25193,10 @@ let bank_sd = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -28767,14 +25229,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -28805,20 +25263,13 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ rim] ~ ~ [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("[hh ~ hh hh] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ rim] ~ ~ [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -28852,20 +25303,13 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ cr cr] [cr ~]*2 [cr ~]*2 [cr ~]*2").bank(bank_cr),
+  s("~ ~ [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -28897,16 +25341,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -28936,16 +25375,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -28975,16 +25409,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]]").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 ~ [~ ~ bd bd] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]]").bank(bank_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd bd] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -29016,20 +25445,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_oh = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ht]*2 [~ ht]*2 [~ ht]*2 [~ ht]*2").bank(bank_ht).n(n_ht),
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("lt*8").bank(bank_lt).n(n_lt),
-  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ht]*2 [~ ht]*2 [~ ht]*2 [~ ht]*2").bank(bank_ht),
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("lt*8").bank(bank_lt),
+  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29063,20 +25485,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[cp ~]*2 [cp ~ cp cp] [~ cp]*2 [cp ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[cp ~]*2 [cp ~ cp cp] [~ cp]*2 [cp ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -29110,20 +25525,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[cp ~]*2 [cp ~ cp cp] [~ cp]*2 [cp ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~]*2 ~ [bd ~]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[cp ~]*2 [cp ~ cp cp] [~ cp]*2 [cp ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~]*2 ~ [bd ~]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -29154,14 +25562,10 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29189,14 +25593,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -29225,16 +25625,11 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -29265,18 +25660,12 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ hh] [hh ~ ~ hh] [hh ~ ~ hh] [hh ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~ ~ hh] [hh ~ ~ hh] [hh ~ ~ hh] [hh ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -29306,14 +25695,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2] [[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
+  s("[[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2] [[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~]").bank(bank_bd)
 )
 ```
 
@@ -29341,14 +25726,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29376,14 +25757,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29410,12 +25787,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29441,12 +25815,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29472,12 +25843,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29506,18 +25874,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~] [~ ~ cr ~]").bank(bank_cr),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -29549,18 +25911,12 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ht ~] [~ ~ ht ~] ~ ~").bank(bank_ht),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -29592,18 +25948,12 @@ let bank_lt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ht ht] ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ lt lt] ~ [~ ~ lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ht ht] ~ [~ ~ ht ht] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ lt lt] ~ [~ ~ lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -29634,16 +25984,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh hh hh ~] [hh hh hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd ~ ~ sd] [~ sd sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd]*2 [~ bd]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~]*2 [hh hh hh ~] [hh hh hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] [sd ~ ~ sd] [~ sd sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd]*2 [~ bd]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -29672,14 +26017,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ [oh ~]*2] [~ ~ ~ [oh ~]*2]").bank(bank_oh).n(n_oh),
-  s("[~ [sd ~ ~ sd] [~ sd sd ~] ~] [[~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2] [[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [oh ~]*2] [~ ~ ~ [oh ~]*2]").bank(bank_oh),
+  s("[~ [sd ~ ~ sd] [~ sd sd ~] ~] [[~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2] [[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -29708,16 +26049,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [oh ~]*2").bank(bank_oh).n(n_oh),
-  s("[hh hh hh ~] [hh ~ hh hh] [~ hh hh ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd ~ ~] [bd bd ~ bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [oh ~]*2").bank(bank_oh),
+  s("[hh hh hh ~] [hh ~ hh hh] [~ hh hh ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("[sd sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd ~ ~] [bd bd ~ bd] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -29747,16 +26083,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -29785,14 +26116,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -29820,14 +26147,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*32").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd sd ~] [sd sd sd ~] [~ sd sd ~] [sd sd sd ~] [~ sd ~ ~] [sd sd ~ ~] [~ sd ~ ~] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd]*2 [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*32").gain("0.85").bank(bank_hh),
+  s("[~ sd sd ~] [sd sd sd ~] [~ sd sd ~] [sd sd sd ~] [~ sd ~ ~] [sd sd ~ ~] [~ sd ~ ~] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd]*2 [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -29854,12 +26177,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29885,12 +26205,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29916,12 +26233,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -29947,12 +26261,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -29978,12 +26289,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -30009,12 +26317,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -30040,12 +26345,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30071,12 +26373,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ sd ~] [~ sd ~ ~] [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ sd ~] [~ sd ~ ~] [~ sd ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30102,12 +26401,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -30133,12 +26429,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ sd]*2").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ sd]*2").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -30164,12 +26457,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -30197,16 +26487,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~ cb cb] [cb ~ cb cb] [cb ~ cb cb] [cb ~ cb cb]").bank(bank_cb).n(n_cb),
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd bd] [~ ~ bd bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cb ~ cb cb] [cb ~ cb cb] [cb ~ cb cb] [cb ~ cb cb]").bank(bank_cb),
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd bd] [~ ~ bd bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30235,14 +26520,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30271,16 +26552,11 @@ let bank_oh = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ cp ~ cp").bank(bank_cp),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30311,18 +26587,12 @@ let bank_mt = bank_default;
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_cp = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ hh] ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ cp ~ ~] ~ [~ cp ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[~ ~ mt ~] [~ ~ ~ mt] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ hh] ~ [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[~ cp ~ ~] ~ [~ cp ~ ~] ~").bank(bank_cp),
+  s("[~ ~ mt ~] [~ ~ ~ mt] [~ ~ mt ~] ~").bank(bank_mt),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh] [~ ~ oh ~]").bank(bank_oh),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30354,18 +26624,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("[~ ~ cp ~] [cp ~ ~ ~] [cp ~]*2 [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ ~ hh ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -30396,16 +26660,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30435,16 +26694,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[hh ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[hh ~ hh hh] [~ ~ hh hh] [~ ~ hh hh] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30475,18 +26729,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cb ~ cb cb]").bank(bank_cb).n(n_cb),
-  s("~ ~ [mt ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("hh*4 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cb ~ cb cb]").bank(bank_cb),
+  s("~ ~ [mt ~ ~ mt] ~").bank(bank_mt),
+  s("hh*4 ~ ~ ~").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30516,14 +26764,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -30551,14 +26795,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30586,14 +26826,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -30622,16 +26858,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh oh] [oh oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh oh] [oh oh ~ ~] ~").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30661,16 +26892,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -30700,16 +26926,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -30740,18 +26961,12 @@ let bank_mt = bank_default;
 let bank_oh = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [ht ht ht ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ ~ mt] [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt)
+  s("~ ~ [ht ht ht ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("~ ~ [~ ~ ~ mt] [mt mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt)
 )
 ```
 
@@ -30783,18 +26998,12 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ht ~ ~] ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ mt] ~ ~").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt ~] [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[sd ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[~ ht ~ ~] ~ ~ [~ ht ~ ~]").bank(bank_ht),
+  s("~ [mt ~ ~ mt] ~ ~").bank(bank_mt),
+  s("~ ~ [~ ~ lt ~] [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[sd ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -30827,20 +27036,13 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("~ [cr ~]*2 ~ ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [~ ~ mt ~] [mt ~ ~ ~]").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ ~ lt] [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ ~] ~ [sd ~ ~ ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ [bd ~]*2 ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("~ [cr ~]*2 ~ ~").bank(bank_cr),
+  s("~ ~ [~ ~ mt ~] [mt ~ ~ ~]").bank(bank_mt),
+  s("~ ~ [~ ~ ~ lt] [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[sd sd ~ ~] ~ [sd ~ ~ ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ [bd ~]*2 ~ ~").bank(bank_bd)
 )
 ```
 
@@ -30873,18 +27075,12 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [~ mt ~ ~] [~ mt ~ ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt).n(n_lt),
-  s("sd*4").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ht ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ [~ mt ~ ~] [~ mt ~ ~] ~").bank(bank_mt),
+  s("~ ~ ~ [~ lt ~ ~]").bank(bank_lt),
+  s("sd*4").bank(bank_sd),
+  s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -30914,14 +27110,10 @@ let bank_ht = bank_default;
 let bank_mt = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-
 stack(
-  s("~ ~ [~ ht ht ht] [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] mt*4 [mt ~ ~ ~] [~ mt mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[lt lt lt ~] ~ ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt)
+  s("~ ~ [~ ht ht ht] [ht ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("[~ ~ ~ mt] mt*4 [mt ~ ~ ~] [~ mt mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[lt lt lt ~] ~ ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt)
 )
 ```
 
@@ -30949,14 +27141,10 @@ let bank_ht = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("sd*4").bank(bank_sd).n(n_sd)
+  s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht),
+  s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").bank(bank_lt),
+  s("sd*4").bank(bank_sd)
 )
 ```
 
@@ -30985,16 +27173,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [cr ~ ~ ~] [~ ~ cr ~] ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ hh ~] ~ [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [cr ~ ~ ~] [~ ~ cr ~] ~").bank(bank_cr),
+  s("[~ ~ hh ~] ~ [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31024,16 +27207,11 @@ let bank_cr = bank_default;
 let bank_mt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ht] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [cr ~ ~ ~] [~ ~ cr ~] ~").bank(bank_cr).n(n_cr),
-  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[sd sd ~ ~] [sd ~ sd sd] [~ ~ sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ht] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [cr ~ ~ ~] [~ ~ cr ~] ~").bank(bank_cr),
+  s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[sd sd ~ ~] [sd ~ sd sd] [~ ~ sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -31062,14 +27240,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [~ ~ cr ~] ~ [cr ~ ~ ~]").bank(bank_cr).n(n_cr),
-  s("[sd ~ ~ ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [~ ~ cr ~] ~ [cr ~ ~ ~]").bank(bank_cr),
+  s("[sd ~ ~ ~] [~ ~ sd ~] ~ ~").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31097,14 +27271,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ cr ~] [cr ~ ~ ~] [cr ~]*2 [~ ~ cr ~]").bank(bank_cr).n(n_cr),
-  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ cr ~] [cr ~ ~ ~] [cr ~]*2 [~ ~ cr ~]").bank(bank_cr),
+  s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31135,20 +27305,13 @@ let bank_lt = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ht ~] [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
-  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [~ ~ mt ~] ~ [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[sd ~ ~ ~] ~ [sd ~]*2 [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ bd]*2 [~ bd]*2 [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ht ~] [ht ~ ~ ~] ~ ~").bank(bank_ht),
+  s("~ ~ [cr ~ ~ ~] ~").bank(bank_cr),
+  s("~ [~ ~ mt ~] ~ [~ ~ mt ~]").bank(bank_mt),
+  s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[sd ~ ~ ~] ~ [sd ~]*2 [~ sd ~ ~]").bank(bank_sd),
+  s("[~ bd]*2 [~ bd]*2 [~ bd]*2 [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -31178,12 +27341,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ sd sd] [sd ~ sd sd] [~ sd sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[sd ~ sd sd] [sd ~ sd sd] [~ sd sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("~ ~ ~ [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -31208,10 +27368,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("[sd sd sd ~] [sd sd sd ~] [sd ~]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[sd sd sd ~] [sd sd sd ~] [sd ~]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -31237,14 +27395,10 @@ let bank_cr = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] [~ ~ cr ~] ~ [cr ~ ~ ~]").bank(bank_cr).n(n_cr),
-  s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] [~ ~ cr ~] ~ [cr ~ ~ ~]").bank(bank_cr),
+  s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -31272,14 +27426,10 @@ let bank_ht = bank_default;
 let bank_mt = bank_default;
 let bank_lt = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-
 stack(
-  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ ~] [mt ~]*2 ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt)
+  s("[ht ~ ~ ~] ~ ~ ~").bank(bank_ht),
+  s("~ [mt ~ ~ ~] [mt ~]*2 ~").bank(bank_mt),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt)
 )
 ```
 
@@ -31308,16 +27458,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("[~ ~ ~ mt] [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ [~ ~ lt lt] [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("sd*4").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("[~ ~ ~ mt] [~ ~ mt mt] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ [~ ~ lt lt] [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("sd*4").bank(bank_sd)
 )
 ```
 
@@ -31347,16 +27492,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ ~] [mt ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[sd ~ ~ ~] [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("~ [mt ~ ~ ~] [mt ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[sd ~ ~ ~] [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd)
 )
 ```
 
@@ -31386,16 +27526,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
-  s("~ [mt ~ ~ ~] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [lt ~]*2").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ ~] [~ ~ sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht),
+  s("~ [mt ~ ~ ~] [~ ~ mt ~] ~").bank(bank_mt),
+  s("~ ~ ~ [lt ~]*2").bank(bank_lt),
+  s("[sd sd ~ ~] [~ ~ sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -31425,16 +27560,11 @@ let bank_mt = bank_default;
 let bank_lt = bank_default;
 let bank_sd = bank_default;
 
-let n_ht = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_sd = 0;
-
 stack(
-  s("[~ ~ ht ht] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("~ [~ ~ mt mt] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
-  s("[sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd)
+  s("[~ ~ ht ht] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("~ [~ ~ mt mt] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt),
+  s("[sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd)
 )
 ```
 
@@ -31464,16 +27594,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [oh ~ ~ ~] ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [oh ~ ~ ~] ~ [~ oh ~ ~]").bank(bank_oh),
+  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -31503,16 +27628,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [oh ~ ~ ~] ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [oh ~ ~ ~] ~ [~ oh ~ ~]").bank(bank_oh),
+  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -31542,16 +27662,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [[~ sd ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~] ~").bank(bank_oh),
+  s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [[~ sd ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -31579,12 +27694,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -31610,12 +27722,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31641,12 +27750,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -31672,12 +27778,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -31705,16 +27808,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ [~ ~ ~ oh] ~] [[~ ~ ~ oh] ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ ~ ~ oh] ~] [[~ ~ ~ oh] ~ ~ ~]").bank(bank_oh),
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31743,14 +27841,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[hh ~ hh hh] hh*4 hh*4 hh*4] [[hh ~ hh hh] hh*4 hh*4 hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[[hh ~ hh hh] hh*4 hh*4 hh*4] [[hh ~ hh hh] hh*4 hh*4 hh*4]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -31779,16 +27873,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ hh ~] ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ ~ hh ~] ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh),
+  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31818,16 +27907,11 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("[~ ~ hh ~] [~ ~ ~ hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp),
+  s("[~ ~ hh ~] [~ ~ ~ hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -31855,12 +27939,9 @@ let bank_default = "RolandTR808";
 let bank_oh = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -31888,17 +27969,12 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh hh ~] [hh ~ hh hh] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh hh hh ~] [hh ~ hh hh] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -31928,14 +28004,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -31964,16 +28036,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ oh] ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ oh] ~ [~ oh ~ ~]").bank(bank_oh),
+  s("hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -32003,16 +28070,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [oh ~ ~ ~] [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [oh ~ ~ ~] [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -32041,14 +28103,10 @@ let bank_oh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh).n(n_oh),
-  s("[rim ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh),
+  s("[rim ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -32076,14 +28134,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -32111,14 +28165,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -32146,14 +28196,10 @@ let bank_oh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh).n(n_oh),
-  s("[rim ~ ~ rim] [~ ~ ~ rim] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh),
+  s("[rim ~ ~ rim] [~ ~ ~ rim] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -32181,14 +28227,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ ~] [hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [hh ~]*2 [~ ~ hh ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -32216,14 +28258,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ rim] [~ ~ rim ~] [rim ~ ~ rim] [~ ~ rim ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh hh ~] ~").gain("0.85").bank(bank_hh),
+  s("[rim ~ ~ rim] [~ ~ rim ~] [rim ~ ~ rim] [~ ~ rim ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank_bd)
 )
 ```
 
@@ -32252,16 +28290,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ sd sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -32288,10 +28321,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd)
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd)
 )
 ```
 
@@ -32315,10 +28346,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd)
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd)
 )
 ```
 
@@ -32342,10 +28371,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd)
+  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd)
 )
 ```
 
@@ -32369,10 +28396,8 @@ let bank_default = "RolandTR808";
 
 let bank_sd = bank_default;
 
-let n_sd = 0;
-
 stack(
-  s("[~ sd ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd).n(n_sd)
+  s("[~ sd ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank_sd)
 )
 ```
 
@@ -32397,12 +28422,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -32429,14 +28451,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -32465,16 +28483,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd ~ sd sd] [~ sd ~ ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd ~ sd sd] [~ sd ~ ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -32503,14 +28516,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -32539,16 +28548,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -32577,14 +28581,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd bd] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd bd] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -32611,12 +28611,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -32642,12 +28639,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -32673,12 +28667,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -32704,12 +28695,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd bd ~ ~] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd bd ~ ~] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -32735,12 +28723,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -32766,12 +28751,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -32797,12 +28779,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd bd ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [bd bd ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -32828,12 +28807,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -32859,12 +28835,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -32890,12 +28863,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -32922,14 +28892,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ ~ bd] [bd ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ ~ bd] [bd ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -32957,14 +28923,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd]*2").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd]*2").bank(bank_bd)
 )
 ```
 
@@ -32992,14 +28954,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh ~ hh] [hh ~ hh hh] [hh hh ~ hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("[hh hh ~ hh] [hh ~ hh hh] [hh hh ~ hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -33028,16 +28986,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh] [~ ~ ~ oh]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -33067,16 +29020,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
-  s("[[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~] [[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~]] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] [~ ~ ~ [~ bd ~ ~]]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh),
+  s("[[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~] [[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~]] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] [~ ~ ~ [~ bd ~ ~]]").bank(bank_bd)
 )
 ```
 
@@ -33105,14 +29053,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 [[hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 [[hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -33142,18 +29086,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr).n(n_cr),
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ ~] ~ ~ ~").bank(bank_cr),
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -33184,16 +29122,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ oh ~ ~] [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -33221,12 +29154,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -33252,12 +29182,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33283,12 +29210,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -33314,12 +29238,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33345,12 +29266,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33376,12 +29294,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd]*2 [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd]*2 [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33407,12 +29322,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -33439,14 +29351,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~]] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2]").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~]] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2]").bank(bank_bd)
 )
 ```
 
@@ -33475,16 +29383,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -33514,16 +29417,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -33551,12 +29449,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33582,12 +29477,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33613,12 +29505,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33644,12 +29533,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33675,12 +29561,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ sd ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [~ sd ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [~ sd ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -33714,28 +29597,17 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~ ~ cb] [~ ~ cb ~] [cb ~ ~ ~] ~").bank(bank_cb).n(n_cb),
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("[~ mt ~ ~] [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh).n(n_oh),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cb ~ ~ cb] [~ ~ cb ~] [cb ~ ~ ~] ~").bank(bank_cb),
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("cr*4").bank(bank_cr),
+  s("[~ mt ~ ~] [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt),
+  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -33777,28 +29649,17 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_ht = 0;
-let n_cr = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~ ~ cb] [~ ~ cb ~] [cb ~]*2 [cb cb ~ ~]").bank(bank_cb).n(n_cb),
-  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
-  s("cr*4").bank(bank_cr).n(n_cr),
-  s("[~ mt ~ ~] [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt).n(n_mt),
-  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh).n(n_oh),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[cb ~ ~ cb] [~ ~ cb ~] [cb ~]*2 [cb cb ~ ~]").bank(bank_cb),
+  s("~ ~ ~ [ht ht ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht),
+  s("cr*4").bank(bank_cr),
+  s("[~ mt ~ ~] [~ ~ mt ~] [~ ~ mt ~] ~").bank(bank_mt),
+  s("oh*16").gain("0.9 0.5 0.7 0.5").bank(bank_oh),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -33833,14 +29694,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -33869,16 +29726,11 @@ let bank_cp = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp).n(n_cp),
-  s("[sd ~ sd sd] [~ sd]*2 [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp),
+  s("[sd ~ sd sd] [~ sd]*2 [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -33908,16 +29760,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ sd ~ ~] [~ sd]*2").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ sd ~ ~] [~ sd]*2").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -33947,16 +29794,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -33985,14 +29827,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34021,16 +29859,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ oh ~] ~ [~ ~ oh ~]").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34057,10 +29890,8 @@ let bank_default = "RolandTR808";
 
 let bank_bd = bank_default;
 
-let n_bd = 0;
-
 stack(
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -34087,16 +29918,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
-  s("[hh*4 hh*4 hh*4 [hh hh ~ ~]] [hh*4 hh*4 hh*4 [hh hh ~ ~]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh),
+  s("[hh*4 hh*4 hh*4 [hh hh ~ ~]] [hh*4 hh*4 hh*4 [hh hh ~ ~]]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34126,16 +29952,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [~ ~ hh hh] [~ hh ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh),
+  s("[hh ~ ~ ~] [~ ~ hh hh] [~ hh ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~]*2 [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -34165,16 +29986,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[~ ~ oh ~] [~ ~ oh ~] ~ ~] [[~ ~ oh ~] [~ ~ oh ~] ~ ~]").bank(bank_oh).n(n_oh),
-  s("[[~ ~ hh ~] [~ ~ hh ~] ~ ~] [[~ ~ hh ~] [~ ~ hh ~] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd sd ~ ~] ~ ~] [~ [sd sd ~ ~] [sd ~ ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh ~] [~ ~ oh ~] ~ ~] [[~ ~ oh ~] [~ ~ oh ~] ~ ~]").bank(bank_oh),
+  s("[[~ ~ hh ~] [~ ~ hh ~] ~ ~] [[~ ~ hh ~] [~ ~ hh ~] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [sd sd ~ ~] ~ ~] [~ [sd sd ~ ~] [sd ~ ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -34204,16 +30020,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ [sd ~ ~ ~] [sd ~ ~ ~] ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ [bd ~ ~ ~]]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ [sd ~ ~ ~] [sd ~ ~ ~] ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ [bd ~ ~ ~]]").bank(bank_bd)
 )
 ```
 
@@ -34243,16 +30054,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh),
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -34284,20 +30090,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~]*2 [~ cb]*2 [~ ~ ~ cb] [~ ~ cb ~]").bank(bank_cb).n(n_cb),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[cb ~]*2 [~ cb]*2 [~ ~ ~ cb] [~ ~ cb ~]").bank(bank_cb),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34331,20 +30130,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~]*2 [~ cb]*2 [~ ~ ~ cb] [~ ~ cb ~]").bank(bank_cb).n(n_cb),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cb ~]*2 [~ cb]*2 [~ ~ ~ cb] [~ ~ cb ~]").bank(bank_cb),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34376,16 +30168,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -34414,14 +30201,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -34449,14 +30232,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34486,18 +30265,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cr ~ cr").bank(bank_cr).n(n_cr),
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ cr ~ cr").bank(bank_cr),
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34527,14 +30300,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*4 hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*4 hh*4").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -34562,14 +30331,10 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34599,18 +30364,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[rim rim rim ~] [~ rim ~ ~] [rim ~ ~ rim] [~ rim rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[rim rim rim ~] [~ rim ~ ~] [rim ~ ~ rim] [~ rim rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34642,18 +30401,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("oh*8").gain("0.9 0.6").bank(bank_oh).n(n_oh),
-  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[rim ~]*2 [rim rim ~ ~] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("oh*8").gain("0.9 0.6").bank(bank_oh),
+  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[rim ~]*2 [rim rim ~ ~] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34684,17 +30437,12 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[~ ~ oh ~] ~ ~ ~").bank(bank_oh),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34724,14 +30472,10 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ rim rim] [~ rim rim rim] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd bd ~ ~] ~ [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ hh ~ hh").gain("0.85").bank(bank_hh),
+  s("[~ ~ rim rim] [~ rim rim rim] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd bd ~ ~] ~ [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34759,14 +30503,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -34794,14 +30534,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh hh ~ hh] hh*4 [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh hh ~ hh] hh*4 [hh hh ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34829,14 +30565,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("~ ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -34863,12 +30595,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -34896,16 +30625,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [[~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 ~ [bd ~ bd bd] ~] [[bd ~ bd bd] ~ [bd ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [[~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[[bd ~]*2 ~ [bd ~ bd bd] ~] [[bd ~ bd bd] ~ [bd ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -34935,16 +30659,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ [~ ~ oh ~] ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~]] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ ~ oh ~] ~] ~").bank(bank_oh),
+  s("[hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~]] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -34974,16 +30693,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt).n(n_lt),
-  s("~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd).n(n_bd)
+  s("~ [lt ~ ~ ~] ~ ~").bank(bank_lt),
+  s("~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank_bd)
 )
 ```
 
@@ -35012,14 +30726,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35047,14 +30757,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35082,14 +30788,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35117,14 +30819,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35152,14 +30850,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35187,14 +30881,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35222,14 +30912,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35257,14 +30943,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35292,14 +30974,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35327,14 +31005,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35362,14 +31036,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35397,14 +31067,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35432,14 +31098,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35467,14 +31129,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35502,14 +31160,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35537,14 +31191,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35572,14 +31222,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35607,14 +31253,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35642,14 +31284,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35677,14 +31315,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35712,14 +31346,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35747,14 +31377,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35782,14 +31408,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35817,14 +31439,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35852,14 +31470,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35887,14 +31501,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35922,14 +31532,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -35957,14 +31563,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -35992,14 +31594,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36027,14 +31625,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36062,14 +31656,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36097,14 +31687,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -36132,14 +31718,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36167,14 +31749,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36202,14 +31780,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36237,14 +31811,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36272,14 +31842,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36307,14 +31873,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36342,14 +31904,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36377,14 +31935,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36412,14 +31966,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36447,14 +31997,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36482,14 +32028,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36517,14 +32059,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36552,14 +32090,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36587,14 +32121,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36622,14 +32152,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36657,14 +32183,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36692,14 +32214,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36727,14 +32245,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36762,14 +32276,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36797,14 +32307,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36832,14 +32338,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36867,14 +32369,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36902,14 +32400,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36937,14 +32431,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -36972,14 +32462,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37007,14 +32493,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37042,14 +32524,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37077,14 +32555,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37112,14 +32586,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37147,14 +32617,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37182,14 +32648,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37217,14 +32679,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37255,20 +32713,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_cp = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~]*2 [cb ~ cb cb] [~ cb]*2 [cb ~]*2").bank(bank_cb).n(n_cb),
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cb ~]*2 [cb ~ cb cb] [~ cb]*2 [cb ~]*2").bank(bank_cb),
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh] hh*4").gain("0.85").bank(bank_hh),
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -37298,12 +32749,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [[sd ~ ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [[sd ~ ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -37329,12 +32777,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37362,16 +32807,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[oh ~ ~ ~] ~ ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ [hh ~ ~ ~] ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
-  s("[[bd ~ ~ ~] ~ ~ ~] [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("[[oh ~ ~ ~] ~ ~ ~] ~").bank(bank_oh),
+  s("[~ ~ [hh ~ ~ ~] ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd),
+  s("[[bd ~ ~ ~] ~ ~ ~] [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(bank_bd)
 )
 ```
 
@@ -37403,20 +32843,13 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_mt = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd sd sd ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim).n(n_rim),
-  s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ mt mt] [mt ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[~ ~ ~ oh] ~ [~ oh ~ ~] ~").bank(bank_oh),
+  s("[~ ~ ~ hh] ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("[sd sd sd ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank_rim),
+  s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37447,14 +32880,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37482,14 +32911,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
-  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8 hh*8").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]]").bank(bank_sd),
+  s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37518,16 +32943,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [[~ oh ~ ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [[~ oh ~ ~] ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37556,14 +32976,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ hh hh] [hh hh ~ hh] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ hh hh] [hh hh ~ hh] hh*4").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ ~] ~ ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -37591,14 +33007,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37625,12 +33037,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ bd bd ~] [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ bd bd ~] [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37656,12 +33065,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37687,12 +33093,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -37718,12 +33121,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] ~ ~ ~").bank(bank_bd)
 )
 ```
 
@@ -37749,12 +33149,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37780,12 +33177,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37811,12 +33205,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -37842,12 +33233,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank_bd)
 )
 ```
 
@@ -37873,12 +33261,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -37906,16 +33291,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[lt ~ ~ ~] [~ ~ lt ~] [~ ~ lt ~] [~ ~ lt ~]").bank(bank_lt).n(n_lt),
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[lt ~ ~ ~] [~ ~ lt ~] [~ ~ lt ~] [~ ~ lt ~]").bank(bank_lt),
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -37947,20 +33327,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_lt = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("cb*4").bank(bank_cb).n(n_cb),
-  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
-  s("[~ hh hh ~] [~ hh hh ~] [~ hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("cb*4").bank(bank_cb),
+  s("[~ ~ ~ mt] ~ ~ ~").bank(bank_mt),
+  s("~ [~ ~ ~ lt] ~ [~ ~ ~ lt]").bank(bank_lt),
+  s("[~ hh hh ~] [~ hh hh ~] [~ hh hh ~] [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -37992,16 +33365,11 @@ let bank_mt = bank_default;
 let bank_hh = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~]*2 [cb cb ~ cb] [~ cb cb ~] [cb cb ~ cb]").bank(bank_cb).n(n_cb),
-  s("~ ~ [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cb ~]*2 [cb cb ~ cb] [~ cb cb ~] [cb cb ~ cb]").bank(bank_cb),
+  s("~ ~ [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38031,17 +33399,12 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("[~ ~ oh oh] [~ ~ oh oh] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("[~ ~ oh oh] [~ ~ oh oh] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("hh*4").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38071,14 +33434,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38107,16 +33466,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ hh hh ~] [hh hh ~ hh] ~ [~ hh hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [oh ~ ~ ~] ~").bank(bank_oh),
+  s("[~ hh hh ~] [hh hh ~ hh] ~ [~ hh hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38147,18 +33501,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~ cb cb] [cb ~ ~ ~] ~ ~").bank(bank_cb).n(n_cb),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cb ~ cb cb] [cb ~ ~ ~] ~ ~").bank(bank_cb),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -38190,18 +33538,12 @@ let bank_sd = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cb = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("[cb ~ cb cb] [cb ~]*2 [cb ~ ~ ~] ~").bank(bank_cb).n(n_cb),
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
-  s("[bd ~]*2 [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[cb ~ cb cb] [cb ~]*2 [cb ~ ~ ~] ~").bank(bank_cb),
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank_rim),
+  s("[bd ~]*2 [~ ~ bd ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -38231,14 +33573,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38268,18 +33606,12 @@ let bank_oh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_mt = 0;
-let n_oh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr).n(n_cr),
-  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("[oh ~ ~ oh] [~ ~ oh ~] [~ oh ~ ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[cr ~ ~ cr] [~ ~ cr ~] [~ cr ~ ~] ~").bank(bank_cr),
+  s("~ [mt mt ~ ~] [~ ~ mt mt] ~").gain("1.0 0.5 0.7 0.5").bank(bank_mt),
+  s("[oh ~ ~ oh] [~ ~ oh ~] [~ oh ~ ~] ~").bank(bank_oh),
+  s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38309,14 +33641,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -38345,16 +33673,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [~ sd ~ ~] ~ [~ sd ~ ~]] [~ [~ sd ~ ~] ~ [~ sd ~ ~]]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh),
+  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh),
+  s("[~ [~ sd ~ ~] ~ [~ sd ~ ~]] [~ [~ sd ~ ~] ~ [~ sd ~ ~]]").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38385,18 +33708,12 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_cr = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cp ~]*2 [~ cp ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("~ [cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2").bank(bank_cr).n(n_cr),
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[cp ~]*2 [~ cp ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("~ [cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2").bank(bank_cr),
+  s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -38429,20 +33746,13 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_cr = 0;
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[cp ~]*2 [~ cp ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
-  s("~ [cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2").bank(bank_cr).n(n_cr),
-  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[cp ~]*2 [~ cp ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank_cp),
+  s("~ [cr ~ ~ cr] [~ ~ cr ~] [~ cr]*2").bank(bank_cr),
+  s("~ ~ ~ [~ ~ oh ~]").bank(bank_oh),
+  s("[hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38474,16 +33784,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh),
+  s("~ ~ [~ hh ~ ~] ~").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("bd*4").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -38512,14 +33817,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -38547,14 +33848,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] [~ sd sd ~] ~ [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ ~ ~ sd] [~ sd sd ~] ~ [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38582,14 +33879,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("sd*4").bank(bank_sd).n(n_sd),
-  s("~ [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh),
+  s("sd*4").bank(bank_sd),
+  s("~ [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -38617,14 +33910,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh ~ hh hh] [hh ~ ~ hh] [hh ~ hh hh] [hh ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [hh ~ ~ hh] [hh ~ hh hh] [hh ~ ~ hh]").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -38652,14 +33941,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -38687,14 +33972,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh),
+  s("~ ~ [~ sd ~ ~] ~").bank(bank_sd),
+  s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank_bd)
 )
 ```
 
@@ -38722,14 +34003,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ ~ [sd ~ ~ ~] ~").bank(bank_sd),
+  s("bd ~ bd ~").bank(bank_bd)
 )
 ```
 
@@ -38759,18 +34036,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ [~ mt ~ ~] [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ hh hh] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ [~ mt ~ ~] [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ ~ hh hh] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh hh]").gain("0.85").bank(bank_hh),
+  s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38802,18 +34073,12 @@ let bank_hh = bank_default;
 let bank_rim = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_mt = 0;
-let n_hh = 0;
-let n_rim = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ [~ mt ~ ~] [~ ~ ~ mt] ~").bank(bank_mt).n(n_mt),
-  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ cp ~ cp").bank(bank_cp),
+  s("~ [~ mt ~ ~] [~ ~ ~ mt] ~").bank(bank_mt),
+  s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh),
+  s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank_rim),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38842,12 +34107,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [sd ~ ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [sd ~ ~ ~] [~ ~ sd ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38873,12 +34135,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -38904,12 +34163,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank_bd)
 )
 ```
 
@@ -38935,12 +34191,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -38966,12 +34219,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd)
 )
 ```
 
@@ -38997,12 +34247,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd),
+  s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank_bd)
 )
 ```
 
@@ -39028,12 +34275,9 @@ let bank_default = "RolandTR808";
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[sd ~ ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[sd ~ ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd),
+  s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -39061,16 +34305,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("~ ~ [oh ~ ~ ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[~ hh hh ~] [hh hh ~ hh] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("~ ~ [oh ~ ~ ~] [~ ~ oh ~]").bank(bank_oh),
+  s("[~ hh hh ~] [hh hh ~ hh] ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh),
+  s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank_sd),
+  s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd)
 )
 ```
 
@@ -39100,16 +34339,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[~ ~ [~ oh]*2 [~ oh ~ ~]] [~ ~ [~ oh]*2 [~ oh ~ ~]]").bank(bank_oh).n(n_oh),
-  s("hh*16 [hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [~ ~ ~ sd]]").bank(bank_sd).n(n_sd),
-  s("[[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2] [[bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ oh]*2 [~ oh ~ ~]] [~ ~ [~ oh]*2 [~ oh ~ ~]]").bank(bank_oh),
+  s("hh*16 [hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]]").gain("0.85").bank(bank_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [~ ~ ~ sd]]").bank(bank_sd),
+  s("[[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2] [[bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2]").gain("1.0 0.8").bank(bank_bd)
 )
 ```
 
@@ -39139,16 +34373,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
-  s("[[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4] [[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]]").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh),
+  s("[[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4] [[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh),
+  s("[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]]").bank(bank_bd)
 )
 ```
 
@@ -39178,16 +34407,11 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_oh = 0;
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("[oh ~ ~ ~] ~ ~ ~").bank(bank_oh),
+  s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -39215,12 +34439,9 @@ let bank_default = "RolandTR808";
 let bank_cp = bank_default;
 let bank_bd = bank_default;
 
-let n_cp = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd).n(n_bd)
+  s("~ cp ~ cp").bank(bank_cp),
+  s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank_bd)
 )
 ```
 
@@ -39247,14 +34468,10 @@ let bank_hh = bank_default;
 let bank_sd = bank_default;
 let bank_bd = bank_default;
 
-let n_hh = 0;
-let n_sd = 0;
-let n_bd = 0;
-
 stack(
-  s("hh*8").gain("0.9 0.6").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").bank(bank_bd).n(n_bd)
+  s("hh*8").gain("0.9 0.6").bank(bank_hh),
+  s("~ sd ~ sd").bank(bank_sd),
+  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").bank(bank_bd)
 )
 ```
 
@@ -39281,12 +34498,9 @@ let bank_default = "RolandTR808";
 let bank_cr = bank_default;
 let bank_bd = bank_default;
 
-let n_cr = 0;
-let n_bd = 0;
-
 stack(
-  s("~ cr ~ cr").bank(bank_cr).n(n_cr),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("~ cr ~ cr").bank(bank_cr),
+  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd)
 )
 ```
 

@@ -6298,7 +6298,7 @@ function play(pattern, opts = {}) {
   if (!pat || !pat.tracks) return pat;
 
   const bank = o.bank || o.kit || 'RolandTR808';
-  const n = o.n ?? 0;
+  const n = o.n;
   const key = o.key || o.bassKey || 'c';
   const oct = o.octave || o.bassOctave || 1;
   const validSynths = ['sawtooth', 'square', 'sine', 'triangle', 'supersaw'];
@@ -6319,8 +6319,13 @@ function play(pattern, opts = {}) {
     if (instrument === 'bass' || instrument === 'synth') {
       t = t.note(key).octave(oct).decay(0.2).sustain(0).sound(synth);
     } else {
-      const nVal = typeof n === 'object' ? (n[instrument] ?? 0) : n;
-      t = t.n(nVal).bank(bank);
+      const nVal = typeof n === 'object' ? (n[instrument] ?? null) : (typeof n === 'number' && n > 0 ? n : null);
+      if (nVal !== null) {
+        t = t.n(nVal);
+      }
+      if (bank) {
+        t = t.bank(bank);
+      }
     }
     stackTracks.push(t);
   }

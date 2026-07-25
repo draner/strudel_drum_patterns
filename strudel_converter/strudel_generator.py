@@ -55,12 +55,6 @@ def generate_strudel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
     if samples_used:
         lines.append("")
     
-    # Declare n variables
-    for s_name in samples_used:
-        lines.append(f"let n_{s_name} = 0;")
-    if samples_used:
-        lines.append("")
-        
     # Declare bass synth variables if pattern contains a bass line
     if has_bass:
         lines.append('let bass_key = "c";          // Bass root key')
@@ -87,7 +81,7 @@ def generate_strudel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
             mini_pat = optimize_track_pattern(steps_str, s_name)
             gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            track_expr = f's("{mini_pat}"){gain_part}.bank(bank_{s_name}).n(n_{s_name})'
+            track_expr = f's("{mini_pat}"){gain_part}.bank(bank_{s_name})'
             
         stack_lines.append(f"  {track_expr}")
         
