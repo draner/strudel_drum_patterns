@@ -27,11 +27,11 @@ let n_hh = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ ~ sd] ~ ~ ~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ ~ sd] ~ ~] [~ [~ ~ ~ sd] [~ sd ~ ~] ~]").bank(bank_sd).n(n_sd),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("~ [~ ~ [~ ~ hh ~] [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
   s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -42,11 +42,11 @@ stack(
 setcpm(180 / 4);
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ ~ sd] ~ ~ ~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("~ ~ ~ [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ ~ sd] ~ ~] [~ [~ ~ ~ sd] [~ sd ~ ~] ~]").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("~ [~ ~ [~ ~ hh ~] [~ ~ hh ~]]").gain("0.85").bank(kit)
 $: s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -17992,12 +17992,12 @@ let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "
 
 stack(
   s("bd ~ bd ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
+  s("[[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [x ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(bank_sd).n(n_sd),
+  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~]*2 ~]").bank(bank_sd).n(n_sd),
   s("~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
+  s("[~ [hh ~]*2 ~ [hh ~ ~ ~]] [~ [hh hh hh ~] ~ [hh ~ ~ ~]] [~ [hh ~]*2 ~ [hh hh ~ ~]] [~ [hh ~]*2 ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[[x ~ ~ ~] ~ ~ ~] ~ [~ ~ [~ ~ x ~] ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -18009,12 +18009,12 @@ setcpm(140 / 4);
 const kit = "RolandTR808";
 
 $: s("bd ~ bd ~").gain("1.0 0.8").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
+$: s("[[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [[x ~ ~ ~] ~ ~ ~] [x ~ x ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 $: s("~ sd ~ sd").bank(kit)
-$: s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(kit)
+$: s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~]*2 ~]").bank(kit)
 $: s("~ sd ~ sd").bank(kit)
-$: s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
+$: s("[~ [hh ~]*2 ~ [hh ~ ~ ~]] [~ [hh hh hh ~] ~ [hh ~ ~ ~]] [~ [hh ~]*2 ~ [hh hh ~ ~]] [~ [hh ~]*2 ~ [hh ~ hh hh]]").gain("0.85").bank(kit)
+$: s("[[x ~ ~ ~] ~ ~ ~] ~ [~ ~ [~ ~ x ~] ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -18048,7 +18048,7 @@ stack(
   s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ [sd ~ ~ ~] ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ sd ~ sd] [~ [sd ~ ~ ~] ~ [sd ~ sd sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18063,7 +18063,7 @@ const kit = "RolandTR808";
 $: s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ [sd ~ ~ ~] ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ sd ~ sd] [~ [sd ~ ~ ~] ~ [sd ~ sd sd]]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18183,11 +18183,11 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("tamb*16 tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]").bank(bank_tamb).n(n_tamb),
-  s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("tamb*16 [tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]]").bank(bank_tamb).n(n_tamb),
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18197,11 +18197,11 @@ stack(
 // Live Channel Mode - breakashleysroach_EH
 const kit = "RolandTR808";
 
-$: s("tamb*16 tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]").bank(kit)
-$: s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").gain("1.0 0.8").bank(kit)
+$: s("tamb*16 [tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]]").bank(kit)
+$: s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -18223,7 +18223,7 @@ let n_bd = 0;
 
 stack(
   s("oh*32").bank(bank_oh).n(n_oh),
-  s("[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4 [sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4] [[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18235,7 +18235,7 @@ stack(
 const kit = "RolandTR808";
 
 $: s("oh*32").bank(kit)
-$: s("[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4 [sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4] [[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18257,9 +18257,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18269,9 +18269,9 @@ stack(
 // Live Channel Mode - breakbreaks(standard)_DMR
 const kit = "RolandTR808";
 
-$: s("[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(kit)
+$: s("[[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18293,8 +18293,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] ~ [~ ~ sd ~] ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ ~] ~ [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18305,8 +18305,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ ~] ~ [~ ~ sd ~] ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(kit)
+$: s("[~ [sd ~ ~ ~] ~ [~ ~ sd ~]] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18327,9 +18327,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2] hh*8").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ ~ ~ [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18339,9 +18339,9 @@ stack(
 // Live Channel Mode - breakcontemporarysnare_DMR
 const kit = "RolandTR808";
 
-$: s("[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2 hh*8").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~]").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~").bank(kit)
+$: s("[[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2] hh*8").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ ~ ~ [sd ~ ~ ~]]").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18362,9 +18362,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("[[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18374,9 +18374,9 @@ stack(
 // Live Channel Mode - breakelectro(standard)_DMR
 const kit = "RolandTR808";
 
-$: s("[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(kit)
+$: s("[[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ bd ~] ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(kit)
 ```
 </details>
 
@@ -18399,9 +18399,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4 hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[~ [~ ~ oh ~] [~ ~ oh ~] ~] [~ [~ ~ oh ~] [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4] [hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18412,9 +18412,9 @@ stack(
 // Live Channel Mode - breakfunkbreak_SA
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~").bank(kit)
-$: s("hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4 hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(kit)
+$: s("[~ [~ ~ oh ~] [~ ~ oh ~] ~] [~ [~ ~ oh ~] [~ ~ oh ~] ~]").bank(kit)
+$: s("[hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4] [hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]]").bank(kit)
 $: s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18438,9 +18438,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ ~ oh] ~ [~ oh ~ ~] ~ [~ ~ ~ oh] ~ [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh] hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ [~ ~ ~ oh] ~ [~ oh ~ ~]] [~ [~ ~ ~ oh] ~ [~ oh ~ ~]]").bank(bank_oh).n(n_oh),
+  s("[hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]] [hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18451,9 +18451,9 @@ stack(
 // Live Channel Mode - breakfunkydrummer_EH
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ ~ oh] ~ [~ oh ~ ~] ~ [~ ~ ~ oh] ~ [~ oh ~ ~]").bank(kit)
-$: s("hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh] hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ [~ ~ ~ oh] ~ [~ oh ~ ~]] [~ [~ ~ ~ oh] ~ [~ oh ~ ~]]").bank(kit)
+$: s("[hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]] [hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18476,8 +18476,8 @@ let n_bd = 0;
 
 stack(
   s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~ bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18488,8 +18488,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("bd ~ bd ~ bd ~ bd ~").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -18512,9 +18512,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18525,9 +18525,9 @@ stack(
 // Live Channel Mode - breakimpeach_EH
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18550,8 +18550,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18562,8 +18562,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(kit)
+$: s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18585,7 +18585,7 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18597,7 +18597,7 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18621,9 +18621,9 @@ let n_cp = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh] ~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~").bank(bank_cp).n(n_cp),
+  s("[~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]] [~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp).n(n_cp),
   s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18634,9 +18634,9 @@ stack(
 // Live Channel Mode - breakpapawastoo_EH
 const kit = "RolandTR808";
 
-$: s("~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh] ~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~").bank(kit)
+$: s("[~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]] [~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(kit)
 $: s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18659,8 +18659,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] ~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] [~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18671,8 +18671,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] ~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(kit)
+$: s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] [~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18694,8 +18694,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18706,8 +18706,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18730,9 +18730,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
+  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -18743,9 +18743,9 @@ stack(
 // Live Channel Mode - breaksyntheticsubs_EH
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ oh ~] ~ ~ ~").bank(kit)
-$: s("hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("~ [[~ ~ oh ~] ~ ~ ~]").bank(kit)
+$: s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -18769,12 +18769,12 @@ let n_hh = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2 ~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2").bank(bank_sd).n(n_sd),
+  s("[~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2] [~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2]").bank(bank_sd).n(n_sd),
   s("[sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
+  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
   s("[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ sd] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [[bd ~ ~ bd] ~ [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18784,12 +18784,12 @@ stack(
 // Live Channel Mode - breaktakemetomardigras_EH
 const kit = "RolandTR808";
 
-$: s("~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2 ~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2] [~ [sd ~ ~ sd] [~ ~ sd ~] [~ sd]*2]").bank(kit)
 $: s("[sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(kit)
-$: s("~ ~ ~ ~ [~ ~ oh ~]").bank(kit)
+$: s("~ [~ ~ ~ [~ ~ oh ~]]").bank(kit)
 $: s("[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(kit)
+$: s("[~ sd ~ sd] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(kit)
+$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [[bd ~ ~ bd] ~ [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18810,9 +18810,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ oh ~ oh ~ oh ~ oh").bank(bank_oh).n(n_oh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ oh ~ oh] [~ oh ~ oh]").bank(bank_oh).n(n_oh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18822,9 +18822,9 @@ stack(
 // Live Channel Mode - breakthebigbeat_EH
 const kit = "RolandTR808";
 
-$: s("~ oh ~ oh ~ oh ~ oh").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.8").bank(kit)
+$: s("[~ oh ~ oh] [~ oh ~ oh]").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -18846,8 +18846,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] [~ ~ sd ~] ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ [sd ~ ~ ~] [~ ~ sd ~]] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18858,8 +18858,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ ~ [sd ~ ~ ~] [~ ~ sd ~] ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(kit)
+$: s("[~ ~ [sd ~ ~ ~] [~ ~ sd ~]] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -18882,10 +18882,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~ [oh ~ ~ ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[[oh ~ ~ ~] ~ ~ ~] [[oh ~ ~ ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
+  s("[[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2] [[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~] [[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18895,10 +18895,10 @@ stack(
 // Live Channel Mode - breakwalkthisway_EH
 const kit = "RolandTR808";
 
-$: s("[oh ~ ~ ~] ~ ~ ~ [oh ~ ~ ~] ~ ~ ~").bank(kit)
-$: s("[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").gain("1.0 0.8").bank(kit)
+$: s("[[oh ~ ~ ~] ~ ~ ~] [[oh ~ ~ ~] ~ ~ ~]").bank(kit)
+$: s("[[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2] [[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~] [[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -18920,8 +18920,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~ [bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~] [[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -18932,8 +18932,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~ [bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").gain("1.0 0.8").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~] [[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -19091,10 +19091,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~]").bank(bank_lc).n(n_lc),
+  s("[~ [~ ~ lc ~] ~ [~ ~ lc ~]] [~ [~ ~ lc ~] ~ [~ ~ lc ~]]").bank(bank_lc).n(n_lc),
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
+  s("[~ [hh ~ hh hh] ~ [hh ~ hh hh]] [~ [hh ~ hh hh] ~ [hh ~ hh hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[[~ ~ ~ sd] ~ [~ ~ ~ sd] ~] [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19105,10 +19105,10 @@ stack(
 // Live Channel Mode - deephouse_CCM
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~]").bank(kit)
+$: s("[~ [~ ~ lc ~] ~ [~ ~ lc ~]] [~ [~ ~ lc ~] ~ [~ ~ lc ~]]").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
-$: s("~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(kit)
+$: s("[~ [hh ~ hh hh] ~ [hh ~ hh hh]] [~ [hh ~ hh hh] ~ [hh ~ hh hh]]").gain("0.85").bank(kit)
+$: s("[[~ ~ ~ sd] ~ [~ ~ ~ sd] ~] [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19176,8 +19176,8 @@ stack(
   s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp ~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
+  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19191,8 +19191,8 @@ const kit = "RolandTR808";
 $: s("sd*32").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]").gain("0.85").bank(kit)
-$: s("~ cp ~ cp ~ cp ~ cp").bank(kit)
-$: s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").bank(kit)
+$: s("[~ cp ~ cp] [~ cp ~ cp]").bank(kit)
+$: s("[~ [sd ~ ~ sd] ~ [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]]").bank(kit)
 $: s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19310,7 +19310,7 @@ let n_bd = 0;
 stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp ~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]").bank(bank_cp).n(n_cp),
+  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]]").bank(bank_cp).n(n_cp),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19323,7 +19323,7 @@ const kit = "RolandTR808";
 
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]").gain("0.85").bank(kit)
-$: s("~ cp ~ cp ~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]").bank(kit)
+$: s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19394,8 +19394,8 @@ let n_bd = 0;
 stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [cp cp ~ cp] [~ ~ cp cp] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("~ [~ [cp cp ~ cp] [~ ~ cp cp] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19408,8 +19408,8 @@ const kit = "RolandTR808";
 
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(kit)
-$: s("~ ~ [cp cp ~ cp] [~ ~ cp cp] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("~ [~ [cp cp ~ cp] [~ ~ cp cp] ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19568,7 +19568,7 @@ let n_bd = 0;
 stack(
   s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ cp ~ cp ~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
+  s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]]").bank(bank_cp).n(n_cp),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19581,7 +19581,7 @@ const kit = "RolandTR808";
 
 $: s("sd*32").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]").bank(kit)
-$: s("~ cp ~ cp ~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(kit)
+$: s("[~ cp ~ cp] [~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19734,12 +19734,12 @@ let n_rim = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [cl ~ ~ ~] ~ ~ ~ [cl ~ ~ ~]").bank(bank_cl).n(n_cl),
+  s("[~ ~ ~ [cl ~ ~ ~]] [~ ~ ~ [cl ~ ~ ~]]").bank(bank_cl).n(n_cl),
   s("[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]").bank(bank_tamb).n(n_tamb),
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ cp ~ cp ~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("[~ ~ ~ rim] ~ [~ rim ~ ~] ~ [~ ~ ~ rim] ~ [~ rim ~ ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
+  s("[[~ ~ ~ rim] ~ [~ rim ~ ~] ~] [[~ ~ ~ rim] ~ [~ rim ~ ~] ~]").bank(bank_rim).n(n_rim),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -19749,12 +19749,12 @@ stack(
 // Live Channel Mode - slowhouse_AM
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [cl ~ ~ ~] ~ ~ ~ [cl ~ ~ ~]").bank(kit)
+$: s("[~ ~ ~ [cl ~ ~ ~]] [~ ~ ~ [cl ~ ~ ~]]").bank(kit)
 $: s("[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
-$: s("~ cp ~ cp ~ cp ~ cp").bank(kit)
-$: s("[~ ~ ~ rim] ~ [~ rim ~ ~] ~ [~ ~ ~ rim] ~ [~ rim ~ ~] ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(kit)
+$: s("[~ cp ~ cp] [~ cp ~ cp]").bank(kit)
+$: s("[[~ ~ ~ rim] ~ [~ rim ~ ~] ~] [[~ ~ ~ rim] ~ [~ rim ~ ~] ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -19781,8 +19781,8 @@ let n_bd = 0;
 stack(
   s("[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp ~ cp ~ cp").bank(bank_cp).n(n_cp),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19795,8 +19795,8 @@ const kit = "RolandTR808";
 
 $: s("[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]").gain("0.85").bank(kit)
-$: s("~ cp ~ cp ~ cp ~ cp").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("[~ cp ~ cp] [~ cp ~ cp]").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19823,10 +19823,10 @@ let n_bd = 0;
 
 stack(
   s("[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]").bank(bank_tamb).n(n_tamb),
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2 [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~] ~ [sd ~ sd sd] ~ [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2] [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~]] [~ [sd ~ sd sd] ~ [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("bd*4 [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -19837,10 +19837,10 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]").bank(kit)
-$: s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2 [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~] ~ [sd ~ sd sd] ~ [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(kit)
+$: s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2] [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]").gain("0.85").bank(kit)
+$: s("[~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~]] [~ [sd ~ sd sd] ~ [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("bd*4 [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -19864,8 +19864,8 @@ let n_bd = 0;
 
 stack(
   s("[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~] ~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("[~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]] [~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19877,8 +19877,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]").bank(kit)
-$: s("~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~] ~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("[~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]] [~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19905,9 +19905,9 @@ let n_bd = 0;
 
 stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]").bank(bank_oh).n(n_oh),
-  s("~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~]").bank(bank_mt).n(n_mt),
-  s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] [~ ~ ~ cp] ~").bank(bank_cp).n(n_cp),
-  s("~ ~ [rim ~ ~ ~] ~ ~ ~ [rim ~ ~ rim] ~").bank(bank_rim).n(n_rim),
+  s("[~ [~ ~ mt ~] ~ [~ ~ mt ~]] [~ [~ ~ mt ~] ~ [~ ~ mt ~]]").bank(bank_mt).n(n_mt),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] [~ ~ ~ cp] ~]").bank(bank_cp).n(n_cp),
+  s("[~ ~ [rim ~ ~ ~] ~] [~ ~ [rim ~ ~ rim] ~]").bank(bank_rim).n(n_rim),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -19919,9 +19919,9 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]").bank(kit)
-$: s("~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~]").bank(kit)
-$: s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] [~ ~ ~ cp] ~").bank(kit)
-$: s("~ ~ [rim ~ ~ ~] ~ ~ ~ [rim ~ ~ rim] ~").bank(kit)
+$: s("[~ [~ ~ mt ~] ~ [~ ~ mt ~]] [~ [~ ~ mt ~] ~ [~ ~ mt ~]]").bank(kit)
+$: s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] [~ ~ ~ cp] ~]").bank(kit)
+$: s("[~ ~ [rim ~ ~ ~] ~] [~ ~ [rim ~ ~ rim] ~]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -19953,9 +19953,9 @@ let n_bd = 0;
 stack(
   s("sd*4 sd*4").bank(bank_sd).n(n_sd),
   s("oh*4 oh*4").bank(bank_oh).n(n_oh),
-  s("[~ ~ mt ~] ~ ~ ~ [~ ~ mt ~] ~ ~ ~").bank(bank_mt).n(n_mt),
+  s("[[~ ~ mt ~] ~ ~ ~] [[~ ~ mt ~] ~ ~ ~]").bank(bank_mt).n(n_mt),
   s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~").bank(bank_cp).n(n_cp),
+  s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(bank_cp).n(n_cp),
   s("[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
   s("bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -19969,9 +19969,9 @@ const kit = "RolandTR808";
 
 $: s("sd*4 sd*4").bank(kit)
 $: s("oh*4 oh*4").bank(kit)
-$: s("[~ ~ mt ~] ~ ~ ~ [~ ~ mt ~] ~ ~ ~").bank(kit)
+$: s("[[~ ~ mt ~] ~ ~ ~] [[~ ~ mt ~] ~ ~ ~]").bank(kit)
 $: s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~").bank(kit)
+$: s("[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]").bank(kit)
 $: s("[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(kit)
 ```
@@ -20000,7 +20000,7 @@ let n_bd = 0;
 stack(
   s("[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ cp ~ cp ~ cp ~ cp").bank(bank_cp).n(n_cp),
+  s("[~ cp ~ cp] [~ cp ~ cp]").bank(bank_cp).n(n_cp),
   s("[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -20014,7 +20014,7 @@ const kit = "RolandTR808";
 
 $: s("[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ cp ~ cp ~ cp ~ cp").bank(kit)
+$: s("[~ cp ~ cp] [~ cp ~ cp]").bank(kit)
 $: s("[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
@@ -20044,9 +20044,9 @@ let n_bd = 0;
 
 stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
-  s("~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
+  s("[[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2] [[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_mt).n(n_mt),
+  s("[~ [~ ~ hh ~] ~ [~ ~ hh ~]] [~ [~ ~ hh ~] ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
   s("[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank_rim).n(n_rim),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -20059,9 +20059,9 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
-$: s("[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
+$: s("[[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2] [[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ [~ ~ hh ~] ~ [~ ~ hh ~]] [~ [~ ~ hh ~] ~ [~ ~ hh ~]]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
 $: s("[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
@@ -20093,8 +20093,8 @@ let n_bd = 0;
 
 stack(
   s("sd*32").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~").bank(bank_lc).n(n_lc),
-  s("~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~]").bank(bank_bon).n(n_bon),
+  s("[[~ ~ ~ lc] ~ [~ ~ ~ lc] ~] [[~ ~ ~ lc] ~ [~ ~ ~ lc] ~]").bank(bank_lc).n(n_lc),
+  s("[~ [~ ~ bon ~] ~ [~ ~ bon ~]] [~ [~ ~ bon ~] ~ [~ ~ bon ~]]").bank(bank_bon).n(n_bon),
   s("[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]").bank(bank_rd).n(n_rd),
   s("oh*4 oh*4").bank(bank_oh).n(n_oh),
   s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
@@ -20109,8 +20109,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("sd*32").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~").bank(kit)
-$: s("~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~]").bank(kit)
+$: s("[[~ ~ ~ lc] ~ [~ ~ ~ lc] ~] [[~ ~ ~ lc] ~ [~ ~ ~ lc] ~]").bank(kit)
+$: s("[~ [~ ~ bon ~] ~ [~ ~ bon ~]] [~ [~ ~ bon ~] ~ [~ ~ bon ~]]").bank(kit)
 $: s("[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]").bank(kit)
 $: s("oh*4 oh*4").bank(kit)
 $: s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(kit)
@@ -20145,10 +20145,10 @@ let n_bd = 0;
 stack(
   s("rd*4 rd*4").bank(bank_rd).n(n_rd),
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("~ ~ ~ [~ ~ mt ~] ~ ~ ~ [~ ~ mt ~]").bank(bank_mt).n(n_mt),
+  s("[~ ~ ~ [~ ~ mt ~]] [~ ~ ~ [~ ~ mt ~]]").bank(bank_mt).n(n_mt),
   s("hh*32").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2 [~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2").bank(bank_cp).n(n_cp),
-  s("[rim ~]*2 ~ ~ ~ [rim ~]*2 ~ ~ ~").bank(bank_rim).n(n_rim),
+  s("[[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2] [[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2]").bank(bank_cp).n(n_cp),
+  s("[[rim ~]*2 ~ ~ ~] [[rim ~]*2 ~ ~ ~]").bank(bank_rim).n(n_rim),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -20161,10 +20161,10 @@ const kit = "RolandTR808";
 
 $: s("rd*4 rd*4").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
-$: s("~ ~ ~ [~ ~ mt ~] ~ ~ ~ [~ ~ mt ~]").bank(kit)
+$: s("[~ ~ ~ [~ ~ mt ~]] [~ ~ ~ [~ ~ mt ~]]").bank(kit)
 $: s("hh*32").gain("0.85").bank(kit)
-$: s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2 [~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2").bank(kit)
-$: s("[rim ~]*2 ~ ~ ~ [rim ~]*2 ~ ~ ~").bank(kit)
+$: s("[[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2] [[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2]").bank(kit)
+$: s("[[rim ~]*2 ~ ~ ~] [[rim ~]*2 ~ ~ ~]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -20194,11 +20194,11 @@ let n_hc = 0;
 let n_hh = 0;
 
 stack(
-  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~").bank(bank_cl).n(n_cl),
+  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl).n(n_cl),
   s("sd*8 sd*8").bank(bank_sd).n(n_sd),
   s("[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]").bank(bank_lc).n(n_lc),
   s("[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]").bank(bank_hc).n(n_hc),
-  s("[~ ~ hh ~] ~ ~ ~ [~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh)
+  s("[[~ ~ hh ~] ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh)
 )
 ```
 
@@ -20208,11 +20208,11 @@ stack(
 // Live Channel Mode - beguine
 const kit = "RolandTR808";
 
-$: s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~").bank(kit)
+$: s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(kit)
 $: s("sd*8 sd*8").bank(kit)
 $: s("[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]").bank(kit)
 $: s("[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]").bank(kit)
-$: s("[~ ~ hh ~] ~ ~ ~ [~ ~ hh ~] ~ ~ ~").gain("0.85").bank(kit)
+$: s("[[~ ~ hh ~] ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(kit)
 ```
 </details>
 
@@ -20235,10 +20235,10 @@ let n_rim = 0;
 let n_bd = 0;
 
 stack(
-  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank_sd).n(n_sd),
+  s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] [~ [sd ~ ~ ~] [~ ~ sd ~] ~]").bank(bank_sd).n(n_sd),
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] ~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank_rim).n(n_rim),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] [~ [rim ~ ~ ~] [~ ~ rim ~] ~]").bank(bank_rim).n(n_rim),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20248,10 +20248,10 @@ stack(
 // Live Channel Mode - bossanova
 const kit = "RolandTR808";
 
-$: s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(kit)
+$: s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] [~ [sd ~ ~ ~] [~ ~ sd ~] ~]").bank(kit)
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] ~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(kit)
+$: s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] [~ [rim ~ ~ ~] [~ ~ rim ~] ~]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(kit)
 ```
 </details>
 
@@ -20272,10 +20272,10 @@ let n_hh = 0;
 let n_bd = 0;
 
 stack(
-  s("sd ~ sd ~ sd ~ sd ~").bank(bank_sd).n(n_sd),
-  s("~ hh ~ hh ~ hh ~ hh").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~ bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[sd ~ sd ~] [sd ~ sd ~]").bank(bank_sd).n(n_sd),
+  s("[~ hh ~ hh] [~ hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20285,10 +20285,10 @@ stack(
 // Live Channel Mode - foxtrot
 const kit = "RolandTR808";
 
-$: s("sd ~ sd ~ sd ~ sd ~").bank(kit)
-$: s("~ hh ~ hh ~ hh ~ hh").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("bd ~ bd ~ bd ~ bd ~").bank(kit)
+$: s("[sd ~ sd ~] [sd ~ sd ~]").bank(kit)
+$: s("[~ hh ~ hh] [~ hh ~ hh]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -20308,7 +20308,7 @@ let n_bd = 0;
 
 stack(
   s("[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~ bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20319,7 +20319,7 @@ stack(
 const kit = "RolandTR808";
 
 $: s("[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(kit)
-$: s("bd ~ bd ~ bd ~ bd ~").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -20343,8 +20343,8 @@ let n_rim = 0;
 
 stack(
   s("sd*8 sd*8").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2").bank(bank_lc).n(n_lc),
-  s("~ [~ ~ hc ~] [hc ~ ~ ~] ~ ~ [~ ~ hc ~] [hc ~ ~ ~] ~").bank(bank_hc).n(n_hc),
+  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc).n(n_lc),
+  s("[~ [~ ~ hc ~] [hc ~ ~ ~] ~] [~ [~ ~ hc ~] [hc ~ ~ ~] ~]").bank(bank_hc).n(n_hc),
   s("rim*4 rim*4").bank(bank_rim).n(n_rim)
 )
 ```
@@ -20356,8 +20356,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("sd*8 sd*8").bank(kit)
-$: s("~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2").bank(kit)
-$: s("~ [~ ~ hc ~] [hc ~ ~ ~] ~ ~ [~ ~ hc ~] [hc ~ ~ ~] ~").bank(kit)
+$: s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(kit)
+$: s("[~ [~ ~ hc ~] [hc ~ ~ ~] ~] [~ [~ ~ hc ~] [hc ~ ~ ~] ~]").bank(kit)
 $: s("rim*4 rim*4").bank(kit)
 ```
 </details>
@@ -20379,9 +20379,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("hh ~ hh ~ hh ~ hh ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~ bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20391,9 +20391,9 @@ stack(
 // Live Channel Mode - march
 const kit = "RolandTR808";
 
-$: s("hh ~ hh ~ hh ~ hh ~").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("bd ~ bd ~ bd ~ bd ~").bank(kit)
+$: s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -20418,11 +20418,11 @@ let n_hc = 0;
 let n_bd = 0;
 
 stack(
-  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~").bank(bank_cl).n(n_cl),
-  s("[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2").bank(bank_lc).n(n_lc),
-  s("~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~ [~ ~ hc ~] [~ ~ hc ~]").bank(bank_hc).n(n_hc),
-  s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(bank_cl).n(n_cl),
+  s("[[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2] [[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(bank_lc).n(n_lc),
+  s("[~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~]] [~ ~ [~ ~ hc ~] [~ ~ hc ~]]").bank(bank_hc).n(n_hc),
+  s("[[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20432,11 +20432,11 @@ stack(
 // Live Channel Mode - rhumba
 const kit = "RolandTR808";
 
-$: s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~").bank(kit)
-$: s("[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2").bank(kit)
-$: s("~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~ [~ ~ hc ~] [~ ~ hc ~]").bank(kit)
-$: s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(kit)
+$: s("[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]").bank(kit)
+$: s("[[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2] [[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]").bank(kit)
+$: s("[~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~]] [~ ~ [~ ~ hc ~] [~ ~ hc ~]]").bank(kit)
+$: s("[[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -20458,8 +20458,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~]*2 ~ [sd ~ ~ ~] ~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~]*2 ~ [sd ~ ~ ~]] [~ [sd ~]*2 ~ [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20470,8 +20470,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ [sd ~]*2 ~ [sd ~ ~ ~] ~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(kit)
+$: s("[~ [sd ~]*2 ~ [sd ~ ~ ~]] [~ [sd ~]*2 ~ [sd ~ ~ ~]]").bank(kit)
+$: s("[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]").bank(kit)
 ```
 </details>
 
@@ -20493,8 +20493,8 @@ let n_hc = 0;
 
 stack(
   s("sd*8 sd*8").bank(bank_sd).n(n_sd),
-  s("~ ~ [lc ~ ~ ~] ~ ~ ~ [lc ~ ~ ~] ~").bank(bank_lc).n(n_lc),
-  s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~").bank(bank_hc).n(n_hc)
+  s("[~ ~ [lc ~ ~ ~] ~] [~ ~ [lc ~ ~ ~] ~]").bank(bank_lc).n(n_lc),
+  s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [[~ ~ hc ~] [~ ~ hc ~] ~ ~]").bank(bank_hc).n(n_hc)
 )
 ```
 
@@ -20505,8 +20505,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("sd*8 sd*8").bank(kit)
-$: s("~ ~ [lc ~ ~ ~] ~ ~ ~ [lc ~ ~ ~] ~").bank(kit)
-$: s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~").bank(kit)
+$: s("[~ ~ [lc ~ ~ ~] ~] [~ ~ [lc ~ ~ ~] ~]").bank(kit)
+$: s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [[~ ~ hc ~] [~ ~ hc ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -20527,9 +20527,9 @@ let n_hh = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("hh ~ hh ~ hh ~ hh ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("bd ~ bd ~ bd ~ bd ~").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ sd] ~ [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [sd ~ ~ sd]]").bank(bank_sd).n(n_sd),
+  s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[bd ~ bd ~] [bd ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20539,9 +20539,9 @@ stack(
 // Live Channel Mode - swing
 const kit = "RolandTR808";
 
-$: s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(kit)
-$: s("hh ~ hh ~ hh ~ hh ~").gain("0.85").bank(kit)
-$: s("bd ~ bd ~ bd ~ bd ~").bank(kit)
+$: s("[~ [sd ~ ~ sd] ~ [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [sd ~ ~ sd]]").bank(kit)
+$: s("[hh ~ hh ~] [hh ~ hh ~]").gain("0.85").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -20562,8 +20562,8 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [~ ~ hh ~] ~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").bank(bank_sd).n(n_sd),
+  s("[~ ~ ~ [~ ~ hh ~]] [~ ~ ~ [~ ~ hh ~]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2] [[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -20574,8 +20574,8 @@ stack(
 // Live Channel Mode - tango
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [~ ~ hh ~] ~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").bank(kit)
+$: s("[~ ~ ~ [~ ~ hh ~]] [~ ~ ~ [~ ~ hh ~]]").gain("0.85").bank(kit)
+$: s("[[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2] [[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -20597,9 +20597,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [[sd ~ ~ ~] [sd ~]*2 ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20609,9 +20609,9 @@ stack(
 // Live Channel Mode - waltz
 const kit = "RolandTR808";
 
-$: s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [~ ~ hh ~] ~ ~ ~").gain("0.85").bank(kit)
-$: s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]").gain("0.85").bank(kit)
+$: s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [[sd ~ ~ ~] [sd ~]*2 ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [[~ ~ bd ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -20640,7 +20640,7 @@ let n_cp = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ ~ [~ ~ ~ cr]").bank(bank_cr).n(n_cr),
+  s("~ [~ ~ ~ [~ ~ ~ cr]]").bank(bank_cr).n(n_cr),
   s("oh*8 oh*8").bank(bank_oh).n(n_oh),
   s("cp*4 cp*4").bank(bank_cp).n(n_cp),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
@@ -20654,7 +20654,7 @@ stack(
 setcpm(200 / 4);
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ ~ [~ ~ ~ cr]").bank(kit)
+$: s("~ [~ ~ ~ [~ ~ ~ cr]]").bank(kit)
 $: s("oh*8 oh*8").bank(kit)
 $: s("cp*4 cp*4").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
@@ -20684,8 +20684,8 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [~ ~ hh ~] ~ [~ ~ ~ hh] ~ ~ [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
+  s("~ [~ ~ [~ ~ hh ~] ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ ~ [~ ~ hh ~] ~] [[~ ~ ~ hh] ~ ~ [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -20698,8 +20698,8 @@ stack(
 setcpm(143 / 4);
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [~ ~ hh ~] ~").gain("0.85").bank(kit)
-$: s("~ ~ [~ ~ hh ~] ~ [~ ~ ~ hh] ~ ~ [hh ~]*2").gain("0.85").bank(kit)
+$: s("~ [~ ~ [~ ~ hh ~] ~]").gain("0.85").bank(kit)
+$: s("[~ ~ [~ ~ hh ~] ~] [[~ ~ ~ hh] ~ ~ [hh ~]*2]").gain("0.85").bank(kit)
 $: s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
@@ -20724,9 +20724,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd)
+  s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ ~] [~ ~ bd ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -20737,9 +20737,9 @@ stack(
 setcpm(140 / 4);
 const kit = "RolandTR808";
 
-$: s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(kit)
+$: s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~]").bank(kit)
+$: s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ ~] [~ ~ bd ~] ~]").bank(kit)
 ```
 </details>
 
@@ -28694,7 +28694,7 @@ let n_hh = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~] ~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
+  s("[~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]] [~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -28707,7 +28707,7 @@ stack(
 setcpm(128 / 4);
 const kit = "RolandTR808";
 
-$: s("~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~] ~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]] [~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
@@ -28981,10 +28981,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ ~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
+  s("~ ~ ~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
   s("hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd bd] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]]").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd bd] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -28994,10 +28994,10 @@ stack(
 // Live Channel Mode - AmenBrother
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ ~ ~ [~ ~ oh ~] ~").bank(kit)
+$: s("~ ~ ~ [~ ~ [~ ~ oh ~] ~]").bank(kit)
 $: s("hh*8").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(kit)
-$: s("[bd ~]*2 ~ [~ ~ bd bd] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~").gain("1.0 0.8").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]]").bank(kit)
+$: s("[[bd ~]*2 ~ [~ ~ bd bd] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -29311,9 +29311,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd)
+  s("[[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2] [[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -29323,9 +29323,9 @@ stack(
 // Live Channel Mode - BookOfMoses
 const kit = "RolandTR808";
 
-$: s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~").bank(kit)
+$: s("[[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2] [[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~]").bank(kit)
 ```
 </details>
 
@@ -29677,9 +29677,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [oh ~]*2 ~ ~ ~ [oh ~]*2").bank(bank_oh).n(n_oh),
-  s("~ [sd ~ ~ sd] [~ sd sd ~] ~ [~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2 [bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ ~ [oh ~]*2] [~ ~ ~ [oh ~]*2]").bank(bank_oh).n(n_oh),
+  s("[~ [sd ~ ~ sd] [~ sd sd ~] ~] [[~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2] [[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -29689,9 +29689,9 @@ stack(
 // Live Channel Mode - CissyStrutLong
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [oh ~]*2 ~ ~ ~ [oh ~]*2").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd sd ~] ~ [~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2 [bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2").gain("1.0 0.8").bank(kit)
+$: s("[~ ~ ~ [oh ~]*2] [~ ~ ~ [oh ~]*2]").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd sd ~] ~] [[~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2] [[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -31548,9 +31548,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~ ~").bank(bank_oh).n(n_oh),
+  s("[[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~] ~").bank(bank_oh).n(n_oh),
   s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [~ sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [[~ sd ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd)
 )
 ```
@@ -31561,9 +31561,9 @@ stack(
 // Live Channel Mode - DubstepRatcheted
 const kit = "RolandTR808";
 
-$: s("[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~ ~").bank(kit)
+$: s("[[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~] ~").bank(kit)
 $: s("[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]").gain("0.85").bank(kit)
-$: s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [~ sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [[~ sd ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(kit)
 ```
 </details>
@@ -31711,7 +31711,7 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ [~ ~ ~ oh] ~ [~ ~ ~ oh] ~ ~ ~").bank(bank_oh).n(n_oh),
+  s("[~ ~ [~ ~ ~ oh] ~] [[~ ~ ~ oh] ~ ~ ~]").bank(bank_oh).n(n_oh),
   s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank_bd).n(n_bd)
@@ -31724,7 +31724,7 @@ stack(
 // Live Channel Mode - ExpensiveShit
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ ~ ~ oh] ~ [~ ~ ~ oh] ~ ~ ~").bank(kit)
+$: s("[~ ~ [~ ~ ~ oh] ~] [[~ ~ ~ oh] ~ ~ ~]").bank(kit)
 $: s("[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]").gain("0.85").bank(kit)
 $: s("[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(kit)
@@ -31748,8 +31748,8 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] hh*4 hh*4 hh*4 [hh ~ hh hh] hh*4 hh*4 hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2 ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[hh ~ hh hh] hh*4 hh*4 hh*4] [[hh ~ hh hh] hh*4 hh*4 hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -31760,8 +31760,8 @@ stack(
 // Live Channel Mode - ExpressYourself
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] hh*4 hh*4 hh*4 [hh ~ hh hh] hh*4 hh*4 hh*4").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2 ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[hh ~ hh hh] hh*4 hh*4 hh*4] [[hh ~ hh hh] hh*4 hh*4 hh*4]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -33073,10 +33073,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~ [hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] ~ ~ ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd)
+  s("~ [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
+  s("[[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~] [[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~]] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] [~ ~ ~ [~ bd ~ ~]]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -33086,10 +33086,10 @@ stack(
 // Live Channel Mode - HookAndSling
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ ~ [~ ~ oh ~]").bank(kit)
-$: s("[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~ [hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] ~ ~ ~ [~ bd ~ ~]").bank(kit)
+$: s("~ [~ ~ ~ [~ ~ oh ~]]").bank(kit)
+$: s("[[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~] [[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~]] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] [~ ~ ~ [~ bd ~ ~]]").bank(kit)
 ```
 </details>
 
@@ -33110,9 +33110,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("hh*8 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("hh*8 [[hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -33122,9 +33122,9 @@ stack(
 // Live Channel Mode - HotSweat
 const kit = "RolandTR808";
 
-$: s("hh*8 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(kit)
+$: s("hh*8 [[hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -33445,8 +33445,8 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2").bank(bank_bd).n(n_bd)
+  s("[~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~]] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -33457,8 +33457,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~]] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2]").bank(kit)
 ```
 </details>
 
@@ -33481,10 +33481,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -33494,10 +33494,10 @@ stack(
 // Live Channel Mode - IGotYou
 const kit = "RolandTR808";
 
-$: s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(kit)
+$: s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -34093,9 +34093,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
-  s("hh*4 hh*4 hh*4 [hh hh ~ ~] hh*4 hh*4 hh*4 [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
+  s("[hh*4 hh*4 hh*4 [hh hh ~ ~]] [hh*4 hh*4 hh*4 [hh hh ~ ~]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
@@ -34106,9 +34106,9 @@ stack(
 // Live Channel Mode - KissingMyLove
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]").bank(kit)
-$: s("hh*4 hh*4 hh*4 [hh hh ~ ~] hh*4 hh*4 hh*4 [hh hh ~ ~]").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(kit)
+$: s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(kit)
+$: s("[hh*4 hh*4 hh*4 [hh hh ~ ~]] [hh*4 hh*4 hh*4 [hh hh ~ ~]]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]").bank(kit)
 $: s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(kit)
 ```
 </details>
@@ -34171,9 +34171,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("[~ ~ hh ~] [~ ~ hh ~] ~ ~ [~ ~ hh ~] [~ ~ hh ~] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd sd ~ ~] ~ ~ ~ [sd sd ~ ~] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[~ ~ oh ~] [~ ~ oh ~] ~ ~] [[~ ~ oh ~] [~ ~ oh ~] ~ ~]").bank(bank_oh).n(n_oh),
+  s("[[~ ~ hh ~] [~ ~ hh ~] ~ ~] [[~ ~ hh ~] [~ ~ hh ~] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd sd ~ ~] ~ ~] [~ [sd sd ~ ~] [sd ~ ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
@@ -34184,9 +34184,9 @@ stack(
 // Live Channel Mode - Lady
 const kit = "RolandTR808";
 
-$: s("[~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~ ~").bank(kit)
-$: s("[~ ~ hh ~] [~ ~ hh ~] ~ ~ [~ ~ hh ~] [~ ~ hh ~] ~ ~").gain("0.85").bank(kit)
-$: s("~ [sd sd ~ ~] ~ ~ ~ [sd sd ~ ~] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[~ ~ oh ~] [~ ~ oh ~] ~ ~] [[~ ~ oh ~] [~ ~ oh ~] ~ ~]").bank(kit)
+$: s("[[~ ~ hh ~] [~ ~ hh ~] ~ ~] [[~ ~ hh ~] [~ ~ hh ~] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [sd sd ~ ~] ~ ~] [~ [sd sd ~ ~] [sd ~ ~ ~] ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]").bank(kit)
 ```
 </details>
@@ -34210,10 +34210,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
+  s("~ [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~ [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[~ sd ~ sd] [~ [sd ~ ~ ~] [sd ~ ~ ~] ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ [bd ~ ~ ~]]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -34223,10 +34223,10 @@ stack(
 // Live Channel Mode - LadyMarmalade
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [~ ~ oh ~] ~").bank(kit)
+$: s("~ [~ ~ [~ ~ oh ~] ~]").bank(kit)
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(kit)
-$: s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~ [bd ~ ~ ~]").bank(kit)
+$: s("[~ sd ~ sd] [~ [sd ~ ~ ~] [sd ~ ~ ~] ~]").bank(kit)
+$: s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ [bd ~ ~ ~]]").bank(kit)
 ```
 </details>
 
@@ -34249,9 +34249,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]").bank(bank_oh).n(n_oh),
+  s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(bank_oh).n(n_oh),
   s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -34262,9 +34262,9 @@ stack(
 // Live Channel Mode - LetAWomanBeAWomanLetAManBeAMan
 const kit = "RolandTR808";
 
-$: s("~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]").bank(kit)
+$: s("[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]").bank(kit)
 $: s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -34382,8 +34382,8 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -34395,8 +34395,8 @@ stack(
 // Live Channel Mode - Lookkapypy
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2").gain("0.85").bank(kit)
+$: s("[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]").gain("0.85").bank(kit)
 $: s("[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]").gain("1.0 0.8").bank(kit)
 ```
@@ -34533,8 +34533,8 @@ let n_bd = 0;
 
 stack(
   s("hh*4 hh*4").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -34545,8 +34545,8 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*4 hh*4").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~]*2 ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(kit)
 ```
 </details>
 
@@ -34904,8 +34904,8 @@ let n_bd = 0;
 stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [[~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 ~ [bd ~ bd bd] ~] [[bd ~ bd bd] ~ [bd ~ bd bd] ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -34917,8 +34917,8 @@ const kit = "RolandTR808";
 
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(kit)
-$: s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~]*2 ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~").gain("1.0 0.8").bank(kit)
+$: s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [[~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2]").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[[bd ~]*2 ~ [bd ~ bd bd] ~] [[bd ~ bd bd] ~ [bd ~ bd bd] ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -34941,10 +34941,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ [~ ~ oh ~] ~ ~").bank(bank_oh).n(n_oh),
-  s("hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~] [hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ ~ oh ~] ~] ~").bank(bank_oh).n(n_oh),
+  s("[hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~]] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [[~ ~ bd ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -34954,10 +34954,10 @@ stack(
 // Live Channel Mode - PalmGrease
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ ~ oh ~] ~ ~").bank(kit)
-$: s("hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~] [hh ~]*2 ~ ~ ~").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(kit)
-$: s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ ~ ~").bank(kit)
+$: s("[~ ~ [~ ~ oh ~] ~] ~").bank(kit)
+$: s("[hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~]] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(kit)
+$: s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [[~ ~ bd ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35017,9 +35017,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35029,9 +35029,9 @@ stack(
 // Live Channel Mode - Pattern00
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35052,9 +35052,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35064,9 +35064,9 @@ stack(
 // Live Channel Mode - Pattern01
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35087,9 +35087,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35099,9 +35099,9 @@ stack(
 // Live Channel Mode - Pattern02
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35122,9 +35122,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35134,9 +35134,9 @@ stack(
 // Live Channel Mode - Pattern03
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35157,9 +35157,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35169,9 +35169,9 @@ stack(
 // Live Channel Mode - Pattern04
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35192,9 +35192,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35204,9 +35204,9 @@ stack(
 // Live Channel Mode - Pattern05
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35227,9 +35227,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35239,9 +35239,9 @@ stack(
 // Live Channel Mode - Pattern06
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35262,9 +35262,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35274,9 +35274,9 @@ stack(
 // Live Channel Mode - Pattern07
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35297,9 +35297,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35309,9 +35309,9 @@ stack(
 // Live Channel Mode - Pattern08
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35332,9 +35332,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35344,9 +35344,9 @@ stack(
 // Live Channel Mode - Pattern09
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35367,9 +35367,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35379,9 +35379,9 @@ stack(
 // Live Channel Mode - Pattern10
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35402,9 +35402,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35414,9 +35414,9 @@ stack(
 // Live Channel Mode - Pattern11
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35437,9 +35437,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35449,9 +35449,9 @@ stack(
 // Live Channel Mode - Pattern12
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35472,9 +35472,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35484,9 +35484,9 @@ stack(
 // Live Channel Mode - Pattern13
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35507,9 +35507,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35519,9 +35519,9 @@ stack(
 // Live Channel Mode - Pattern14
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35542,9 +35542,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35554,9 +35554,9 @@ stack(
 // Live Channel Mode - Pattern15
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35577,9 +35577,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35589,9 +35589,9 @@ stack(
 // Live Channel Mode - Pattern16
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35612,9 +35612,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35624,9 +35624,9 @@ stack(
 // Live Channel Mode - Pattern17
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35647,9 +35647,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35659,9 +35659,9 @@ stack(
 // Live Channel Mode - Pattern18
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35682,9 +35682,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35694,9 +35694,9 @@ stack(
 // Live Channel Mode - Pattern19
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35717,9 +35717,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35729,9 +35729,9 @@ stack(
 // Live Channel Mode - Pattern20
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35752,9 +35752,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35764,9 +35764,9 @@ stack(
 // Live Channel Mode - Pattern21
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35787,9 +35787,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35799,9 +35799,9 @@ stack(
 // Live Channel Mode - Pattern22
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35822,9 +35822,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35834,9 +35834,9 @@ stack(
 // Live Channel Mode - Pattern23
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35857,9 +35857,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35869,9 +35869,9 @@ stack(
 // Live Channel Mode - Pattern24
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35892,9 +35892,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35904,9 +35904,9 @@ stack(
 // Live Channel Mode - Pattern25
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35927,9 +35927,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35939,9 +35939,9 @@ stack(
 // Live Channel Mode - Pattern26
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -35962,9 +35962,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -35974,9 +35974,9 @@ stack(
 // Live Channel Mode - Pattern27
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -35997,9 +35997,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36009,9 +36009,9 @@ stack(
 // Live Channel Mode - Pattern28
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36032,9 +36032,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36044,9 +36044,9 @@ stack(
 // Live Channel Mode - Pattern29
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36067,9 +36067,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36079,9 +36079,9 @@ stack(
 // Live Channel Mode - Pattern30
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36102,9 +36102,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36114,9 +36114,9 @@ stack(
 // Live Channel Mode - Pattern31
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -36137,9 +36137,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36149,9 +36149,9 @@ stack(
 // Live Channel Mode - Pattern32
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36172,9 +36172,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36184,9 +36184,9 @@ stack(
 // Live Channel Mode - Pattern33
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36207,9 +36207,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36219,9 +36219,9 @@ stack(
 // Live Channel Mode - Pattern34
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36242,9 +36242,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36254,9 +36254,9 @@ stack(
 // Live Channel Mode - Pattern35
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36277,9 +36277,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36289,9 +36289,9 @@ stack(
 // Live Channel Mode - Pattern36
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36312,9 +36312,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36324,9 +36324,9 @@ stack(
 // Live Channel Mode - Pattern37
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36347,9 +36347,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36359,9 +36359,9 @@ stack(
 // Live Channel Mode - Pattern38
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36382,9 +36382,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36394,9 +36394,9 @@ stack(
 // Live Channel Mode - Pattern39
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36417,9 +36417,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36429,9 +36429,9 @@ stack(
 // Live Channel Mode - Pattern40
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36452,9 +36452,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36464,9 +36464,9 @@ stack(
 // Live Channel Mode - Pattern41
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36487,9 +36487,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36499,9 +36499,9 @@ stack(
 // Live Channel Mode - Pattern42
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36522,9 +36522,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36534,9 +36534,9 @@ stack(
 // Live Channel Mode - Pattern43
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36557,9 +36557,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36569,9 +36569,9 @@ stack(
 // Live Channel Mode - Pattern44
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36592,9 +36592,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36604,9 +36604,9 @@ stack(
 // Live Channel Mode - Pattern45
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36627,9 +36627,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36639,9 +36639,9 @@ stack(
 // Live Channel Mode - Pattern46
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36662,9 +36662,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36674,9 +36674,9 @@ stack(
 // Live Channel Mode - Pattern47
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36697,9 +36697,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36709,9 +36709,9 @@ stack(
 // Live Channel Mode - Pattern48
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36732,9 +36732,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36744,9 +36744,9 @@ stack(
 // Live Channel Mode - Pattern49
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36767,9 +36767,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36779,9 +36779,9 @@ stack(
 // Live Channel Mode - Pattern50
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36802,9 +36802,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36814,9 +36814,9 @@ stack(
 // Live Channel Mode - Pattern51
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36837,9 +36837,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36849,9 +36849,9 @@ stack(
 // Live Channel Mode - Pattern52
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36872,9 +36872,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36884,9 +36884,9 @@ stack(
 // Live Channel Mode - Pattern53
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36907,9 +36907,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36919,9 +36919,9 @@ stack(
 // Live Channel Mode - Pattern54
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36942,9 +36942,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36954,9 +36954,9 @@ stack(
 // Live Channel Mode - Pattern55
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -36977,9 +36977,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -36989,9 +36989,9 @@ stack(
 // Live Channel Mode - Pattern56
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37012,9 +37012,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37024,9 +37024,9 @@ stack(
 // Live Channel Mode - Pattern57
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37047,9 +37047,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37059,9 +37059,9 @@ stack(
 // Live Channel Mode - Pattern58
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37082,9 +37082,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37094,9 +37094,9 @@ stack(
 // Live Channel Mode - Pattern59
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -37117,9 +37117,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37129,9 +37129,9 @@ stack(
 // Live Channel Mode - Pattern60
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37152,9 +37152,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37164,9 +37164,9 @@ stack(
 // Live Channel Mode - Pattern61
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37187,9 +37187,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37199,9 +37199,9 @@ stack(
 // Live Channel Mode - Pattern62
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]").bank(kit)
 ```
 </details>
 
@@ -37222,9 +37222,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(bank_sd).n(n_sd),
+  s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37234,9 +37234,9 @@ stack(
 // Live Channel Mode - Pattern63
 const kit = "RolandTR808";
 
-$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~").gain("0.85").bank(kit)
-$: s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(kit)
+$: s("[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]").gain("0.85").bank(kit)
+$: s("[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -37302,7 +37302,7 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd ~ ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
+  s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [[sd ~ ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank_bd).n(n_bd)
 )
 ```
@@ -37313,7 +37313,7 @@ stack(
 // Live Channel Mode - Poly1a
 const kit = "RolandTR808";
 
-$: s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd ~ ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
+$: s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [[sd ~ ~ ~] ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(kit)
 ```
 </details>
@@ -37368,10 +37368,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[oh ~ ~ ~] ~ ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("~ ~ [hh ~ ~ ~] ~ hh ~ hh ~").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ sd ~ sd ~ sd ~ sd").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] ~ ~ ~ [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(bank_bd).n(n_bd)
+  s("[[oh ~ ~ ~] ~ ~ ~] ~").bank(bank_oh).n(n_oh),
+  s("[~ ~ [hh ~ ~ ~] ~] [hh ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ sd ~ sd] [~ sd ~ sd]").bank(bank_sd).n(n_sd),
+  s("[[bd ~ ~ ~] ~ ~ ~] [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -37381,10 +37381,10 @@ stack(
 // Live Channel Mode - Poptech2010
 const kit = "RolandTR808";
 
-$: s("[oh ~ ~ ~] ~ ~ ~ ~").bank(kit)
-$: s("~ ~ [hh ~ ~ ~] ~ hh ~ hh ~").gain("0.85").bank(kit)
-$: s("~ sd ~ sd ~ sd ~ sd").bank(kit)
-$: s("[bd ~ ~ ~] ~ ~ ~ [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(kit)
+$: s("[[oh ~ ~ ~] ~ ~ ~] ~").bank(kit)
+$: s("[~ ~ [hh ~ ~ ~] ~] [hh ~ hh ~]").gain("0.85").bank(kit)
+$: s("[~ sd ~ sd] [~ sd ~ sd]").bank(kit)
+$: s("[[bd ~ ~ ~] ~ ~ ~] [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(kit)
 ```
 </details>
 
@@ -37488,7 +37488,7 @@ let n_bd = 0;
 
 stack(
   s("hh*8 hh*8").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
+  s("[~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]]").bank(bank_sd).n(n_sd),
   s("bd*4 bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -37500,7 +37500,7 @@ stack(
 const kit = "RolandTR808";
 
 $: s("hh*8 hh*8").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]").bank(kit)
+$: s("[~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]]").bank(kit)
 $: s("bd*4 bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -37524,8 +37524,8 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [~ oh ~ ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [[~ oh ~ ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
@@ -37537,8 +37537,8 @@ stack(
 // Live Channel Mode - RockSteady
 const kit = "RolandTR808";
 
-$: s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [~ oh ~ ~] ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(kit)
+$: s("[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [[~ oh ~ ~] ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]").gain("0.85").bank(kit)
 $: s("[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(kit)
 ```
@@ -38351,9 +38351,9 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ [~ ~ oh ~] ~ ~ ~").bank(bank_oh).n(n_oh),
-  s("hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~]").bank(bank_sd).n(n_sd),
+  s("~ [[~ ~ oh ~] ~ ~ ~]").bank(bank_oh).n(n_oh),
+  s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [~ sd ~ ~] ~ [~ sd ~ ~]] [~ [~ sd ~ ~] ~ [~ sd ~ ~]]").bank(bank_sd).n(n_sd),
   s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -38364,9 +38364,9 @@ stack(
 // Live Channel Mode - SynthethicSubstitution
 const kit = "RolandTR808";
 
-$: s("~ [~ ~ oh ~] ~ ~ ~").bank(kit)
-$: s("hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2").gain("0.85").bank(kit)
-$: s("~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~]").bank(kit)
+$: s("~ [[~ ~ oh ~] ~ ~ ~]").bank(kit)
+$: s("hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]").gain("0.85").bank(kit)
+$: s("[~ [~ sd ~ ~] ~ [~ sd ~ ~]] [~ [~ sd ~ ~] ~ [~ sd ~ ~]]").bank(kit)
 $: s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -38519,7 +38519,7 @@ let n_bd = 0;
 stack(
   s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("bd ~ bd ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[bd ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -38531,7 +38531,7 @@ const kit = "RolandTR808";
 
 $: s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(kit)
 $: s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("bd ~ bd ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(kit)
+$: s("[bd ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(kit)
 ```
 </details>
 
@@ -38692,7 +38692,7 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
 )
@@ -38704,7 +38704,7 @@ stack(
 // Live Channel Mode - Trap1b
 const kit = "RolandTR808";
 
-$: s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 ~ ~ ~").gain("0.85").bank(kit)
+$: s("[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [[hh ~]*2 ~ ~ ~]").gain("0.85").bank(kit)
 $: s("~ ~ [~ sd ~ ~] ~").bank(kit)
 $: s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(kit)
 ```
@@ -39106,10 +39106,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("~ ~ [~ oh]*2 [~ oh ~ ~] ~ ~ [~ oh]*2 [~ oh ~ ~]").bank(bank_oh).n(n_oh),
-  s("hh*16 hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
-  s("[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2 [bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank_bd).n(n_bd)
+  s("[~ ~ [~ oh]*2 [~ oh ~ ~]] [~ ~ [~ oh]*2 [~ oh ~ ~]]").bank(bank_oh).n(n_oh),
+  s("hh*16 [hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]]").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [~ ~ ~ sd]]").bank(bank_sd).n(n_sd),
+  s("[[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2] [[bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2]").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -39119,10 +39119,10 @@ stack(
 // Live Channel Mode - UseMe
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ oh]*2 [~ oh ~ ~] ~ ~ [~ oh]*2 [~ oh ~ ~]").bank(kit)
-$: s("hh*16 hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]").gain("0.85").bank(kit)
-$: s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [~ ~ ~ sd]").bank(kit)
-$: s("[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2 [bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(kit)
+$: s("[~ ~ [~ oh]*2 [~ oh ~ ~]] [~ ~ [~ oh]*2 [~ oh ~ ~]]").bank(kit)
+$: s("hh*16 [hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]]").gain("0.85").bank(kit)
+$: s("[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [~ ~ ~ sd]]").bank(kit)
+$: s("[[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2] [[bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2]").gain("1.0 0.8").bank(kit)
 ```
 </details>
 
@@ -39145,10 +39145,10 @@ let n_sd = 0;
 let n_bd = 0;
 
 stack(
-  s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(bank_oh).n(n_oh),
-  s("[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(bank_hh).n(n_hh),
+  s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(bank_oh).n(n_oh),
+  s("[[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4] [[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4]").gain("0.85").bank(bank_hh).n(n_hh),
   s("[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
-  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank_bd).n(n_bd)
+  s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]]").bank(bank_bd).n(n_bd)
 )
 ```
 
@@ -39158,10 +39158,10 @@ stack(
 // Live Channel Mode - UseMeAlt
 const kit = "RolandTR808";
 
-$: s("[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~").bank(kit)
-$: s("[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4").gain("0.85").bank(kit)
+$: s("[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]").bank(kit)
+$: s("[[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4] [[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4]").gain("0.85").bank(kit)
 $: s("[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
-$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(kit)
+$: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]]").bank(kit)
 ```
 </details>
 

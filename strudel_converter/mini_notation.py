@@ -45,6 +45,8 @@ def optimize_beat_group(steps_4: str, sample_name: str) -> str:
 def optimize_track_pattern(steps: str, sample_name: str) -> str:
     """
     Convert a full track step string (16, 32, etc.) into idiomatic Strudel mini-notation.
+    Formats 4-bar patterns into bracketed bar subgroups [bar0] [bar1] [bar2] [bar3]
+    so Strudel plays them at the correct tempo and duration.
     """
     if not steps or set(steps) == {"-"}:
         return "~"
@@ -103,9 +105,13 @@ def optimize_track_pattern(steps: str, sample_name: str) -> str:
             
         bars.append(bar_notation)
         
-    # Combine bars
+    # Combine bars: if all bars are identical, return single bar
     if len(bars) == 4 and bars[0] == bars[1] == bars[2] == bars[3]:
-        return f"{bars[0]}"
+        return bars[0]
+        
+    if len(bars) > 1:
+        wrapped_bars = [f"[{b}]" if " " in b and not (b.startswith("[") and b.endswith("]")) else b for b in bars]
+        return " ".join(wrapped_bars)
         
     return " ".join(bars)
 

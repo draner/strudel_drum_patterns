@@ -1869,87 +1869,87 @@ _patterns.EDM_literature_patterns_bigroomhouse_AM = Object.assign({"title": "big
   play(opts) { return play(this, opts); }
 });
 _patterns.bigroomhouse_AM = _patterns.EDM_literature_patterns_bigroomhouse_AM;
-_patterns.EDM_literature_patterns_breakashleysroach_EH = Object.assign({"title": "breakashleysroach_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"tamb": "tamb*16 tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]", "oh": "~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~", "hh": "[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakashleysroach_EH = Object.assign({"title": "breakashleysroach_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"tamb": "tamb*16 [tamb*4 tamb*4 tamb*4 [tamb tamb tamb ~]]", "oh": "[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]", "hh": "[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakashleysroach_EH = _patterns.EDM_literature_patterns_breakashleysroach_EH;
-_patterns.EDM_literature_patterns_breakbeat_SA = Object.assign({"title": "breakbeat_SA", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "oh*32", "sd": "[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4 [sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4", "bd": "[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakbeat_SA = Object.assign({"title": "breakbeat_SA", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "oh*32", "sd": "[[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4] [[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4]", "bd": "[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakbeat_SA = _patterns.EDM_literature_patterns_breakbeat_SA;
-_patterns.EDM_literature_patterns_breakbreaks_standard_DMR = Object.assign({"title": "breakbreaks(standard)_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakbreaks_standard_DMR = Object.assign({"title": "breakbreaks(standard)_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[[hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [~ ~ hh ~]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakbreaks_standard_DMR = _patterns.EDM_literature_patterns_breakbreaks_standard_DMR;
-_patterns.EDM_literature_patterns_breakcontemporarykick_DMR = Object.assign({"title": "breakcontemporarykick_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ [sd ~ ~ ~] ~ [~ ~ sd ~] ~ sd ~ sd", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakcontemporarykick_DMR = Object.assign({"title": "breakcontemporarykick_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ [sd ~ ~ ~] ~ [~ ~ sd ~]] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakcontemporarykick_DMR = _patterns.EDM_literature_patterns_breakcontemporarykick_DMR;
-_patterns.EDM_literature_patterns_breakcontemporarysnare_DMR = Object.assign({"title": "breakcontemporarysnare_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2 hh*8", "sd": "~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~]", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakcontemporarysnare_DMR = Object.assign({"title": "breakcontemporarysnare_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[[hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~]*2] hh*8", "sd": "[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ ~ ~ [sd ~ ~ ~]]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakcontemporarysnare_DMR = _patterns.EDM_literature_patterns_breakcontemporarysnare_DMR;
-_patterns.EDM_literature_patterns_breakelectro_standard_DMR = Object.assign({"title": "breakelectro(standard)_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakelectro_standard_DMR = Object.assign({"title": "breakelectro(standard)_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh hh hh ~] [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [~ ~ bd ~] ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakelectro_standard_DMR = _patterns.EDM_literature_patterns_breakelectro_standard_DMR;
-_patterns.EDM_literature_patterns_breakfunkbreak_SA = Object.assign({"title": "breakfunkbreak_SA", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~", "hh": "hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4 hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4", "sd": "~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]", "bd": "[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakfunkbreak_SA = Object.assign({"title": "breakfunkbreak_SA", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ [~ ~ oh ~] [~ ~ oh ~] ~] [~ [~ ~ oh ~] [~ ~ oh ~] ~]", "hh": "[hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4] [hh*4 [hh hh ~ ~] [hh hh ~ ~] hh*4]", "sd": "[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]]", "bd": "[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakfunkbreak_SA = _patterns.EDM_literature_patterns_breakfunkbreak_SA;
-_patterns.EDM_literature_patterns_breakfunkydrummer_EH = Object.assign({"title": "breakfunkydrummer_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ ~ oh] ~ [~ oh ~ ~] ~ [~ ~ ~ oh] ~ [~ oh ~ ~]", "hh": "hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh] hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]", "sd": "~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]", "bd": "[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakfunkydrummer_EH = Object.assign({"title": "breakfunkydrummer_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ [~ ~ ~ oh] ~ [~ oh ~ ~]] [~ [~ ~ ~ oh] ~ [~ oh ~ ~]]", "hh": "[hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]] [hh*4 [hh hh hh ~] hh*4 [hh ~ hh hh]]", "sd": "[~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]]", "bd": "[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakfunkydrummer_EH = _patterns.EDM_literature_patterns_breakfunkydrummer_EH;
-_patterns.EDM_literature_patterns_breakhybrid_DMR = Object.assign({"title": "breakhybrid_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "bd ~ bd ~ bd ~ bd ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakhybrid_DMR = Object.assign({"title": "breakhybrid_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[bd ~ bd ~] [bd ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakhybrid_DMR = _patterns.EDM_literature_patterns_breakhybrid_DMR;
-_patterns.EDM_literature_patterns_breakimpeach_EH = Object.assign({"title": "breakimpeach_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~", "hh": "[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakimpeach_EH = Object.assign({"title": "breakimpeach_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]", "hh": "[[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~ hh hh] [hh ~ ~ ~] [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakimpeach_EH = _patterns.EDM_literature_patterns_breakimpeach_EH;
-_patterns.EDM_literature_patterns_breakirregular_DMR = Object.assign({"title": "breakirregular_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] ~ sd ~ sd", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakirregular_DMR = Object.assign({"title": "breakirregular_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakirregular_DMR = _patterns.EDM_literature_patterns_breakirregular_DMR;
-_patterns.EDM_literature_patterns_breakitsanewday_EH = Object.assign({"title": "breakitsanewday_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakitsanewday_EH = Object.assign({"title": "breakitsanewday_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakitsanewday_EH = _patterns.EDM_literature_patterns_breakitsanewday_EH;
-_patterns.EDM_literature_patterns_breakpapawastoo_EH = Object.assign({"title": "breakpapawastoo_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh] ~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]", "sd": "~ sd ~ sd ~ sd ~ sd", "cp": "~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakpapawastoo_EH = Object.assign({"title": "breakpapawastoo_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "[~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]] [~ [hh ~ ~ ~] [hh ~]*2 [hh ~ hh hh]]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "cp": "[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakpapawastoo_EH = _patterns.EDM_literature_patterns_breakpapawastoo_EH;
-_patterns.EDM_literature_patterns_breakpolyrhythmic_DMR = Object.assign({"title": "breakpolyrhythmic_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] ~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.EDM_literature_patterns_breakpolyrhythmic_DMR = Object.assign({"title": "breakpolyrhythmic_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] [~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]]", "bd": "[[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakpolyrhythmic_DMR = _patterns.EDM_literature_patterns_breakpolyrhythmic_DMR;
-_patterns.EDM_literature_patterns_breakrolling_DMR = Object.assign({"title": "breakrolling_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakrolling_DMR = Object.assign({"title": "breakrolling_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakrolling_DMR = _patterns.EDM_literature_patterns_breakrolling_DMR;
-_patterns.EDM_literature_patterns_breaksyntheticsubs_EH = Object.assign({"title": "breaksyntheticsubs_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ oh ~] ~ ~ ~", "hh": "hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breaksyntheticsubs_EH = Object.assign({"title": "breaksyntheticsubs_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ [[~ ~ oh ~] ~ ~ ~]", "hh": "hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breaksyntheticsubs_EH = _patterns.EDM_literature_patterns_breaksyntheticsubs_EH;
-_patterns.EDM_literature_patterns_breaktakemetomardigras_EH = Object.assign({"title": "breaktakemetomardigras_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "~ sd ~ sd ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]", "oh": "~ ~ ~ ~ [~ ~ oh ~]", "hh": "[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~ [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breaktakemetomardigras_EH = Object.assign({"title": "breaktakemetomardigras_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "[~ sd ~ sd] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]", "oh": "~ [~ ~ ~ [~ ~ oh ~]]", "hh": "[hh ~]*2 [hh ~ hh hh] [~ ~ hh ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh] [hh ~]*2 [hh ~ ~ ~]", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [[bd ~ ~ bd] ~ [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breaktakemetomardigras_EH = _patterns.EDM_literature_patterns_breaktakemetomardigras_EH;
-_patterns.EDM_literature_patterns_breakthebigbeat_EH = Object.assign({"title": "breakthebigbeat_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "~ oh ~ oh ~ oh ~ oh", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~"}, "gains": {"bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakthebigbeat_EH = Object.assign({"title": "breakthebigbeat_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ oh ~ oh] [~ oh ~ oh]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~]"}, "gains": {"bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakthebigbeat_EH = _patterns.EDM_literature_patterns_breakthebigbeat_EH;
-_patterns.EDM_literature_patterns_breakunconventional_DMR = Object.assign({"title": "breakunconventional_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ ~ [sd ~ ~ ~] [~ ~ sd ~] ~ sd ~ sd", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.EDM_literature_patterns_breakunconventional_DMR = Object.assign({"title": "breakunconventional_DMR", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ ~ [sd ~ ~ ~] [~ ~ sd ~]] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakunconventional_DMR = _patterns.EDM_literature_patterns_breakunconventional_DMR;
-_patterns.EDM_literature_patterns_breakwalkthisway_EH = Object.assign({"title": "breakwalkthisway_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[oh ~ ~ ~] ~ ~ ~ [oh ~ ~ ~] ~ ~ ~", "hh": "[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakwalkthisway_EH = Object.assign({"title": "breakwalkthisway_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[[oh ~ ~ ~] ~ ~ ~] [[oh ~ ~ ~] ~ ~ ~]", "hh": "[[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2] [[~ ~ hh ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~] [[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakwalkthisway_EH = _patterns.EDM_literature_patterns_breakwalkthisway_EH;
-_patterns.EDM_literature_patterns_breakwhenthelevee_EH = Object.assign({"title": "breakwhenthelevee_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~ [bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_breakwhenthelevee_EH = Object.assign({"title": "breakwhenthelevee_EH", "category": "EDM literature patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~] [[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.breakwhenthelevee_EH = _patterns.EDM_literature_patterns_breakwhenthelevee_EH;
@@ -1965,7 +1965,7 @@ _patterns.EDM_literature_patterns_classichouse_CCM = Object.assign({"title": "cl
   play(opts) { return play(this, opts); }
 });
 _patterns.classichouse_CCM = _patterns.EDM_literature_patterns_classichouse_CCM;
-_patterns.EDM_literature_patterns_deephouse_CCM = Object.assign({"title": "deephouse_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"lc": "~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~] ~ [~ ~ lc ~]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh] ~ [hh ~ hh hh]", "sd": "[~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_deephouse_CCM = Object.assign({"title": "deephouse_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"lc": "[~ [~ ~ lc ~] ~ [~ ~ lc ~]] [~ [~ ~ lc ~] ~ [~ ~ lc ~]]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[~ [hh ~ hh hh] ~ [hh ~ hh hh]] [~ [hh ~ hh hh] ~ [hh ~ hh hh]]", "sd": "[[~ ~ ~ sd] ~ [~ ~ ~ sd] ~] [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.deephouse_CCM = _patterns.EDM_literature_patterns_deephouse_CCM;
@@ -1973,7 +1973,7 @@ _patterns.EDM_literature_patterns_deephouse_SA = Object.assign({"title": "deepho
   play(opts) { return play(this, opts); }
 });
 _patterns.deephouse_SA = _patterns.EDM_literature_patterns_deephouse_SA;
-_patterns.EDM_literature_patterns_deeptechhouse_AM = Object.assign({"title": "deeptechhouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "~ [sd ~ ~ sd] ~ [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]", "cp": "~ cp ~ cp ~ cp ~ cp", "bd": "[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_deeptechhouse_AM = Object.assign({"title": "deeptechhouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "[~ [sd ~ ~ sd] ~ [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~]", "cp": "[~ cp ~ cp] [~ cp ~ cp]", "bd": "[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.deeptechhouse_AM = _patterns.EDM_literature_patterns_deeptechhouse_AM;
@@ -1985,7 +1985,7 @@ _patterns.EDM_literature_patterns_frenchhouse_SA = Object.assign({"title": "fren
   play(opts) { return play(this, opts); }
 });
 _patterns.frenchhouse_SA = _patterns.EDM_literature_patterns_frenchhouse_SA;
-_patterns.EDM_literature_patterns_house_CCM = Object.assign({"title": "house_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]", "cp": "~ cp ~ cp ~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_house_CCM = Object.assign({"title": "house_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh] [hh ~ ~ ~] [hh ~ ~ hh] [hh ~ ~ ~] [hh hh ~ hh]", "cp": "[~ cp ~ cp] [~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.house_CCM = _patterns.EDM_literature_patterns_house_CCM;
@@ -1993,7 +1993,7 @@ _patterns.EDM_literature_patterns_house_DMM = Object.assign({"title": "house_DMM
   play(opts) { return play(this, opts); }
 });
 _patterns.house_DMM = _patterns.EDM_literature_patterns_house_DMM;
-_patterns.EDM_literature_patterns_house_DMPS = Object.assign({"title": "house_DMPS", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "cp": "~ ~ [cp cp ~ cp] [~ ~ cp cp] ~", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "cp": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_house_DMPS = Object.assign({"title": "house_DMPS", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "cp": "~ [~ [cp cp ~ cp] [~ ~ cp cp] ~]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "cp": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.house_DMPS = _patterns.EDM_literature_patterns_house_DMPS;
@@ -2009,7 +2009,7 @@ _patterns.EDM_literature_patterns_minimalhouse_AM = Object.assign({"title": "min
   play(opts) { return play(this, opts); }
 });
 _patterns.minimalhouse_AM = _patterns.EDM_literature_patterns_minimalhouse_AM;
-_patterns.EDM_literature_patterns_organichouse_AM = Object.assign({"title": "organichouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*32", "oh": "[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]", "cp": "~ cp ~ cp ~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]", "bd": "bd*4 bd*4"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_organichouse_AM = Object.assign({"title": "organichouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*32", "oh": "[~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~] [~ oh oh ~] [~ ~ oh ~]", "cp": "[~ cp ~ cp] [~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]]", "bd": "bd*4 bd*4"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.organichouse_AM = _patterns.EDM_literature_patterns_organichouse_AM;
@@ -2025,91 +2025,91 @@ _patterns.EDM_literature_patterns_slowdeephouse_SA = Object.assign({"title": "sl
   play(opts) { return play(this, opts); }
 });
 _patterns.slowdeephouse_SA = _patterns.EDM_literature_patterns_slowdeephouse_SA;
-_patterns.EDM_literature_patterns_slowhouse_AM = Object.assign({"title": "slowhouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"cl": "~ ~ ~ [cl ~ ~ ~] ~ ~ ~ [cl ~ ~ ~]", "tamb": "[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "cp": "~ cp ~ cp ~ cp ~ cp", "rim": "[~ ~ ~ rim] ~ [~ rim ~ ~] ~ [~ ~ ~ rim] ~ [~ rim ~ ~] ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2"}, "gains": {"bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_slowhouse_AM = Object.assign({"title": "slowhouse_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"cl": "[~ ~ ~ [cl ~ ~ ~]] [~ ~ ~ [cl ~ ~ ~]]", "tamb": "[tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb] [tamb tamb tamb ~] [tamb ~ tamb tamb]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "cp": "[~ cp ~ cp] [~ cp ~ cp]", "rim": "[[~ ~ ~ rim] ~ [~ rim ~ ~] ~] [[~ ~ ~ rim] ~ [~ rim ~ ~] ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]"}, "gains": {"bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.slowhouse_AM = _patterns.EDM_literature_patterns_slowhouse_AM;
-_patterns.EDM_literature_patterns_techno1_DMM = Object.assign({"title": "techno1_DMM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]", "cp": "~ cp ~ cp ~ cp ~ cp", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_techno1_DMM = Object.assign({"title": "techno1_DMM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ oh ~ ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh ~ hh hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh] [hh hh ~ hh]", "cp": "[~ cp ~ cp] [~ cp ~ cp]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.techno1_DMM = _patterns.EDM_literature_patterns_techno1_DMM;
-_patterns.EDM_literature_patterns_technoDMPS_AM = Object.assign({"title": "technoDMPS_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"tamb": "[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]", "oh": "[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~", "hh": "[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2 [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]", "sd": "~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~] ~ [sd ~ sd sd] ~ [sd ~]*2", "bd": "bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technoDMPS_AM = Object.assign({"title": "technoDMPS_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"tamb": "[~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~] [~ tamb tamb ~]", "oh": "[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]", "hh": "[[hh ~ ~ hh] [hh ~ hh hh] [hh hh ~ ~] [hh ~]*2] [hh ~ ~ hh] [hh ~]*2 [hh hh hh ~] [hh ~ hh hh]", "sd": "[~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~]] [~ [sd ~ sd sd] ~ [sd ~]*2]", "bd": "bd*4 [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technoDMPS_AM = _patterns.EDM_literature_patterns_technoDMPS_AM;
-_patterns.EDM_literature_patterns_technochugging_AM = Object.assign({"title": "technochugging_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]", "hh": "~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~] ~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technochugging_AM = Object.assign({"title": "technochugging_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh] [~ oh oh ~] [~ oh oh oh] [~ ~ oh oh] [~ oh oh oh]", "hh": "[~ [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]] [~ [~ hh ~ ~] [~ ~ hh ~] [~ hh ~ ~]]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technochugging_AM = _patterns.EDM_literature_patterns_technochugging_AM;
-_patterns.EDM_literature_patterns_technodarkberlin_AM = Object.assign({"title": "technodarkberlin_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]", "mt": "~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~] ~ [~ ~ mt ~]", "cp": "~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] [~ ~ ~ cp] ~", "rim": "~ ~ [rim ~ ~ ~] ~ ~ ~ [rim ~ ~ rim] ~", "bd": "bd*4 bd*4"}, "gains": {"bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technodarkberlin_AM = Object.assign({"title": "technodarkberlin_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh]", "mt": "[~ [~ ~ mt ~] ~ [~ ~ mt ~]] [~ [~ ~ mt ~] ~ [~ ~ mt ~]]", "cp": "[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] [~ ~ ~ cp] ~]", "rim": "[~ ~ [rim ~ ~ ~] ~] [~ ~ [rim ~ ~ rim] ~]", "bd": "bd*4 bd*4"}, "gains": {"bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technodarkberlin_AM = _patterns.EDM_literature_patterns_technodarkberlin_AM;
-_patterns.EDM_literature_patterns_technogrindinganalogue_AM = Object.assign({"title": "technogrindinganalogue_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*4 sd*4", "oh": "oh*4 oh*4", "mt": "[~ ~ mt ~] ~ ~ ~ [~ ~ mt ~] ~ ~ ~", "hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "cp": "~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~", "rim": "[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]", "bd": "bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]"}, "gains": {"hh": "0.85", "rim": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technogrindinganalogue_AM = Object.assign({"title": "technogrindinganalogue_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*4 sd*4", "oh": "oh*4 oh*4", "mt": "[[~ ~ mt ~] ~ ~ ~] [[~ ~ mt ~] ~ ~ ~]", "hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "cp": "[~ [cp ~ ~ ~] ~ ~] [~ [cp ~ ~ ~] ~ ~]", "rim": "[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]", "bd": "bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]"}, "gains": {"hh": "0.85", "rim": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technogrindinganalogue_AM = _patterns.EDM_literature_patterns_technogrindinganalogue_AM;
-_patterns.EDM_literature_patterns_technohardcore_CCM = Object.assign({"title": "technohardcore_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"mt": "[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]", "hh": "hh*8 hh*8", "cp": "~ cp ~ cp ~ cp ~ cp", "sd": "[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]", "bd": "bd*4 bd*4"}, "gains": {"mt": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technohardcore_CCM = Object.assign({"title": "technohardcore_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"mt": "[mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~] [mt ~ mt mt] [~ ~ mt ~]", "hh": "hh*8 hh*8", "cp": "[~ cp ~ cp] [~ cp ~ cp]", "sd": "[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]", "bd": "bd*4 bd*4"}, "gains": {"mt": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technohardcore_CCM = _patterns.EDM_literature_patterns_technohardcore_CCM;
-_patterns.EDM_literature_patterns_technoindustrial_AM = Object.assign({"title": "technoindustrial_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "mt": "[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2", "hh": "~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~] ~ [~ ~ hh ~]", "sd": "~ sd ~ sd ~ sd ~ sd", "rim": "[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]", "bd": "bd*4 bd*4"}, "gains": {"mt": "1.0 0.5 0.7 0.5", "hh": "0.85", "rim": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technoindustrial_AM = Object.assign({"title": "technoindustrial_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "mt": "[[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2] [[mt ~]*2 [~ mt]*2 [mt ~]*2 [~ mt]*2]", "hh": "[~ [~ ~ hh ~] ~ [~ ~ hh ~]] [~ [~ ~ hh ~] ~ [~ ~ hh ~]]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "rim": "[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]", "bd": "bd*4 bd*4"}, "gains": {"mt": "1.0 0.5 0.7 0.5", "hh": "0.85", "rim": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technoindustrial_AM = _patterns.EDM_literature_patterns_technoindustrial_AM;
-_patterns.EDM_literature_patterns_technominimal_CCM = Object.assign({"title": "technominimal_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*32", "lc": "[~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~ [~ ~ ~ lc] ~", "bon": "~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~] ~ [~ ~ bon ~]", "rd": "[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]", "oh": "oh*4 oh*4", "hh": "[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]", "bd": "bd*4 bd*4"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technominimal_CCM = Object.assign({"title": "technominimal_CCM", "category": "EDM literature patterns", "bpm": null, "tracks": {"sd": "sd*32", "lc": "[[~ ~ ~ lc] ~ [~ ~ ~ lc] ~] [[~ ~ ~ lc] ~ [~ ~ ~ lc] ~]", "bon": "[~ [~ ~ bon ~] ~ [~ ~ bon ~]] [~ [~ ~ bon ~] ~ [~ ~ bon ~]]", "rd": "[rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~] [rd ~ ~ rd] [~ rd]*2 [~ ~ rd ~] [~ ~ rd ~]", "oh": "oh*4 oh*4", "hh": "[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]", "bd": "bd*4 bd*4"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technominimal_CCM = _patterns.EDM_literature_patterns_technominimal_CCM;
-_patterns.EDM_literature_patterns_technothumping_AM = Object.assign({"title": "technothumping_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"rd": "rd*4 rd*4", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "mt": "~ ~ ~ [~ ~ mt ~] ~ ~ ~ [~ ~ mt ~]", "hh": "hh*32", "cp": "[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2 [~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2", "rim": "[rim ~]*2 ~ ~ ~ [rim ~]*2 ~ ~ ~", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.EDM_literature_patterns_technothumping_AM = Object.assign({"title": "technothumping_AM", "category": "EDM literature patterns", "bpm": null, "tracks": {"rd": "rd*4 rd*4", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "mt": "[~ ~ ~ [~ ~ mt ~]] [~ ~ ~ [~ ~ mt ~]]", "hh": "hh*32", "cp": "[[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2] [[~ ~ cp ~] [~ ~ cp ~] [~ ~ ~ cp] [~ cp]*2]", "rim": "[[rim ~]*2 ~ ~ ~] [[rim ~]*2 ~ ~ ~]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.technothumping_AM = _patterns.EDM_literature_patterns_technothumping_AM;
-_patterns.FR_3_Patterns_beguine = Object.assign({"title": "beguine", "category": "FR 3 Patterns", "bpm": null, "tracks": {"cl": "[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~", "sd": "sd*8 sd*8", "lc": "[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]", "hc": "[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]", "hh": "[~ ~ hh ~] ~ ~ ~ [~ ~ hh ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_beguine = Object.assign({"title": "beguine", "category": "FR 3 Patterns", "bpm": null, "tracks": {"cl": "[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]", "sd": "sd*8 sd*8", "lc": "[lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~] [lc ~ ~ ~] ~ [lc ~ ~ ~] [lc ~ ~ ~]", "hc": "[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]", "hh": "[[~ ~ hh ~] ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.beguine = _patterns.FR_3_Patterns_beguine;
-_patterns.FR_3_Patterns_bossanova = Object.assign({"title": "bossanova", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ ~ sd ~] ~", "hh": "hh*8 hh*8", "rim": "[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] ~ [rim ~ ~ ~] [~ ~ rim ~] ~", "bd": "[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_bossanova = Object.assign({"title": "bossanova", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~] [~ [sd ~ ~ ~] [~ ~ sd ~] ~]", "hh": "hh*8 hh*8", "rim": "[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] [~ [rim ~ ~ ~] [~ ~ rim ~] ~]", "bd": "[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.bossanova = _patterns.FR_3_Patterns_bossanova;
-_patterns.FR_3_Patterns_foxtrot = Object.assign({"title": "foxtrot", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "~ sd ~ sd ~ sd ~ sd", "hh": "~ hh ~ hh ~ hh ~ hh", "bd": "bd ~ bd ~ bd ~ bd ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_foxtrot = Object.assign({"title": "foxtrot", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[~ sd ~ sd] [~ sd ~ sd]", "hh": "[~ hh ~ hh] [~ hh ~ hh]", "bd": "[bd ~ bd ~] [bd ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.foxtrot = _patterns.FR_3_Patterns_foxtrot;
-_patterns.FR_3_Patterns_habanera = Object.assign({"title": "habanera", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]", "bd": "bd ~ bd ~ bd ~ bd ~"}, "gains": {}}, {
+_patterns.FR_3_Patterns_habanera = Object.assign({"title": "habanera", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]", "bd": "[bd ~ bd ~] [bd ~ bd ~]"}, "gains": {}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.habanera = _patterns.FR_3_Patterns_habanera;
-_patterns.FR_3_Patterns_mambo = Object.assign({"title": "mambo", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "sd*8 sd*8", "lc": "~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2", "hc": "~ [~ ~ hc ~] [hc ~ ~ ~] ~ ~ [~ ~ hc ~] [hc ~ ~ ~] ~", "rim": "rim*4 rim*4"}, "gains": {}}, {
+_patterns.FR_3_Patterns_mambo = Object.assign({"title": "mambo", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "sd*8 sd*8", "lc": "[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]", "hc": "[~ [~ ~ hc ~] [hc ~ ~ ~] ~] [~ [~ ~ hc ~] [hc ~ ~ ~] ~]", "rim": "rim*4 rim*4"}, "gains": {}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.mambo = _patterns.FR_3_Patterns_mambo;
-_patterns.FR_3_Patterns_march = Object.assign({"title": "march", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "hh ~ hh ~ hh ~ hh ~", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "bd ~ bd ~ bd ~ bd ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_march = Object.assign({"title": "march", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh ~] [hh ~ hh ~]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[bd ~ bd ~] [bd ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.march = _patterns.FR_3_Patterns_march;
-_patterns.FR_3_Patterns_rhumba = Object.assign({"title": "rhumba", "category": "FR 3 Patterns", "bpm": null, "tracks": {"cl": "[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] ~ [cl ~ ~ ~] [cl ~ ~ ~] ~", "sd": "[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2", "lc": "~ ~ ~ [lc ~]*2 ~ ~ ~ [lc ~]*2", "hc": "~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~ [~ ~ hc ~] [~ ~ hc ~]", "bd": "[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.FR_3_Patterns_rhumba = Object.assign({"title": "rhumba", "category": "FR 3 Patterns", "bpm": null, "tracks": {"cl": "[cl ~ ~ ~] [~ ~ cl ~] ~ [cl ~ ~ ~] [~ [cl ~ ~ ~] [cl ~ ~ ~] ~]", "sd": "[[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2] [[sd ~ sd sd] [sd ~]*2 [sd ~]*2 [sd ~]*2]", "lc": "[~ ~ ~ [lc ~]*2] [~ ~ ~ [lc ~]*2]", "hc": "[~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~]] [~ ~ [~ ~ hc ~] [~ ~ hc ~]]", "bd": "[[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.rhumba = _patterns.FR_3_Patterns_rhumba;
-_patterns.FR_3_Patterns_rocknroll = Object.assign({"title": "rocknroll", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ [sd ~]*2 ~ [sd ~ ~ ~] ~ [sd ~]*2 ~ [sd ~ ~ ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_rocknroll = Object.assign({"title": "rocknroll", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ [sd ~]*2 ~ [sd ~ ~ ~]] [~ [sd ~]*2 ~ [sd ~ ~ ~]]", "bd": "[[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~] [[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.rocknroll = _patterns.FR_3_Patterns_rocknroll;
-_patterns.FR_3_Patterns_samba = Object.assign({"title": "samba", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "sd*8 sd*8", "lc": "~ ~ [lc ~ ~ ~] ~ ~ ~ [lc ~ ~ ~] ~", "hc": "[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~"}, "gains": {}}, {
+_patterns.FR_3_Patterns_samba = Object.assign({"title": "samba", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "sd*8 sd*8", "lc": "[~ ~ [lc ~ ~ ~] ~] [~ ~ [lc ~ ~ ~] ~]", "hc": "[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [[~ ~ hc ~] [~ ~ hc ~] ~ ~]"}, "gains": {}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.samba = _patterns.FR_3_Patterns_samba;
-_patterns.FR_3_Patterns_swing = Object.assign({"title": "swing", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [sd ~ ~ sd]", "hh": "hh ~ hh ~ hh ~ hh ~", "bd": "bd ~ bd ~ bd ~ bd ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_swing = Object.assign({"title": "swing", "category": "FR 3 Patterns", "bpm": null, "tracks": {"sd": "[~ [sd ~ ~ sd] ~ [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [sd ~ ~ sd]]", "hh": "[hh ~ hh ~] [hh ~ hh ~]", "bd": "[bd ~ bd ~] [bd ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.swing = _patterns.FR_3_Patterns_swing;
-_patterns.FR_3_Patterns_tango = Object.assign({"title": "tango", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "~ ~ ~ [~ ~ hh ~] ~ ~ ~ [~ ~ hh ~]", "sd": "[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.FR_3_Patterns_tango = Object.assign({"title": "tango", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "[~ ~ ~ [~ ~ hh ~]] [~ ~ ~ [~ ~ hh ~]]", "sd": "[[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2] [[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.tango = _patterns.FR_3_Patterns_tango;
-_patterns.FR_3_Patterns_waltz = Object.assign({"title": "waltz", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [~ ~ hh ~] ~ ~ ~", "sd": "[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 ~ ~", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.FR_3_Patterns_waltz = Object.assign({"title": "waltz", "category": "FR 3 Patterns", "bpm": null, "tracks": {"hh": "[hh ~ ~ ~] [~ ~ hh ~] ~ [hh ~ ~ ~] [[~ ~ hh ~] ~ ~ ~]", "sd": "[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [[sd ~ ~ ~] [sd ~]*2 ~ ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [[~ ~ bd ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.waltz = _patterns.FR_3_Patterns_waltz;
@@ -2901,7 +2901,7 @@ _patterns.Tidal_patterns_Amen = Object.assign({"title": "Amen", "category": "Tid
   play(opts) { return play(this, opts); }
 });
 _patterns.Amen = _patterns.Tidal_patterns_Amen;
-_patterns.Tidal_patterns_AmenBrother = Object.assign({"title": "AmenBrother", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ ~ ~ [~ ~ oh ~] ~", "hh": "hh*8", "sd": "~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]", "bd": "[bd ~]*2 ~ [~ ~ bd bd] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_AmenBrother = Object.assign({"title": "AmenBrother", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ [~ ~ [~ ~ oh ~] ~]", "hh": "hh*8", "sd": "[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]]", "bd": "[[bd ~]*2 ~ [~ ~ bd bd] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~] [[bd ~]*2 ~ [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.AmenBrother = _patterns.Tidal_patterns_AmenBrother;
@@ -2933,7 +2933,7 @@ _patterns.Tidal_patterns_BlueMonday2a = Object.assign({"title": "BlueMonday2a", 
   play(opts) { return play(this, opts); }
 });
 _patterns.BlueMonday2a = _patterns.Tidal_patterns_BlueMonday2a;
-_patterns.Tidal_patterns_BookOfMoses = Object.assign({"title": "BookOfMoses", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_BookOfMoses = Object.assign({"title": "BookOfMoses", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2] [[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~] [[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.BookOfMoses = _patterns.Tidal_patterns_BookOfMoses;
@@ -2973,7 +2973,7 @@ _patterns.Tidal_patterns_ChugChugChugaLug = Object.assign({"title": "ChugChugChu
   play(opts) { return play(this, opts); }
 });
 _patterns.ChugChugChugaLug = _patterns.Tidal_patterns_ChugChugChugaLug;
-_patterns.Tidal_patterns_CissyStrutLong = Object.assign({"title": "CissyStrutLong", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ [oh ~]*2 ~ ~ ~ [oh ~]*2", "sd": "~ [sd ~ ~ sd] [~ sd sd ~] ~ [~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~", "bd": "[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2 [bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_CissyStrutLong = Object.assign({"title": "CissyStrutLong", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ ~ [oh ~]*2] [~ ~ ~ [oh ~]*2]", "sd": "[~ [sd ~ ~ sd] [~ sd sd ~] ~] [[~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~]", "bd": "[[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2] [[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2]"}, "gains": {"sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.CissyStrutLong = _patterns.Tidal_patterns_CissyStrutLong;
@@ -3177,7 +3177,7 @@ _patterns.Tidal_patterns_Dubstep1b = Object.assign({"title": "Dubstep1b", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.Dubstep1b = _patterns.Tidal_patterns_Dubstep1b;
-_patterns.Tidal_patterns_DubstepRatcheted = Object.assign({"title": "DubstepRatcheted", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~ ~", "hh": "[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]", "sd": "[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [~ sd ~ ~] ~ ~ ~", "bd": "[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_DubstepRatcheted = Object.assign({"title": "DubstepRatcheted", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[[~ ~ oh oh] [oh oh ~ ~] [oh ~ ~ ~] ~] ~", "hh": "[~ hh hh ~] [~ ~ hh ~] [~ ~ ~ hh] [~ ~ hh ~]", "sd": "[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [[~ sd ~ ~] ~ ~ ~]", "bd": "[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.DubstepRatcheted = _patterns.Tidal_patterns_DubstepRatcheted;
@@ -3197,11 +3197,11 @@ _patterns.Tidal_patterns_Electro3b = Object.assign({"title": "Electro3b", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.Electro3b = _patterns.Tidal_patterns_Electro3b;
-_patterns.Tidal_patterns_ExpensiveShit = Object.assign({"title": "ExpensiveShit", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ [~ ~ ~ oh] ~ [~ ~ ~ oh] ~ ~ ~", "hh": "[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]", "sd": "[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]", "bd": "[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_ExpensiveShit = Object.assign({"title": "ExpensiveShit", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ [~ ~ ~ oh] ~] [[~ ~ ~ oh] ~ ~ ~]", "hh": "[hh ~ hh hh] [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~ hh hh] [hh ~ hh hh]", "sd": "[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]", "bd": "[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.ExpensiveShit = _patterns.Tidal_patterns_ExpensiveShit;
-_patterns.Tidal_patterns_ExpressYourself = Object.assign({"title": "ExpressYourself", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] hh*4 hh*4 hh*4 [hh ~ hh hh] hh*4 hh*4 hh*4", "sd": "~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2 ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]", "bd": "[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_ExpressYourself = Object.assign({"title": "ExpressYourself", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[[hh ~ hh hh] hh*4 hh*4 hh*4] [[hh ~ hh hh] hh*4 hh*4 hh*4]", "sd": "[~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]", "bd": "[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.ExpressYourself = _patterns.Tidal_patterns_ExpressYourself;
@@ -3357,11 +3357,11 @@ _patterns.Tidal_patterns_HiphopAlt = Object.assign({"title": "HiphopAlt", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.HiphopAlt = _patterns.Tidal_patterns_HiphopAlt;
-_patterns.Tidal_patterns_HookAndSling = Object.assign({"title": "HookAndSling", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ ~ [~ ~ oh ~]", "hh": "[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~ [hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2", "sd": "~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]", "bd": "[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] ~ ~ ~ [~ bd ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_HookAndSling = Object.assign({"title": "HookAndSling", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ ~ [~ ~ oh ~]]", "hh": "[[hh ~ hh hh] [~ hh ~ ~] [hh hh ~ hh] ~] [[hh hh ~ hh] [~ ~ hh ~] [hh hh ~ ~] [hh ~]*2]", "sd": "[~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~]] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]", "bd": "[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] [~ ~ ~ [~ bd ~ ~]]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.HookAndSling = _patterns.Tidal_patterns_HookAndSling;
-_patterns.Tidal_patterns_HotSweat = Object.assign({"title": "HotSweat", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 [hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2", "sd": "~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_HotSweat = Object.assign({"title": "HotSweat", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 [[hh ~ hh hh] [hh ~]*2 [hh ~ hh hh] [hh ~]*2]", "sd": "[~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.HotSweat = _patterns.Tidal_patterns_HotSweat;
@@ -3401,11 +3401,11 @@ _patterns.Tidal_patterns_HybridKick2b = Object.assign({"title": "HybridKick2b", 
   play(opts) { return play(this, opts); }
 });
 _patterns.HybridKick2b = _patterns.Tidal_patterns_HybridKick2b;
-_patterns.Tidal_patterns_IGotTheFeelin = Object.assign({"title": "IGotTheFeelin", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]", "bd": "[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_IGotTheFeelin = Object.assign({"title": "IGotTheFeelin", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~]] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]", "bd": "[[bd ~]*2 ~ [~ ~ bd ~] ~] [[~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.IGotTheFeelin = _patterns.Tidal_patterns_IGotTheFeelin;
-_patterns.Tidal_patterns_IGotYou = Object.assign({"title": "IGotYou", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~", "hh": "[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_IGotYou = Object.assign({"title": "IGotYou", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]", "hh": "[[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.IGotYou = _patterns.Tidal_patterns_IGotYou;
@@ -3469,7 +3469,7 @@ _patterns.Tidal_patterns_Kick = Object.assign({"title": "Kick", "category": "Tid
   play(opts) { return play(this, opts); }
 });
 _patterns.Kick = _patterns.Tidal_patterns_Kick;
-_patterns.Tidal_patterns_KissingMyLove = Object.assign({"title": "KissingMyLove", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]", "hh": "hh*4 hh*4 hh*4 [hh hh ~ ~] hh*4 hh*4 hh*4 [hh hh ~ ~]", "sd": "~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]", "bd": "[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_KissingMyLove = Object.assign({"title": "KissingMyLove", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]", "hh": "[hh*4 hh*4 hh*4 [hh hh ~ ~]] [hh*4 hh*4 hh*4 [hh hh ~ ~]]", "sd": "[~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]] [~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]]", "bd": "[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.KissingMyLove = _patterns.Tidal_patterns_KissingMyLove;
@@ -3477,15 +3477,15 @@ _patterns.Tidal_patterns_KnocksOffMyFeet = Object.assign({"title": "KnocksOffMyF
   play(opts) { return play(this, opts); }
 });
 _patterns.KnocksOffMyFeet = _patterns.Tidal_patterns_KnocksOffMyFeet;
-_patterns.Tidal_patterns_Lady = Object.assign({"title": "Lady", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] ~ ~ [~ ~ oh ~] [~ ~ oh ~] ~ ~", "hh": "[~ ~ hh ~] [~ ~ hh ~] ~ ~ [~ ~ hh ~] [~ ~ hh ~] ~ ~", "sd": "~ [sd sd ~ ~] ~ ~ ~ [sd sd ~ ~] [sd ~ ~ ~] ~", "bd": "[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_Lady = Object.assign({"title": "Lady", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[[~ ~ oh ~] [~ ~ oh ~] ~ ~] [[~ ~ oh ~] [~ ~ oh ~] ~ ~]", "hh": "[[~ ~ hh ~] [~ ~ hh ~] ~ ~] [[~ ~ hh ~] [~ ~ hh ~] ~ ~]", "sd": "[~ [sd sd ~ ~] ~ ~] [~ [sd sd ~ ~] [sd ~ ~ ~] ~]", "bd": "[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Lady = _patterns.Tidal_patterns_Lady;
-_patterns.Tidal_patterns_LadyMarmalade = Object.assign({"title": "LadyMarmalade", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ [~ ~ oh ~] ~", "hh": "hh*8 hh*8", "sd": "~ sd ~ sd ~ [sd ~ ~ ~] [sd ~ ~ ~] ~", "bd": "[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~ [bd ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_LadyMarmalade = Object.assign({"title": "LadyMarmalade", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ [~ ~ oh ~] ~]", "hh": "hh*8 hh*8", "sd": "[~ sd ~ sd] [~ [sd ~ ~ ~] [sd ~ ~ ~] ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ [bd ~ ~ ~]]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.LadyMarmalade = _patterns.Tidal_patterns_LadyMarmalade;
-_patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan = Object.assign({"title": "LetAWomanBeAWomanLetAManBeAMan", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~]", "hh": "[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]", "sd": "~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]", "bd": "[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan = Object.assign({"title": "LetAWomanBeAWomanLetAManBeAMan", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ ~ [~ ~ oh ~]] [~ ~ ~ [~ ~ oh ~]]", "hh": "[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~]", "sd": "[~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~]] [~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]]", "bd": "[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.LetAWomanBeAWomanLetAManBeAMan = _patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan;
@@ -3497,7 +3497,7 @@ _patterns.Tidal_patterns_LookingForThePerfectBeat1b = Object.assign({"title": "L
   play(opts) { return play(this, opts); }
 });
 _patterns.LookingForThePerfectBeat1b = _patterns.Tidal_patterns_LookingForThePerfectBeat1b;
-_patterns.Tidal_patterns_Lookkapypy = Object.assign({"title": "Lookkapypy", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ [~ ~ oh ~] ~ ~ ~ [~ ~ oh ~] ~", "hh": "[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2", "sd": "[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]", "bd": "[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_Lookkapypy = Object.assign({"title": "Lookkapypy", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ [~ ~ oh ~] ~] [~ ~ [~ ~ oh ~] ~]", "hh": "[[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [[hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~]*2]", "sd": "[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]", "bd": "[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Lookkapypy = _patterns.Tidal_patterns_Lookkapypy;
@@ -3513,7 +3513,7 @@ _patterns.Tidal_patterns_MoreBounceToTheOunce = Object.assign({"title": "MoreBou
   play(opts) { return play(this, opts); }
 });
 _patterns.MoreBounceToTheOunce = _patterns.Tidal_patterns_MoreBounceToTheOunce;
-_patterns.Tidal_patterns_MotherPopcorn = Object.assign({"title": "MotherPopcorn", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*4 hh*4", "sd": "~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]", "bd": "[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_MotherPopcorn = Object.assign({"title": "MotherPopcorn", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*4 hh*4", "sd": "[~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]", "bd": "[[bd ~]*2 ~ [~ ~ bd ~] ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.MotherPopcorn = _patterns.Tidal_patterns_MotherPopcorn;
@@ -3553,11 +3553,11 @@ _patterns.Tidal_patterns_OneSevenFiveThirteen = Object.assign({"title": "OneSeve
   play(opts) { return play(this, opts); }
 });
 _patterns.OneSevenFiveThirteen = _patterns.Tidal_patterns_OneSevenFiveThirteen;
-_patterns.Tidal_patterns_OohChild = Object.assign({"title": "OohChild", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "sd": "[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2", "bd": "[bd ~]*2 ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_OohChild = Object.assign({"title": "OohChild", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "sd": "[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [[~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2]", "bd": "[[bd ~]*2 ~ [bd ~ bd bd] ~] [[bd ~ bd bd] ~ [bd ~ bd bd] ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.OohChild = _patterns.Tidal_patterns_OohChild;
-_patterns.Tidal_patterns_PalmGrease = Object.assign({"title": "PalmGrease", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ [~ ~ oh ~] ~ ~", "hh": "hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~] [hh ~]*2 ~ ~ ~", "sd": "~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]", "bd": "[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_PalmGrease = Object.assign({"title": "PalmGrease", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ [~ ~ oh ~] ~] ~", "hh": "[hh*4 [~ hh hh ~] [hh ~ hh hh] [~ hh hh ~]] [[hh ~]*2 ~ ~ ~]", "sd": "[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]", "bd": "[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [[~ ~ bd ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.PalmGrease = _patterns.Tidal_patterns_PalmGrease;
@@ -3565,259 +3565,259 @@ _patterns.Tidal_patterns_PapaWasToo = Object.assign({"title": "PapaWasToo", "cat
   play(opts) { return play(this, opts); }
 });
 _patterns.PapaWasToo = _patterns.Tidal_patterns_PapaWasToo;
-_patterns.Tidal_patterns_Pattern00 = Object.assign({"title": "Pattern00", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern00 = Object.assign({"title": "Pattern00", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern00 = _patterns.Tidal_patterns_Pattern00;
-_patterns.Tidal_patterns_Pattern01 = Object.assign({"title": "Pattern01", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern01 = Object.assign({"title": "Pattern01", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern01 = _patterns.Tidal_patterns_Pattern01;
-_patterns.Tidal_patterns_Pattern02 = Object.assign({"title": "Pattern02", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern02 = Object.assign({"title": "Pattern02", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern02 = _patterns.Tidal_patterns_Pattern02;
-_patterns.Tidal_patterns_Pattern03 = Object.assign({"title": "Pattern03", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern03 = Object.assign({"title": "Pattern03", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern03 = _patterns.Tidal_patterns_Pattern03;
-_patterns.Tidal_patterns_Pattern04 = Object.assign({"title": "Pattern04", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern04 = Object.assign({"title": "Pattern04", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern04 = _patterns.Tidal_patterns_Pattern04;
-_patterns.Tidal_patterns_Pattern05 = Object.assign({"title": "Pattern05", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern05 = Object.assign({"title": "Pattern05", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern05 = _patterns.Tidal_patterns_Pattern05;
-_patterns.Tidal_patterns_Pattern06 = Object.assign({"title": "Pattern06", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern06 = Object.assign({"title": "Pattern06", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern06 = _patterns.Tidal_patterns_Pattern06;
-_patterns.Tidal_patterns_Pattern07 = Object.assign({"title": "Pattern07", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern07 = Object.assign({"title": "Pattern07", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern07 = _patterns.Tidal_patterns_Pattern07;
-_patterns.Tidal_patterns_Pattern08 = Object.assign({"title": "Pattern08", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern08 = Object.assign({"title": "Pattern08", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern08 = _patterns.Tidal_patterns_Pattern08;
-_patterns.Tidal_patterns_Pattern09 = Object.assign({"title": "Pattern09", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern09 = Object.assign({"title": "Pattern09", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern09 = _patterns.Tidal_patterns_Pattern09;
-_patterns.Tidal_patterns_Pattern10 = Object.assign({"title": "Pattern10", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern10 = Object.assign({"title": "Pattern10", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern10 = _patterns.Tidal_patterns_Pattern10;
-_patterns.Tidal_patterns_Pattern11 = Object.assign({"title": "Pattern11", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern11 = Object.assign({"title": "Pattern11", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern11 = _patterns.Tidal_patterns_Pattern11;
-_patterns.Tidal_patterns_Pattern12 = Object.assign({"title": "Pattern12", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern12 = Object.assign({"title": "Pattern12", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern12 = _patterns.Tidal_patterns_Pattern12;
-_patterns.Tidal_patterns_Pattern13 = Object.assign({"title": "Pattern13", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern13 = Object.assign({"title": "Pattern13", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern13 = _patterns.Tidal_patterns_Pattern13;
-_patterns.Tidal_patterns_Pattern14 = Object.assign({"title": "Pattern14", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern14 = Object.assign({"title": "Pattern14", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern14 = _patterns.Tidal_patterns_Pattern14;
-_patterns.Tidal_patterns_Pattern15 = Object.assign({"title": "Pattern15", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern15 = Object.assign({"title": "Pattern15", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern15 = _patterns.Tidal_patterns_Pattern15;
-_patterns.Tidal_patterns_Pattern16 = Object.assign({"title": "Pattern16", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern16 = Object.assign({"title": "Pattern16", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern16 = _patterns.Tidal_patterns_Pattern16;
-_patterns.Tidal_patterns_Pattern17 = Object.assign({"title": "Pattern17", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern17 = Object.assign({"title": "Pattern17", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern17 = _patterns.Tidal_patterns_Pattern17;
-_patterns.Tidal_patterns_Pattern18 = Object.assign({"title": "Pattern18", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern18 = Object.assign({"title": "Pattern18", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern18 = _patterns.Tidal_patterns_Pattern18;
-_patterns.Tidal_patterns_Pattern19 = Object.assign({"title": "Pattern19", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern19 = Object.assign({"title": "Pattern19", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern19 = _patterns.Tidal_patterns_Pattern19;
-_patterns.Tidal_patterns_Pattern20 = Object.assign({"title": "Pattern20", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern20 = Object.assign({"title": "Pattern20", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern20 = _patterns.Tidal_patterns_Pattern20;
-_patterns.Tidal_patterns_Pattern21 = Object.assign({"title": "Pattern21", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern21 = Object.assign({"title": "Pattern21", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern21 = _patterns.Tidal_patterns_Pattern21;
-_patterns.Tidal_patterns_Pattern22 = Object.assign({"title": "Pattern22", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern22 = Object.assign({"title": "Pattern22", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern22 = _patterns.Tidal_patterns_Pattern22;
-_patterns.Tidal_patterns_Pattern23 = Object.assign({"title": "Pattern23", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern23 = Object.assign({"title": "Pattern23", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern23 = _patterns.Tidal_patterns_Pattern23;
-_patterns.Tidal_patterns_Pattern24 = Object.assign({"title": "Pattern24", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern24 = Object.assign({"title": "Pattern24", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern24 = _patterns.Tidal_patterns_Pattern24;
-_patterns.Tidal_patterns_Pattern25 = Object.assign({"title": "Pattern25", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern25 = Object.assign({"title": "Pattern25", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern25 = _patterns.Tidal_patterns_Pattern25;
-_patterns.Tidal_patterns_Pattern26 = Object.assign({"title": "Pattern26", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern26 = Object.assign({"title": "Pattern26", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern26 = _patterns.Tidal_patterns_Pattern26;
-_patterns.Tidal_patterns_Pattern27 = Object.assign({"title": "Pattern27", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_Pattern27 = Object.assign({"title": "Pattern27", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern27 = _patterns.Tidal_patterns_Pattern27;
-_patterns.Tidal_patterns_Pattern28 = Object.assign({"title": "Pattern28", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern28 = Object.assign({"title": "Pattern28", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern28 = _patterns.Tidal_patterns_Pattern28;
-_patterns.Tidal_patterns_Pattern29 = Object.assign({"title": "Pattern29", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern29 = Object.assign({"title": "Pattern29", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern29 = _patterns.Tidal_patterns_Pattern29;
-_patterns.Tidal_patterns_Pattern30 = Object.assign({"title": "Pattern30", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern30 = Object.assign({"title": "Pattern30", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern30 = _patterns.Tidal_patterns_Pattern30;
-_patterns.Tidal_patterns_Pattern31 = Object.assign({"title": "Pattern31", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_Pattern31 = Object.assign({"title": "Pattern31", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] ~ ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern31 = _patterns.Tidal_patterns_Pattern31;
-_patterns.Tidal_patterns_Pattern32 = Object.assign({"title": "Pattern32", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern32 = Object.assign({"title": "Pattern32", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern32 = _patterns.Tidal_patterns_Pattern32;
-_patterns.Tidal_patterns_Pattern33 = Object.assign({"title": "Pattern33", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern33 = Object.assign({"title": "Pattern33", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern33 = _patterns.Tidal_patterns_Pattern33;
-_patterns.Tidal_patterns_Pattern34 = Object.assign({"title": "Pattern34", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern34 = Object.assign({"title": "Pattern34", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern34 = _patterns.Tidal_patterns_Pattern34;
-_patterns.Tidal_patterns_Pattern35 = Object.assign({"title": "Pattern35", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern35 = Object.assign({"title": "Pattern35", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern35 = _patterns.Tidal_patterns_Pattern35;
-_patterns.Tidal_patterns_Pattern36 = Object.assign({"title": "Pattern36", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern36 = Object.assign({"title": "Pattern36", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern36 = _patterns.Tidal_patterns_Pattern36;
-_patterns.Tidal_patterns_Pattern37 = Object.assign({"title": "Pattern37", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern37 = Object.assign({"title": "Pattern37", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern37 = _patterns.Tidal_patterns_Pattern37;
-_patterns.Tidal_patterns_Pattern38 = Object.assign({"title": "Pattern38", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern38 = Object.assign({"title": "Pattern38", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern38 = _patterns.Tidal_patterns_Pattern38;
-_patterns.Tidal_patterns_Pattern39 = Object.assign({"title": "Pattern39", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern39 = Object.assign({"title": "Pattern39", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern39 = _patterns.Tidal_patterns_Pattern39;
-_patterns.Tidal_patterns_Pattern40 = Object.assign({"title": "Pattern40", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern40 = Object.assign({"title": "Pattern40", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern40 = _patterns.Tidal_patterns_Pattern40;
-_patterns.Tidal_patterns_Pattern41 = Object.assign({"title": "Pattern41", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern41 = Object.assign({"title": "Pattern41", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern41 = _patterns.Tidal_patterns_Pattern41;
-_patterns.Tidal_patterns_Pattern42 = Object.assign({"title": "Pattern42", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern42 = Object.assign({"title": "Pattern42", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern42 = _patterns.Tidal_patterns_Pattern42;
-_patterns.Tidal_patterns_Pattern43 = Object.assign({"title": "Pattern43", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern43 = Object.assign({"title": "Pattern43", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern43 = _patterns.Tidal_patterns_Pattern43;
-_patterns.Tidal_patterns_Pattern44 = Object.assign({"title": "Pattern44", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern44 = Object.assign({"title": "Pattern44", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern44 = _patterns.Tidal_patterns_Pattern44;
-_patterns.Tidal_patterns_Pattern45 = Object.assign({"title": "Pattern45", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern45 = Object.assign({"title": "Pattern45", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern45 = _patterns.Tidal_patterns_Pattern45;
-_patterns.Tidal_patterns_Pattern46 = Object.assign({"title": "Pattern46", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern46 = Object.assign({"title": "Pattern46", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern46 = _patterns.Tidal_patterns_Pattern46;
-_patterns.Tidal_patterns_Pattern47 = Object.assign({"title": "Pattern47", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern47 = Object.assign({"title": "Pattern47", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern47 = _patterns.Tidal_patterns_Pattern47;
-_patterns.Tidal_patterns_Pattern48 = Object.assign({"title": "Pattern48", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern48 = Object.assign({"title": "Pattern48", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern48 = _patterns.Tidal_patterns_Pattern48;
-_patterns.Tidal_patterns_Pattern49 = Object.assign({"title": "Pattern49", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern49 = Object.assign({"title": "Pattern49", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern49 = _patterns.Tidal_patterns_Pattern49;
-_patterns.Tidal_patterns_Pattern50 = Object.assign({"title": "Pattern50", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern50 = Object.assign({"title": "Pattern50", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern50 = _patterns.Tidal_patterns_Pattern50;
-_patterns.Tidal_patterns_Pattern51 = Object.assign({"title": "Pattern51", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern51 = Object.assign({"title": "Pattern51", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern51 = _patterns.Tidal_patterns_Pattern51;
-_patterns.Tidal_patterns_Pattern52 = Object.assign({"title": "Pattern52", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern52 = Object.assign({"title": "Pattern52", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern52 = _patterns.Tidal_patterns_Pattern52;
-_patterns.Tidal_patterns_Pattern53 = Object.assign({"title": "Pattern53", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern53 = Object.assign({"title": "Pattern53", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern53 = _patterns.Tidal_patterns_Pattern53;
-_patterns.Tidal_patterns_Pattern54 = Object.assign({"title": "Pattern54", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern54 = Object.assign({"title": "Pattern54", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern54 = _patterns.Tidal_patterns_Pattern54;
-_patterns.Tidal_patterns_Pattern55 = Object.assign({"title": "Pattern55", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern55 = Object.assign({"title": "Pattern55", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern55 = _patterns.Tidal_patterns_Pattern55;
-_patterns.Tidal_patterns_Pattern56 = Object.assign({"title": "Pattern56", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern56 = Object.assign({"title": "Pattern56", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern56 = _patterns.Tidal_patterns_Pattern56;
-_patterns.Tidal_patterns_Pattern57 = Object.assign({"title": "Pattern57", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern57 = Object.assign({"title": "Pattern57", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern57 = _patterns.Tidal_patterns_Pattern57;
-_patterns.Tidal_patterns_Pattern58 = Object.assign({"title": "Pattern58", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern58 = Object.assign({"title": "Pattern58", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern58 = _patterns.Tidal_patterns_Pattern58;
-_patterns.Tidal_patterns_Pattern59 = Object.assign({"title": "Pattern59", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_Pattern59 = Object.assign({"title": "Pattern59", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern59 = _patterns.Tidal_patterns_Pattern59;
-_patterns.Tidal_patterns_Pattern60 = Object.assign({"title": "Pattern60", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern60 = Object.assign({"title": "Pattern60", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] ~ ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern60 = _patterns.Tidal_patterns_Pattern60;
-_patterns.Tidal_patterns_Pattern61 = Object.assign({"title": "Pattern61", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern61 = Object.assign({"title": "Pattern61", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ ~ bd] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern61 = _patterns.Tidal_patterns_Pattern61;
-_patterns.Tidal_patterns_Pattern62 = Object.assign({"title": "Pattern62", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Pattern62 = Object.assign({"title": "Pattern62", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd ~] ~ ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern62 = _patterns.Tidal_patterns_Pattern62;
-_patterns.Tidal_patterns_Pattern63 = Object.assign({"title": "Pattern63", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] ~ ~", "sd": "~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_Pattern63 = Object.assign({"title": "Pattern63", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh ~ hh hh] [~ hh hh ~] [hh hh ~ hh] [hh ~ hh hh] [[~ hh hh ~] [hh hh ~ hh] ~ ~]", "sd": "[~ [~ ~ sd ~] [~ ~ sd ~] ~] [[~ ~ sd ~] [~ ~ sd ~] ~ ~]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [[bd ~ ~ ~] [~ ~ bd bd] ~ ~]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Pattern63 = _patterns.Tidal_patterns_Pattern63;
@@ -3825,7 +3825,7 @@ _patterns.Tidal_patterns_PlanetRock = Object.assign({"title": "PlanetRock", "cat
   play(opts) { return play(this, opts); }
 });
 _patterns.PlanetRock = _patterns.Tidal_patterns_PlanetRock;
-_patterns.Tidal_patterns_Poly1a = Object.assign({"title": "Poly1a", "category": "Tidal patterns", "bpm": null, "tracks": {"sd": "[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd ~ ~ ~] ~ ~ ~", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_Poly1a = Object.assign({"title": "Poly1a", "category": "Tidal patterns", "bpm": null, "tracks": {"sd": "[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [[sd ~ ~ ~] ~ ~ ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ ~"}, "gains": {"sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Poly1a = _patterns.Tidal_patterns_Poly1a;
@@ -3833,7 +3833,7 @@ _patterns.Tidal_patterns_Poly1b = Object.assign({"title": "Poly1b", "category": 
   play(opts) { return play(this, opts); }
 });
 _patterns.Poly1b = _patterns.Tidal_patterns_Poly1b;
-_patterns.Tidal_patterns_Poptech2010 = Object.assign({"title": "Poptech2010", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[oh ~ ~ ~] ~ ~ ~ ~", "hh": "~ ~ [hh ~ ~ ~] ~ hh ~ hh ~", "sd": "~ sd ~ sd ~ sd ~ sd", "bd": "[bd ~ ~ ~] ~ ~ ~ [~ bd ~ ~] ~ ~ [~ bd bd bd]"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Poptech2010 = Object.assign({"title": "Poptech2010", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[[oh ~ ~ ~] ~ ~ ~] ~", "hh": "[~ ~ [hh ~ ~ ~] ~] [hh ~ hh ~]", "sd": "[~ sd ~ sd] [~ sd ~ sd]", "bd": "[[bd ~ ~ ~] ~ ~ ~] [~ bd ~ ~] ~ ~ [~ bd bd bd]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Poptech2010 = _patterns.Tidal_patterns_Poptech2010;
@@ -3845,11 +3845,11 @@ _patterns.Tidal_patterns_Reggaeton = Object.assign({"title": "Reggaeton", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.Reggaeton = _patterns.Tidal_patterns_Reggaeton;
-_patterns.Tidal_patterns_RespectYourself = Object.assign({"title": "RespectYourself", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_RespectYourself = Object.assign({"title": "RespectYourself", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "hh*8 hh*8", "sd": "[~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]] [~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.RespectYourself = _patterns.Tidal_patterns_RespectYourself;
-_patterns.Tidal_patterns_RockSteady = Object.assign({"title": "RockSteady", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [~ oh ~ ~] ~ [~ ~ oh ~] ~", "hh": "[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]", "sd": "[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]", "bd": "[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_RockSteady = Object.assign({"title": "RockSteady", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] [~ ~ ~ oh] [~ ~ oh ~] [~ ~ ~ oh] [[~ oh ~ ~] ~ [~ ~ oh ~] ~]", "hh": "[[~ hh ~ ~] [hh ~]*2 [hh ~ ~ ~] [hh ~]*2] [hh ~ ~ ~] [hh ~ hh hh] [hh ~ ~ ~] [hh ~ hh hh]", "sd": "[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]", "bd": "[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.RockSteady = _patterns.Tidal_patterns_RockSteady;
@@ -3941,7 +3941,7 @@ _patterns.Tidal_patterns_SynthWave = Object.assign({"title": "SynthWave", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.SynthWave = _patterns.Tidal_patterns_SynthWave;
-_patterns.Tidal_patterns_SynthethicSubstitution = Object.assign({"title": "SynthethicSubstitution", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ [~ ~ oh ~] ~ ~ ~", "hh": "hh*8 [hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2", "sd": "~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~]", "bd": "[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_SynthethicSubstitution = Object.assign({"title": "SynthethicSubstitution", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ [[~ ~ oh ~] ~ ~ ~]", "hh": "hh*8 [[hh ~ ~ ~] [hh ~]*2 [hh ~]*2 [hh ~]*2]", "sd": "[~ [~ sd ~ ~] ~ [~ sd ~ ~]] [~ [~ sd ~ ~] ~ [~ sd ~ ~]]", "bd": "[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.SynthethicSubstitution = _patterns.Tidal_patterns_SynthethicSubstitution;
@@ -3957,7 +3957,7 @@ _patterns.Tidal_patterns_Techno = Object.assign({"title": "Techno", "category": 
   play(opts) { return play(this, opts); }
 });
 _patterns.Techno = _patterns.Tidal_patterns_Techno;
-_patterns.Tidal_patterns_TheFez = Object.assign({"title": "TheFez", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "sd": "[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]", "bd": "bd ~ bd ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_TheFez = Object.assign({"title": "TheFez", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "sd": "[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]", "bd": "[bd ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.TheFez = _patterns.Tidal_patterns_TheFez;
@@ -3977,7 +3977,7 @@ _patterns.Tidal_patterns_Trap1a = Object.assign({"title": "Trap1a", "category": 
   play(opts) { return play(this, opts); }
 });
 _patterns.Trap1a = _patterns.Tidal_patterns_Trap1a;
-_patterns.Tidal_patterns_Trap1b = Object.assign({"title": "Trap1b", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [hh ~]*2 ~ ~ ~", "sd": "~ ~ [~ sd ~ ~] ~", "bd": "[~ ~ bd ~] [bd ~ ~ ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Tidal_patterns_Trap1b = Object.assign({"title": "Trap1b", "category": "Tidal patterns", "bpm": null, "tracks": {"hh": "[hh hh hh ~] [hh ~]*2 [hh ~]*2 [hh ~ hh hh] [[hh ~]*2 ~ ~ ~]", "sd": "~ ~ [~ sd ~ ~] ~", "bd": "[~ ~ bd ~] [bd ~ ~ ~] ~ ~"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Trap1b = _patterns.Tidal_patterns_Trap1b;
@@ -4025,11 +4025,11 @@ _patterns.Tidal_patterns_UnknownDrummer = Object.assign({"title": "UnknownDrumme
   play(opts) { return play(this, opts); }
 });
 _patterns.UnknownDrummer = _patterns.Tidal_patterns_UnknownDrummer;
-_patterns.Tidal_patterns_UseMe = Object.assign({"title": "UseMe", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "~ ~ [~ oh]*2 [~ oh ~ ~] ~ ~ [~ oh]*2 [~ oh ~ ~]", "hh": "hh*16 hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]", "sd": "~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [~ ~ ~ sd]", "bd": "[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2 [bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Tidal_patterns_UseMe = Object.assign({"title": "UseMe", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ [~ oh]*2 [~ oh ~ ~]] [~ ~ [~ oh]*2 [~ oh ~ ~]]", "hh": "hh*16 [hh*4 hh*4 [hh ~ ~ ~] [~ ~ ~ hh]]", "sd": "[~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]] [~ [sd ~ ~ sd] ~ [~ ~ ~ sd]]", "bd": "[[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2] [[bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2]"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.UseMe = _patterns.Tidal_patterns_UseMe;
-_patterns.Tidal_patterns_UseMeAlt = Object.assign({"title": "UseMeAlt", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~ [~ ~ oh ~] ~", "hh": "[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4", "sd": "[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
+_patterns.Tidal_patterns_UseMeAlt = Object.assign({"title": "UseMeAlt", "category": "Tidal patterns", "bpm": null, "tracks": {"oh": "[[~ ~ oh ~] ~ [~ ~ oh ~] ~] [[~ ~ oh ~] ~ [~ ~ oh ~] ~]", "hh": "[[hh ~ ~ ~] hh*4 [hh hh ~ ~] hh*4] [[hh hh ~ ~] hh*4 [hh hh ~ ~] hh*4]", "sd": "[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]", "bd": "[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]]"}, "gains": {"hh": "0.85", "sd": "1.0 0.5 0.7 0.5"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.UseMeAlt = _patterns.Tidal_patterns_UseMeAlt;
@@ -4061,27 +4061,27 @@ _patterns.Dancehall_Standard_dancehall = Object.assign({"title": "Standard dance
   play(opts) { return play(this, opts); }
 });
 _patterns.Standard_dancehall = _patterns.Dancehall_Standard_dancehall;
-_patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern = Object.assign({"title": "(new) Basic Dnb Drum Pattern", "category": "(new) Drum and Bass", "bpm": 180, "tracks": {"sd": "~ sd ~ sd ~ sd ~ sd", "hh": "hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]", "bd": "[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern = Object.assign({"title": "(new) Basic Dnb Drum Pattern", "category": "(new) Drum and Bass", "bpm": 180, "tracks": {"sd": "[~ sd ~ sd] [~ sd ~ sd]", "hh": "hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]", "bd": "[[bd ~ ~ ~] ~ [~ ~ bd ~] ~] [[bd ~ ~ ~] ~ [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.new_Basic_Dnb_Drum_Pattern = _patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern;
-_patterns.Dub_Dub = Object.assign({"title": "Dub", "category": "Dub", "bpm": 140, "tracks": {"bd": "bd ~ bd ~", "bass": "[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~", "sd": "~ sd ~ sd", "hh": "~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]"}, "gains": {"bd": "1.0 0.8", "hh": "0.85"}}, {
+_patterns.Dub_Dub = Object.assign({"title": "Dub", "category": "Dub", "bpm": 140, "tracks": {"bd": "bd ~ bd ~", "bass": "[[x ~ ~ ~] ~ ~ ~] ~ [~ ~ [~ ~ x ~] ~] ~", "sd": "~ sd ~ sd", "hh": "[~ [hh ~]*2 ~ [hh ~ ~ ~]] [~ [hh hh hh ~] ~ [hh ~ ~ ~]] [~ [hh ~]*2 ~ [hh hh ~ ~]] [~ [hh ~]*2 ~ [hh ~ hh hh]]"}, "gains": {"bd": "1.0 0.8", "hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Dub = _patterns.Dub_Dub;
-_patterns.EBM_EBM = Object.assign({"title": "EBM", "category": "EBM", "bpm": 120, "tracks": {"cp": "[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "sd": "~ sd ~ sd ~ [sd ~ ~ ~] ~ [sd ~ sd sd]", "bd": "bd*4 bd*4"}, "gains": {"cp": "1.0 0.5 0.7 0.5", "hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
+_patterns.EBM_EBM = Object.assign({"title": "EBM", "category": "EBM", "bpm": 120, "tracks": {"cp": "[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]", "oh": "[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]", "hh": "[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]", "sd": "[~ sd ~ sd] [~ [sd ~ ~ ~] ~ [sd ~ sd sd]]", "bd": "bd*4 bd*4"}, "gains": {"cp": "1.0 0.5 0.7 0.5", "hh": "0.85", "sd": "1.0 0.5 0.7 0.5", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.EBM = _patterns.EBM_EBM;
-_patterns.Hardcore_Techno_Gabber = Object.assign({"title": "Gabber", "category": "Hardcore Techno", "bpm": 200, "tracks": {"cr": "~ ~ ~ ~ [~ ~ ~ cr]", "oh": "oh*8 oh*8", "cp": "cp*4 cp*4", "bd": "bd*4 bd*4"}, "gains": {"bd": "1.0 0.8"}}, {
+_patterns.Hardcore_Techno_Gabber = Object.assign({"title": "Gabber", "category": "Hardcore Techno", "bpm": 200, "tracks": {"cr": "~ [~ ~ ~ [~ ~ ~ cr]]", "oh": "oh*8 oh*8", "cp": "cp*4 cp*4", "bd": "bd*4 bd*4"}, "gains": {"bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Gabber = _patterns.Hardcore_Techno_Gabber;
-_patterns.Hip_Hop_Jul_type_beat = Object.assign({"title": "Jul type beat", "category": "Hip-Hop", "bpm": 143, "tracks": {"hh": "~ ~ [~ ~ hh ~] ~ [~ ~ ~ hh] ~ ~ [hh ~]*2", "sd": "[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Hip_Hop_Jul_type_beat = Object.assign({"title": "Jul type beat", "category": "Hip-Hop", "bpm": 143, "tracks": {"hh": "[~ ~ [~ ~ hh ~] ~] [[~ ~ ~ hh] ~ ~ [hh ~]*2]", "sd": "[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]", "bd": "bd*4 bd*4"}, "gains": {"hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Jul_type_beat = _patterns.Hip_Hop_Jul_type_beat;
-_patterns.Hip_Hop_Trap = Object.assign({"title": "Trap", "category": "Hip-Hop", "bpm": 140, "tracks": {"hh": "[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2", "sd": "~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~"}, "gains": {"hh": "0.85"}}, {
+_patterns.Hip_Hop_Trap = Object.assign({"title": "Trap", "category": "Hip-Hop", "bpm": 140, "tracks": {"hh": "[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [[hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2]", "sd": "[~ ~ [sd ~ ~ ~] ~] [~ ~ [sd ~ ~ ~] ~]", "bd": "[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ [bd ~ ~ ~] [~ ~ bd ~] ~]"}, "gains": {"hh": "0.85"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.Trap = _patterns.Hip_Hop_Trap;
@@ -4133,7 +4133,7 @@ _patterns.Rock_Rock_variation = Object.assign({"title": "Rock variation", "categ
   play(opts) { return play(this, opts); }
 });
 _patterns.Rock_variation = _patterns.Rock_Rock_variation;
-_patterns.Techno_OffBeat_clap = Object.assign({"title": "OffBeat clap", "category": "Techno", "bpm": 128, "tracks": {"cp": "~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~] ~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]", "hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "bd": "bd*4 bd*4"}, "gains": {"cp": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
+_patterns.Techno_OffBeat_clap = Object.assign({"title": "OffBeat clap", "category": "Techno", "bpm": 128, "tracks": {"cp": "[~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]] [~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]]", "hh": "[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]", "bd": "bd*4 bd*4"}, "gains": {"cp": "1.0 0.5 0.7 0.5", "hh": "0.85", "bd": "1.0 0.8"}}, {
   play(opts) { return play(this, opts); }
 });
 _patterns.OffBeat_clap = _patterns.Techno_OffBeat_clap;
