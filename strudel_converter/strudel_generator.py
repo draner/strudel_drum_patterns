@@ -137,8 +137,9 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
 def extract_pattern_tracks_dict(pattern_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Extract a pure data dictionary of mini-notation tracks and gains for a pattern.
+    Uses 'title' instead of 'name' to avoid JS Function.name property collisions.
     """
-    name = pattern_data.get("name", "Untitled")
+    title = pattern_data.get("name", "Untitled")
     category = pattern_data.get("category", "General")
     bpm = pattern_data.get("bpm")
     tracks = pattern_data.get("tracks", [])
@@ -165,7 +166,7 @@ def extract_pattern_tracks_dict(pattern_data: Dict[str, Any]) -> Dict[str, Any]:
             gains_dict[key_name] = gain_str
             
     return {
-        "name": name,
+        "title": title,
         "category": category,
         "bpm": bpm,
         "tracks": tracks_dict,

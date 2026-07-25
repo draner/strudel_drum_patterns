@@ -93,7 +93,7 @@ def build_library(
         "const _patterns = {};"
     ]
     
-    # Export flat raw pattern data dicts
+    # Export flat raw pattern data dicts as plain JS objects with play(opts) methods
     for pat in patterns:
         cat_key = sanitize_js_identifier(pat["category"])
         pat_key = sanitize_js_identifier(pat["name"])
@@ -101,11 +101,9 @@ def build_library(
         data_dict = extract_pattern_tracks_dict(pat)
         json_str = json.dumps(data_dict)
         
-        # Create function that acts both as a data object and callable play() helper
-        js_lines.append(f"_patterns.{unique_func_key} = Object.assign(")
-        js_lines.append(f"  (opts = {{}}) => play(_patterns.{unique_func_key}, opts),")
-        js_lines.append(f"  {json_str}")
-        js_lines.append(");")
+        js_lines.append(f"_patterns.{unique_func_key} = Object.assign({json_str}, {{")
+        js_lines.append(f"  play(opts) {{ return play(this, opts); }}")
+        js_lines.append("});")
         js_lines.append(f"_patterns.{pat_key} = _patterns.{unique_func_key};")
         
     js_lines.append("")
@@ -119,18 +117,17 @@ def build_library(
         matching = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
         primary_func_key = f"{cat_key}_{sanitize_js_identifier(matching[0]['name'])}" if matching else first_func_key
         
-        js_lines.append(f"drumLibrary.{cat_key} = Object.assign(")
-        js_lines.append(f"  (opts = {{}}) => play(_patterns.{primary_func_key}, opts),")
-        js_lines.append("  {")
+        js_lines.append(f"drumLibrary.{cat_key} = {{")
+        js_lines.append(f"  title: {json.dumps(cat_name)},")
+        js_lines.append(f"  play(opts) {{ return play(_patterns.{primary_func_key}, opts); }},")
         
         sub_entries = []
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
             u_key = f"{cat_key}_{pat_key}"
-            sub_entries.append(f"    {pat_key}: _patterns.{u_key}")
+            sub_entries.append(f"  {pat_key}: _patterns.{u_key}")
         js_lines.append(",\n".join(sub_entries))
-        js_lines.append("  }")
-        js_lines.append(");")
+        js_lines.append("};")
         
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
