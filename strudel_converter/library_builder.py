@@ -117,17 +117,18 @@ def build_library(
         matching = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
         primary_func_key = f"{cat_key}_{sanitize_js_identifier(matching[0]['name'])}" if matching else first_func_key
         
-        js_lines.append(f"drumLibrary.{cat_key} = {{")
-        js_lines.append(f"  title: {json.dumps(cat_name)},")
-        js_lines.append(f"  play(opts) {{ return play(_patterns.{primary_func_key}, opts); }},")
-        
         sub_entries = []
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
             u_key = f"{cat_key}_{pat_key}"
-            sub_entries.append(f"  {pat_key}: _patterns.{u_key}")
-        js_lines.append(",\n".join(sub_entries))
-        js_lines.append("};")
+            sub_entries.append(f"    {pat_key}: _patterns.{u_key}")
+        inner_subs = ",\n".join(sub_entries)
+
+        js_lines.append(f"drumLibrary.{cat_key} = Object.assign(")
+        js_lines.append(f"  {{ title: {json.dumps(cat_name)}, play(opts) {{ return play(_patterns.{primary_func_key}, opts); }},")
+        js_lines.append(f"{inner_subs} }},")
+        js_lines.append(f"  _patterns.{primary_func_key}")
+        js_lines.append(");")
         
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
