@@ -137,6 +137,7 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
 def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = "RolandTR808") -> str:
     """
     Generate a parameterized JS pattern function (opts = {}) => stack(...) for drumLibrary object.
+    Bank defaults to undefined so Strudel's default built-in drum samples play automatically.
     """
     tracks = pattern_data.get("tracks", [])
     stack_lines = []
@@ -158,7 +159,7 @@ def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = 
             gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
             n_expr = f'(typeof n === "object" ? (n.{s_name} ?? 0) : n)'
-            stack_lines.append(f'      s("{mini_pat}"){gain_part}.bank(bank).n({n_expr})')
+            stack_lines.append(f'      s("{mini_pat}"){gain_part}.n({n_expr}).bank(bank)')
         
     if not stack_lines:
         inner = '      s("bd ~ ~ ~").bank(bank)'
@@ -168,7 +169,7 @@ def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = 
     lines = [
         "(opts = {}) => {",
         "      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});",
-        "      const bank = o.bank || o.kit || kit;",
+        "      const bank = o.bank || o.kit || undefined;",
         "      const n = o.n ?? 0;",
         "      const key = o.key || o.bassKey || bass_key;",
         "      const oct = o.octave || o.bassOctave || bass_octave;",
