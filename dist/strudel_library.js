@@ -6306,8 +6306,8 @@ function play(pattern, opts = {}) {
   const rawSynth = (o.synth || o.bassSynth || 'sawtooth').toString().toLowerCase();
   const synth = validSynths.includes(rawSynth) ? rawSynth : 'sawtooth';
 
-  const sFn = typeof s === 'function' ? s : (typeof globalThis.s === 'function' ? globalThis.s : null);
-  const stackFn = typeof stack === 'function' ? stack : (typeof globalThis.stack === 'function' ? globalThis.stack : null);
+  const sFn = o.s || (typeof s === 'function' ? s : (typeof globalThis.s === 'function' ? globalThis.s : null));
+  const stackFn = o.stack || (typeof stack === 'function' ? stack : (typeof globalThis.stack === 'function' ? globalThis.stack : null));
 
   if (!sFn || !stackFn) return pat;
 
