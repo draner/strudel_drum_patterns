@@ -17988,7 +17988,7 @@ let n_hh = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("bd ~ bd ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
@@ -20763,7 +20763,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
@@ -20801,7 +20801,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
@@ -20967,7 +20967,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("hh*4").gain("0.85").bank(bank_hh).n(n_hh),
@@ -21430,7 +21430,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ cr ~ ~] ~").bank(bank_cr).n(n_cr),
@@ -21602,7 +21602,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ ~ ~ rd]").bank(bank_rd).n(n_rd),
@@ -21852,7 +21852,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ oh]*2 ~ ~ ~").bank(bank_oh).n(n_oh),
@@ -21899,7 +21899,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [~ ~ sd ~] ~ ~").bank(bank_sd).n(n_sd),
@@ -21987,7 +21987,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ cr ~ ~]").bank(bank_cr).n(n_cr),
@@ -22032,7 +22032,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
@@ -22159,7 +22159,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
@@ -22409,7 +22409,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[hc ~ ~ ~] ~ ~ ~").bank(bank_hc).n(n_hc),
@@ -22602,7 +22602,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ~ rd ~] ~ ~ ~").bank(bank_rd).n(n_rd),
@@ -22823,7 +22823,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
@@ -22991,7 +22991,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[ht ~ ~ ~] [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
@@ -23083,7 +23083,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
@@ -23163,7 +23163,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
@@ -23208,7 +23208,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
@@ -23419,7 +23419,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [~ rd ~ ~] ~ ~").bank(bank_rd).n(n_rd),
@@ -23657,7 +23657,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ~ ht ~] ~ ~ ~").bank(bank_ht).n(n_ht),
@@ -23706,7 +23706,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ht ~ ~] ~ [~ ~ ht ~] ~").bank(bank_ht).n(n_ht),
@@ -23860,7 +23860,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
@@ -23901,7 +23901,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
@@ -23977,7 +23977,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr).n(n_cr),
@@ -24088,7 +24088,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ~ ~ oh] [oh ~ oh oh] [oh ~]*2 ~").bank(bank_oh).n(n_oh),
@@ -24287,7 +24287,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ht ~ ~] [ht ~ ~ ~] ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
@@ -24375,7 +24375,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ ~ [~ ht ~ ~]").bank(bank_ht).n(n_ht),
@@ -24420,7 +24420,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
@@ -24461,7 +24461,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [~ ~ cr ~] ~ ~").bank(bank_cr).n(n_cr),
@@ -24535,7 +24535,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ht ~ ht").bank(bank_ht).n(n_ht),
@@ -24662,7 +24662,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ rd ~ ~] ~").bank(bank_rd).n(n_rd),
@@ -24807,7 +24807,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("ht ~ ht ~").bank(bank_ht).n(n_ht),
@@ -24891,7 +24891,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[ht ~ ~ ht] ~ [ht ~ ~ ~] ~").bank(bank_ht).n(n_ht),
@@ -24936,7 +24936,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
@@ -24985,7 +24985,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[~ ~ ~ ht] [ht ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
@@ -25188,7 +25188,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
@@ -25330,7 +25330,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ ~ ~ bd] [bd bd bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
@@ -25453,7 +25453,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd),
@@ -26909,7 +26909,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ bd bd bd] [bd ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
@@ -27365,7 +27365,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[cp ~ ~ ~] ~ ~ ~").bank(bank_cp).n(n_cp),
@@ -27832,7 +27832,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
@@ -27900,7 +27900,7 @@ let bank_default = "RolandTR808";
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("~ ~ [~ ~ x _] ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
@@ -27939,7 +27939,7 @@ let n_bd = 0;
 
 let bass_key = "c";          // Bass root key
 let bass_octave = 1;         // Bass octave
-let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
+let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"
 
 stack(
   s("[lt _ _ lt] [_ _ ~ lt] [lt _ _ ~] [lt _ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),

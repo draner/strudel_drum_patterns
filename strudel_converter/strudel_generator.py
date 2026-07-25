@@ -65,7 +65,7 @@ def generate_strudel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
     if has_bass:
         lines.append('let bass_key = "c";          // Bass root key')
         lines.append('let bass_octave = 1;         // Bass octave')
-        lines.append('let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")')
+        lines.append('let bass_synth = "sawtooth"; // Valid waveforms: "sawtooth", "square", "sine", "triangle", "supersaw"')
         lines.append("")
     
     # Build stack tracks
@@ -137,7 +137,7 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
 def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = "RolandTR808") -> str:
     """
     Generate a parameterized JS pattern function (opts = {}) => stack(...) for drumLibrary object.
-    Conditionals ensure bank is only chained when specified, and synths use decay/sustain envelopes.
+    Conditionals ensure bank is only chained when specified, and synths resolve to valid Strudel oscillators.
     """
     tracks = pattern_data.get("tracks", [])
     stack_lines = []
@@ -173,7 +173,9 @@ def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = 
         "      const n = o.n ?? 0;",
         "      const key = o.key || o.bassKey || bass_key;",
         "      const oct = o.octave || o.bassOctave || bass_octave;",
-        "      const synth = o.synth || o.bassSynth || bass_synth;",
+        "      const validSynths = ['sawtooth', 'square', 'sine', 'triangle', 'supersaw'];",
+        "      const rawSynth = (o.synth || o.bassSynth || bass_synth || 'sawtooth').toString().toLowerCase();",
+        "      const synth = validSynths.includes(rawSynth) ? rawSynth : 'sawtooth';",
         "      return stack(",
         f"{inner}",
         "      );",
