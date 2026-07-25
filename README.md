@@ -10,7 +10,7 @@ An automated Python converter and pattern library that transforms drum pattern r
 - **Idiomatic Strudel Mini-Notation**: Converts raw step grids into concise mini-notation (`hh*16`, `hh*8`, `~ sd ~ sd`, `bd*4`, `[~ ~ sd ~]`).
 - **Expressive Dynamics & Accents**: Adds rhythmic velocity gain contours (`.gain("0.9 0.5 0.7 0.5")`) for hi-hats, ghost-note snare rolls, and programmed accent grids (`AC`).
 - **Bass Synth Integration**: Automatically detects basslines and synthesizes them using configurable root key (`bass_key`), octave (`bass_octave`), and synth waveforms (`bass_synth`). Relative musical pitch intervals (minor 3rd, 5th, 7th) are preserved via `.transpose()`.
-- **Flexible `drumLibrary` ES Module**: Every pattern is exported as a parameterized function `(opts = {}) => stack(...)` allowing live bank, sample index `n`, and bass synth switching.
+- **Flexible `drumLibrary` ES Module**: Every pattern is accessible both directly (`drumLibrary.PatternName()`) and by category (`drumLibrary.Category.PatternName()`).
 - **Dual Live-Coding Modes**: Provides both `stack(...)` expressions for preset playback and `$: Channel` mode for live muting/solo (`_$:`).
 
 ---
@@ -24,13 +24,16 @@ To load the library in [Strudel.cc](https://strudel.cc), use top-level **`await 
 // Import remotely via jsDelivr CDN (@master branch)
 const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/draner/strudel_drum_patterns@master/dist/strudel_library.js')
 
-// 1. Play with default settings (TR-808, n=0, Key C, Octave 1)
-drumLibrary.Dancehall.Reggaeton()
+// 1. Direct pattern call
+drumLibrary.Dub()
 
-// 2. Play with custom drum bank
+// 2. Category pattern call
+drumLibrary.Dub.Dub()
+
+// 3. Play with custom drum bank
 drumLibrary.Dancehall.Reggaeton("RolandTR909")
 
-// 3. Play with custom bank, sample variation index (n), and bass synth parameters
+// 4. Play with custom bank, sample variation index (n), and bass synth parameters
 drumLibrary.Dub({ bank: "RolandTR909", n: 1, key: "eb", octave: 2, synth: "tb303" })
 ```
 
