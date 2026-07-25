@@ -9,7 +9,9 @@ const bass_synth = "sawtooth";
 
 const drumLibrary = {
   // Category: (new) Drum and Bass
-  new_Drum_and_Bass: {
+  new_Drum_and_Bass: Object.assign(
+    (opts = {}) => drumLibrary.new_Drum_and_Bass.new_Basic_Dnb_Drum_Pattern(opts),
+    {
     // (new) Basic Dnb Drum Pattern
     new_Basic_Dnb_Drum_Pattern: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -26,10 +28,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Club
-  Club: {
+  Club: Object.assign(
+    (opts = {}) => drumLibrary.Club.Jersey_club(opts),
+    {
     // Jersey club
     Jersey_club: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -44,10 +49,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Dancehall
-  Dancehall: {
+  Dancehall: Object.assign(
+    (opts = {}) => drumLibrary.Dancehall.Modern_Dancehall(opts),
+    {
     // Modern Dancehall
     Modern_Dancehall: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -92,10 +100,13 @@ const drumLibrary = {
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Drum Machine Patterns
-  Drum_Machine_Patterns: {
+  Drum_Machine_Patterns: Object.assign(
+    (opts = {}) => drumLibrary.Drum_Machine_Patterns.Afro_Cuban_1_Break(opts),
+    {
     // Afro-Cuban 1 - Break
     Afro_Cuban_1_Break: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -3190,10 +3201,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Drum Machine Patterns (260)
-  Drum_Machine_Patterns_260: {
+  Drum_Machine_Patterns_260: Object.assign(
+    (opts = {}) => drumLibrary.Drum_Machine_Patterns_260.AfroCub1(opts),
+    {
     // AfroCub1
     AfroCub1: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -7435,10 +7449,13 @@ const drumLibrary = {
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Dub
-  Dub: {
+  Dub: Object.assign(
+    (opts = {}) => drumLibrary.Dub.Dub(opts),
+    {
     // Dub
     Dub: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -7457,10 +7474,13 @@ const drumLibrary = {
       s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(key).octave(oct).sound(synth)
       );
     }
-  },
+    }
+  ),
 
   // Category: EBM
-  EBM: {
+  EBM: Object.assign(
+    (opts = {}) => drumLibrary.EBM.EBM(opts),
+    {
     // EBM
     EBM: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -7477,10 +7497,13 @@ const drumLibrary = {
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: EDM literature patterns
-  EDM_literature_patterns: {
+  EDM_literature_patterns: Object.assign(
+    (opts = {}) => drumLibrary.EDM_literature_patterns.bighouse_AM(opts),
+    {
     // bighouse_AM
     bighouse_AM: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8325,10 +8348,13 @@ const drumLibrary = {
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: FR 3 Patterns
-  FR_3_Patterns: {
+  FR_3_Patterns: Object.assign(
+    (opts = {}) => drumLibrary.FR_3_Patterns.beguine(opts),
+    {
     // beguine
     beguine: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8514,10 +8540,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Hardcore Techno
-  Hardcore_Techno: {
+  Hardcore_Techno: Object.assign(
+    (opts = {}) => drumLibrary.Hardcore_Techno.Gabber(opts),
+    {
     // Gabber
     Gabber: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8533,10 +8562,13 @@ const drumLibrary = {
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Hip-Hop
-  Hip_Hop: {
+  Hip_Hop: Object.assign(
+    (opts = {}) => drumLibrary.Hip_Hop.Jul_type_beat(opts),
+    {
     // Jul type beat
     Jul_type_beat: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8567,10 +8599,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Hypnotic Techno
-  Hypnotic_Techno: {
+  Hypnotic_Techno: Object.assign(
+    (opts = {}) => drumLibrary.Hypnotic_Techno.Son_Clave(opts),
+    {
     // Son Clave
     Son_Clave: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8600,10 +8635,13 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Metal
-  Metal: {
+  Metal: Object.assign(
+    (opts = {}) => drumLibrary.Metal.Metal(opts),
+    {
     // Half time groove
     Half_time_groove: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8648,10 +8686,13 @@ const drumLibrary = {
       s("bd*16").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Psytrance
-  Psytrance: {
+  Psytrance: Object.assign(
+    (opts = {}) => drumLibrary.Psytrance.Psytrance(opts),
+    {
     // Psytrance
     Psytrance: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8668,10 +8709,13 @@ const drumLibrary = {
       s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(key).octave(oct).sound(synth)
       );
     }
-  },
+    }
+  ),
 
   // Category: Punk
-  Punk: {
+  Punk: Object.assign(
+    (opts = {}) => drumLibrary.Punk.Eight_note_fill(opts),
+    {
     // Eight note fill
     Eight_note_fill: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8716,10 +8760,13 @@ const drumLibrary = {
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Rock
-  Rock: {
+  Rock: Object.assign(
+    (opts = {}) => drumLibrary.Rock.Rock(opts),
+    {
     // Rock
     Rock: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -8749,10 +8796,13 @@ const drumLibrary = {
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: TB03 Generated Patterns
-  TB03_Generated_Patterns: {
+  TB03_Generated_Patterns: Object.assign(
+    (opts = {}) => drumLibrary.TB03_Generated_Patterns.TB03_PTN1_01(opts),
+    {
     // TB03_PTN1_01
     TB03_PTN1_01: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -10347,10 +10397,13 @@ const drumLibrary = {
       s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note(key).octave(oct).sound(synth)
       );
     }
-  },
+    }
+  ),
 
   // Category: TB03 Patterns
-  TB03_Patterns: {
+  TB03_Patterns: Object.assign(
+    (opts = {}) => drumLibrary.TB03_Patterns.TB03_PTN1_01(opts),
+    {
     // TB03_PTN1_01
     TB03_PTN1_01: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -11820,10 +11873,13 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ bd] [_ bd _ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Techno
-  Techno: {
+  Techno: Object.assign(
+    (opts = {}) => drumLibrary.Techno.OffBeat_clap(opts),
+    {
     // OffBeat clap
     OffBeat_clap: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -11853,10 +11909,13 @@ const drumLibrary = {
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  },
+    }
+  ),
 
   // Category: Tidal patterns
-  Tidal_patterns: {
+  Tidal_patterns: Object.assign(
+    (opts = {}) => drumLibrary.Tidal_patterns.Afro6a(opts),
+    {
     // Afro6a
     Afro6a: (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -16319,7 +16378,8 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
     }
-  }
+    }
+  )
 };
 
 // Helper function to play any pattern with a given bank

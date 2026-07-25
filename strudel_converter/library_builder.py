@@ -98,6 +98,10 @@ def build_library(
     cat_blocks = []
     for cat_name, cat_pats in sorted(categories.items()):
         cat_key = sanitize_js_identifier(cat_name)
+        first_pat_key = sanitize_js_identifier(cat_pats[0]["name"]) if cat_pats else "pattern"
+        matching_pat = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
+        default_key = sanitize_js_identifier(matching_pat[0]["name"]) if matching_pat else first_pat_key
+        
         pat_entries = []
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
@@ -105,7 +109,11 @@ def build_library(
             pat_entries.append(f"    // {pat['name']}\n    {pat_key}: {js_entry}")
             
         inner_pats = ",\n\n".join(pat_entries)
-        cat_blocks.append(f"  // Category: {cat_name}\n  {cat_key}: {{\n{inner_pats}\n  }}")
+        cat_blocks.append(
+            f"  // Category: {cat_name}\n  {cat_key}: Object.assign(\n"
+            f"    (opts = {{}}) => drumLibrary.{cat_key}.{default_key}(opts),\n"
+            f"    {{\n{inner_pats}\n    }}\n  )"
+        )
         
     js_lines.append(",\n\n".join(cat_blocks))
     js_lines.append("};")
