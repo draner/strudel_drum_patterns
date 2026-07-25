@@ -134,52 +134,40 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
     return "\n".join(lines)
 
 
-def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = "RolandTR808") -> str:
+def extract_pattern_tracks_dict(pattern_data: Dict[str, Any]) -> Dict[str, Any]:
     """
-    Generate a parameterized JS pattern function (opts = {}) => stack(...) for drumLibrary object.
-    Conditionals ensure bank is only chained when specified, and synths resolve to valid Strudel oscillators.
+    Extract a pure data dictionary of mini-notation tracks and gains for a pattern.
     """
+    name = pattern_data.get("name", "Untitled")
+    category = pattern_data.get("category", "General")
+    bpm = pattern_data.get("bpm")
     tracks = pattern_data.get("tracks", [])
-    stack_lines = []
+    
+    tracks_dict = {}
+    gains_dict = {}
+    
     for tr in tracks:
         steps_str = tr["steps"]
         accent_grid = tr.get("accent_grid")
         is_bass = tr.get("is_bass", False)
-        transpose = tr.get("transpose", 0)
         
         if is_bass:
+            key_name = "bass"
             mini_pat = optimize_track_pattern(steps_str, "x")
-            transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
-            gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            stack_lines.append(f'      s("{mini_pat}"){gain_part}.note(key).octave(oct){transpose_part}.decay(0.2).sustain(0).sound(synth)')
         else:
-            s_name = tr["sample"]
-            mini_pat = optimize_track_pattern(steps_str, s_name)
-            gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
-            gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            n_expr = f'(typeof n === "object" ? (n.{s_name} ?? 0) : n)'
-            stack_lines.append(f'      (bank ? s("{mini_pat}"){gain_part}.n({n_expr}).bank(bank) : s("{mini_pat}"){gain_part}.n({n_expr}))')
-        
-    if not stack_lines:
-        inner = '      s("bd ~ ~ ~")'
-    else:
-        inner = ",\n".join(stack_lines)
-
-    lines = [
-        "(opts = {}) => {",
-        "      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});",
-        "      const bank = o.bank || o.kit || null;",
-        "      const n = o.n ?? 0;",
-        "      const key = o.key || o.bassKey || bass_key;",
-        "      const oct = o.octave || o.bassOctave || bass_octave;",
-        "      const validSynths = ['sawtooth', 'square', 'sine', 'triangle', 'supersaw'];",
-        "      const rawSynth = (o.synth || o.bassSynth || bass_synth || 'sawtooth').toString().toLowerCase();",
-        "      const synth = validSynths.includes(rawSynth) ? rawSynth : 'sawtooth';",
-        "      return stack(",
-        f"{inner}",
-        "      );",
-        "    }"
-    ]
-    
-    return "\n".join(lines)
+            key_name = tr["sample"]
+            mini_pat = optimize_track_pattern(steps_str, key_name)
+            gain_str = get_expressive_gain(key_name, steps_str, accent_grid=accent_grid)
+            
+        tracks_dict[key_name] = mini_pat
+        if gain_str:
+            gains_dict[key_name] = gain_str
+            
+    return {
+        "name": name,
+        "category": category,
+        "bpm": bpm,
+        "tracks": tracks_dict,
+        "gains": gains_dict
+    }

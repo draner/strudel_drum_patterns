@@ -8,7 +8,7 @@ from .json_parser import parse_json_beat_file
 from .strudel_generator import (
     generate_strudel_snippet,
     generate_channel_snippet,
-    generate_js_library_entry,
+    extract_pattern_tracks_dict,
     sanitize_js_identifier,
 )
 
@@ -74,6 +74,7 @@ def build_library(
         pat_copy = dict(pat)
         pat_copy["strudel_snippet"] = generate_strudel_snippet(pat, default_bank=default_bank)
         pat_copy["channel_snippet"] = generate_channel_snippet(pat, default_bank=default_bank)
+        pat_copy["tracks_data"] = extract_pattern_tracks_dict(pat)
         json_data.append(pat_copy)
         
     with open(json_output_path, "w", encoding="utf-8") as f:
@@ -88,22 +89,23 @@ def build_library(
         "",
         "if (typeof setcpm === 'function') { try { setcpm(140 / 4); } catch (e) {} }",
         "if (typeof samples === 'function') { try { samples('github:tidalcycles/dirt-samples'); } catch (e) {} }",
-        'const kit = undefined;',
-        'const bass_key = "c";',
-        'const bass_octave = 1;',
-        'const bass_synth = "sawtooth";',
         "",
         "const _patterns = {};"
     ]
     
-    # Define flat pattern functions
+    # Export flat raw pattern data dicts
     for pat in patterns:
         cat_key = sanitize_js_identifier(pat["category"])
         pat_key = sanitize_js_identifier(pat["name"])
         unique_func_key = f"{cat_key}_{pat_key}"
-        js_entry = generate_js_library_entry(pat, default_bank=default_bank)
-        js_lines.append(f"_patterns.{unique_func_key} = {js_entry};")
-        # Also alias root pattern key if not colliding
+        data_dict = extract_pattern_tracks_dict(pat)
+        json_str = json.dumps(data_dict)
+        
+        # Create function that acts both as a data object and callable play() helper
+        js_lines.append(f"_patterns.{unique_func_key} = Object.assign(")
+        js_lines.append(f"  (opts = {{}}) => play(_patterns.{unique_func_key}, opts),")
+        js_lines.append(f"  {json_str}")
+        js_lines.append(");")
         js_lines.append(f"_patterns.{pat_key} = _patterns.{unique_func_key};")
         
     js_lines.append("")
@@ -114,12 +116,11 @@ def build_library(
         first_pat = cat_pats[0]
         first_func_key = f"{cat_key}_{sanitize_js_identifier(first_pat['name'])}"
         
-        # Check if a pattern in this category matches the category name
         matching = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
         primary_func_key = f"{cat_key}_{sanitize_js_identifier(matching[0]['name'])}" if matching else first_func_key
         
         js_lines.append(f"drumLibrary.{cat_key} = Object.assign(")
-        js_lines.append(f"  (opts = {{}}) => _patterns.{primary_func_key}(opts),")
+        js_lines.append(f"  (opts = {{}}) => play(_patterns.{primary_func_key}, opts),")
         js_lines.append("  {")
         
         sub_entries = []
@@ -131,25 +132,58 @@ def build_library(
         js_lines.append("  }")
         js_lines.append(");")
         
-        # Alias pattern keys at root of drumLibrary
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
             u_key = f"{cat_key}_{pat_key}"
             js_lines.append(f"if (!drumLibrary.{pat_key}) drumLibrary.{pat_key} = _patterns.{u_key};")
             
     js_lines.append("")
-    js_lines.append("// Helper function to play any pattern with a given bank")
-    js_lines.append("function playPattern(pattern, bank = kit) {")
-    js_lines.append("  if (typeof pattern === 'function') return pattern(bank);")
-    js_lines.append("  return pattern;")
+    js_lines.append("// Helper function to play any pattern in Strudel REPL environment")
+    js_lines.append("function play(pattern, opts = {}) {")
+    js_lines.append("  const o = typeof opts === 'string' ? { bank: opts } : (opts || {});")
+    js_lines.append("  const pat = typeof pattern === 'string' ? (drumLibrary[pattern] || _patterns[pattern]) : pattern;")
+    js_lines.append("  if (!pat || !pat.tracks) return pat;")
+    js_lines.append("")
+    js_lines.append("  const bank = o.bank || o.kit || undefined;")
+    js_lines.append("  const n = o.n ?? 0;")
+    js_lines.append("  const key = o.key || o.bassKey || 'c';")
+    js_lines.append("  const oct = o.octave || o.bassOctave || 1;")
+    js_lines.append("  const validSynths = ['sawtooth', 'square', 'sine', 'triangle', 'supersaw'];")
+    js_lines.append("  const rawSynth = (o.synth || o.bassSynth || 'sawtooth').toString().toLowerCase();")
+    js_lines.append("  const synth = validSynths.includes(rawSynth) ? rawSynth : 'sawtooth';")
+    js_lines.append("")
+    js_lines.append("  const sFn = typeof s === 'function' ? s : (typeof globalThis.s === 'function' ? globalThis.s : null);")
+    js_lines.append("  const stackFn = typeof stack === 'function' ? stack : (typeof globalThis.stack === 'function' ? globalThis.stack : null);")
+    js_lines.append("")
+    js_lines.append("  if (!sFn || !stackFn) return pat;")
+    js_lines.append("")
+    js_lines.append("  const stackTracks = [];")
+    js_lines.append("  for (const [instrument, miniPat] of Object.entries(pat.tracks)) {")
+    js_lines.append("    let t = sFn(miniPat);")
+    js_lines.append("    if (pat.gains && pat.gains[instrument]) {")
+    js_lines.append("      t = t.gain(pat.gains[instrument]);")
+    js_lines.append("    }")
+    js_lines.append("    if (instrument === 'bass' || instrument === 'synth') {")
+    js_lines.append("      t = t.note(key).octave(oct).decay(0.2).sustain(0).sound(synth);")
+    js_lines.append("    } else {")
+    js_lines.append("      const nVal = typeof n === 'object' ? (n[instrument] ?? 0) : n;")
+    js_lines.append("      t = t.n(nVal);")
+    js_lines.append("      if (bank) {")
+    js_lines.append("        t = t.bank(bank);")
+    js_lines.append("      }")
+    js_lines.append("    }")
+    js_lines.append("    stackTracks.push(t);")
+    js_lines.append("  }")
+    js_lines.append("")
+    js_lines.append("  return stackFn(...stackTracks);")
     js_lines.append("}")
     js_lines.append("")
     js_lines.append("if (typeof globalThis !== 'undefined') {")
     js_lines.append("  globalThis.drumLibrary = drumLibrary;")
-    js_lines.append("  globalThis.playPattern = playPattern;")
+    js_lines.append("  globalThis.play = play;")
     js_lines.append("}")
     js_lines.append("")
-    js_lines.append("export { kit, bass_key, bass_octave, bass_synth, drumLibrary, playPattern };")
+    js_lines.append("export { drumLibrary, play };")
     
     with open(js_output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(js_lines))
