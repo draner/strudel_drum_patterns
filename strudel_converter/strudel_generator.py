@@ -81,7 +81,7 @@ def generate_strudel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
             transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            track_expr = f's("{mini_pat}"){gain_part}.note(bass_key).octave(bass_octave){transpose_part}.sound(bass_synth)'
+            track_expr = f's("{mini_pat}"){gain_part}.note(bass_key).octave(bass_octave){transpose_part}.decay(0.2).sustain(0).sound(bass_synth)'
         else:
             s_name = tr["sample"]
             mini_pat = optimize_track_pattern(steps_str, s_name)
@@ -123,7 +123,7 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
             transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            lines.append(f'$: s("{mini_pat}"){gain_part}.note("c").octave(1){transpose_part}.sound("sawtooth")')
+            lines.append(f'$: s("{mini_pat}"){gain_part}.note("c").octave(1){transpose_part}.decay(0.2).sustain(0).sound("sawtooth")')
         else:
             s_name = tr["sample"]
             mini_pat = optimize_track_pattern(steps_str, s_name)
@@ -137,7 +137,7 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
 def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = "RolandTR808") -> str:
     """
     Generate a parameterized JS pattern function (opts = {}) => stack(...) for drumLibrary object.
-    Bank defaults to undefined so Strudel's default built-in drum samples play automatically.
+    Conditionals ensure bank is only chained when specified, and synths use decay/sustain envelopes.
     """
     tracks = pattern_data.get("tracks", [])
     stack_lines = []
@@ -152,24 +152,24 @@ def generate_js_library_entry(pattern_data: Dict[str, Any], default_bank: str = 
             transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            stack_lines.append(f'      s("{mini_pat}"){gain_part}.note(key).octave(oct){transpose_part}.sound(synth)')
+            stack_lines.append(f'      s("{mini_pat}"){gain_part}.note(key).octave(oct){transpose_part}.decay(0.2).sustain(0).sound(synth)')
         else:
             s_name = tr["sample"]
             mini_pat = optimize_track_pattern(steps_str, s_name)
             gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
             n_expr = f'(typeof n === "object" ? (n.{s_name} ?? 0) : n)'
-            stack_lines.append(f'      s("{mini_pat}"){gain_part}.n({n_expr}).bank(bank)')
+            stack_lines.append(f'      (bank ? s("{mini_pat}"){gain_part}.n({n_expr}).bank(bank) : s("{mini_pat}"){gain_part}.n({n_expr}))')
         
     if not stack_lines:
-        inner = '      s("bd ~ ~ ~").bank(bank)'
+        inner = '      s("bd ~ ~ ~")'
     else:
         inner = ",\n".join(stack_lines)
 
     lines = [
         "(opts = {}) => {",
         "      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});",
-        "      const bank = o.bank || o.kit || undefined;",
+        "      const bank = o.bank || o.kit || null;",
         "      const n = o.n ?? 0;",
         "      const key = o.key || o.bassKey || bass_key;",
         "      const oct = o.octave || o.bassOctave || bass_octave;",

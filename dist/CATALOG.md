@@ -17992,12 +17992,12 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 
 stack(
   s("bd ~ bd ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note(bass_key).octave(bass_octave).sound(bass_synth),
+  s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("~ sd ~ sd").bank(bank_sd).n(n_sd),
   s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(bank_sd).n(n_sd),
   s("~ sd ~ sd").bank(bank_sd).n(n_sd),
   s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(bank_hh).n(n_hh),
-  s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -18009,12 +18009,12 @@ setcpm(140 / 4);
 const kit = "RolandTR808";
 
 $: s("bd ~ bd ~").gain("1.0 0.8").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 $: s("~ sd ~ sd").bank(kit)
 $: s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(kit)
 $: s("~ sd ~ sd").bank(kit)
 $: s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -20766,8 +20766,8 @@ let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
 
 stack(
-  s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(bass_key).octave(bass_octave).sound(bass_synth),
-  s("x*8").gain("1.0 0.8").note(bass_key).octave(bass_octave).sound(bass_synth),
+  s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
+  s("x*8").gain("1.0 0.8").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd)
 )
 ```
@@ -20779,8 +20779,8 @@ stack(
 setcpm(128 / 4);
 const kit = "RolandTR808";
 
-$: s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note("c").octave(1).sound("sawtooth")
-$: s("x*8").gain("1.0 0.8").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
+$: s("x*8").gain("1.0 0.8").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 $: s("bd*4").gain("1.0 0.8").bank(kit)
 ```
 </details>
@@ -20804,8 +20804,8 @@ let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
 
 stack(
-  s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth),
-  s("[x ~]*2 [x ~]*2 ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth),
+  s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
+  s("[x ~]*2 [x ~]*2 ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth),
   s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank_bd).n(n_bd)
 )
 ```
@@ -20817,8 +20817,8 @@ stack(
 setcpm(128 / 4);
 const kit = "RolandTR808";
 
-$: s("[x ~ ~ x] [~ ~ x ~] ~ ~").note("c").octave(1).sound("sawtooth")
-$: s("[x ~]*2 [x ~]*2 ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ x] [~ ~ x ~] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
+$: s("[x ~]*2 [x ~]*2 ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 $: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(kit)
 ```
 </details>
@@ -20974,7 +20974,7 @@ stack(
   s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank_oh).n(n_oh),
   s("~ sd ~ sd").bank(bank_sd).n(n_sd),
   s("bd*4").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -20989,7 +20989,7 @@ $: s("hh*4").gain("0.85").bank(kit)
 $: s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(kit)
 $: s("~ sd ~ sd").bank(kit)
 $: s("bd*4").gain("1.0 0.8").bank(kit)
-$: s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note("c").octave(1).sound("sawtooth")
+$: s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -21439,7 +21439,7 @@ stack(
   s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("[~ ~ cp cp] [cp ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[bd ~ ~ ~] ~ ~ ~").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -21455,7 +21455,7 @@ $: s("~ [~ ht ~ ~] ~ ~").bank(kit)
 $: s("~ ~ [~ ~ lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ cp cp] [cp ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ ~] ~ ~ ~").bank(kit)
-$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -21610,7 +21610,7 @@ stack(
   s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ ~ ~ [cp ~ ~ ~]").bank(bank_cp).n(n_cp),
   s("[~ bd bd ~] bd*4 [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ ~ [~ ~ x ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ ~ x ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -21625,7 +21625,7 @@ $: s("~ ~ ~ [~ ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(kit)
 $: s("~ ~ ~ [cp ~ ~ ~]").bank(kit)
 $: s("[~ bd bd ~] bd*4 [~ ~ ~ bd] ~").gain("1.0 0.8").bank(kit)
-$: s("~ ~ [~ ~ x ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ ~ x ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -21859,7 +21859,7 @@ stack(
   s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
   s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ bd bd] [bd ~ bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -21873,7 +21873,7 @@ $: s("[~ oh]*2 ~ ~ ~").bank(kit)
 $: s("~ ~ ~ [~ hh ~ ~]").gain("0.85").bank(kit)
 $: s("~ [~ ~ ~ lt] ~ ~").bank(kit)
 $: s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ bd bd] [bd ~ bd bd]").gain("1.0 0.8").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -21907,7 +21907,7 @@ stack(
   s("~ ~ ~ hh*4").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ [~ ~ ~ cp] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -21922,7 +21922,7 @@ $: s("[~ oh]*2 [oh oh ~ ~] ~ ~").bank(kit)
 $: s("~ ~ ~ hh*4").gain("0.85").bank(kit)
 $: s("~ [~ ~ ~ cp] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -21994,7 +21994,7 @@ stack(
   s("~ [ht ~ ~ ~] ~ ~").bank(bank_ht).n(n_ht),
   s("~ ~ [~ lt ~ ~] [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
   s("[bd ~ bd bd] [~ bd bd bd] [~ ~ bd bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22008,7 +22008,7 @@ $: s("~ ~ ~ [~ cr ~ ~]").bank(kit)
 $: s("~ [ht ~ ~ ~] ~ ~").bank(kit)
 $: s("~ ~ [~ lt ~ ~] [~ ~ ~ lt]").bank(kit)
 $: s("[bd ~ bd bd] [~ bd bd bd] [~ ~ bd bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(kit)
-$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22039,8 +22039,8 @@ stack(
   s("[~ oh ~ ~] [~ oh ~ ~] ~ ~").bank(bank_oh).n(n_oh),
   s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
   s("[~ ~ bd ~] [~ ~ ~ bd] bd*4 [~ bd bd ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(3).sound(bass_synth),
-  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(3).decay(0.2).sustain(0).sound(bass_synth),
+  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22054,8 +22054,8 @@ $: s("~ ~ ~ [ht ~ ~ ~]").bank(kit)
 $: s("[~ oh ~ ~] [~ oh ~ ~] ~ ~").bank(kit)
 $: s("~ ~ ~ [~ ~ ~ lt]").bank(kit)
 $: s("[~ ~ bd ~] [~ ~ ~ bd] bd*4 [~ bd bd ~]").gain("1.0 0.8").bank(kit)
-$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).transpose(3).sound("sawtooth")
-$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).transpose(3).decay(0.2).sustain(0).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22165,7 +22165,7 @@ stack(
   s("~ ~ ~ [~ ~ ~ ht]").bank(bank_ht).n(n_ht),
   s("~ ~ [~ lt lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
-  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22178,7 +22178,7 @@ const kit = "RolandTR808";
 $: s("~ ~ ~ [~ ~ ~ ht]").bank(kit)
 $: s("~ ~ [~ lt lt lt] [lt ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [~ bd ~ ~]").bank(kit)
-$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22418,8 +22418,8 @@ stack(
   s("[~ ~ lt ~] [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("[~ cp ~ ~] ~ ~ ~").bank(bank_cp).n(n_cp),
   s("[~ ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).transpose(2).sound(bass_synth),
-  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).transpose(2).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22435,8 +22435,8 @@ $: s("~ [hh ~ ~ ~] ~ ~").gain("0.85").bank(kit)
 $: s("[~ ~ lt ~] [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ cp ~ ~] ~ ~ ~").bank(kit)
 $: s("[~ ~ ~ bd] ~ [bd bd ~ ~] ~").bank(kit)
-$: s("~ ~ ~ [x ~ ~ ~]").note("c").octave(1).transpose(2).sound("sawtooth")
-$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [x ~ ~ ~]").note("c").octave(1).transpose(2).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22610,7 +22610,7 @@ stack(
   s("[oh ~ ~ ~] [~ ~ ~ oh] [oh oh ~ ~] ~").bank(bank_oh).n(n_oh),
   s("[~ ~ ~ cp] [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("~ ~ [~ ~ bd ~] [bd ~]*2").bank(bank_bd).n(n_bd),
-  s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22625,7 +22625,7 @@ $: s("[~ ht ~ ~] ~ [~ ~ ~ ht] [~ ~ ~ ht]").bank(kit)
 $: s("[oh ~ ~ ~] [~ ~ ~ oh] [oh oh ~ ~] ~").bank(kit)
 $: s("[~ ~ ~ cp] [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ ~ [~ ~ bd ~] [bd ~]*2").bank(kit)
-$: s("~ [~ x ~ ~] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [~ x ~ ~] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22829,7 +22829,7 @@ stack(
   s("~ [~ ~ ~ lt] ~ ~").bank(bank_lt).n(n_lt),
   s("~ ~ ~ [~ ~ ~ sd]").bank(bank_sd).n(n_sd),
   s("[bd bd ~ bd] [bd bd bd ~] [bd bd bd ~] [bd bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -22842,7 +22842,7 @@ const kit = "RolandTR808";
 $: s("~ [~ ~ ~ lt] ~ ~").bank(kit)
 $: s("~ ~ ~ [~ ~ ~ sd]").bank(kit)
 $: s("[bd bd ~ bd] [bd bd bd ~] [bd bd bd ~] [bd bd ~ ~]").gain("1.0 0.8").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -22998,7 +22998,7 @@ stack(
   s("~ ~ [~ ~ hh hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
-  s("[~ x ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ x ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23012,7 +23012,7 @@ $: s("[ht ~ ~ ~] [ht ~ ~ ~] ~ ~").bank(kit)
 $: s("~ ~ [~ ~ hh hh] ~").gain("0.85").bank(kit)
 $: s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").bank(kit)
-$: s("[~ x ~ ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ x ~ ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23089,7 +23089,7 @@ stack(
   s("~ ~ ~ [hh hh ~ hh]").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ [~ lt ~ ~] [~ ~ lt ~] ~").bank(bank_lt).n(n_lt),
   s("bd*4 [bd ~ ~ ~] ~ ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23102,7 +23102,7 @@ const kit = "RolandTR808";
 $: s("~ ~ ~ [hh hh ~ hh]").gain("0.85").bank(kit)
 $: s("~ [~ lt ~ ~] [~ ~ lt ~] ~").bank(kit)
 $: s("bd*4 [bd ~ ~ ~] ~ ~").gain("1.0 0.8").bank(kit)
-$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23169,7 +23169,7 @@ stack(
   s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
   s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("~ [~ ~ ~ bd] bd*4 [bd bd ~ bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23182,7 +23182,7 @@ const kit = "RolandTR808";
 $: s("~ ~ ~ [~ ~ lt ~]").bank(kit)
 $: s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ [~ ~ ~ bd] bd*4 [bd bd ~ bd]").gain("1.0 0.8").bank(kit)
-$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23216,7 +23216,7 @@ stack(
   s("~ [~ ~ ~ hh] [hh ~ ~ ~] ~").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("bd*4 [bd ~ ~ ~] [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23231,7 +23231,7 @@ $: s("~ [~ oh ~ ~] ~ ~").bank(kit)
 $: s("~ [~ ~ ~ hh] [hh ~ ~ ~] ~").gain("0.85").bank(kit)
 $: s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("bd*4 [bd ~ ~ ~] [~ ~ bd ~] ~").gain("1.0 0.8").bank(kit)
-$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23426,7 +23426,7 @@ stack(
   s("~ [~ ~ ~ oh] oh*4 [oh ~ ~ ~]").bank(bank_oh).n(n_oh),
   s("[~ ~ lt ~] ~ ~ ~").bank(bank_lt).n(n_lt),
   s("[~ bd]*2 [bd ~]*2 ~ [~ bd ~ ~]").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23440,7 +23440,7 @@ $: s("~ [~ rd ~ ~] ~ ~").bank(kit)
 $: s("~ [~ ~ ~ oh] oh*4 [oh ~ ~ ~]").bank(kit)
 $: s("[~ ~ lt ~] ~ ~ ~").bank(kit)
 $: s("[~ bd]*2 [bd ~]*2 ~ [~ bd ~ ~]").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23665,7 +23665,7 @@ stack(
   s("~ ~ [hh ~ ~ hh] ~").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ ~ ~ [~ ~ ~ lt]").bank(bank_lt).n(n_lt),
   s("[bd bd ~ ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23680,7 +23680,7 @@ $: s("[~ ~ ~ oh] [oh ~ ~ ~] ~ [oh ~ ~ ~]").bank(kit)
 $: s("~ ~ [hh ~ ~ hh] ~").gain("0.85").bank(kit)
 $: s("~ ~ ~ [~ ~ ~ lt]").bank(kit)
 $: s("[bd bd ~ ~] ~ [~ ~ bd ~] ~").bank(kit)
-$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23714,7 +23714,7 @@ stack(
   s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(bank_hh).n(n_hh),
   s("~ [~ lt ~ ~] ~ [lt ~ ~ ~]").bank(bank_lt).n(n_lt),
   s("[~ ~ bd bd] [bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd bd]").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23729,7 +23729,7 @@ $: s("~ ~ [~ oh ~ ~] ~").bank(kit)
 $: s("~ [~ ~ ~ hh] ~ ~").gain("0.85").bank(kit)
 $: s("~ [~ lt ~ ~] ~ [lt ~ ~ ~]").bank(kit)
 $: s("[~ ~ bd bd] [bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd bd]").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23866,7 +23866,7 @@ stack(
   s("~ ~ ~ [~ ~ ht ~]").bank(bank_ht).n(n_ht),
   s("~ [lt ~ ~ ~] [~ lt lt lt] [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("[~ bd bd bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23879,7 +23879,7 @@ const kit = "RolandTR808";
 $: s("~ ~ ~ [~ ~ ht ~]").bank(kit)
 $: s("~ [lt ~ ~ ~] [~ lt lt lt] [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ bd bd bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd ~ ~]").gain("1.0 0.8").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23907,7 +23907,7 @@ stack(
   s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(bank_ht).n(n_ht),
   s("~ ~ [~ oh oh oh] [~ ~ ~ oh]").bank(bank_oh).n(n_oh),
   s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23920,7 +23920,7 @@ const kit = "RolandTR808";
 $: s("~ ~ ~ [ht ht ht ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ ~ [~ oh oh oh] [~ ~ ~ oh]").bank(kit)
 $: s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -23983,7 +23983,7 @@ stack(
   s("~ [cr ~ ~ ~] ~ ~").bank(bank_cr).n(n_cr),
   s("~ ~ ~ [oh oh oh ~]").bank(bank_oh).n(n_oh),
   s("[~ bd bd bd] [~ ~ bd bd] bd*4 ~").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -23996,7 +23996,7 @@ const kit = "RolandTR808";
 $: s("~ [cr ~ ~ ~] ~ ~").bank(kit)
 $: s("~ ~ ~ [oh oh oh ~]").bank(kit)
 $: s("[~ bd bd bd] [~ ~ bd bd] bd*4 ~").gain("1.0 0.8").bank(kit)
-$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24094,7 +24094,7 @@ stack(
   s("[~ ~ ~ oh] [oh ~ oh oh] [oh ~]*2 ~").bank(bank_oh).n(n_oh),
   s("[~ lt ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
   s("[~ ~ bd ~] ~ ~ ~").bank(bank_bd).n(n_bd),
-  s("~ [~ x ~ ~] [~ x ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [~ x ~ ~] [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24107,7 +24107,7 @@ const kit = "RolandTR808";
 $: s("[~ ~ ~ oh] [oh ~ oh oh] [oh ~]*2 ~").bank(kit)
 $: s("[~ lt ~ ~] ~ ~ ~").bank(kit)
 $: s("[~ ~ bd ~] ~ ~ ~").bank(kit)
-$: s("~ [~ x ~ ~] [~ x ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [~ x ~ ~] [~ x ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24293,7 +24293,7 @@ stack(
   s("[~ ht ~ ~] [ht ~ ~ ~] ~ [ht ~ ~ ~]").bank(bank_ht).n(n_ht),
   s("~ ~ [~ sd ~ ~] ~").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] [~ bd bd bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24306,7 +24306,7 @@ const kit = "RolandTR808";
 $: s("[~ ht ~ ~] [ht ~ ~ ~] ~ [ht ~ ~ ~]").bank(kit)
 $: s("~ ~ [~ sd ~ ~] ~").bank(kit)
 $: s("[~ ~ bd ~] [~ bd bd bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(kit)
-$: s("[~ ~ ~ x] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ ~ x] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24383,7 +24383,7 @@ stack(
   s("~ ~ [cp ~ ~ ~] ~").bank(bank_cp).n(n_cp),
   s("[~ sd ~ ~] ~ ~ ~").bank(bank_sd).n(n_sd),
   s("~ [~ bd bd bd] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24398,7 +24398,7 @@ $: s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ ~ [cp ~ ~ ~] ~").bank(kit)
 $: s("[~ sd ~ ~] ~ ~ ~").bank(kit)
 $: s("~ [~ bd bd bd] [~ ~ bd ~] ~").bank(kit)
-$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24426,7 +24426,7 @@ stack(
   s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(bank_ht).n(n_ht),
   s("~ ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ ~ x] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24439,7 +24439,7 @@ const kit = "RolandTR808";
 $: s("[~ ht ~ ~] ~ [~ ht ~ ~] ~").bank(kit)
 $: s("~ ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(kit)
-$: s("[~ ~ ~ x] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ ~ x] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24467,7 +24467,7 @@ stack(
   s("~ [~ ~ cr ~] ~ ~").bank(bank_cr).n(n_cr),
   s("[~ ht ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] ~").bank(bank_ht).n(n_ht),
   s("[bd ~ ~ bd] ~ [bd bd bd ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24480,7 +24480,7 @@ const kit = "RolandTR808";
 $: s("~ [~ ~ cr ~] ~ ~").bank(kit)
 $: s("[~ ht ~ ~] [ht ~ ~ ~] [~ ~ ~ ht] ~").bank(kit)
 $: s("[bd ~ ~ bd] ~ [bd bd bd ~] [~ bd bd bd]").gain("1.0 0.8").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24542,7 +24542,7 @@ stack(
   s("[~ ~ ~ oh] ~ ~ ~").bank(bank_oh).n(n_oh),
   s("[lt ~ ~ ~] ~ ~ ~").bank(bank_lt).n(n_lt),
   s("~ [~ bd bd bd] [~ bd bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank_bd).n(n_bd),
-  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ ~ x ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24556,7 +24556,7 @@ $: s("~ ht ~ ht").bank(kit)
 $: s("[~ ~ ~ oh] ~ ~ ~").bank(kit)
 $: s("[lt ~ ~ ~] ~ ~ ~").bank(kit)
 $: s("~ [~ bd bd bd] [~ bd bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(kit)
-$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ ~ x ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24672,7 +24672,7 @@ stack(
   s("~ [~ lt ~ ~] ~ ~").bank(bank_lt).n(n_lt),
   s("~ ~ [cp ~ ~ ~] [~ cp cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[bd bd bd ~] ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24689,7 +24689,7 @@ $: s("[~ ~ ~ lt] ~ ~ ~").bank(kit)
 $: s("~ [~ lt ~ ~] ~ ~").bank(kit)
 $: s("~ ~ [cp ~ ~ ~] [~ cp cp ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[bd bd bd ~] ~ [~ ~ bd ~] ~").bank(kit)
-$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24814,7 +24814,7 @@ stack(
   s("[~ lt lt ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("~ ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [x ~ ~ ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24828,7 +24828,7 @@ $: s("ht ~ ht ~").bank(kit)
 $: s("[~ lt lt ~] [~ ~ ~ lt] ~ [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ ~ [~ bd ~ ~] [~ ~ bd bd]").bank(kit)
-$: s("~ ~ ~ [x ~ ~ ~]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [x ~ ~ ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24898,7 +24898,7 @@ stack(
   s("~ ~ [~ ~ oh ~] [~ oh ~ ~]").bank(bank_oh).n(n_oh),
   s("[~ lt lt ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("~ [~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd]").bank(bank_bd).n(n_bd),
-  s("~ ~ [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24912,7 +24912,7 @@ $: s("[ht ~ ~ ht] ~ [ht ~ ~ ~] ~").bank(kit)
 $: s("~ ~ [~ ~ oh ~] [~ oh ~ ~]").bank(kit)
 $: s("[~ lt lt ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ [~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd]").bank(kit)
-$: s("~ ~ [~ ~ ~ x] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ ~ ~ x] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24944,7 +24944,7 @@ stack(
   s("~ ~ ~ [~ ~ lt ~]").bank(bank_lt).n(n_lt),
   s("~ ~ [~ ~ cp cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank_cp).n(n_cp),
   s("[~ ~ ~ bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd]*2").bank(bank_bd).n(n_bd),
-  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x ~ ~ ~] ~ ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -24959,7 +24959,7 @@ $: s("~ ~ [~ lt ~ ~] ~").bank(kit)
 $: s("~ ~ ~ [~ ~ lt ~]").bank(kit)
 $: s("~ ~ [~ ~ cp cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ ~ bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd]*2").bank(kit)
-$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("[x ~ ~ ~] ~ ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -24993,7 +24993,7 @@ stack(
   s("~ ~ [~ lt ~ ~] ~").bank(bank_lt).n(n_lt),
   s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_sd).n(n_sd),
   s("[~ ~ bd ~] [~ bd bd bd] [~ ~ bd bd] [~ bd ~ ~]").bank(bank_bd).n(n_bd),
-  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -25008,7 +25008,7 @@ $: s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(kit)
 $: s("~ ~ [~ lt ~ ~] ~").bank(kit)
 $: s("[sd sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("[~ ~ bd ~] [~ bd bd bd] [~ ~ bd bd] [~ bd ~ ~]").bank(kit)
-$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -25195,7 +25195,7 @@ stack(
   s("~ [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank_lt).n(n_lt),
   s("~ ~ ~ [sd ~ ~ ~]").bank(bank_sd).n(n_sd),
   s("[~ bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd bd bd]").bank(bank_bd).n(n_bd),
-  s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -25209,7 +25209,7 @@ $: s("~ ~ [ht ht ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ [~ lt lt ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(kit)
 $: s("~ ~ ~ [sd ~ ~ ~]").bank(kit)
 $: s("[~ bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd bd bd]").bank(kit)
-$: s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note("c").octave(1).sound("sawtooth")
+$: s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -25334,9 +25334,9 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 
 stack(
   s("~ ~ [~ ~ ~ bd] [bd bd bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
-  s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).sound(bass_synth),
-  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).transpose(7).sound(bass_synth),
-  s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [~ x ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
+  s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -25347,9 +25347,9 @@ stack(
 const kit = "RolandTR808";
 
 $: s("~ ~ [~ ~ ~ bd] [bd bd bd ~]").gain("1.0 0.6 0.6 0.6").bank(kit)
-$: s("~ [~ x ~ ~] ~ ~").note("c").octave(1).transpose(10).sound("sawtooth")
-$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).transpose(7).sound("sawtooth")
-$: s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note("c").octave(1).sound("sawtooth")
+$: s("~ [~ x ~ ~] ~ ~").note("c").octave(1).transpose(10).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).transpose(7).decay(0.2).sustain(0).sound("sawtooth")
+$: s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -25457,7 +25457,7 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 
 stack(
   s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [~ ~ x ~]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -25468,7 +25468,7 @@ stack(
 const kit = "RolandTR808";
 
 $: s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(kit)
-$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ x ~]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -26913,9 +26913,9 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 
 stack(
   s("~ ~ [~ bd bd bd] [bd ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank_bd).n(n_bd),
-  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).sound(bass_synth),
-  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).transpose(7).sound(bass_synth),
-  s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ [x ~ ~ ~] ~ ~").note(bass_key).octave(bass_octave).transpose(10).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ [~ ~ ~ x] ~ ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
+  s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -26926,9 +26926,9 @@ stack(
 const kit = "RolandTR808";
 
 $: s("~ ~ [~ bd bd bd] [bd ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(kit)
-$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).transpose(10).sound("sawtooth")
-$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).transpose(7).sound("sawtooth")
-$: s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note("c").octave(1).sound("sawtooth")
+$: s("~ [x ~ ~ ~] ~ ~").note("c").octave(1).transpose(10).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ [~ ~ ~ x] ~ ~").note("c").octave(1).transpose(7).decay(0.2).sustain(0).sound("sawtooth")
+$: s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -27370,8 +27370,8 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 stack(
   s("[cp ~ ~ ~] ~ ~ ~").bank(bank_cp).n(n_cp),
   s("~ ~ [~ ~ bd bd] [_ bd ~ bd]").bank(bank_bd).n(n_bd),
-  s("[~ x _ x] [~ x x _] ~ ~").note(bass_key).octave(bass_octave).transpose(2).sound(bass_synth),
-  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[~ x _ x] [~ x x _] ~ ~").note(bass_key).octave(bass_octave).transpose(2).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ ~ [x ~ ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -27383,8 +27383,8 @@ const kit = "RolandTR808";
 
 $: s("[cp ~ ~ ~] ~ ~ ~").bank(kit)
 $: s("~ ~ [~ ~ bd bd] [_ bd ~ bd]").bank(kit)
-$: s("[~ x _ x] [~ x x _] ~ ~").note("c").octave(1).transpose(2).sound("sawtooth")
-$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("[~ x _ x] [~ x x _] ~ ~").note("c").octave(1).transpose(2).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ ~ [x ~ ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -27836,9 +27836,9 @@ let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sin
 
 stack(
   s("~ ~ [~ ~ bd ~] ~").bank(bank_bd).n(n_bd),
-  s("[x _ _ x] [_ x ~ ~] ~ [x x _ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 1.0 1.0 0.6").note(bass_key).octave(bass_octave).transpose(3).sound(bass_synth),
-  s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note(bass_key).octave(bass_octave).transpose(1).sound(bass_synth),
-  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("[x _ _ x] [_ x ~ ~] ~ [x x _ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 1.0 1.0 0.6").note(bass_key).octave(bass_octave).transpose(3).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note(bass_key).octave(bass_octave).transpose(1).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ ~ [~ x ~ ~] ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -27849,9 +27849,9 @@ stack(
 const kit = "RolandTR808";
 
 $: s("~ ~ [~ ~ bd ~] ~").bank(kit)
-$: s("[x _ _ x] [_ x ~ ~] ~ [x x _ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 1.0 1.0 0.6").note("c").octave(1).transpose(3).sound("sawtooth")
-$: s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note("c").octave(1).transpose(1).sound("sawtooth")
-$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).sound("sawtooth")
+$: s("[x _ _ x] [_ x ~ ~] ~ [x x _ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 1.0 1.0 0.6").note("c").octave(1).transpose(3).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note("c").octave(1).transpose(1).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ ~ [~ x ~ ~] ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -27903,9 +27903,9 @@ let bass_octave = 1;         // Bass octave
 let bass_synth = "sawtooth"; // Synth sound ("sawtooth", "square", "tb303", "sine")
 
 stack(
-  s("~ ~ [~ ~ x _] ~").note(bass_key).octave(bass_octave).transpose(7).sound(bass_synth),
-  s("~ ~ ~ [~ ~ x _]").note(bass_key).octave(bass_octave).transpose(3).sound(bass_synth),
-  s("[~ ~ x _] [~ ~ x _] ~ ~").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ [~ ~ x _] ~").note(bass_key).octave(bass_octave).transpose(7).decay(0.2).sustain(0).sound(bass_synth),
+  s("~ ~ ~ [~ ~ x _]").note(bass_key).octave(bass_octave).transpose(3).decay(0.2).sustain(0).sound(bass_synth),
+  s("[~ ~ x _] [~ ~ x _] ~ ~").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -27915,9 +27915,9 @@ stack(
 // Live Channel Mode - TB03_PTN4_04
 const kit = "RolandTR808";
 
-$: s("~ ~ [~ ~ x _] ~").note("c").octave(1).transpose(7).sound("sawtooth")
-$: s("~ ~ ~ [~ ~ x _]").note("c").octave(1).transpose(3).sound("sawtooth")
-$: s("[~ ~ x _] [~ ~ x _] ~ ~").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ [~ ~ x _] ~").note("c").octave(1).transpose(7).decay(0.2).sustain(0).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ x _]").note("c").octave(1).transpose(3).decay(0.2).sustain(0).sound("sawtooth")
+$: s("[~ ~ x _] [~ ~ x _] ~ ~").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
@@ -27945,7 +27945,7 @@ stack(
   s("[lt _ _ lt] [_ _ ~ lt] [lt _ _ ~] [lt _ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 0.6").bank(bank_lt).n(n_lt),
   s("~ ~ ~ [~ ~ cp ~]").bank(bank_cp).n(n_cp),
   s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank_bd).n(n_bd),
-  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).sound(bass_synth)
+  s("~ ~ ~ [~ ~ ~ x]").note(bass_key).octave(bass_octave).decay(0.2).sustain(0).sound(bass_synth)
 )
 ```
 
@@ -27958,7 +27958,7 @@ const kit = "RolandTR808";
 $: s("[lt _ _ lt] [_ _ ~ lt] [lt _ _ ~] [lt _ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 0.6").bank(kit)
 $: s("~ ~ ~ [~ ~ cp ~]").bank(kit)
 $: s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(kit)
-$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).sound("sawtooth")
+$: s("~ ~ ~ [~ ~ ~ x]").note("c").octave(1).decay(0.2).sustain(0).sound("sawtooth")
 ```
 </details>
 
