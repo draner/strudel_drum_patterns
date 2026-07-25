@@ -136,29 +136,29 @@ def get_expressive_gain(sample_name: str, steps: str, accent_grid: Optional[str]
                 else:
                     gains.append("0.6")
         if gains and len(set(gains)) > 1:
-            return " ".join(gains)
+            return "[" + " ".join(gains) + "]"
 
     # 2. Hi-Hat Expression
     if sample_name in ("hh", "oh", "hc"):
         if "x*16" in optimize_track_pattern(steps) or steps == "x" * 16:
-            return "0.9 0.5 0.7 0.5"
+            return "[0.9 0.5 0.7 0.5]"
         elif "x*8" in optimize_track_pattern(steps) or steps == "x-x-x-x-x-x-x-x-":
-            return "0.9 0.6"
+            return "[0.9 0.6]"
         elif "f" in steps:
-            return "1.0 0.7"
+            return "[1.0 0.7]"
         elif sample_name == "hh":
             return "0.85"
 
     # 3. Snare & Percussion Rolls / Ghost Notes
     if sample_name in ("sd", "rim", "cp", "lt", "mt", "ht"):
         if "xx" in steps or "ff" in steps or "x x" in optimize_track_pattern(steps):
-            return "1.0 0.5 0.7 0.5"
+            return "[1.0 0.5 0.7 0.5]"
         elif "f" in steps:
-            return "1.1 0.7"
+            return "[1.1 0.7]"
 
     # 4. Kick Expression
     if sample_name == "bd":
         if steps.count("x") >= 8 or "x*4" in optimize_track_pattern(steps):
-            return "1.0 0.8"
+            return "[1.0 0.8]"
 
     return None
