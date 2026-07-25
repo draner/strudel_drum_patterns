@@ -15,28 +15,30 @@ An automated Python converter and pattern library that transforms drum pattern r
 
 ---
 
-## 🌐 Remote Import in Strudel.cc
+## 🌐 Remote Import in Strudel.cc REPL
 
-You can import the library directly into [Strudel.cc](https://strudel.cc) from any remote URL (CDN or GitHub Pages) without needing a local installation!
+Because the online Strudel REPL parses main editor code as a standard JavaScript script rather than a static ES module, static `import { ... } from '...'` syntax will trigger `Error: 'import' and 'export' may appear only with 'sourceType: module'`.
+
+To import the library in Strudel REPL, use **dynamic `await import(...)`**:
 
 ### 1. Remote Import via jsDelivr CDN
 ```js
-// Import remotely via jsDelivr CDN
-import { drumLibrary } from 'https://cdn.jsdelivr.net/gh/YOUR_USERNAME/drum_patterns_generator@main/dist/strudel_library.js'
+// Dynamic Remote Import in Strudel REPL
+const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/YOUR_USERNAME/drum_patterns_generator@main/dist/strudel_library.js')
 
-// Play with default settings
+// 1. Play with default settings
 drumLibrary.Dancehall.Reggaeton()
 
-// Play with custom drum bank
+// 2. Play with custom drum bank
 drumLibrary.Dancehall.Reggaeton("RolandTR909")
 
-// Play with custom bank, sample variation index (n), and bass synth parameters
+// 3. Play with custom bank, sample variation index (n), and bass synth parameters
 drumLibrary.Dub({ bank: "RolandTR909", n: 1, key: "eb", octave: 2, synth: "tb303" })
 ```
 
 ### 2. Remote Import via GitHub Pages
 ```js
-import { drumLibrary } from 'https://YOUR_USERNAME.github.io/drum_patterns_generator/dist/strudel_library.js'
+const { drumLibrary } = await import('https://YOUR_USERNAME.github.io/drum_patterns_generator/dist/strudel_library.js')
 
 drumLibrary.Rock.Rock1_MeasureA()
 ```
@@ -48,7 +50,7 @@ drumLibrary.Rock.Rock1_MeasureA()
 ### Method 1: Local Import
 If hosting locally:
 ```js
-import { drumLibrary } from './dist/strudel_library.js'
+const { drumLibrary } = await import('./dist/strudel_library.js')
 
 drumLibrary.Dancehall.Reggaeton()
 ```
