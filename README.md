@@ -20,11 +20,9 @@ An automated Python converter and pattern library that transforms drum pattern r
 To load the library in [Strudel.cc](https://strudel.cc), use top-level **`await import(...)`**:
 
 ### 1. Remote Import via jsDelivr CDN (Recommended)
-Works immediately once pushed to GitHub (no GitHub Pages setup required):
-
 ```js
-// Import remotely via jsDelivr CDN
-const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/draner/strudel_drum_patterns@main/dist/strudel_library.js')
+// Import remotely via jsDelivr CDN (@master branch)
+const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/draner/strudel_drum_patterns@master/dist/strudel_library.js')
 
 // 1. Play with default settings (TR-808, n=0, Key C, Octave 1)
 drumLibrary.Dancehall.Reggaeton()
@@ -38,24 +36,19 @@ drumLibrary.Dub({ bank: "RolandTR909", n: 1, key: "eb", octave: 2, synth: "tb303
 
 ### 2. Remote Import via RawGithack CDN
 ```js
-const { drumLibrary } = await import('https://raw.githack.com/draner/strudel_drum_patterns/main/dist/strudel_library.js')
+const { drumLibrary } = await import('https://raw.githack.com/draner/strudel_drum_patterns/master/dist/strudel_library.js')
 
-drumLibrary.Rock.Rock1_MeasureA()
+drumLibrary.Dancehall.Reggaeton()
 ```
 
 ### 3. Remote Import via GitHub Pages
-If GitHub Pages is enabled in your repository settings (Settings -> Pages -> Branch: `main`):
+If GitHub Pages is enabled in your repository settings (Settings -> Pages -> Branch: `master`):
 
 ```js
 const { drumLibrary } = await import('https://draner.github.io/strudel_drum_patterns/dist/strudel_library.js')
 
-drumLibrary.Rock.Rock1_MeasureA()
+drumLibrary.Dancehall.Reggaeton()
 ```
-
-> ⚠️ **Troubleshooting `Failed to fetch dynamically imported module`**:
-> - Ensure you pushed your commits including `dist/` to GitHub (`git add . && git commit -m "Build dist" && git push`).
-> - Ensure the repository name in the URL matches your GitHub repo name (`strudel_drum_patterns`).
-> - Use the **jsDelivr** or **RawGithack** CDN URLs above, as they include mandatory CORS headers and work instantly.
 
 ---
 
