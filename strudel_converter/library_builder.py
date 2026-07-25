@@ -92,31 +92,50 @@ def build_library(
         'const bass_octave = 1;',
         'const bass_synth = "sawtooth";',
         "",
-        "const drumLibrary = {"
+        "const _patterns = {};"
     ]
     
-    cat_blocks = []
+    # Define flat pattern functions
+    for pat in patterns:
+        cat_key = sanitize_js_identifier(pat["category"])
+        pat_key = sanitize_js_identifier(pat["name"])
+        unique_func_key = f"{cat_key}_{pat_key}"
+        js_entry = generate_js_library_entry(pat, default_bank=default_bank)
+        js_lines.append(f"_patterns.{unique_func_key} = {js_entry};")
+        # Also alias root pattern key if not colliding
+        js_lines.append(f"_patterns.{pat_key} = _patterns.{unique_func_key};")
+        
+    js_lines.append("")
+    js_lines.append("const drumLibrary = {};")
+    
     for cat_name, cat_pats in sorted(categories.items()):
         cat_key = sanitize_js_identifier(cat_name)
-        first_pat_key = sanitize_js_identifier(cat_pats[0]["name"]) if cat_pats else "pattern"
-        matching_pat = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
-        default_key = sanitize_js_identifier(matching_pat[0]["name"]) if matching_pat else first_pat_key
+        first_pat = cat_pats[0]
+        first_func_key = f"{cat_key}_{sanitize_js_identifier(first_pat['name'])}"
         
-        pat_entries = []
+        # Check if a pattern in this category matches the category name
+        matching = [p for p in cat_pats if sanitize_js_identifier(p["name"]) == cat_key]
+        primary_func_key = f"{cat_key}_{sanitize_js_identifier(matching[0]['name'])}" if matching else first_func_key
+        
+        js_lines.append(f"drumLibrary.{cat_key} = Object.assign(")
+        js_lines.append(f"  (opts = {{}}) => _patterns.{primary_func_key}(opts),")
+        js_lines.append("  {")
+        
+        sub_entries = []
         for pat in cat_pats:
             pat_key = sanitize_js_identifier(pat["name"])
-            js_entry = generate_js_library_entry(pat, default_bank=default_bank)
-            pat_entries.append(f"    // {pat['name']}\n    {pat_key}: {js_entry}")
-            
-        inner_pats = ",\n\n".join(pat_entries)
-        cat_blocks.append(
-            f"  // Category: {cat_name}\n  {cat_key}: Object.assign(\n"
-            f"    (opts = {{}}) => drumLibrary.{cat_key}.{default_key}(opts),\n"
-            f"    {{\n{inner_pats}\n    }}\n  )"
-        )
+            u_key = f"{cat_key}_{pat_key}"
+            sub_entries.append(f"    {pat_key}: _patterns.{u_key}")
+        js_lines.append(",\n".join(sub_entries))
+        js_lines.append("  }")
+        js_lines.append(");")
         
-    js_lines.append(",\n\n".join(cat_blocks))
-    js_lines.append("};")
+        # Alias pattern keys at root of drumLibrary
+        for pat in cat_pats:
+            pat_key = sanitize_js_identifier(pat["name"])
+            u_key = f"{cat_key}_{pat_key}"
+            js_lines.append(f"if (!drumLibrary.{pat_key}) drumLibrary.{pat_key} = _patterns.{u_key};")
+            
     js_lines.append("")
     js_lines.append("// Helper function to play any pattern with a given bank")
     js_lines.append("function playPattern(pattern, bank = kit) {")

@@ -7,108 +7,8 @@ const bass_key = "c";
 const bass_octave = 1;
 const bass_synth = "sawtooth";
 
-const drumLibrary = {
-  // Category: (new) Drum and Bass
-  new_Drum_and_Bass: Object.assign(
-    (opts = {}) => drumLibrary.new_Drum_and_Bass.new_Basic_Dnb_Drum_Pattern(opts),
-    {
-    // (new) Basic Dnb Drum Pattern
-    new_Basic_Dnb_Drum_Pattern: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ [~ ~ ~ sd] ~ ~ ~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("~ ~ ~ [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Club
-  Club: Object.assign(
-    (opts = {}) => drumLibrary.Club.Jersey_club(opts),
-    {
-    // Jersey club
-    Jersey_club: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Dancehall
-  Dancehall: Object.assign(
-    (opts = {}) => drumLibrary.Dancehall.Modern_Dancehall(opts),
-    {
-    // Modern Dancehall
-    Modern_Dancehall: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[~ ~ ~ sd] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Reggaeton
-    Reggaeton: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Standard dancehall
-    Standard_dancehall: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Drum Machine Patterns
-  Drum_Machine_Patterns: Object.assign(
-    (opts = {}) => drumLibrary.Drum_Machine_Patterns.Afro_Cuban_1_Break(opts),
-    {
-    // Afro-Cuban 1 - Break
-    Afro_Cuban_1_Break: (opts = {}) => {
+const _patterns = {};
+_patterns.Drum_Machine_Patterns_Afro_Cuban_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -122,10 +22,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 1 - Measure A
-    Afro_Cuban_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_1_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Break;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -137,10 +36,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 1 - Measure B
-    Afro_Cuban_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_1_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -152,10 +50,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 2 - Break
-    Afro_Cuban_2_Break: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_1_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -169,10 +66,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 2 - Measure A
-    Afro_Cuban_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_2_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Break;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -186,10 +82,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 2 - Measure B
-    Afro_Cuban_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_2_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -202,10 +97,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 3 - Break
-    Afro_Cuban_3_Break: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_2_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -218,10 +112,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [~ sd]*2 [~ ~ ~ sd] [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 3 - Measure A
-    Afro_Cuban_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_3_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Break;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -235,10 +128,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 3 - Measure B
-    Afro_Cuban_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_3_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -252,10 +144,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 4 - Break
-    Afro_Cuban_4_Break: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_3_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -268,10 +159,9 @@ const drumLibrary = {
       s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[sd ~ ~ sd] ~ ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 4 - Measure B
-    Afro_Cuban_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_4_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Break;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -285,10 +175,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 5 - Break
-    Afro_Cuban_5_Break: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_4_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -300,10 +189,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[sd ~]*2 [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 5 - Measure A
-    Afro_Cuban_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_5_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Break;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -317,10 +205,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro-Cuban 5 - Measure B
-    Afro_Cuban_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_5_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -332,10 +219,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 1 - Break
-    Ballad_1_Break: (opts = {}) => {
+    };
+_patterns.Afro_Cuban_5_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Ballad_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -349,10 +235,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 1 - Measure A
-    Ballad_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Ballad_1_Break = _patterns.Drum_Machine_Patterns_Ballad_1_Break;
+_patterns.Drum_Machine_Patterns_Ballad_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -364,10 +249,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 1 - Measure B
-    Ballad_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Ballad_1_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Ballad_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -379,10 +263,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 2 - Break
-    Ballad_2_Break: (opts = {}) => {
+    };
+_patterns.Ballad_1_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Ballad_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -396,10 +279,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd ~]*2 ~ ~").gain("0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 2 - Measure A
-    Ballad_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Ballad_2_Break = _patterns.Drum_Machine_Patterns_Ballad_2_Break;
+_patterns.Drum_Machine_Patterns_Ballad_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -412,10 +294,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 2 - Measure B
-    Ballad_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Ballad_2_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Ballad_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -427,10 +308,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 3 - Break
-    Ballad_3_Break: (opts = {}) => {
+    };
+_patterns.Ballad_2_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Ballad_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -443,10 +323,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] ~ ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd bd ~ ~] [bd bd ~ ~] [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 3 - Measure A
-    Ballad_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Ballad_3_Break = _patterns.Drum_Machine_Patterns_Ballad_3_Break;
+_patterns.Drum_Machine_Patterns_Ballad_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -459,10 +338,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 3 - Measure B
-    Ballad_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Ballad_3_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Ballad_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -474,10 +352,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 4 - Break
-    Ballad_4_Break: (opts = {}) => {
+    };
+_patterns.Ballad_3_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Ballad_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -490,10 +367,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 4 - Measure A
-    Ballad_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Ballad_4_Break = _patterns.Drum_Machine_Patterns_Ballad_4_Break;
+_patterns.Drum_Machine_Patterns_Ballad_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -505,10 +381,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").gain("1.0 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 4 - Measure B
-    Ballad_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Ballad_4_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Ballad_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -520,10 +395,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 5 - Break
-    Ballad_5_Break: (opts = {}) => {
+    };
+_patterns.Ballad_4_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Ballad_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -539,10 +413,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 5 - Measure A
-    Ballad_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Ballad_5_Break = _patterns.Drum_Machine_Patterns_Ballad_5_Break;
+_patterns.Drum_Machine_Patterns_Ballad_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -555,10 +428,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ballad 5 - Measure B
-    Ballad_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Ballad_5_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Ballad_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -570,10 +442,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 1 - Break
-    Blues_1_Break: (opts = {}) => {
+    };
+_patterns.Ballad_5_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Blues_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -585,10 +456,9 @@ const drumLibrary = {
       s("sd*12").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 1 - Measure A
-    Blues_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Blues_1_Break = _patterns.Drum_Machine_Patterns_Blues_1_Break;
+_patterns.Drum_Machine_Patterns_Blues_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -600,10 +470,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 1 - Measure B
-    Blues_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Blues_1_Measure_A = _patterns.Drum_Machine_Patterns_Blues_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Blues_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -615,10 +484,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 2 - Break
-    Blues_2_Break: (opts = {}) => {
+    };
+_patterns.Blues_1_Measure_B = _patterns.Drum_Machine_Patterns_Blues_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Blues_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -630,10 +498,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 2 - Measure A
-    Blues_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Blues_2_Break = _patterns.Drum_Machine_Patterns_Blues_2_Break;
+_patterns.Drum_Machine_Patterns_Blues_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -645,10 +512,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [bd ~]*2 [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues 2 - Measure B
-    Blues_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Blues_2_Measure_A = _patterns.Drum_Machine_Patterns_Blues_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Blues_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -660,10 +526,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 1 - Break
-    Bossa_Nova_1_Break: (opts = {}) => {
+    };
+_patterns.Blues_2_Measure_B = _patterns.Drum_Machine_Patterns_Blues_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -678,10 +543,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 1 - Measure A
-    Bossa_Nova_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_1_Break = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Break;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -693,10 +557,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 1 - Measure B
-    Bossa_Nova_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_1_Measure_A = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -708,10 +571,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 2 - Break
-    Bossa_Nova_2_Break: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_1_Measure_B = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -722,10 +584,9 @@ const drumLibrary = {
       s("[~ ~ mt ~] [~ ~ mt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 2 - Measure A
-    Bossa_Nova_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_2_Break = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Break;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -738,10 +599,9 @@ const drumLibrary = {
       s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ rim] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa Nova 2 - Measure B
-    Bossa_Nova_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_2_Measure_A = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -754,10 +614,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Cha-Cha - Break
-    Cha_Cha_Break: (opts = {}) => {
+    };
+_patterns.Bossa_Nova_2_Measure_B = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Cha_Cha_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -770,10 +629,9 @@ const drumLibrary = {
       s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("~ ~ ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Cha-Cha - Measure A
-    Cha_Cha_Measure_A: (opts = {}) => {
+    };
+_patterns.Cha_Cha_Break = _patterns.Drum_Machine_Patterns_Cha_Cha_Break;
+_patterns.Drum_Machine_Patterns_Cha_Cha_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -787,10 +645,9 @@ const drumLibrary = {
       s("~ hh ~ hh").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Cha-Cha - Measure B
-    Cha_Cha_Measure_B: (opts = {}) => {
+    };
+_patterns.Cha_Cha_Measure_A = _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_A;
+_patterns.Drum_Machine_Patterns_Cha_Cha_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -804,10 +661,9 @@ const drumLibrary = {
       s("~ hh ~ hh").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 1 - Break
-    Disco_1_Break: (opts = {}) => {
+    };
+_patterns.Cha_Cha_Measure_B = _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_B;
+_patterns.Drum_Machine_Patterns_Disco_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -822,10 +678,9 @@ const drumLibrary = {
       s("~ [sd sd ~ sd] [~ sd sd sd] [sd sd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("0.6 1.0 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 1 - Measure A
-    Disco_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_1_Break = _patterns.Drum_Machine_Patterns_Disco_1_Break;
+_patterns.Drum_Machine_Patterns_Disco_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -837,10 +692,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 1 - Measure B
-    Disco_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Disco_1_Measure_A = _patterns.Drum_Machine_Patterns_Disco_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Disco_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -853,10 +707,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 2 - Break
-    Disco_2_Break: (opts = {}) => {
+    };
+_patterns.Disco_1_Measure_B = _patterns.Drum_Machine_Patterns_Disco_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Disco_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -868,10 +721,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~]*2 [sd ~]*2 [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 2 - Measure A
-    Disco_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_2_Break = _patterns.Drum_Machine_Patterns_Disco_2_Break;
+_patterns.Drum_Machine_Patterns_Disco_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -884,10 +736,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 2 - Measure B
-    Disco_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Disco_2_Measure_A = _patterns.Drum_Machine_Patterns_Disco_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Disco_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -900,10 +751,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 3 - Break
-    Disco_3_Break: (opts = {}) => {
+    };
+_patterns.Disco_2_Measure_B = _patterns.Drum_Machine_Patterns_Disco_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Disco_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -917,10 +767,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 3 - Measure A
-    Disco_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_3_Break = _patterns.Drum_Machine_Patterns_Disco_3_Break;
+_patterns.Drum_Machine_Patterns_Disco_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -932,10 +781,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 3 - Measure B
-    Disco_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Disco_3_Measure_A = _patterns.Drum_Machine_Patterns_Disco_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Disco_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -947,10 +795,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 4 - Break
-    Disco_4_Break: (opts = {}) => {
+    };
+_patterns.Disco_3_Measure_B = _patterns.Drum_Machine_Patterns_Disco_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Disco_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -963,10 +810,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 4 - Measure A
-    Disco_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_4_Break = _patterns.Drum_Machine_Patterns_Disco_4_Break;
+_patterns.Drum_Machine_Patterns_Disco_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -979,10 +825,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 4 - Measure B
-    Disco_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Disco_4_Measure_A = _patterns.Drum_Machine_Patterns_Disco_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Disco_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -995,10 +840,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 5 - Break
-    Disco_5_Break: (opts = {}) => {
+    };
+_patterns.Disco_4_Measure_B = _patterns.Drum_Machine_Patterns_Disco_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Disco_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1013,10 +857,9 @@ const drumLibrary = {
       s("~ sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 5 - Measure A
-    Disco_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_5_Break = _patterns.Drum_Machine_Patterns_Disco_5_Break;
+_patterns.Drum_Machine_Patterns_Disco_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1029,10 +872,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco 5 - Measure B
-    Disco_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Disco_5_Measure_A = _patterns.Drum_Machine_Patterns_Disco_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Disco_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1045,10 +887,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Endings - Measure A
-    Endings_Measure_A: (opts = {}) => {
+    };
+_patterns.Disco_5_Measure_B = _patterns.Drum_Machine_Patterns_Disco_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Endings_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1059,10 +900,9 @@ const drumLibrary = {
       s("[cr ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Endings - Measure B
-    Endings_Measure_B: (opts = {}) => {
+    };
+_patterns.Endings_Measure_A = _patterns.Drum_Machine_Patterns_Endings_Measure_A;
+_patterns.Drum_Machine_Patterns_Endings_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1073,10 +913,9 @@ const drumLibrary = {
       s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 1 - Break
-    Funk_1_Break: (opts = {}) => {
+    };
+_patterns.Endings_Measure_B = _patterns.Drum_Machine_Patterns_Endings_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1088,10 +927,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] [~ ~ sd sd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 1 - Measure A
-    Funk_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_1_Break = _patterns.Drum_Machine_Patterns_Funk_1_Break;
+_patterns.Drum_Machine_Patterns_Funk_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1103,10 +941,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 1 - Measure B
-    Funk_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_1_Measure_A = _patterns.Drum_Machine_Patterns_Funk_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1119,10 +956,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 10 - Break
-    Funk_10_Break: (opts = {}) => {
+    };
+_patterns.Funk_1_Measure_B = _patterns.Drum_Machine_Patterns_Funk_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_10_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1134,10 +970,9 @@ const drumLibrary = {
       s("[sd sd ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ bd ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 10 - Measure A
-    Funk_10_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_10_Break = _patterns.Drum_Machine_Patterns_Funk_10_Break;
+_patterns.Drum_Machine_Patterns_Funk_10_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1149,10 +984,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 10 - Measure B
-    Funk_10_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_10_Measure_A = _patterns.Drum_Machine_Patterns_Funk_10_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_10_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1164,10 +998,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 11 - Break
-    Funk_11_Break: (opts = {}) => {
+    };
+_patterns.Funk_10_Measure_B = _patterns.Drum_Machine_Patterns_Funk_10_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_11_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1179,10 +1012,9 @@ const drumLibrary = {
       s("[lt ~ ~ ~] [~ ~ ~ lt] ~ [lt ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ sd sd] [sd ~ ~ ~] [sd sd sd ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Funk 11 - Measure A
-    Funk_11_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_11_Break = _patterns.Drum_Machine_Patterns_Funk_11_Break;
+_patterns.Drum_Machine_Patterns_Funk_11_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1194,10 +1026,9 @@ const drumLibrary = {
       s("~ sd ~ sd").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 11 - Measure B
-    Funk_11_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_11_Measure_A = _patterns.Drum_Machine_Patterns_Funk_11_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_11_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1209,10 +1040,9 @@ const drumLibrary = {
       s("~ sd ~ sd").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 12 - Break
-    Funk_12_Break: (opts = {}) => {
+    };
+_patterns.Funk_11_Measure_B = _patterns.Drum_Machine_Patterns_Funk_11_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_12_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1225,10 +1055,9 @@ const drumLibrary = {
       s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ sd]*2 sd*4 ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Funk 12 - Measure A
-    Funk_12_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_12_Break = _patterns.Drum_Machine_Patterns_Funk_12_Break;
+_patterns.Drum_Machine_Patterns_Funk_12_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1241,10 +1070,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 12 - Measure B
-    Funk_12_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_12_Measure_A = _patterns.Drum_Machine_Patterns_Funk_12_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_12_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1257,10 +1085,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 13 - Break
-    Funk_13_Break: (opts = {}) => {
+    };
+_patterns.Funk_12_Measure_B = _patterns.Drum_Machine_Patterns_Funk_12_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_13_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1272,10 +1099,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~ ~ ~] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 13 - Measure A
-    Funk_13_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_13_Break = _patterns.Drum_Machine_Patterns_Funk_13_Break;
+_patterns.Drum_Machine_Patterns_Funk_13_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1288,10 +1114,9 @@ const drumLibrary = {
       s("~ ~ ~ [sd ~]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 13 - Measure B
-    Funk_13_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_13_Measure_A = _patterns.Drum_Machine_Patterns_Funk_13_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_13_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1304,10 +1129,9 @@ const drumLibrary = {
       s("~ ~ ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 14 - Break
-    Funk_14_Break: (opts = {}) => {
+    };
+_patterns.Funk_13_Measure_B = _patterns.Drum_Machine_Patterns_Funk_13_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_14_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1319,10 +1143,9 @@ const drumLibrary = {
       s("[sd ~ ~ sd] [sd ~ ~ ~] [sd ~]*2 [sd sd ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 14 - Measure A
-    Funk_14_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_14_Break = _patterns.Drum_Machine_Patterns_Funk_14_Break;
+_patterns.Drum_Machine_Patterns_Funk_14_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1334,10 +1157,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 14 - Measure B
-    Funk_14_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_14_Measure_A = _patterns.Drum_Machine_Patterns_Funk_14_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_14_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1349,10 +1171,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 15 - Break
-    Funk_15_Break: (opts = {}) => {
+    };
+_patterns.Funk_14_Measure_B = _patterns.Drum_Machine_Patterns_Funk_14_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_15_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1364,10 +1185,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~]*2 [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 15 - Measure A
-    Funk_15_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_15_Break = _patterns.Drum_Machine_Patterns_Funk_15_Break;
+_patterns.Drum_Machine_Patterns_Funk_15_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1379,10 +1199,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 15 - Measure B
-    Funk_15_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_15_Measure_A = _patterns.Drum_Machine_Patterns_Funk_15_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_15_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1394,10 +1213,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 2 - Break
-    Funk_2_Break: (opts = {}) => {
+    };
+_patterns.Funk_15_Measure_B = _patterns.Drum_Machine_Patterns_Funk_15_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1409,10 +1227,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ ~ sd sd] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [~ bd ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 2 - Measure A
-    Funk_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_2_Break = _patterns.Drum_Machine_Patterns_Funk_2_Break;
+_patterns.Drum_Machine_Patterns_Funk_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1425,10 +1242,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 2 - Measure B
-    Funk_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_2_Measure_A = _patterns.Drum_Machine_Patterns_Funk_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1440,10 +1256,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 3 - Break
-    Funk_3_Break: (opts = {}) => {
+    };
+_patterns.Funk_2_Measure_B = _patterns.Drum_Machine_Patterns_Funk_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1455,10 +1270,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [sd sd sd ~] [~ sd sd sd] [sd ~]*2").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 3 - Measure A
-    Funk_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_3_Break = _patterns.Drum_Machine_Patterns_Funk_3_Break;
+_patterns.Drum_Machine_Patterns_Funk_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1469,10 +1283,9 @@ const drumLibrary = {
       s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 3 - Measure B
-    Funk_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_3_Measure_A = _patterns.Drum_Machine_Patterns_Funk_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1483,10 +1296,9 @@ const drumLibrary = {
       s("hh*16").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 4 - Break
-    Funk_4_Break: (opts = {}) => {
+    };
+_patterns.Funk_3_Measure_B = _patterns.Drum_Machine_Patterns_Funk_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1498,10 +1310,9 @@ const drumLibrary = {
       s("sd*4 ~ sd*4 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 4 - Measure A
-    Funk_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_4_Break = _patterns.Drum_Machine_Patterns_Funk_4_Break;
+_patterns.Drum_Machine_Patterns_Funk_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1513,10 +1324,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 4 - Measure B
-    Funk_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_4_Measure_A = _patterns.Drum_Machine_Patterns_Funk_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1528,10 +1338,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 5 - Break
-    Funk_5_Break: (opts = {}) => {
+    };
+_patterns.Funk_4_Measure_B = _patterns.Drum_Machine_Patterns_Funk_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1544,10 +1353,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 5 - Measure A
-    Funk_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_5_Break = _patterns.Drum_Machine_Patterns_Funk_5_Break;
+_patterns.Drum_Machine_Patterns_Funk_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1559,10 +1367,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] [~ ~ ~ sd] [sd ~ ~ ~]").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 5 - Measure B
-    Funk_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_5_Measure_A = _patterns.Drum_Machine_Patterns_Funk_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1574,10 +1381,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 6 - Break
-    Funk_6_Break: (opts = {}) => {
+    };
+_patterns.Funk_5_Measure_B = _patterns.Drum_Machine_Patterns_Funk_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_6_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1589,10 +1395,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [sd ~ ~ ~] ~ [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Funk 6 - Measure A
-    Funk_6_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_6_Break = _patterns.Drum_Machine_Patterns_Funk_6_Break;
+_patterns.Drum_Machine_Patterns_Funk_6_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1604,10 +1409,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd sd ~ sd] [~ ~ sd ~] [sd sd ~ sd]").gain("0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 6 - Measure B
-    Funk_6_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_6_Measure_A = _patterns.Drum_Machine_Patterns_Funk_6_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_6_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1621,10 +1425,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 7 - Break
-    Funk_7_Break: (opts = {}) => {
+    };
+_patterns.Funk_6_Measure_B = _patterns.Drum_Machine_Patterns_Funk_6_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_7_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1636,10 +1439,9 @@ const drumLibrary = {
       s("[sd ~ ~ sd] ~ [~ sd]*2 sd*4").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd ~ ~] [bd ~]*2 ~ ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 7 - Measure A
-    Funk_7_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_7_Break = _patterns.Drum_Machine_Patterns_Funk_7_Break;
+_patterns.Drum_Machine_Patterns_Funk_7_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1652,10 +1454,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 7 - Measure B
-    Funk_7_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_7_Measure_A = _patterns.Drum_Machine_Patterns_Funk_7_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_7_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1669,10 +1470,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 8 - Break
-    Funk_8_Break: (opts = {}) => {
+    };
+_patterns.Funk_7_Measure_B = _patterns.Drum_Machine_Patterns_Funk_7_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_8_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1685,10 +1485,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ ~ ~ bd] [bd ~]*2").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 8 - Measure A
-    Funk_8_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_8_Break = _patterns.Drum_Machine_Patterns_Funk_8_Break;
+_patterns.Drum_Machine_Patterns_Funk_8_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1700,10 +1499,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 8 - Measure B
-    Funk_8_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_8_Measure_A = _patterns.Drum_Machine_Patterns_Funk_8_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_8_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1715,10 +1513,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 9 - Break
-    Funk_9_Break: (opts = {}) => {
+    };
+_patterns.Funk_8_Measure_B = _patterns.Drum_Machine_Patterns_Funk_8_Measure_B;
+_patterns.Drum_Machine_Patterns_Funk_9_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1730,10 +1527,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 9 - Measure A
-    Funk_9_Measure_A: (opts = {}) => {
+    };
+_patterns.Funk_9_Break = _patterns.Drum_Machine_Patterns_Funk_9_Break;
+_patterns.Drum_Machine_Patterns_Funk_9_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1746,10 +1542,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk 9 - Measure B
-    Funk_9_Measure_B: (opts = {}) => {
+    };
+_patterns.Funk_9_Measure_A = _patterns.Drum_Machine_Patterns_Funk_9_Measure_A;
+_patterns.Drum_Machine_Patterns_Funk_9_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1762,10 +1557,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 1 - Break
-    Pop_1_Break: (opts = {}) => {
+    };
+_patterns.Funk_9_Measure_B = _patterns.Drum_Machine_Patterns_Funk_9_Measure_B;
+_patterns.Drum_Machine_Patterns_Pop_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1778,10 +1572,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~]*2 [sd ~ sd sd] [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 1 - Measure A
-    Pop_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Pop_1_Break = _patterns.Drum_Machine_Patterns_Pop_1_Break;
+_patterns.Drum_Machine_Patterns_Pop_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1793,10 +1586,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 1 - Measure B
-    Pop_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Pop_1_Measure_A = _patterns.Drum_Machine_Patterns_Pop_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Pop_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1808,10 +1600,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 2 - Break
-    Pop_2_Break: (opts = {}) => {
+    };
+_patterns.Pop_1_Measure_B = _patterns.Drum_Machine_Patterns_Pop_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Pop_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1823,10 +1614,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] ~ ~ sd*4").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 2 - Measure A
-    Pop_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Pop_2_Break = _patterns.Drum_Machine_Patterns_Pop_2_Break;
+_patterns.Drum_Machine_Patterns_Pop_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1838,10 +1628,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 2 - Measure B
-    Pop_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Pop_2_Measure_A = _patterns.Drum_Machine_Patterns_Pop_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Pop_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1853,10 +1642,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ ~ sd ~] [~ sd ~ ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 3 - Break
-    Pop_3_Break: (opts = {}) => {
+    };
+_patterns.Pop_2_Measure_B = _patterns.Drum_Machine_Patterns_Pop_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Pop_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1869,10 +1657,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ [~ ~ sd sd] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 3 - Measure A
-    Pop_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Pop_3_Break = _patterns.Drum_Machine_Patterns_Pop_3_Break;
+_patterns.Drum_Machine_Patterns_Pop_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1884,10 +1671,9 @@ const drumLibrary = {
       s("[sd ~ ~ sd] ~ [sd ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [bd ~ bd bd] [~ bd ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 3 - Measure B
-    Pop_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Pop_3_Measure_A = _patterns.Drum_Machine_Patterns_Pop_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Pop_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1899,10 +1685,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 4 - Break
-    Pop_4_Break: (opts = {}) => {
+    };
+_patterns.Pop_3_Measure_B = _patterns.Drum_Machine_Patterns_Pop_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Pop_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1914,10 +1699,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 [sd ~ ~ ~] [sd ~ sd sd]").gain("0.6 0.6 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 4 - Measure A
-    Pop_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Pop_4_Break = _patterns.Drum_Machine_Patterns_Pop_4_Break;
+_patterns.Drum_Machine_Patterns_Pop_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1929,10 +1713,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 4 - Measure B
-    Pop_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Pop_4_Measure_A = _patterns.Drum_Machine_Patterns_Pop_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Pop_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1944,10 +1727,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 5 - Break
-    Pop_5_Break: (opts = {}) => {
+    };
+_patterns.Pop_4_Measure_B = _patterns.Drum_Machine_Patterns_Pop_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Pop_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1959,10 +1741,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [sd ~ sd sd] [sd sd sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 5 - Measure A
-    Pop_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Pop_5_Break = _patterns.Drum_Machine_Patterns_Pop_5_Break;
+_patterns.Drum_Machine_Patterns_Pop_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1974,10 +1755,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop 5 - Measure B
-    Pop_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Pop_5_Measure_A = _patterns.Drum_Machine_Patterns_Pop_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Pop_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -1989,10 +1769,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ ~ sd ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 1 - Break
-    Reggae_1_Break: (opts = {}) => {
+    };
+_patterns.Pop_5_Measure_B = _patterns.Drum_Machine_Patterns_Pop_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Reggae_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2005,10 +1784,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~]*2 ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 1 - Measure A
-    Reggae_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Reggae_1_Break = _patterns.Drum_Machine_Patterns_Reggae_1_Break;
+_patterns.Drum_Machine_Patterns_Reggae_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2020,10 +1798,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ rim] [~ rim ~ ~] [rim ~ ~ rim]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ bd ~ bd").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 1 - Measure B
-    Reggae_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Reggae_1_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Reggae_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2035,10 +1812,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ ~ rim ~] [~ ~ rim rim] [~ ~ rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ bd ~ bd").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 2 - Break
-    Reggae_2_Break: (opts = {}) => {
+    };
+_patterns.Reggae_1_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Reggae_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2052,10 +1828,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd ~ ~ ~] ~ ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 2 - Measure A
-    Reggae_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Reggae_2_Break = _patterns.Drum_Machine_Patterns_Reggae_2_Break;
+_patterns.Drum_Machine_Patterns_Reggae_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2068,10 +1843,9 @@ const drumLibrary = {
       s("~ ~ [rim ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ bd ~ bd").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 2 - Measure B
-    Reggae_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Reggae_2_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Reggae_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2084,10 +1858,9 @@ const drumLibrary = {
       s("~ rim ~ rim").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ bd ~ bd").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 3 - Break
-    Reggae_3_Break: (opts = {}) => {
+    };
+_patterns.Reggae_2_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Reggae_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2101,10 +1874,9 @@ const drumLibrary = {
       s("[sd ~]*2 ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 3 - Measure A
-    Reggae_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Reggae_3_Break = _patterns.Drum_Machine_Patterns_Reggae_3_Break;
+_patterns.Drum_Machine_Patterns_Reggae_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2116,10 +1888,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 3 - Measure B
-    Reggae_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Reggae_3_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Reggae_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2131,10 +1902,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 4 - Break
-    Reggae_4_Break: (opts = {}) => {
+    };
+_patterns.Reggae_3_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Reggae_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2147,10 +1917,9 @@ const drumLibrary = {
       s("[sd sd sd ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 4 - Measure A
-    Reggae_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Reggae_4_Break = _patterns.Drum_Machine_Patterns_Reggae_4_Break;
+_patterns.Drum_Machine_Patterns_Reggae_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2163,10 +1932,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 4 - Measure B
-    Reggae_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Reggae_4_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Reggae_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2179,10 +1947,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 5 - Break
-    Reggae_5_Break: (opts = {}) => {
+    };
+_patterns.Reggae_4_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Reggae_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2196,10 +1963,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 5 - Measure A
-    Reggae_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Reggae_5_Break = _patterns.Drum_Machine_Patterns_Reggae_5_Break;
+_patterns.Drum_Machine_Patterns_Reggae_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2211,10 +1977,9 @@ const drumLibrary = {
       s("[~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae 5 - Measure B
-    Reggae_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Reggae_5_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Reggae_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2227,10 +1992,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ ~] ~ [rim ~ ~ rim]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 1 - Break
-    Rhythm_Blues_1_Break: (opts = {}) => {
+    };
+_patterns.Reggae_5_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2242,10 +2006,9 @@ const drumLibrary = {
       s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[sd sd ~ sd] [~ sd sd sd] [~ sd]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 1 - Measure A
-    Rhythm_Blues_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_1_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Break;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2257,10 +2020,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 1 - Measure B
-    Rhythm_Blues_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_1_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2272,10 +2034,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 2 - Break
-    Rhythm_Blues_2_Break: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_1_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2288,10 +2049,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 2 - Measure A
-    Rhythm_Blues_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_2_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Break;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2303,10 +2063,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd]*2 [~ ~ bd bd] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 2 - Measure B
-    Rhythm_Blues_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_2_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2318,10 +2077,9 @@ const drumLibrary = {
       s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd bd ~] [~ bd]*2 [~ bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 3 - Break
-    Rhythm_Blues_3_Break: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_2_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2335,10 +2093,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] ~ [sd ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] ~ [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 3 - Measure A
-    Rhythm_Blues_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_3_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Break;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2350,10 +2107,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 3 - Measure B
-    Rhythm_Blues_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_3_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2365,10 +2121,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 4 - Break
-    Rhythm_Blues_4_Break: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_3_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2381,10 +2136,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd ~ ~ ~] [~ ~ sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 4 - Measure A
-    Rhythm_Blues_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_4_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Break;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2396,10 +2150,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 4 - Measure B
-    Rhythm_Blues_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_4_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2412,10 +2165,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 5 - Break
-    Rhythm_Blues_5_Break: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_4_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2429,10 +2181,9 @@ const drumLibrary = {
       s("[~ sd sd ~] ~ ~ [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 5 - Measure A
-    Rhythm_Blues_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_5_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Break;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2444,10 +2195,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rhythm & Blues 5 - Measure B
-    Rhythm_Blues_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_5_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2459,10 +2209,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 1 - Break
-    Rock_1_Break: (opts = {}) => {
+    };
+_patterns.Rhythm_Blues_5_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Rock_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2475,10 +2224,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] sd*4").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 1 - Measure A
-    Rock_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Rock_1_Break = _patterns.Drum_Machine_Patterns_Rock_1_Break;
+_patterns.Drum_Machine_Patterns_Rock_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2490,10 +2238,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 1 - Measure B
-    Rock_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Rock_1_Measure_A = _patterns.Drum_Machine_Patterns_Rock_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Rock_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2505,10 +2252,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 2 - Break
-    Rock_2_Break: (opts = {}) => {
+    };
+_patterns.Rock_1_Measure_B = _patterns.Drum_Machine_Patterns_Rock_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Rock_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2522,10 +2268,9 @@ const drumLibrary = {
       s("sd*4 ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~]*2 [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 2 - Measure A
-    Rock_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Rock_2_Break = _patterns.Drum_Machine_Patterns_Rock_2_Break;
+_patterns.Drum_Machine_Patterns_Rock_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2538,10 +2283,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 2 - Measure B
-    Rock_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Rock_2_Measure_A = _patterns.Drum_Machine_Patterns_Rock_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Rock_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2554,10 +2298,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 3 - Break
-    Rock_3_Break: (opts = {}) => {
+    };
+_patterns.Rock_2_Measure_B = _patterns.Drum_Machine_Patterns_Rock_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Rock_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2570,10 +2313,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 3 - Measure A
-    Rock_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Rock_3_Break = _patterns.Drum_Machine_Patterns_Rock_3_Break;
+_patterns.Drum_Machine_Patterns_Rock_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2585,10 +2327,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 3 - Measure B
-    Rock_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Rock_3_Measure_A = _patterns.Drum_Machine_Patterns_Rock_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Rock_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2600,10 +2341,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 4 - Break
-    Rock_4_Break: (opts = {}) => {
+    };
+_patterns.Rock_3_Measure_B = _patterns.Drum_Machine_Patterns_Rock_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Rock_4_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2614,10 +2354,9 @@ const drumLibrary = {
       s("sd*16").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 4 - Measure A
-    Rock_4_Measure_A: (opts = {}) => {
+    };
+_patterns.Rock_4_Break = _patterns.Drum_Machine_Patterns_Rock_4_Break;
+_patterns.Drum_Machine_Patterns_Rock_4_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2629,10 +2368,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 4 - Measure B
-    Rock_4_Measure_B: (opts = {}) => {
+    };
+_patterns.Rock_4_Measure_A = _patterns.Drum_Machine_Patterns_Rock_4_Measure_A;
+_patterns.Drum_Machine_Patterns_Rock_4_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2644,10 +2382,9 @@ const drumLibrary = {
       s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 5 - Break
-    Rock_5_Break: (opts = {}) => {
+    };
+_patterns.Rock_4_Measure_B = _patterns.Drum_Machine_Patterns_Rock_4_Measure_B;
+_patterns.Drum_Machine_Patterns_Rock_5_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2659,10 +2396,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 5 - Measure A
-    Rock_5_Measure_A: (opts = {}) => {
+    };
+_patterns.Rock_5_Break = _patterns.Drum_Machine_Patterns_Rock_5_Break;
+_patterns.Drum_Machine_Patterns_Rock_5_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2674,10 +2410,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock 5 - Measure B
-    Rock_5_Measure_B: (opts = {}) => {
+    };
+_patterns.Rock_5_Measure_A = _patterns.Drum_Machine_Patterns_Rock_5_Measure_A;
+_patterns.Drum_Machine_Patterns_Rock_5_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2689,10 +2424,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 1 - Break
-    Samba_1_Break: (opts = {}) => {
+    };
+_patterns.Rock_5_Measure_B = _patterns.Drum_Machine_Patterns_Rock_5_Measure_B;
+_patterns.Drum_Machine_Patterns_Samba_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2705,10 +2439,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[sd ~ sd sd] [sd ~ ~ ~] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Samba 1 - Measure A
-    Samba_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Samba_1_Break = _patterns.Drum_Machine_Patterns_Samba_1_Break;
+_patterns.Drum_Machine_Patterns_Samba_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2723,10 +2456,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 1 - Measure B
-    Samba_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Samba_1_Measure_A = _patterns.Drum_Machine_Patterns_Samba_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Samba_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2739,10 +2471,9 @@ const drumLibrary = {
       s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 2 - Break
-    Samba_2_Break: (opts = {}) => {
+    };
+_patterns.Samba_1_Measure_B = _patterns.Drum_Machine_Patterns_Samba_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Samba_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2754,10 +2485,9 @@ const drumLibrary = {
       s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] [~ sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Samba 2 - Measure A
-    Samba_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Samba_2_Break = _patterns.Drum_Machine_Patterns_Samba_2_Break;
+_patterns.Drum_Machine_Patterns_Samba_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2771,10 +2501,9 @@ const drumLibrary = {
       s("[~ ~ rim ~] [~ rim ~ ~] [rim ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 2 - Measure B
-    Samba_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Samba_2_Measure_A = _patterns.Drum_Machine_Patterns_Samba_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Samba_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2789,10 +2518,9 @@ const drumLibrary = {
       s("[~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~] [~ rim ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 3 - Break
-    Samba_3_Break: (opts = {}) => {
+    };
+_patterns.Samba_2_Measure_B = _patterns.Drum_Machine_Patterns_Samba_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Samba_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2808,10 +2536,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 3 - Measure A
-    Samba_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Samba_3_Break = _patterns.Drum_Machine_Patterns_Samba_3_Break;
+_patterns.Drum_Machine_Patterns_Samba_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2823,10 +2550,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba 3 - Measure B
-    Samba_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Samba_3_Measure_A = _patterns.Drum_Machine_Patterns_Samba_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Samba_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2838,10 +2564,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 1 - Break
-    Shuffle_1_Break: (opts = {}) => {
+    };
+_patterns.Samba_3_Measure_B = _patterns.Drum_Machine_Patterns_Samba_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Shuffle_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2853,10 +2578,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd bd ~ bd] [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 1 - Measure A
-    Shuffle_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Shuffle_1_Break = _patterns.Drum_Machine_Patterns_Shuffle_1_Break;
+_patterns.Drum_Machine_Patterns_Shuffle_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2868,10 +2592,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 1 - Measure B
-    Shuffle_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Shuffle_1_Measure_A = _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Shuffle_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2883,10 +2606,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 2 - Break
-    Shuffle_2_Break: (opts = {}) => {
+    };
+_patterns.Shuffle_1_Measure_B = _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Shuffle_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2898,10 +2620,9 @@ const drumLibrary = {
       s("[~ sd sd ~] sd*4 [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 2 - Measure A
-    Shuffle_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Shuffle_2_Break = _patterns.Drum_Machine_Patterns_Shuffle_2_Break;
+_patterns.Drum_Machine_Patterns_Shuffle_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2913,10 +2634,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle 2 - Measure B
-    Shuffle_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Shuffle_2_Measure_A = _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Shuffle_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2928,10 +2648,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ska - Break
-    Ska_Break: (opts = {}) => {
+    };
+_patterns.Shuffle_2_Measure_B = _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Ska_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2943,10 +2662,9 @@ const drumLibrary = {
       s("~ ~ ~ [hh ~ ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[sd ~ sd sd] ~ [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Ska - Measure A
-    Ska_Measure_A: (opts = {}) => {
+    };
+_patterns.Ska_Break = _patterns.Drum_Machine_Patterns_Ska_Break;
+_patterns.Drum_Machine_Patterns_Ska_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2958,10 +2676,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ska - Measure B
-    Ska_Measure_B: (opts = {}) => {
+    };
+_patterns.Ska_Measure_A = _patterns.Drum_Machine_Patterns_Ska_Measure_A;
+_patterns.Drum_Machine_Patterns_Ska_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2974,10 +2691,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 1 - Break
-    Swing_1_Break: (opts = {}) => {
+    };
+_patterns.Ska_Measure_B = _patterns.Drum_Machine_Patterns_Ska_Measure_B;
+_patterns.Drum_Machine_Patterns_Swing_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -2989,10 +2705,9 @@ const drumLibrary = {
       s("~ [~ ~ sd sd] sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 1 - Measure A
-    Swing_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Swing_1_Break = _patterns.Drum_Machine_Patterns_Swing_1_Break;
+_patterns.Drum_Machine_Patterns_Swing_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3003,10 +2718,9 @@ const drumLibrary = {
       s("[hh ~ ~ hh] [~ ~ hh ~] [~ hh ~ ~] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 1 - Measure B
-    Swing_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Swing_1_Measure_A = _patterns.Drum_Machine_Patterns_Swing_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Swing_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3018,10 +2732,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 2 - Break
-    Swing_2_Break: (opts = {}) => {
+    };
+_patterns.Swing_1_Measure_B = _patterns.Drum_Machine_Patterns_Swing_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Swing_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3033,10 +2746,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ ~ sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 2 - Measure A
-    Swing_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Swing_2_Break = _patterns.Drum_Machine_Patterns_Swing_2_Break;
+_patterns.Drum_Machine_Patterns_Swing_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3048,10 +2760,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 2 - Measure B
-    Swing_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Swing_2_Measure_A = _patterns.Drum_Machine_Patterns_Swing_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Swing_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3063,10 +2774,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 3 - Break
-    Swing_3_Break: (opts = {}) => {
+    };
+_patterns.Swing_2_Measure_B = _patterns.Drum_Machine_Patterns_Swing_2_Measure_B;
+_patterns.Drum_Machine_Patterns_Swing_3_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3079,10 +2789,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 3 - Measure A
-    Swing_3_Measure_A: (opts = {}) => {
+    };
+_patterns.Swing_3_Break = _patterns.Drum_Machine_Patterns_Swing_3_Break;
+_patterns.Drum_Machine_Patterns_Swing_3_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3094,10 +2803,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing 3 - Measure B
-    Swing_3_Measure_B: (opts = {}) => {
+    };
+_patterns.Swing_3_Measure_A = _patterns.Drum_Machine_Patterns_Swing_3_Measure_A;
+_patterns.Drum_Machine_Patterns_Swing_3_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3109,10 +2817,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 1 - Break
-    Twist_1_Break: (opts = {}) => {
+    };
+_patterns.Swing_3_Measure_B = _patterns.Drum_Machine_Patterns_Swing_3_Measure_B;
+_patterns.Drum_Machine_Patterns_Twist_1_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3125,10 +2832,9 @@ const drumLibrary = {
       s("~ ~ ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 1 - Measure A
-    Twist_1_Measure_A: (opts = {}) => {
+    };
+_patterns.Twist_1_Break = _patterns.Drum_Machine_Patterns_Twist_1_Break;
+_patterns.Drum_Machine_Patterns_Twist_1_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3140,10 +2846,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 1 - Measure B
-    Twist_1_Measure_B: (opts = {}) => {
+    };
+_patterns.Twist_1_Measure_A = _patterns.Drum_Machine_Patterns_Twist_1_Measure_A;
+_patterns.Drum_Machine_Patterns_Twist_1_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3155,10 +2860,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 2 - Break
-    Twist_2_Break: (opts = {}) => {
+    };
+_patterns.Twist_1_Measure_B = _patterns.Drum_Machine_Patterns_Twist_1_Measure_B;
+_patterns.Drum_Machine_Patterns_Twist_2_Break = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3170,10 +2874,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 2 - Measure A
-    Twist_2_Measure_A: (opts = {}) => {
+    };
+_patterns.Twist_2_Break = _patterns.Drum_Machine_Patterns_Twist_2_Break;
+_patterns.Drum_Machine_Patterns_Twist_2_Measure_A = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3185,10 +2888,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist 2 - Measure B
-    Twist_2_Measure_B: (opts = {}) => {
+    };
+_patterns.Twist_2_Measure_A = _patterns.Drum_Machine_Patterns_Twist_2_Measure_A;
+_patterns.Drum_Machine_Patterns_Twist_2_Measure_B = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3200,16 +2902,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    }
-    }
-  ),
-
-  // Category: Drum Machine Patterns (260)
-  Drum_Machine_Patterns_260: Object.assign(
-    (opts = {}) => drumLibrary.Drum_Machine_Patterns_260.AfroCub1(opts),
-    {
-    // AfroCub1
-    AfroCub1: (opts = {}) => {
+    };
+_patterns.Twist_2_Measure_B = _patterns.Drum_Machine_Patterns_Twist_2_Measure_B;
+_patterns.Drum_Machine_Patterns_260_AfroCub1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3221,10 +2916,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub2
-    AfroCub2: (opts = {}) => {
+    };
+_patterns.AfroCub1 = _patterns.Drum_Machine_Patterns_260_AfroCub1;
+_patterns.Drum_Machine_Patterns_260_AfroCub2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3239,10 +2933,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub3
-    AfroCub3: (opts = {}) => {
+    };
+_patterns.AfroCub2 = _patterns.Drum_Machine_Patterns_260_AfroCub2;
+_patterns.Drum_Machine_Patterns_260_AfroCub3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3257,10 +2950,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub4
-    AfroCub4: (opts = {}) => {
+    };
+_patterns.AfroCub3 = _patterns.Drum_Machine_Patterns_260_AfroCub3;
+_patterns.Drum_Machine_Patterns_260_AfroCub4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3273,10 +2965,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub5
-    AfroCub5: (opts = {}) => {
+    };
+_patterns.AfroCub4 = _patterns.Drum_Machine_Patterns_260_AfroCub4;
+_patterns.Drum_Machine_Patterns_260_AfroCub5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3290,10 +2981,9 @@ const drumLibrary = {
       s("~ ~ ~ lt*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd*4").gain("1.0 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub6
-    AfroCub6: (opts = {}) => {
+    };
+_patterns.AfroCub5 = _patterns.Drum_Machine_Patterns_260_AfroCub5;
+_patterns.Drum_Machine_Patterns_260_AfroCub6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3306,10 +2996,9 @@ const drumLibrary = {
       s("[cb ~ cb cb] [~ cb]*2 [cb ~]*2 [cb cb ~ cb]").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub7
-    AfroCub7: (opts = {}) => {
+    };
+_patterns.AfroCub6 = _patterns.Drum_Machine_Patterns_260_AfroCub6;
+_patterns.Drum_Machine_Patterns_260_AfroCub7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3324,10 +3013,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub8
-    AfroCub8: (opts = {}) => {
+    };
+_patterns.AfroCub7 = _patterns.Drum_Machine_Patterns_260_AfroCub7;
+_patterns.Drum_Machine_Patterns_260_AfroCub8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3341,10 +3029,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [~ sd sd ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCub9
-    AfroCub9: (opts = {}) => {
+    };
+_patterns.AfroCub8 = _patterns.Drum_Machine_Patterns_260_AfroCub8;
+_patterns.Drum_Machine_Patterns_260_AfroCub9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3360,10 +3047,9 @@ const drumLibrary = {
       s("cb*4").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak1
-    AfroCubBreak1: (opts = {}) => {
+    };
+_patterns.AfroCub9 = _patterns.Drum_Machine_Patterns_260_AfroCub9;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3378,10 +3064,9 @@ const drumLibrary = {
       s("[cb ~ cb cb] [cb ~]*2 ~ ~").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak2
-    AfroCubBreak2: (opts = {}) => {
+    };
+_patterns.AfroCubBreak1 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak1;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3395,10 +3080,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] [lt ~ ~ ~] [~ ~ lt ~]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak3
-    AfroCubBreak3: (opts = {}) => {
+    };
+_patterns.AfroCubBreak2 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak2;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3411,10 +3095,9 @@ const drumLibrary = {
       s("[sd sd ~ sd] [sd ~ ~ ~] ~ ~").gain("1.0 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak4
-    AfroCubBreak4: (opts = {}) => {
+    };
+_patterns.AfroCubBreak3 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak3;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3427,10 +3110,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[cb ~ cb cb] ~ [~ ~ cb cb] ~").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak5
-    AfroCubBreak5: (opts = {}) => {
+    };
+_patterns.AfroCubBreak4 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak4;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3443,10 +3125,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [cb ~]*2 [cb ~]*2").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n))
       );
-    },
-
-    // AfroCubBreak6
-    AfroCubBreak6: (opts = {}) => {
+    };
+_patterns.AfroCubBreak5 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak5;
+_patterns.Drum_Machine_Patterns_260_AfroCubBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3459,10 +3140,9 @@ const drumLibrary = {
       s("~ ~ [sd sd ~ sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Blues1
-    Blues1: (opts = {}) => {
+    };
+_patterns.AfroCubBreak6 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak6;
+_patterns.Drum_Machine_Patterns_260_Blues1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3474,10 +3154,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd]*2 ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues2
-    Blues2: (opts = {}) => {
+    };
+_patterns.Blues1 = _patterns.Drum_Machine_Patterns_260_Blues1;
+_patterns.Drum_Machine_Patterns_260_Blues2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3489,10 +3168,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues3
-    Blues3: (opts = {}) => {
+    };
+_patterns.Blues2 = _patterns.Drum_Machine_Patterns_260_Blues2;
+_patterns.Drum_Machine_Patterns_260_Blues3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3505,10 +3183,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~]*2 ~").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues4
-    Blues4: (opts = {}) => {
+    };
+_patterns.Blues3 = _patterns.Drum_Machine_Patterns_260_Blues3;
+_patterns.Drum_Machine_Patterns_260_Blues4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3522,10 +3199,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Blues5
-    Blues5: (opts = {}) => {
+    };
+_patterns.Blues4 = _patterns.Drum_Machine_Patterns_260_Blues4;
+_patterns.Drum_Machine_Patterns_260_Blues5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3536,10 +3212,9 @@ const drumLibrary = {
       s("[cr ~ ~ cr] [~ cr cr ~] [~ cr]*2 ~").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
       s("[~ ~ ~ hh] ~ ~ ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n))
       );
-    },
-
-    // Blues6
-    Blues6: (opts = {}) => {
+    };
+_patterns.Blues5 = _patterns.Drum_Machine_Patterns_260_Blues5;
+_patterns.Drum_Machine_Patterns_260_Blues6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3552,10 +3227,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BluesBreak1
-    BluesBreak1: (opts = {}) => {
+    };
+_patterns.Blues6 = _patterns.Drum_Machine_Patterns_260_Blues6;
+_patterns.Drum_Machine_Patterns_260_BluesBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3569,10 +3243,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BluesBreak2
-    BluesBreak2: (opts = {}) => {
+    };
+_patterns.BluesBreak1 = _patterns.Drum_Machine_Patterns_260_BluesBreak1;
+_patterns.Drum_Machine_Patterns_260_BluesBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3585,10 +3258,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [~ ~ ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd bd bd ~] [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BluesBreak3
-    BluesBreak3: (opts = {}) => {
+    };
+_patterns.BluesBreak2 = _patterns.Drum_Machine_Patterns_260_BluesBreak2;
+_patterns.Drum_Machine_Patterns_260_BluesBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3601,10 +3273,9 @@ const drumLibrary = {
       s("[~ sd sd sd] sd*4 [sd sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Boogie1
-    Boogie1: (opts = {}) => {
+    };
+_patterns.BluesBreak3 = _patterns.Drum_Machine_Patterns_260_BluesBreak3;
+_patterns.Drum_Machine_Patterns_260_Boogie1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3616,10 +3287,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Boogie2
-    Boogie2: (opts = {}) => {
+    };
+_patterns.Boogie1 = _patterns.Drum_Machine_Patterns_260_Boogie1;
+_patterns.Drum_Machine_Patterns_260_Boogie2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3631,10 +3301,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Boogie3
-    Boogie3: (opts = {}) => {
+    };
+_patterns.Boogie2 = _patterns.Drum_Machine_Patterns_260_Boogie2;
+_patterns.Drum_Machine_Patterns_260_Boogie3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3646,10 +3315,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BoogieBreak1
-    BoogieBreak1: (opts = {}) => {
+    };
+_patterns.Boogie3 = _patterns.Drum_Machine_Patterns_260_Boogie3;
+_patterns.Drum_Machine_Patterns_260_BoogieBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3663,10 +3331,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BoogieBreak2
-    BoogieBreak2: (opts = {}) => {
+    };
+_patterns.BoogieBreak1 = _patterns.Drum_Machine_Patterns_260_BoogieBreak1;
+_patterns.Drum_Machine_Patterns_260_BoogieBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3678,10 +3345,9 @@ const drumLibrary = {
       s("[sd sd sd ~] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // BoogieBreak3
-    BoogieBreak3: (opts = {}) => {
+    };
+_patterns.BoogieBreak2 = _patterns.Drum_Machine_Patterns_260_BoogieBreak2;
+_patterns.Drum_Machine_Patterns_260_BoogieBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3693,10 +3359,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd sd ~ sd] [sd ~ sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[lt ~ ~ ~] [~ ~ lt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Bossa1
-    Bossa1: (opts = {}) => {
+    };
+_patterns.BoogieBreak3 = _patterns.Drum_Machine_Patterns_260_BoogieBreak3;
+_patterns.Drum_Machine_Patterns_260_Bossa1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3709,10 +3374,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa2
-    Bossa2: (opts = {}) => {
+    };
+_patterns.Bossa1 = _patterns.Drum_Machine_Patterns_260_Bossa1;
+_patterns.Drum_Machine_Patterns_260_Bossa2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3724,10 +3388,9 @@ const drumLibrary = {
       s("[~ ~ rim ~] [rim ~ ~ ~] [rim ~]*2 [~ ~ rim ~]").gain("0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa3
-    Bossa3: (opts = {}) => {
+    };
+_patterns.Bossa2 = _patterns.Drum_Machine_Patterns_260_Bossa2;
+_patterns.Drum_Machine_Patterns_260_Bossa3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3740,10 +3403,9 @@ const drumLibrary = {
       s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa4
-    Bossa4: (opts = {}) => {
+    };
+_patterns.Bossa3 = _patterns.Drum_Machine_Patterns_260_Bossa3;
+_patterns.Drum_Machine_Patterns_260_Bossa4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3756,10 +3418,9 @@ const drumLibrary = {
       s("[rim ~]*2 [~ ~ rim ~] [~ ~ rim ~] [~ ~ rim ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa5
-    Bossa5: (opts = {}) => {
+    };
+_patterns.Bossa4 = _patterns.Drum_Machine_Patterns_260_Bossa4;
+_patterns.Drum_Machine_Patterns_260_Bossa5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3772,10 +3433,9 @@ const drumLibrary = {
       s("[rim ~]*2 [~ ~ rim ~] [rim ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Bossa6
-    Bossa6: (opts = {}) => {
+    };
+_patterns.Bossa5 = _patterns.Drum_Machine_Patterns_260_Bossa5;
+_patterns.Drum_Machine_Patterns_260_Bossa6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3789,10 +3449,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BossaBreak1
-    BossaBreak1: (opts = {}) => {
+    };
+_patterns.Bossa6 = _patterns.Drum_Machine_Patterns_260_Bossa6;
+_patterns.Drum_Machine_Patterns_260_BossaBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3805,10 +3464,9 @@ const drumLibrary = {
       s("[sd ~]*2 [~ ~ sd ~] [sd ~ ~ sd] ~").gain("0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ lt ~] [~ ~ lt ~] [lt ~ ~ ~] ~").gain("1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // BossaBreak2
-    BossaBreak2: (opts = {}) => {
+    };
+_patterns.BossaBreak1 = _patterns.Drum_Machine_Patterns_260_BossaBreak1;
+_patterns.Drum_Machine_Patterns_260_BossaBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3822,10 +3480,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd]*2 ~ [~ ~ bd ~]").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BossaBreak3
-    BossaBreak3: (opts = {}) => {
+    };
+_patterns.BossaBreak2 = _patterns.Drum_Machine_Patterns_260_BossaBreak2;
+_patterns.Drum_Machine_Patterns_260_BossaBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3839,10 +3496,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // ChaCha1
-    ChaCha1: (opts = {}) => {
+    };
+_patterns.BossaBreak3 = _patterns.Drum_Machine_Patterns_260_BossaBreak3;
+_patterns.Drum_Machine_Patterns_260_ChaCha1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3857,10 +3513,9 @@ const drumLibrary = {
       s("cb*4").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaCha2
-    ChaCha2: (opts = {}) => {
+    };
+_patterns.ChaCha1 = _patterns.Drum_Machine_Patterns_260_ChaCha1;
+_patterns.Drum_Machine_Patterns_260_ChaCha2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3876,10 +3531,9 @@ const drumLibrary = {
       s("cb*4").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaCha3
-    ChaCha3: (opts = {}) => {
+    };
+_patterns.ChaCha2 = _patterns.Drum_Machine_Patterns_260_ChaCha2;
+_patterns.Drum_Machine_Patterns_260_ChaCha3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3893,10 +3547,9 @@ const drumLibrary = {
       s("cb*4").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaChaBreak1
-    ChaChaBreak1: (opts = {}) => {
+    };
+_patterns.ChaCha3 = _patterns.Drum_Machine_Patterns_260_ChaCha3;
+_patterns.Drum_Machine_Patterns_260_ChaChaBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3910,10 +3563,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ cb ~]").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaChaBreak2
-    ChaChaBreak2: (opts = {}) => {
+    };
+_patterns.ChaChaBreak1 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak1;
+_patterns.Drum_Machine_Patterns_260_ChaChaBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3925,10 +3577,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] [lt ~ ~ ~] [~ lt lt ~]").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[cb ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n))
       );
-    },
-
-    // ChaChaBreak3
-    ChaChaBreak3: (opts = {}) => {
+    };
+_patterns.ChaChaBreak2 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak2;
+_patterns.Drum_Machine_Patterns_260_ChaChaBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3940,10 +3591,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ ~ lt ~] [lt lt ~ lt]").gain("0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Charleston1
-    Charleston1: (opts = {}) => {
+    };
+_patterns.ChaChaBreak3 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak3;
+_patterns.Drum_Machine_Patterns_260_Charleston1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3956,10 +3606,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // CharlestonBreak1
-    CharlestonBreak1: (opts = {}) => {
+    };
+_patterns.Charleston1 = _patterns.Drum_Machine_Patterns_260_Charleston1;
+_patterns.Drum_Machine_Patterns_260_CharlestonBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3971,10 +3620,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco1
-    Disco1: (opts = {}) => {
+    };
+_patterns.CharlestonBreak1 = _patterns.Drum_Machine_Patterns_260_CharlestonBreak1;
+_patterns.Drum_Machine_Patterns_260_Disco1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -3987,10 +3635,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco10
-    Disco10: (opts = {}) => {
+    };
+_patterns.Disco1 = _patterns.Drum_Machine_Patterns_260_Disco1;
+_patterns.Drum_Machine_Patterns_260_Disco10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4004,10 +3651,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco11
-    Disco11: (opts = {}) => {
+    };
+_patterns.Disco10 = _patterns.Drum_Machine_Patterns_260_Disco10;
+_patterns.Drum_Machine_Patterns_260_Disco11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4021,10 +3667,9 @@ const drumLibrary = {
       s("[~ cp ~ ~] [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco12
-    Disco12: (opts = {}) => {
+    };
+_patterns.Disco11 = _patterns.Drum_Machine_Patterns_260_Disco11;
+_patterns.Drum_Machine_Patterns_260_Disco12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4037,10 +3682,9 @@ const drumLibrary = {
       s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank).n((typeof n === "object" ? (n.tamb ?? 0) : n)),
       s("[bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco2
-    Disco2: (opts = {}) => {
+    };
+_patterns.Disco12 = _patterns.Drum_Machine_Patterns_260_Disco12;
+_patterns.Drum_Machine_Patterns_260_Disco2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4053,10 +3697,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] [~ ~ cp ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco3
-    Disco3: (opts = {}) => {
+    };
+_patterns.Disco2 = _patterns.Drum_Machine_Patterns_260_Disco2;
+_patterns.Drum_Machine_Patterns_260_Disco3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4069,10 +3712,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] [cp ~ ~ ~] ~ [cp ~]*2").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco4
-    Disco4: (opts = {}) => {
+    };
+_patterns.Disco3 = _patterns.Drum_Machine_Patterns_260_Disco3;
+_patterns.Drum_Machine_Patterns_260_Disco4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4086,10 +3728,9 @@ const drumLibrary = {
       s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank).n((typeof n === "object" ? (n.tamb ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco5
-    Disco5: (opts = {}) => {
+    };
+_patterns.Disco4 = _patterns.Drum_Machine_Patterns_260_Disco4;
+_patterns.Drum_Machine_Patterns_260_Disco5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4103,10 +3744,9 @@ const drumLibrary = {
       s("~ [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco6
-    Disco6: (opts = {}) => {
+    };
+_patterns.Disco5 = _patterns.Drum_Machine_Patterns_260_Disco5;
+_patterns.Drum_Machine_Patterns_260_Disco6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4120,10 +3760,9 @@ const drumLibrary = {
       s("tamb*8").bank(bank).n((typeof n === "object" ? (n.tamb ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco7
-    Disco7: (opts = {}) => {
+    };
+_patterns.Disco6 = _patterns.Drum_Machine_Patterns_260_Disco6;
+_patterns.Drum_Machine_Patterns_260_Disco7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4137,10 +3776,9 @@ const drumLibrary = {
       s("[cb ~ ~ ~] [cb ~ ~ ~] [cb cb cb ~] [cb ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco8
-    Disco8: (opts = {}) => {
+    };
+_patterns.Disco7 = _patterns.Drum_Machine_Patterns_260_Disco7;
+_patterns.Drum_Machine_Patterns_260_Disco8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4154,10 +3792,9 @@ const drumLibrary = {
       s("[cp ~]*2 [cp ~ ~ ~] ~ [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco9
-    Disco9: (opts = {}) => {
+    };
+_patterns.Disco8 = _patterns.Drum_Machine_Patterns_260_Disco8;
+_patterns.Drum_Machine_Patterns_260_Disco9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4171,10 +3808,9 @@ const drumLibrary = {
       s("cb*4").bank(bank).n((typeof n === "object" ? (n.cb ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak1
-    DiscoBreak1: (opts = {}) => {
+    };
+_patterns.Disco9 = _patterns.Drum_Machine_Patterns_260_Disco9;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4188,10 +3824,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] [cp ~ ~ ~] [~ ~ cp ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak2
-    DiscoBreak2: (opts = {}) => {
+    };
+_patterns.DiscoBreak1 = _patterns.Drum_Machine_Patterns_260_DiscoBreak1;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4206,10 +3841,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak3
-    DiscoBreak3: (opts = {}) => {
+    };
+_patterns.DiscoBreak2 = _patterns.Drum_Machine_Patterns_260_DiscoBreak2;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4223,10 +3857,9 @@ const drumLibrary = {
       s("[~ ~ tamb ~] [tamb ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.tamb ?? 0) : n)),
       s("~ bd ~ bd").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak4
-    DiscoBreak4: (opts = {}) => {
+    };
+_patterns.DiscoBreak3 = _patterns.Drum_Machine_Patterns_260_DiscoBreak3;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4238,10 +3871,9 @@ const drumLibrary = {
       s("~ ~ ~ mt*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("[~ ~ sd ~] ~ sd*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak5
-    DiscoBreak5: (opts = {}) => {
+    };
+_patterns.DiscoBreak4 = _patterns.Drum_Machine_Patterns_260_DiscoBreak4;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4255,10 +3887,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak6
-    DiscoBreak6: (opts = {}) => {
+    };
+_patterns.DiscoBreak5 = _patterns.Drum_Machine_Patterns_260_DiscoBreak5;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4269,10 +3900,9 @@ const drumLibrary = {
       s("[~ hh]*2 [~ hh]*2 [~ hh]*2 [~ hh]*2").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("sd*8").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak7
-    DiscoBreak7: (opts = {}) => {
+    };
+_patterns.DiscoBreak6 = _patterns.Drum_Machine_Patterns_260_DiscoBreak6;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4286,10 +3916,9 @@ const drumLibrary = {
       s("[tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb] [tamb ~ tamb tamb]").bank(bank).n((typeof n === "object" ? (n.tamb ?? 0) : n)),
       s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak8
-    DiscoBreak8: (opts = {}) => {
+    };
+_patterns.DiscoBreak7 = _patterns.Drum_Machine_Patterns_260_DiscoBreak7;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4300,10 +3929,9 @@ const drumLibrary = {
       s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // DiscoBreak9
-    DiscoBreak9: (opts = {}) => {
+    };
+_patterns.DiscoBreak8 = _patterns.Drum_Machine_Patterns_260_DiscoBreak8;
+_patterns.Drum_Machine_Patterns_260_DiscoBreak9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4317,10 +3945,9 @@ const drumLibrary = {
       s("~ ~ [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ending1
-    Ending1: (opts = {}) => {
+    };
+_patterns.DiscoBreak9 = _patterns.Drum_Machine_Patterns_260_DiscoBreak9;
+_patterns.Drum_Machine_Patterns_260_Ending1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4331,10 +3958,9 @@ const drumLibrary = {
       s("[hh ~ ~ ~] ~ ~ ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ending2
-    Ending2: (opts = {}) => {
+    };
+_patterns.Ending1 = _patterns.Drum_Machine_Patterns_260_Ending1;
+_patterns.Drum_Machine_Patterns_260_Ending2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4347,10 +3973,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ending3
-    Ending3: (opts = {}) => {
+    };
+_patterns.Ending2 = _patterns.Drum_Machine_Patterns_260_Ending2;
+_patterns.Drum_Machine_Patterns_260_Ending3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4364,10 +3989,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk1
-    Funk1: (opts = {}) => {
+    };
+_patterns.Ending3 = _patterns.Drum_Machine_Patterns_260_Ending3;
+_patterns.Drum_Machine_Patterns_260_Funk1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4380,10 +4004,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk10
-    Funk10: (opts = {}) => {
+    };
+_patterns.Funk1 = _patterns.Drum_Machine_Patterns_260_Funk1;
+_patterns.Drum_Machine_Patterns_260_Funk10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4396,10 +4019,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd ~ ~ ~] [sd ~]*2 [~ sd ~ ~]").gain("0.6 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk11
-    Funk11: (opts = {}) => {
+    };
+_patterns.Funk10 = _patterns.Drum_Machine_Patterns_260_Funk10;
+_patterns.Drum_Machine_Patterns_260_Funk11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4412,10 +4034,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [sd ~ ~ sd] [~ sd ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd]*2 [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk12
-    Funk12: (opts = {}) => {
+    };
+_patterns.Funk11 = _patterns.Drum_Machine_Patterns_260_Funk11;
+_patterns.Drum_Machine_Patterns_260_Funk12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4428,10 +4049,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [sd ~]*2 [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ bd]*2 [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk13
-    Funk13: (opts = {}) => {
+    };
+_patterns.Funk12 = _patterns.Drum_Machine_Patterns_260_Funk12;
+_patterns.Drum_Machine_Patterns_260_Funk13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4444,10 +4064,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk14
-    Funk14: (opts = {}) => {
+    };
+_patterns.Funk13 = _patterns.Drum_Machine_Patterns_260_Funk13;
+_patterns.Drum_Machine_Patterns_260_Funk14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4460,10 +4079,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk15
-    Funk15: (opts = {}) => {
+    };
+_patterns.Funk14 = _patterns.Drum_Machine_Patterns_260_Funk14;
+_patterns.Drum_Machine_Patterns_260_Funk15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4476,10 +4094,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd]*2 [~ sd ~ ~] [~ sd ~ ~]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk2
-    Funk2: (opts = {}) => {
+    };
+_patterns.Funk15 = _patterns.Drum_Machine_Patterns_260_Funk15;
+_patterns.Drum_Machine_Patterns_260_Funk2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4494,10 +4111,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk3
-    Funk3: (opts = {}) => {
+    };
+_patterns.Funk2 = _patterns.Drum_Machine_Patterns_260_Funk2;
+_patterns.Drum_Machine_Patterns_260_Funk3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4511,10 +4127,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] ~ [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk4
-    Funk4: (opts = {}) => {
+    };
+_patterns.Funk3 = _patterns.Drum_Machine_Patterns_260_Funk3;
+_patterns.Drum_Machine_Patterns_260_Funk4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4528,10 +4143,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk5
-    Funk5: (opts = {}) => {
+    };
+_patterns.Funk4 = _patterns.Drum_Machine_Patterns_260_Funk4;
+_patterns.Drum_Machine_Patterns_260_Funk5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4545,10 +4159,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ [sd sd ~ ~]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ bd bd ~] [~ ~ bd ~]").gain("0.6 1.0 1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk6
-    Funk6: (opts = {}) => {
+    };
+_patterns.Funk5 = _patterns.Drum_Machine_Patterns_260_Funk5;
+_patterns.Drum_Machine_Patterns_260_Funk6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4561,10 +4174,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd bd]").gain("0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk7
-    Funk7: (opts = {}) => {
+    };
+_patterns.Funk6 = _patterns.Drum_Machine_Patterns_260_Funk6;
+_patterns.Drum_Machine_Patterns_260_Funk7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4576,10 +4188,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ sd sd ~] [~ sd ~ ~] [sd ~ ~ sd]").gain("0.6 0.6 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk8
-    Funk8: (opts = {}) => {
+    };
+_patterns.Funk7 = _patterns.Drum_Machine_Patterns_260_Funk7;
+_patterns.Drum_Machine_Patterns_260_Funk8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4592,10 +4203,9 @@ const drumLibrary = {
       s("~ [~ sd ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Funk9
-    Funk9: (opts = {}) => {
+    };
+_patterns.Funk8 = _patterns.Drum_Machine_Patterns_260_Funk8;
+_patterns.Drum_Machine_Patterns_260_Funk9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4608,10 +4218,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ sd sd] [~ sd sd ~] [~ sd]*2").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak1
-    FunkBreak1: (opts = {}) => {
+    };
+_patterns.Funk9 = _patterns.Drum_Machine_Patterns_260_Funk9;
+_patterns.Drum_Machine_Patterns_260_FunkBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4626,10 +4235,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak10
-    FunkBreak10: (opts = {}) => {
+    };
+_patterns.FunkBreak1 = _patterns.Drum_Machine_Patterns_260_FunkBreak1;
+_patterns.Drum_Machine_Patterns_260_FunkBreak10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4643,10 +4251,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak11
-    FunkBreak11: (opts = {}) => {
+    };
+_patterns.FunkBreak10 = _patterns.Drum_Machine_Patterns_260_FunkBreak10;
+_patterns.Drum_Machine_Patterns_260_FunkBreak11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4660,10 +4267,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak12
-    FunkBreak12: (opts = {}) => {
+    };
+_patterns.FunkBreak11 = _patterns.Drum_Machine_Patterns_260_FunkBreak11;
+_patterns.Drum_Machine_Patterns_260_FunkBreak12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4677,10 +4283,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak13
-    FunkBreak13: (opts = {}) => {
+    };
+_patterns.FunkBreak12 = _patterns.Drum_Machine_Patterns_260_FunkBreak12;
+_patterns.Drum_Machine_Patterns_260_FunkBreak13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4695,10 +4300,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak14
-    FunkBreak14: (opts = {}) => {
+    };
+_patterns.FunkBreak13 = _patterns.Drum_Machine_Patterns_260_FunkBreak13;
+_patterns.Drum_Machine_Patterns_260_FunkBreak14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4710,10 +4314,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak15
-    FunkBreak15: (opts = {}) => {
+    };
+_patterns.FunkBreak14 = _patterns.Drum_Machine_Patterns_260_FunkBreak14;
+_patterns.Drum_Machine_Patterns_260_FunkBreak15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4725,10 +4328,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak2
-    FunkBreak2: (opts = {}) => {
+    };
+_patterns.FunkBreak15 = _patterns.Drum_Machine_Patterns_260_FunkBreak15;
+_patterns.Drum_Machine_Patterns_260_FunkBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4743,10 +4345,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak3
-    FunkBreak3: (opts = {}) => {
+    };
+_patterns.FunkBreak2 = _patterns.Drum_Machine_Patterns_260_FunkBreak2;
+_patterns.Drum_Machine_Patterns_260_FunkBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4762,10 +4363,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ bd] ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak4
-    FunkBreak4: (opts = {}) => {
+    };
+_patterns.FunkBreak3 = _patterns.Drum_Machine_Patterns_260_FunkBreak3;
+_patterns.Drum_Machine_Patterns_260_FunkBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4776,10 +4376,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak5
-    FunkBreak5: (opts = {}) => {
+    };
+_patterns.FunkBreak4 = _patterns.Drum_Machine_Patterns_260_FunkBreak4;
+_patterns.Drum_Machine_Patterns_260_FunkBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4792,10 +4391,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] ~ ~ [sd ~ sd sd]").gain("0.6 1.0 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // FunkBreak6
-    FunkBreak6: (opts = {}) => {
+    };
+_patterns.FunkBreak5 = _patterns.Drum_Machine_Patterns_260_FunkBreak5;
+_patterns.Drum_Machine_Patterns_260_FunkBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4807,10 +4405,9 @@ const drumLibrary = {
       s("~ [sd sd ~ sd] [~ ~ sd ~] [~ ~ sd sd]").gain("0.6 1.0 1.0 1.1 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak7
-    FunkBreak7: (opts = {}) => {
+    };
+_patterns.FunkBreak6 = _patterns.Drum_Machine_Patterns_260_FunkBreak6;
+_patterns.Drum_Machine_Patterns_260_FunkBreak7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4822,10 +4419,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [sd ~ sd sd] [sd ~ sd ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak8
-    FunkBreak8: (opts = {}) => {
+    };
+_patterns.FunkBreak7 = _patterns.Drum_Machine_Patterns_260_FunkBreak7;
+_patterns.Drum_Machine_Patterns_260_FunkBreak8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4838,10 +4434,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ bd ~ ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkBreak9
-    FunkBreak9: (opts = {}) => {
+    };
+_patterns.FunkBreak8 = _patterns.Drum_Machine_Patterns_260_FunkBreak8;
+_patterns.Drum_Machine_Patterns_260_FunkBreak9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4854,10 +4449,9 @@ const drumLibrary = {
       s("sd*4 ~ ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Jazz1
-    Jazz1: (opts = {}) => {
+    };
+_patterns.FunkBreak9 = _patterns.Drum_Machine_Patterns_260_FunkBreak9;
+_patterns.Drum_Machine_Patterns_260_Jazz1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4869,10 +4463,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jazz2
-    Jazz2: (opts = {}) => {
+    };
+_patterns.Jazz1 = _patterns.Drum_Machine_Patterns_260_Jazz1;
+_patterns.Drum_Machine_Patterns_260_Jazz2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4884,10 +4477,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] ~ [~ sd]*2 ~").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jazz3
-    Jazz3: (opts = {}) => {
+    };
+_patterns.Jazz2 = _patterns.Drum_Machine_Patterns_260_Jazz2;
+_patterns.Drum_Machine_Patterns_260_Jazz3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4899,10 +4491,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jazz4
-    Jazz4: (opts = {}) => {
+    };
+_patterns.Jazz3 = _patterns.Drum_Machine_Patterns_260_Jazz3;
+_patterns.Drum_Machine_Patterns_260_Jazz4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4914,10 +4505,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] ~ [sd ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jazz5
-    Jazz5: (opts = {}) => {
+    };
+_patterns.Jazz4 = _patterns.Drum_Machine_Patterns_260_Jazz4;
+_patterns.Drum_Machine_Patterns_260_Jazz5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4929,10 +4519,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jazz6
-    Jazz6: (opts = {}) => {
+    };
+_patterns.Jazz5 = _patterns.Drum_Machine_Patterns_260_Jazz5;
+_patterns.Drum_Machine_Patterns_260_Jazz6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4944,10 +4533,9 @@ const drumLibrary = {
       s("~ [~ sd ~ ~] [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // JazzBreak1
-    JazzBreak1: (opts = {}) => {
+    };
+_patterns.Jazz6 = _patterns.Drum_Machine_Patterns_260_Jazz6;
+_patterns.Drum_Machine_Patterns_260_JazzBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4960,10 +4548,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ sd sd] [sd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // JazzBreak2
-    JazzBreak2: (opts = {}) => {
+    };
+_patterns.JazzBreak1 = _patterns.Drum_Machine_Patterns_260_JazzBreak1;
+_patterns.Drum_Machine_Patterns_260_JazzBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4976,10 +4563,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd sd sd ~] ~ ~").gain("0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // JazzBreak3
-    JazzBreak3: (opts = {}) => {
+    };
+_patterns.JazzBreak2 = _patterns.Drum_Machine_Patterns_260_JazzBreak2;
+_patterns.Drum_Machine_Patterns_260_JazzBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -4991,10 +4577,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ sd*4 ~").gain("1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // March1
-    March1: (opts = {}) => {
+    };
+_patterns.JazzBreak3 = _patterns.Drum_Machine_Patterns_260_JazzBreak3;
+_patterns.Drum_Machine_Patterns_260_March1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5006,10 +4591,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd sd ~ sd] [sd ~]*2 sd*4").gain("1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // March2
-    March2: (opts = {}) => {
+    };
+_patterns.March1 = _patterns.Drum_Machine_Patterns_260_March1;
+_patterns.Drum_Machine_Patterns_260_March2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5021,10 +4605,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [sd ~ sd sd] [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MarchBreak1
-    MarchBreak1: (opts = {}) => {
+    };
+_patterns.March2 = _patterns.Drum_Machine_Patterns_260_March2;
+_patterns.Drum_Machine_Patterns_260_MarchBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5039,10 +4622,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~ ~ ~]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MarchBreak2
-    MarchBreak2: (opts = {}) => {
+    };
+_patterns.MarchBreak1 = _patterns.Drum_Machine_Patterns_260_MarchBreak1;
+_patterns.Drum_Machine_Patterns_260_MarchBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5054,10 +4636,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [~ ~ sd ~] sd*4 [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Paso1
-    Paso1: (opts = {}) => {
+    };
+_patterns.MarchBreak2 = _patterns.Drum_Machine_Patterns_260_MarchBreak2;
+_patterns.Drum_Machine_Patterns_260_Paso1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5070,10 +4651,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd sd] [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Paso2
-    Paso2: (opts = {}) => {
+    };
+_patterns.Paso1 = _patterns.Drum_Machine_Patterns_260_Paso1;
+_patterns.Drum_Machine_Patterns_260_Paso2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5086,10 +4666,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PasoBreak1
-    PasoBreak1: (opts = {}) => {
+    };
+_patterns.Paso2 = _patterns.Drum_Machine_Patterns_260_Paso2;
+_patterns.Drum_Machine_Patterns_260_PasoBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5100,10 +4679,9 @@ const drumLibrary = {
       s("[sd sd ~ sd] [~ sd sd ~] [sd sd ~ sd] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PasoBreak2
-    PasoBreak2: (opts = {}) => {
+    };
+_patterns.PasoBreak1 = _patterns.Drum_Machine_Patterns_260_PasoBreak1;
+_patterns.Drum_Machine_Patterns_260_PasoBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5117,10 +4695,9 @@ const drumLibrary = {
       s("~ ~ [~ lt]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop1
-    Pop1: (opts = {}) => {
+    };
+_patterns.PasoBreak2 = _patterns.Drum_Machine_Patterns_260_PasoBreak2;
+_patterns.Drum_Machine_Patterns_260_Pop1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5132,10 +4709,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] [~ bd]*2 [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop10
-    Pop10: (opts = {}) => {
+    };
+_patterns.Pop1 = _patterns.Drum_Machine_Patterns_260_Pop1;
+_patterns.Drum_Machine_Patterns_260_Pop10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5148,10 +4724,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop11
-    Pop11: (opts = {}) => {
+    };
+_patterns.Pop10 = _patterns.Drum_Machine_Patterns_260_Pop10;
+_patterns.Drum_Machine_Patterns_260_Pop11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5163,10 +4738,9 @@ const drumLibrary = {
       s("sd*4").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd]*2 [~ ~ bd ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop12
-    Pop12: (opts = {}) => {
+    };
+_patterns.Pop11 = _patterns.Drum_Machine_Patterns_260_Pop11;
+_patterns.Drum_Machine_Patterns_260_Pop12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5179,10 +4753,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop2
-    Pop2: (opts = {}) => {
+    };
+_patterns.Pop12 = _patterns.Drum_Machine_Patterns_260_Pop12;
+_patterns.Drum_Machine_Patterns_260_Pop2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5194,10 +4767,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd bd] [bd ~]*2 [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop3
-    Pop3: (opts = {}) => {
+    };
+_patterns.Pop2 = _patterns.Drum_Machine_Patterns_260_Pop2;
+_patterns.Drum_Machine_Patterns_260_Pop3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5210,10 +4782,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] [~ bd ~ ~] [bd bd ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop4
-    Pop4: (opts = {}) => {
+    };
+_patterns.Pop3 = _patterns.Drum_Machine_Patterns_260_Pop3;
+_patterns.Drum_Machine_Patterns_260_Pop4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5226,10 +4797,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd]*2 [~ bd]*2 [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop5
-    Pop5: (opts = {}) => {
+    };
+_patterns.Pop4 = _patterns.Drum_Machine_Patterns_260_Pop4;
+_patterns.Drum_Machine_Patterns_260_Pop5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5241,10 +4811,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] ~ [bd bd ~ bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop6
-    Pop6: (opts = {}) => {
+    };
+_patterns.Pop5 = _patterns.Drum_Machine_Patterns_260_Pop5;
+_patterns.Drum_Machine_Patterns_260_Pop6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5256,10 +4825,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] ~ [bd bd ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop7
-    Pop7: (opts = {}) => {
+    };
+_patterns.Pop6 = _patterns.Drum_Machine_Patterns_260_Pop6;
+_patterns.Drum_Machine_Patterns_260_Pop7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5271,10 +4839,9 @@ const drumLibrary = {
       s("~ oh ~ oh").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop8
-    Pop8: (opts = {}) => {
+    };
+_patterns.Pop7 = _patterns.Drum_Machine_Patterns_260_Pop7;
+_patterns.Drum_Machine_Patterns_260_Pop8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5287,10 +4854,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pop9
-    Pop9: (opts = {}) => {
+    };
+_patterns.Pop8 = _patterns.Drum_Machine_Patterns_260_Pop8;
+_patterns.Drum_Machine_Patterns_260_Pop9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5303,10 +4869,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak1
-    PopBreak1: (opts = {}) => {
+    };
+_patterns.Pop9 = _patterns.Drum_Machine_Patterns_260_Pop9;
+_patterns.Drum_Machine_Patterns_260_PopBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5320,10 +4885,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak2
-    PopBreak2: (opts = {}) => {
+    };
+_patterns.PopBreak1 = _patterns.Drum_Machine_Patterns_260_PopBreak1;
+_patterns.Drum_Machine_Patterns_260_PopBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5337,10 +4901,9 @@ const drumLibrary = {
       s("~ ~ [~ lt ~ ~] ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd ~] [bd bd ~ bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak3
-    PopBreak3: (opts = {}) => {
+    };
+_patterns.PopBreak2 = _patterns.Drum_Machine_Patterns_260_PopBreak2;
+_patterns.Drum_Machine_Patterns_260_PopBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5354,10 +4917,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak4
-    PopBreak4: (opts = {}) => {
+    };
+_patterns.PopBreak3 = _patterns.Drum_Machine_Patterns_260_PopBreak3;
+_patterns.Drum_Machine_Patterns_260_PopBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5368,10 +4930,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd sd ~] [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd]*2 [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak5
-    PopBreak5: (opts = {}) => {
+    };
+_patterns.PopBreak4 = _patterns.Drum_Machine_Patterns_260_PopBreak4;
+_patterns.Drum_Machine_Patterns_260_PopBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5385,10 +4946,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PopBreak6
-    PopBreak6: (opts = {}) => {
+    };
+_patterns.PopBreak5 = _patterns.Drum_Machine_Patterns_260_PopBreak5;
+_patterns.Drum_Machine_Patterns_260_PopBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5403,10 +4963,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [~ ~ ~ sd] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [~ ~ ~ lt] [lt lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Reggae1
-    Reggae1: (opts = {}) => {
+    };
+_patterns.PopBreak6 = _patterns.Drum_Machine_Patterns_260_PopBreak6;
+_patterns.Drum_Machine_Patterns_260_Reggae1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5419,10 +4978,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae10
-    Reggae10: (opts = {}) => {
+    };
+_patterns.Reggae1 = _patterns.Drum_Machine_Patterns_260_Reggae1;
+_patterns.Drum_Machine_Patterns_260_Reggae10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5435,10 +4993,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ ~ rim rim] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae11
-    Reggae11: (opts = {}) => {
+    };
+_patterns.Reggae10 = _patterns.Drum_Machine_Patterns_260_Reggae10;
+_patterns.Drum_Machine_Patterns_260_Reggae11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5451,10 +5008,9 @@ const drumLibrary = {
       s("~ ~ [rim ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae12
-    Reggae12: (opts = {}) => {
+    };
+_patterns.Reggae11 = _patterns.Drum_Machine_Patterns_260_Reggae11;
+_patterns.Drum_Machine_Patterns_260_Reggae12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5466,10 +5022,9 @@ const drumLibrary = {
       s("~ ~ [rim ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2 [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae2
-    Reggae2: (opts = {}) => {
+    };
+_patterns.Reggae12 = _patterns.Drum_Machine_Patterns_260_Reggae12;
+_patterns.Drum_Machine_Patterns_260_Reggae2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5481,10 +5036,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ ~] ~ [rim ~]*2").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae3
-    Reggae3: (opts = {}) => {
+    };
+_patterns.Reggae2 = _patterns.Drum_Machine_Patterns_260_Reggae2;
+_patterns.Drum_Machine_Patterns_260_Reggae3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5496,10 +5050,9 @@ const drumLibrary = {
       s("~ [rim ~ ~ ~] [~ rim ~ ~] [rim ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae4
-    Reggae4: (opts = {}) => {
+    };
+_patterns.Reggae3 = _patterns.Drum_Machine_Patterns_260_Reggae3;
+_patterns.Drum_Machine_Patterns_260_Reggae4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5511,10 +5064,9 @@ const drumLibrary = {
       s("~ rim ~ rim").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae5
-    Reggae5: (opts = {}) => {
+    };
+_patterns.Reggae4 = _patterns.Drum_Machine_Patterns_260_Reggae4;
+_patterns.Drum_Machine_Patterns_260_Reggae5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5526,10 +5078,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae6
-    Reggae6: (opts = {}) => {
+    };
+_patterns.Reggae5 = _patterns.Drum_Machine_Patterns_260_Reggae5;
+_patterns.Drum_Machine_Patterns_260_Reggae6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5541,10 +5092,9 @@ const drumLibrary = {
       s("~ [rim ~]*2 ~ [rim ~]*2").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae7
-    Reggae7: (opts = {}) => {
+    };
+_patterns.Reggae6 = _patterns.Drum_Machine_Patterns_260_Reggae6;
+_patterns.Drum_Machine_Patterns_260_Reggae7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5556,10 +5106,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ rim ~ ~] [~ rim ~ ~] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("~ [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae8
-    Reggae8: (opts = {}) => {
+    };
+_patterns.Reggae7 = _patterns.Drum_Machine_Patterns_260_Reggae7;
+_patterns.Drum_Machine_Patterns_260_Reggae8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5572,10 +5121,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae9
-    Reggae9: (opts = {}) => {
+    };
+_patterns.Reggae8 = _patterns.Drum_Machine_Patterns_260_Reggae8;
+_patterns.Drum_Machine_Patterns_260_Reggae9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5587,10 +5135,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] ~ [~ rim]*2 ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak1
-    ReggaeBreak1: (opts = {}) => {
+    };
+_patterns.Reggae9 = _patterns.Drum_Machine_Patterns_260_Reggae9;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5606,10 +5153,9 @@ const drumLibrary = {
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak2
-    ReggaeBreak2: (opts = {}) => {
+    };
+_patterns.ReggaeBreak1 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak1;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5623,10 +5169,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak3
-    ReggaeBreak3: (opts = {}) => {
+    };
+_patterns.ReggaeBreak2 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak2;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5641,10 +5186,9 @@ const drumLibrary = {
       s("~ [lt ~ ~ ~] [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak4
-    ReggaeBreak4: (opts = {}) => {
+    };
+_patterns.ReggaeBreak3 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak3;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5657,10 +5201,9 @@ const drumLibrary = {
       s("[sd ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~ ~ ~]").gain("1.1 0.6 0.6 1.0 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak5
-    ReggaeBreak5: (opts = {}) => {
+    };
+_patterns.ReggaeBreak4 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak4;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5673,10 +5216,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [~ ~ sd ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak6
-    ReggaeBreak6: (opts = {}) => {
+    };
+_patterns.ReggaeBreak5 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak5;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5691,10 +5233,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt ~] [lt ~ ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak7
-    ReggaeBreak7: (opts = {}) => {
+    };
+_patterns.ReggaeBreak6 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak6;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5708,10 +5249,9 @@ const drumLibrary = {
       s("~ ~ [~ lt ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak8
-    ReggaeBreak8: (opts = {}) => {
+    };
+_patterns.ReggaeBreak7 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak7;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5727,10 +5267,9 @@ const drumLibrary = {
       s("~ ~ [~ lt lt lt] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ReggaeBreak9
-    ReggaeBreak9: (opts = {}) => {
+    };
+_patterns.ReggaeBreak8 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak8;
+_patterns.Drum_Machine_Patterns_260_ReggaeBreak9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5744,10 +5283,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] [sd sd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb1
-    Rnb1: (opts = {}) => {
+    };
+_patterns.ReggaeBreak9 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak9;
+_patterns.Drum_Machine_Patterns_260_Rnb1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5759,10 +5297,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] [~ bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb10
-    Rnb10: (opts = {}) => {
+    };
+_patterns.Rnb1 = _patterns.Drum_Machine_Patterns_260_Rnb1;
+_patterns.Drum_Machine_Patterns_260_Rnb10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5774,10 +5311,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb11
-    Rnb11: (opts = {}) => {
+    };
+_patterns.Rnb10 = _patterns.Drum_Machine_Patterns_260_Rnb10;
+_patterns.Drum_Machine_Patterns_260_Rnb11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5790,10 +5326,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb12
-    Rnb12: (opts = {}) => {
+    };
+_patterns.Rnb11 = _patterns.Drum_Machine_Patterns_260_Rnb11;
+_patterns.Drum_Machine_Patterns_260_Rnb12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5806,10 +5341,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd bd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb2
-    Rnb2: (opts = {}) => {
+    };
+_patterns.Rnb12 = _patterns.Drum_Machine_Patterns_260_Rnb12;
+_patterns.Drum_Machine_Patterns_260_Rnb2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5821,10 +5355,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd]*2 [~ ~ ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb3
-    Rnb3: (opts = {}) => {
+    };
+_patterns.Rnb2 = _patterns.Drum_Machine_Patterns_260_Rnb2;
+_patterns.Drum_Machine_Patterns_260_Rnb3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5836,10 +5369,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ bd]*2 [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb4
-    Rnb4: (opts = {}) => {
+    };
+_patterns.Rnb3 = _patterns.Drum_Machine_Patterns_260_Rnb3;
+_patterns.Drum_Machine_Patterns_260_Rnb4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5851,10 +5383,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd bd ~ bd] [~ bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb5
-    Rnb5: (opts = {}) => {
+    };
+_patterns.Rnb4 = _patterns.Drum_Machine_Patterns_260_Rnb4;
+_patterns.Drum_Machine_Patterns_260_Rnb5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5866,10 +5397,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd bd ~] [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb6
-    Rnb6: (opts = {}) => {
+    };
+_patterns.Rnb5 = _patterns.Drum_Machine_Patterns_260_Rnb5;
+_patterns.Drum_Machine_Patterns_260_Rnb6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5881,10 +5411,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ bd]*2 [~ bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb7
-    Rnb7: (opts = {}) => {
+    };
+_patterns.Rnb6 = _patterns.Drum_Machine_Patterns_260_Rnb6;
+_patterns.Drum_Machine_Patterns_260_Rnb7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5897,10 +5426,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb8
-    Rnb8: (opts = {}) => {
+    };
+_patterns.Rnb7 = _patterns.Drum_Machine_Patterns_260_Rnb7;
+_patterns.Drum_Machine_Patterns_260_Rnb8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5912,10 +5440,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rnb9
-    Rnb9: (opts = {}) => {
+    };
+_patterns.Rnb8 = _patterns.Drum_Machine_Patterns_260_Rnb8;
+_patterns.Drum_Machine_Patterns_260_Rnb9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5928,10 +5455,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak1
-    RnbBreak1: (opts = {}) => {
+    };
+_patterns.Rnb9 = _patterns.Drum_Machine_Patterns_260_Rnb9;
+_patterns.Drum_Machine_Patterns_260_RnbBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5945,10 +5471,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak2
-    RnbBreak2: (opts = {}) => {
+    };
+_patterns.RnbBreak1 = _patterns.Drum_Machine_Patterns_260_RnbBreak1;
+_patterns.Drum_Machine_Patterns_260_RnbBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5960,10 +5485,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] [~ sd sd sd] [~ ~ sd sd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [bd bd ~ ~]").gain("0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak3
-    RnbBreak3: (opts = {}) => {
+    };
+_patterns.RnbBreak2 = _patterns.Drum_Machine_Patterns_260_RnbBreak2;
+_patterns.Drum_Machine_Patterns_260_RnbBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5977,10 +5501,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd sd ~ sd] [~ sd ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak4
-    RnbBreak4: (opts = {}) => {
+    };
+_patterns.RnbBreak3 = _patterns.Drum_Machine_Patterns_260_RnbBreak3;
+_patterns.Drum_Machine_Patterns_260_RnbBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -5992,10 +5515,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ bd] [bd ~ bd bd] [~ bd bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak5
-    RnbBreak5: (opts = {}) => {
+    };
+_patterns.RnbBreak4 = _patterns.Drum_Machine_Patterns_260_RnbBreak4;
+_patterns.Drum_Machine_Patterns_260_RnbBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6008,10 +5530,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] [~ ~ sd sd] ~").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RnbBreak6
-    RnbBreak6: (opts = {}) => {
+    };
+_patterns.RnbBreak5 = _patterns.Drum_Machine_Patterns_260_RnbBreak5;
+_patterns.Drum_Machine_Patterns_260_RnbBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6024,10 +5545,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock1
-    Rock1: (opts = {}) => {
+    };
+_patterns.RnbBreak6 = _patterns.Drum_Machine_Patterns_260_RnbBreak6;
+_patterns.Drum_Machine_Patterns_260_Rock1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6039,10 +5559,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock10
-    Rock10: (opts = {}) => {
+    };
+_patterns.Rock1 = _patterns.Drum_Machine_Patterns_260_Rock1;
+_patterns.Drum_Machine_Patterns_260_Rock10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6054,10 +5573,9 @@ const drumLibrary = {
       s("~ sd ~ sd").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd ~ ~] [bd ~ bd bd] [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock11
-    Rock11: (opts = {}) => {
+    };
+_patterns.Rock10 = _patterns.Drum_Machine_Patterns_260_Rock10;
+_patterns.Drum_Machine_Patterns_260_Rock11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6069,10 +5587,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] ~ ~ [sd ~ ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock12
-    Rock12: (opts = {}) => {
+    };
+_patterns.Rock11 = _patterns.Drum_Machine_Patterns_260_Rock11;
+_patterns.Drum_Machine_Patterns_260_Rock12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6084,10 +5601,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock13
-    Rock13: (opts = {}) => {
+    };
+_patterns.Rock12 = _patterns.Drum_Machine_Patterns_260_Rock12;
+_patterns.Drum_Machine_Patterns_260_Rock13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6099,10 +5615,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock14
-    Rock14: (opts = {}) => {
+    };
+_patterns.Rock13 = _patterns.Drum_Machine_Patterns_260_Rock13;
+_patterns.Drum_Machine_Patterns_260_Rock14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6115,10 +5630,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock2
-    Rock2: (opts = {}) => {
+    };
+_patterns.Rock14 = _patterns.Drum_Machine_Patterns_260_Rock14;
+_patterns.Drum_Machine_Patterns_260_Rock2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6130,10 +5644,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock3
-    Rock3: (opts = {}) => {
+    };
+_patterns.Rock2 = _patterns.Drum_Machine_Patterns_260_Rock2;
+_patterns.Drum_Machine_Patterns_260_Rock3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6145,10 +5658,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~]*2").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock4
-    Rock4: (opts = {}) => {
+    };
+_patterns.Rock3 = _patterns.Drum_Machine_Patterns_260_Rock3;
+_patterns.Drum_Machine_Patterns_260_Rock4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6160,10 +5672,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock5
-    Rock5: (opts = {}) => {
+    };
+_patterns.Rock4 = _patterns.Drum_Machine_Patterns_260_Rock4;
+_patterns.Drum_Machine_Patterns_260_Rock5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6175,10 +5686,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock6
-    Rock6: (opts = {}) => {
+    };
+_patterns.Rock5 = _patterns.Drum_Machine_Patterns_260_Rock5;
+_patterns.Drum_Machine_Patterns_260_Rock6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6190,10 +5700,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock7
-    Rock7: (opts = {}) => {
+    };
+_patterns.Rock6 = _patterns.Drum_Machine_Patterns_260_Rock6;
+_patterns.Drum_Machine_Patterns_260_Rock7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6205,10 +5714,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock8
-    Rock8: (opts = {}) => {
+    };
+_patterns.Rock7 = _patterns.Drum_Machine_Patterns_260_Rock7;
+_patterns.Drum_Machine_Patterns_260_Rock8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6220,10 +5728,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rock9
-    Rock9: (opts = {}) => {
+    };
+_patterns.Rock8 = _patterns.Drum_Machine_Patterns_260_Rock8;
+_patterns.Drum_Machine_Patterns_260_Rock9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6235,10 +5742,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd]").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak1
-    RockBreak1: (opts = {}) => {
+    };
+_patterns.Rock9 = _patterns.Drum_Machine_Patterns_260_Rock9;
+_patterns.Drum_Machine_Patterns_260_RockBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6252,10 +5758,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ ~ ~] ~ ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak10
-    RockBreak10: (opts = {}) => {
+    };
+_patterns.RockBreak1 = _patterns.Drum_Machine_Patterns_260_RockBreak1;
+_patterns.Drum_Machine_Patterns_260_RockBreak10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6269,10 +5774,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~]*2 [~ ~ sd sd]").gain("1.0 1.0 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak11
-    RockBreak11: (opts = {}) => {
+    };
+_patterns.RockBreak10 = _patterns.Drum_Machine_Patterns_260_RockBreak10;
+_patterns.Drum_Machine_Patterns_260_RockBreak11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6285,10 +5789,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak12
-    RockBreak12: (opts = {}) => {
+    };
+_patterns.RockBreak11 = _patterns.Drum_Machine_Patterns_260_RockBreak11;
+_patterns.Drum_Machine_Patterns_260_RockBreak12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6302,10 +5805,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak2
-    RockBreak2: (opts = {}) => {
+    };
+_patterns.RockBreak12 = _patterns.Drum_Machine_Patterns_260_RockBreak12;
+_patterns.Drum_Machine_Patterns_260_RockBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6320,10 +5822,9 @@ const drumLibrary = {
       s("~ ~ ~ lt*4").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak3
-    RockBreak3: (opts = {}) => {
+    };
+_patterns.RockBreak2 = _patterns.Drum_Machine_Patterns_260_RockBreak2;
+_patterns.Drum_Machine_Patterns_260_RockBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6334,10 +5835,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd ~]*2 [sd ~]*2 [sd ~ ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[lt ~]*2 [lt ~]*2 [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // RockBreak4
-    RockBreak4: (opts = {}) => {
+    };
+_patterns.RockBreak3 = _patterns.Drum_Machine_Patterns_260_RockBreak3;
+_patterns.Drum_Machine_Patterns_260_RockBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6349,10 +5849,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak5
-    RockBreak5: (opts = {}) => {
+    };
+_patterns.RockBreak4 = _patterns.Drum_Machine_Patterns_260_RockBreak4;
+_patterns.Drum_Machine_Patterns_260_RockBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6367,10 +5866,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] ~ ~").gain("1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak6
-    RockBreak6: (opts = {}) => {
+    };
+_patterns.RockBreak5 = _patterns.Drum_Machine_Patterns_260_RockBreak5;
+_patterns.Drum_Machine_Patterns_260_RockBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6385,10 +5883,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak7
-    RockBreak7: (opts = {}) => {
+    };
+_patterns.RockBreak6 = _patterns.Drum_Machine_Patterns_260_RockBreak6;
+_patterns.Drum_Machine_Patterns_260_RockBreak7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6402,10 +5899,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak8
-    RockBreak8: (opts = {}) => {
+    };
+_patterns.RockBreak7 = _patterns.Drum_Machine_Patterns_260_RockBreak7;
+_patterns.Drum_Machine_Patterns_260_RockBreak8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6417,10 +5913,9 @@ const drumLibrary = {
       s("lt*8").gain("0.6 0.6 1.0 1.0 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd*4").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockBreak9
-    RockBreak9: (opts = {}) => {
+    };
+_patterns.RockBreak8 = _patterns.Drum_Machine_Patterns_260_RockBreak8;
+_patterns.Drum_Machine_Patterns_260_RockBreak9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6435,10 +5930,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba1
-    Samba1: (opts = {}) => {
+    };
+_patterns.RockBreak9 = _patterns.Drum_Machine_Patterns_260_RockBreak9;
+_patterns.Drum_Machine_Patterns_260_Samba1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6451,10 +5945,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt lt ~]").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba2
-    Samba2: (opts = {}) => {
+    };
+_patterns.Samba1 = _patterns.Drum_Machine_Patterns_260_Samba1;
+_patterns.Drum_Machine_Patterns_260_Samba2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6467,10 +5960,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba3
-    Samba3: (opts = {}) => {
+    };
+_patterns.Samba2 = _patterns.Drum_Machine_Patterns_260_Samba2;
+_patterns.Drum_Machine_Patterns_260_Samba3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6483,10 +5975,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] [~ ~ ~ lt] [~ lt ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba4
-    Samba4: (opts = {}) => {
+    };
+_patterns.Samba3 = _patterns.Drum_Machine_Patterns_260_Samba3;
+_patterns.Drum_Machine_Patterns_260_Samba4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6501,10 +5992,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba5
-    Samba5: (opts = {}) => {
+    };
+_patterns.Samba4 = _patterns.Drum_Machine_Patterns_260_Samba4;
+_patterns.Drum_Machine_Patterns_260_Samba5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6518,10 +6008,9 @@ const drumLibrary = {
       s("[~ ~ rim ~] ~ [rim ~ ~ rim] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba6
-    Samba6: (opts = {}) => {
+    };
+_patterns.Samba5 = _patterns.Drum_Machine_Patterns_260_Samba5;
+_patterns.Drum_Machine_Patterns_260_Samba6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6535,10 +6024,9 @@ const drumLibrary = {
       s("[rim ~]*2 [~ ~ ~ rim] [~ rim]*2 ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SambaBreak1
-    SambaBreak1: (opts = {}) => {
+    };
+_patterns.Samba6 = _patterns.Drum_Machine_Patterns_260_Samba6;
+_patterns.Drum_Machine_Patterns_260_SambaBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6552,10 +6040,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt lt ~]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SambaBreak2
-    SambaBreak2: (opts = {}) => {
+    };
+_patterns.SambaBreak1 = _patterns.Drum_Machine_Patterns_260_SambaBreak1;
+_patterns.Drum_Machine_Patterns_260_SambaBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6567,10 +6054,9 @@ const drumLibrary = {
       s("[sd sd sd ~] ~ ~ [sd ~]*2").gain("1.0 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [lt ~]*2 ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // SambaBreak3
-    SambaBreak3: (opts = {}) => {
+    };
+_patterns.SambaBreak2 = _patterns.Drum_Machine_Patterns_260_SambaBreak2;
+_patterns.Drum_Machine_Patterns_260_SambaBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6584,10 +6070,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] [lt ~ ~ ~] ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle1
-    Shuffle1: (opts = {}) => {
+    };
+_patterns.SambaBreak3 = _patterns.Drum_Machine_Patterns_260_SambaBreak3;
+_patterns.Drum_Machine_Patterns_260_Shuffle1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6599,10 +6084,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle2
-    Shuffle2: (opts = {}) => {
+    };
+_patterns.Shuffle1 = _patterns.Drum_Machine_Patterns_260_Shuffle1;
+_patterns.Drum_Machine_Patterns_260_Shuffle2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6614,10 +6098,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle3
-    Shuffle3: (opts = {}) => {
+    };
+_patterns.Shuffle2 = _patterns.Drum_Machine_Patterns_260_Shuffle2;
+_patterns.Drum_Machine_Patterns_260_Shuffle3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6629,10 +6112,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd]*2 [sd sd ~ ~] ~").gain("1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle4
-    Shuffle4: (opts = {}) => {
+    };
+_patterns.Shuffle3 = _patterns.Drum_Machine_Patterns_260_Shuffle3;
+_patterns.Drum_Machine_Patterns_260_Shuffle4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6644,10 +6126,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd ~ ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle5
-    Shuffle5: (opts = {}) => {
+    };
+_patterns.Shuffle4 = _patterns.Drum_Machine_Patterns_260_Shuffle4;
+_patterns.Drum_Machine_Patterns_260_Shuffle5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6659,10 +6140,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ ~ sd] [sd sd ~ ~] ~").gain("1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Shuffle6
-    Shuffle6: (opts = {}) => {
+    };
+_patterns.Shuffle5 = _patterns.Drum_Machine_Patterns_260_Shuffle5;
+_patterns.Drum_Machine_Patterns_260_Shuffle6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6674,10 +6154,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [~ sd sd ~] [sd sd ~ sd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd bd ~] [bd bd ~ bd] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ShuffleBreak1
-    ShuffleBreak1: (opts = {}) => {
+    };
+_patterns.Shuffle6 = _patterns.Drum_Machine_Patterns_260_Shuffle6;
+_patterns.Drum_Machine_Patterns_260_ShuffleBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6691,10 +6170,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt lt] ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ShuffleBreak2
-    ShuffleBreak2: (opts = {}) => {
+    };
+_patterns.ShuffleBreak1 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak1;
+_patterns.Drum_Machine_Patterns_260_ShuffleBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6707,10 +6185,9 @@ const drumLibrary = {
       s("[~ sd sd sd] [sd sd ~ ~] ~ ~").gain("0.6 1.0 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ShuffleBreak3
-    ShuffleBreak3: (opts = {}) => {
+    };
+_patterns.ShuffleBreak2 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak2;
+_patterns.Drum_Machine_Patterns_260_ShuffleBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6722,10 +6199,9 @@ const drumLibrary = {
       s("[~ sd]*2 [sd sd ~ sd] ~ ~").gain("0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ska1
-    Ska1: (opts = {}) => {
+    };
+_patterns.ShuffleBreak3 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak3;
+_patterns.Drum_Machine_Patterns_260_Ska1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6738,10 +6214,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ska2
-    Ska2: (opts = {}) => {
+    };
+_patterns.Ska1 = _patterns.Drum_Machine_Patterns_260_Ska1;
+_patterns.Drum_Machine_Patterns_260_Ska2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6753,10 +6228,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ska3
-    Ska3: (opts = {}) => {
+    };
+_patterns.Ska2 = _patterns.Drum_Machine_Patterns_260_Ska2;
+_patterns.Drum_Machine_Patterns_260_Ska3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6769,10 +6243,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SkaBreak1
-    SkaBreak1: (opts = {}) => {
+    };
+_patterns.Ska3 = _patterns.Drum_Machine_Patterns_260_Ska3;
+_patterns.Drum_Machine_Patterns_260_SkaBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6782,10 +6255,9 @@ const drumLibrary = {
       return stack(
       s("[sd ~ sd sd] [sd ~]*2 [sd ~ sd sd] sd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // SkaBreak2
-    SkaBreak2: (opts = {}) => {
+    };
+_patterns.SkaBreak1 = _patterns.Drum_Machine_Patterns_260_SkaBreak1;
+_patterns.Drum_Machine_Patterns_260_SkaBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6797,10 +6269,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd ~]*2 [~ ~ sd sd] sd*4").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SkaBreak3
-    SkaBreak3: (opts = {}) => {
+    };
+_patterns.SkaBreak2 = _patterns.Drum_Machine_Patterns_260_SkaBreak2;
+_patterns.Drum_Machine_Patterns_260_SkaBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6816,10 +6287,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow1
-    Slow1: (opts = {}) => {
+    };
+_patterns.SkaBreak3 = _patterns.Drum_Machine_Patterns_260_SkaBreak3;
+_patterns.Drum_Machine_Patterns_260_Slow1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6831,10 +6301,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow10
-    Slow10: (opts = {}) => {
+    };
+_patterns.Slow1 = _patterns.Drum_Machine_Patterns_260_Slow1;
+_patterns.Drum_Machine_Patterns_260_Slow10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6847,10 +6316,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow11
-    Slow11: (opts = {}) => {
+    };
+_patterns.Slow10 = _patterns.Drum_Machine_Patterns_260_Slow10;
+_patterns.Drum_Machine_Patterns_260_Slow11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6863,10 +6331,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow12
-    Slow12: (opts = {}) => {
+    };
+_patterns.Slow11 = _patterns.Drum_Machine_Patterns_260_Slow11;
+_patterns.Drum_Machine_Patterns_260_Slow12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6879,10 +6346,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow2
-    Slow2: (opts = {}) => {
+    };
+_patterns.Slow12 = _patterns.Drum_Machine_Patterns_260_Slow12;
+_patterns.Drum_Machine_Patterns_260_Slow2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6894,10 +6360,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow3
-    Slow3: (opts = {}) => {
+    };
+_patterns.Slow2 = _patterns.Drum_Machine_Patterns_260_Slow2;
+_patterns.Drum_Machine_Patterns_260_Slow3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6909,10 +6374,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow4
-    Slow4: (opts = {}) => {
+    };
+_patterns.Slow3 = _patterns.Drum_Machine_Patterns_260_Slow3;
+_patterns.Drum_Machine_Patterns_260_Slow4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6925,10 +6389,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow5
-    Slow5: (opts = {}) => {
+    };
+_patterns.Slow4 = _patterns.Drum_Machine_Patterns_260_Slow4;
+_patterns.Drum_Machine_Patterns_260_Slow5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6940,10 +6403,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow6
-    Slow6: (opts = {}) => {
+    };
+_patterns.Slow5 = _patterns.Drum_Machine_Patterns_260_Slow5;
+_patterns.Drum_Machine_Patterns_260_Slow6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6956,10 +6418,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow7
-    Slow7: (opts = {}) => {
+    };
+_patterns.Slow6 = _patterns.Drum_Machine_Patterns_260_Slow6;
+_patterns.Drum_Machine_Patterns_260_Slow7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6972,10 +6433,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow8
-    Slow8: (opts = {}) => {
+    };
+_patterns.Slow7 = _patterns.Drum_Machine_Patterns_260_Slow7;
+_patterns.Drum_Machine_Patterns_260_Slow8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -6987,10 +6447,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Slow9
-    Slow9: (opts = {}) => {
+    };
+_patterns.Slow8 = _patterns.Drum_Machine_Patterns_260_Slow8;
+_patterns.Drum_Machine_Patterns_260_Slow9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7003,10 +6462,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak1
-    SlowBreak1: (opts = {}) => {
+    };
+_patterns.Slow9 = _patterns.Drum_Machine_Patterns_260_Slow9;
+_patterns.Drum_Machine_Patterns_260_SlowBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7018,10 +6476,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak2
-    SlowBreak2: (opts = {}) => {
+    };
+_patterns.SlowBreak1 = _patterns.Drum_Machine_Patterns_260_SlowBreak1;
+_patterns.Drum_Machine_Patterns_260_SlowBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7035,10 +6492,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak3
-    SlowBreak3: (opts = {}) => {
+    };
+_patterns.SlowBreak2 = _patterns.Drum_Machine_Patterns_260_SlowBreak2;
+_patterns.Drum_Machine_Patterns_260_SlowBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7052,10 +6508,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak4
-    SlowBreak4: (opts = {}) => {
+    };
+_patterns.SlowBreak3 = _patterns.Drum_Machine_Patterns_260_SlowBreak3;
+_patterns.Drum_Machine_Patterns_260_SlowBreak4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7071,10 +6526,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~]*2").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak5
-    SlowBreak5: (opts = {}) => {
+    };
+_patterns.SlowBreak4 = _patterns.Drum_Machine_Patterns_260_SlowBreak4;
+_patterns.Drum_Machine_Patterns_260_SlowBreak5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7088,10 +6542,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ [~ sd]*2 [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowBreak6
-    SlowBreak6: (opts = {}) => {
+    };
+_patterns.SlowBreak5 = _patterns.Drum_Machine_Patterns_260_SlowBreak5;
+_patterns.Drum_Machine_Patterns_260_SlowBreak6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7106,10 +6559,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~ ~ ~]").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing1
-    Swing1: (opts = {}) => {
+    };
+_patterns.SlowBreak6 = _patterns.Drum_Machine_Patterns_260_SlowBreak6;
+_patterns.Drum_Machine_Patterns_260_Swing1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7121,10 +6573,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing2
-    Swing2: (opts = {}) => {
+    };
+_patterns.Swing1 = _patterns.Drum_Machine_Patterns_260_Swing1;
+_patterns.Drum_Machine_Patterns_260_Swing2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7136,10 +6587,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd]*2 ~").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing3
-    Swing3: (opts = {}) => {
+    };
+_patterns.Swing2 = _patterns.Drum_Machine_Patterns_260_Swing2;
+_patterns.Drum_Machine_Patterns_260_Swing3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7151,10 +6601,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing5
-    Swing5: (opts = {}) => {
+    };
+_patterns.Swing3 = _patterns.Drum_Machine_Patterns_260_Swing3;
+_patterns.Drum_Machine_Patterns_260_Swing5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7166,10 +6615,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing6
-    Swing6: (opts = {}) => {
+    };
+_patterns.Swing5 = _patterns.Drum_Machine_Patterns_260_Swing5;
+_patterns.Drum_Machine_Patterns_260_Swing6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7181,10 +6629,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd ~ ~] [~ sd ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SwingBreak1
-    SwingBreak1: (opts = {}) => {
+    };
+_patterns.Swing6 = _patterns.Drum_Machine_Patterns_260_Swing6;
+_patterns.Drum_Machine_Patterns_260_SwingBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7195,10 +6642,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd ~]*2 [sd ~]*2 ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd]*2 [~ bd]*2 [~ bd]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SwingBreak2
-    SwingBreak2: (opts = {}) => {
+    };
+_patterns.SwingBreak1 = _patterns.Drum_Machine_Patterns_260_SwingBreak1;
+_patterns.Drum_Machine_Patterns_260_SwingBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7212,10 +6658,9 @@ const drumLibrary = {
       s("~ ~ [~ lt lt ~] ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SwingBreak3
-    SwingBreak3: (opts = {}) => {
+    };
+_patterns.SwingBreak2 = _patterns.Drum_Machine_Patterns_260_SwingBreak2;
+_patterns.Drum_Machine_Patterns_260_SwingBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7228,10 +6673,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Tango1
-    Tango1: (opts = {}) => {
+    };
+_patterns.SwingBreak3 = _patterns.Drum_Machine_Patterns_260_SwingBreak3;
+_patterns.Drum_Machine_Patterns_260_Tango1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7243,10 +6687,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TangoBreak1
-    TangoBreak1: (opts = {}) => {
+    };
+_patterns.Tango1 = _patterns.Drum_Machine_Patterns_260_Tango1;
+_patterns.Drum_Machine_Patterns_260_TangoBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7258,10 +6701,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [sd ~]*2 [sd ~]*2").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist1
-    Twist1: (opts = {}) => {
+    };
+_patterns.TangoBreak1 = _patterns.Drum_Machine_Patterns_260_TangoBreak1;
+_patterns.Drum_Machine_Patterns_260_Twist1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7274,10 +6716,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist2
-    Twist2: (opts = {}) => {
+    };
+_patterns.Twist1 = _patterns.Drum_Machine_Patterns_260_Twist1;
+_patterns.Drum_Machine_Patterns_260_Twist2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7289,10 +6730,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Twist3
-    Twist3: (opts = {}) => {
+    };
+_patterns.Twist2 = _patterns.Drum_Machine_Patterns_260_Twist2;
+_patterns.Drum_Machine_Patterns_260_Twist3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7305,10 +6745,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TwistBreak1
-    TwistBreak1: (opts = {}) => {
+    };
+_patterns.Twist3 = _patterns.Drum_Machine_Patterns_260_Twist3;
+_patterns.Drum_Machine_Patterns_260_TwistBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7320,10 +6759,9 @@ const drumLibrary = {
       s("[sd ~]*2 [sd ~]*2 ~ [sd ~]*2").gain("0.6 0.6 0.6 0.6 1.1 1.1").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TwistBreak2
-    TwistBreak2: (opts = {}) => {
+    };
+_patterns.TwistBreak1 = _patterns.Drum_Machine_Patterns_260_TwistBreak1;
+_patterns.Drum_Machine_Patterns_260_TwistBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7335,10 +6773,9 @@ const drumLibrary = {
       s("[sd ~ sd ~] [sd ~]*2 [sd ~]*2 sd*4").gain("1.1 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TwistBreak3
-    TwistBreak3: (opts = {}) => {
+    };
+_patterns.TwistBreak2 = _patterns.Drum_Machine_Patterns_260_TwistBreak2;
+_patterns.Drum_Machine_Patterns_260_TwistBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7351,10 +6788,9 @@ const drumLibrary = {
       s("~ ~ [mt mt ~ mt] [~ mt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("[sd sd ~ sd] [~ sd sd sd] ~ [~ ~ sd ~]").gain("0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Waltz1
-    Waltz1: (opts = {}) => {
+    };
+_patterns.TwistBreak3 = _patterns.Drum_Machine_Patterns_260_TwistBreak3;
+_patterns.Drum_Machine_Patterns_260_Waltz1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7367,10 +6803,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Waltz2
-    Waltz2: (opts = {}) => {
+    };
+_patterns.Waltz1 = _patterns.Drum_Machine_Patterns_260_Waltz1;
+_patterns.Drum_Machine_Patterns_260_Waltz2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7383,10 +6818,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Waltz3
-    Waltz3: (opts = {}) => {
+    };
+_patterns.Waltz2 = _patterns.Drum_Machine_Patterns_260_Waltz2;
+_patterns.Drum_Machine_Patterns_260_Waltz3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7399,10 +6833,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WaltzBreak1
-    WaltzBreak1: (opts = {}) => {
+    };
+_patterns.Waltz3 = _patterns.Drum_Machine_Patterns_260_Waltz3;
+_patterns.Drum_Machine_Patterns_260_WaltzBreak1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7415,10 +6848,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 [sd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WaltzBreak2
-    WaltzBreak2: (opts = {}) => {
+    };
+_patterns.WaltzBreak1 = _patterns.Drum_Machine_Patterns_260_WaltzBreak1;
+_patterns.Drum_Machine_Patterns_260_WaltzBreak2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7432,10 +6864,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WaltzBreak3
-    WaltzBreak3: (opts = {}) => {
+    };
+_patterns.WaltzBreak2 = _patterns.Drum_Machine_Patterns_260_WaltzBreak2;
+_patterns.Drum_Machine_Patterns_260_WaltzBreak3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7448,64 +6879,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ ~ ~").gain("1.1 0.7").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    }
-    }
-  ),
-
-  // Category: Dub
-  Dub: Object.assign(
-    (opts = {}) => drumLibrary.Dub.Dub(opts),
-    {
-    // Dub
-    Dub: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("bd ~ bd ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
-      s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note(key).octave(oct).sound(synth),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(key).octave(oct).sound(synth)
-      );
-    }
-    }
-  ),
-
-  // Category: EBM
-  EBM: Object.assign(
-    (opts = {}) => drumLibrary.EBM.EBM(opts),
-    {
-    // EBM
-    EBM: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
-      s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
-      s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ sd ~ sd ~ [sd ~ ~ ~] ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: EDM literature patterns
-  EDM_literature_patterns: Object.assign(
-    (opts = {}) => drumLibrary.EDM_literature_patterns.bighouse_AM(opts),
-    {
-    // bighouse_AM
-    bighouse_AM: (opts = {}) => {
+    };
+_patterns.WaltzBreak3 = _patterns.Drum_Machine_Patterns_260_WaltzBreak3;
+_patterns.EDM_literature_patterns_bighouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7520,10 +6896,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // bigroomhouse_AM
-    bigroomhouse_AM: (opts = {}) => {
+    };
+_patterns.bighouse_AM = _patterns.EDM_literature_patterns_bighouse_AM;
+_patterns.EDM_literature_patterns_bigroomhouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7537,10 +6912,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakashleysroach_EH
-    breakashleysroach_EH: (opts = {}) => {
+    };
+_patterns.bigroomhouse_AM = _patterns.EDM_literature_patterns_bigroomhouse_AM;
+_patterns.EDM_literature_patterns_breakashleysroach_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7554,10 +6928,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakbeat_SA
-    breakbeat_SA: (opts = {}) => {
+    };
+_patterns.breakashleysroach_EH = _patterns.EDM_literature_patterns_breakashleysroach_EH;
+_patterns.EDM_literature_patterns_breakbeat_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7569,10 +6942,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4 [sd ~ sd sd] [sd sd sd ~] [~ sd sd sd] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd] [bd bd ~ ~] [~ bd bd ~] [bd bd ~ ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakbreaks(standard)_DMR
-    breakbreaks_standard_DMR: (opts = {}) => {
+    };
+_patterns.breakbeat_SA = _patterns.EDM_literature_patterns_breakbeat_SA;
+_patterns.EDM_literature_patterns_breakbreaks_standard_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7584,10 +6956,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakcontemporarykick_DMR
-    breakcontemporarykick_DMR: (opts = {}) => {
+    };
+_patterns.breakbreaks_standard_DMR = _patterns.EDM_literature_patterns_breakbreaks_standard_DMR;
+_patterns.EDM_literature_patterns_breakcontemporarykick_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7599,10 +6970,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [~ ~ sd ~] ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakcontemporarysnare_DMR
-    breakcontemporarysnare_DMR: (opts = {}) => {
+    };
+_patterns.breakcontemporarykick_DMR = _patterns.EDM_literature_patterns_breakcontemporarykick_DMR;
+_patterns.EDM_literature_patterns_breakcontemporarysnare_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7614,10 +6984,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakelectro(standard)_DMR
-    breakelectro_standard_DMR: (opts = {}) => {
+    };
+_patterns.breakcontemporarysnare_DMR = _patterns.EDM_literature_patterns_breakcontemporarysnare_DMR;
+_patterns.EDM_literature_patterns_breakelectro_standard_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7629,10 +6998,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakfunkbreak_SA
-    breakfunkbreak_SA: (opts = {}) => {
+    };
+_patterns.breakelectro_standard_DMR = _patterns.EDM_literature_patterns_breakelectro_standard_DMR;
+_patterns.EDM_literature_patterns_breakfunkbreak_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7645,10 +7013,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakfunkydrummer_EH
-    breakfunkydrummer_EH: (opts = {}) => {
+    };
+_patterns.breakfunkbreak_SA = _patterns.EDM_literature_patterns_breakfunkbreak_SA;
+_patterns.EDM_literature_patterns_breakfunkydrummer_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7661,10 +7028,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakhybrid_DMR
-    breakhybrid_DMR: (opts = {}) => {
+    };
+_patterns.breakfunkydrummer_EH = _patterns.EDM_literature_patterns_breakfunkydrummer_EH;
+_patterns.EDM_literature_patterns_breakhybrid_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7676,10 +7042,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~ bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakimpeach_EH
-    breakimpeach_EH: (opts = {}) => {
+    };
+_patterns.breakhybrid_DMR = _patterns.EDM_literature_patterns_breakhybrid_DMR;
+_patterns.EDM_literature_patterns_breakimpeach_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7692,10 +7057,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakirregular_DMR
-    breakirregular_DMR: (opts = {}) => {
+    };
+_patterns.breakimpeach_EH = _patterns.EDM_literature_patterns_breakimpeach_EH;
+_patterns.EDM_literature_patterns_breakirregular_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7707,10 +7071,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~] ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakitsanewday_EH
-    breakitsanewday_EH: (opts = {}) => {
+    };
+_patterns.breakirregular_DMR = _patterns.EDM_literature_patterns_breakirregular_DMR;
+_patterns.EDM_literature_patterns_breakitsanewday_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7722,10 +7085,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd] [bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakpapawastoo_EH
-    breakpapawastoo_EH: (opts = {}) => {
+    };
+_patterns.breakitsanewday_EH = _patterns.EDM_literature_patterns_breakitsanewday_EH;
+_patterns.EDM_literature_patterns_breakpapawastoo_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7738,10 +7100,9 @@ const drumLibrary = {
       s("~ [cp ~ ~ ~] ~ ~ ~ [cp ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakpolyrhythmic_DMR
-    breakpolyrhythmic_DMR: (opts = {}) => {
+    };
+_patterns.breakpapawastoo_EH = _patterns.EDM_literature_patterns_breakpapawastoo_EH;
+_patterns.EDM_literature_patterns_breakpolyrhythmic_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7753,10 +7114,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ sd] [sd ~ sd sd] ~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakrolling_DMR
-    breakrolling_DMR: (opts = {}) => {
+    };
+_patterns.breakpolyrhythmic_DMR = _patterns.EDM_literature_patterns_breakpolyrhythmic_DMR;
+_patterns.EDM_literature_patterns_breakrolling_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7768,10 +7128,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breaksyntheticsubs_EH
-    breaksyntheticsubs_EH: (opts = {}) => {
+    };
+_patterns.breakrolling_DMR = _patterns.EDM_literature_patterns_breakrolling_DMR;
+_patterns.EDM_literature_patterns_breaksyntheticsubs_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7784,10 +7143,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breaktakemetomardigras_EH
-    breaktakemetomardigras_EH: (opts = {}) => {
+    };
+_patterns.breaksyntheticsubs_EH = _patterns.EDM_literature_patterns_breaksyntheticsubs_EH;
+_patterns.EDM_literature_patterns_breaktakemetomardigras_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7802,10 +7160,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakthebigbeat_EH
-    breakthebigbeat_EH: (opts = {}) => {
+    };
+_patterns.breaktakemetomardigras_EH = _patterns.EDM_literature_patterns_breaktakemetomardigras_EH;
+_patterns.EDM_literature_patterns_breakthebigbeat_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7817,10 +7174,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakunconventional_DMR
-    breakunconventional_DMR: (opts = {}) => {
+    };
+_patterns.breakthebigbeat_EH = _patterns.EDM_literature_patterns_breakthebigbeat_EH;
+_patterns.EDM_literature_patterns_breakunconventional_DMR = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7832,10 +7188,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] [~ ~ sd ~] ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakwalkthisway_EH
-    breakwalkthisway_EH: (opts = {}) => {
+    };
+_patterns.breakunconventional_DMR = _patterns.EDM_literature_patterns_breakunconventional_DMR;
+_patterns.EDM_literature_patterns_breakwalkthisway_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7848,10 +7203,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~ [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // breakwhenthelevee_EH
-    breakwhenthelevee_EH: (opts = {}) => {
+    };
+_patterns.breakwalkthisway_EH = _patterns.EDM_literature_patterns_breakwalkthisway_EH;
+_patterns.EDM_literature_patterns_breakwhenthelevee_EH = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7863,10 +7217,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~ [bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // brithouse_SA
-    brithouse_SA: (opts = {}) => {
+    };
+_patterns.breakwhenthelevee_EH = _patterns.EDM_literature_patterns_breakwhenthelevee_EH;
+_patterns.EDM_literature_patterns_brithouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7880,10 +7233,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // chicagohouse_SA
-    chicagohouse_SA: (opts = {}) => {
+    };
+_patterns.brithouse_SA = _patterns.EDM_literature_patterns_brithouse_SA;
+_patterns.EDM_literature_patterns_chicagohouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7898,10 +7250,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ sd] [~ ~ sd ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // classichouse_CCM
-    classichouse_CCM: (opts = {}) => {
+    };
+_patterns.chicagohouse_SA = _patterns.EDM_literature_patterns_chicagohouse_SA;
+_patterns.EDM_literature_patterns_classichouse_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7915,10 +7266,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // deephouse_CCM
-    deephouse_CCM: (opts = {}) => {
+    };
+_patterns.classichouse_CCM = _patterns.EDM_literature_patterns_classichouse_CCM;
+_patterns.EDM_literature_patterns_deephouse_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7932,10 +7282,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] ~ [~ ~ ~ sd] [~ ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // deephouse_SA
-    deephouse_SA: (opts = {}) => {
+    };
+_patterns.deephouse_CCM = _patterns.EDM_literature_patterns_deephouse_CCM;
+_patterns.EDM_literature_patterns_deephouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7948,10 +7297,9 @@ const drumLibrary = {
       s("[~ ~ mt ~] [~ ~ ~ mt] [~ ~ mt ~] ~").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // deeptechhouse_AM
-    deeptechhouse_AM: (opts = {}) => {
+    };
+_patterns.deephouse_SA = _patterns.EDM_literature_patterns_deephouse_SA;
+_patterns.EDM_literature_patterns_deeptechhouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7966,10 +7314,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // dirtyhouse_SA
-    dirtyhouse_SA: (opts = {}) => {
+    };
+_patterns.deeptechhouse_AM = _patterns.EDM_literature_patterns_deeptechhouse_AM;
+_patterns.EDM_literature_patterns_dirtyhouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -7984,10 +7331,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // frenchhouse_SA
-    frenchhouse_SA: (opts = {}) => {
+    };
+_patterns.dirtyhouse_SA = _patterns.EDM_literature_patterns_dirtyhouse_SA;
+_patterns.EDM_literature_patterns_frenchhouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8002,10 +7348,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // house_CCM
-    house_CCM: (opts = {}) => {
+    };
+_patterns.frenchhouse_SA = _patterns.EDM_literature_patterns_frenchhouse_SA;
+_patterns.EDM_literature_patterns_house_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8018,10 +7363,9 @@ const drumLibrary = {
       s("~ cp ~ cp ~ [cp ~ ~ ~] [~ ~ ~ cp] [~ ~ cp ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // house_DMM
-    house_DMM: (opts = {}) => {
+    };
+_patterns.house_CCM = _patterns.EDM_literature_patterns_house_CCM;
+_patterns.EDM_literature_patterns_house_DMM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8035,10 +7379,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // house_DMPS
-    house_DMPS: (opts = {}) => {
+    };
+_patterns.house_DMM = _patterns.EDM_literature_patterns_house_DMM;
+_patterns.EDM_literature_patterns_house_DMPS = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8052,10 +7395,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // house_SA
-    house_SA: (opts = {}) => {
+    };
+_patterns.house_DMPS = _patterns.EDM_literature_patterns_house_DMPS;
+_patterns.EDM_literature_patterns_house_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8069,10 +7411,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // housewithchords_CCM
-    housewithchords_CCM: (opts = {}) => {
+    };
+_patterns.house_SA = _patterns.EDM_literature_patterns_house_SA;
+_patterns.EDM_literature_patterns_housewithchords_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8087,10 +7428,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // minimalhouse_AM
-    minimalhouse_AM: (opts = {}) => {
+    };
+_patterns.housewithchords_CCM = _patterns.EDM_literature_patterns_housewithchords_CCM;
+_patterns.EDM_literature_patterns_minimalhouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8104,10 +7444,9 @@ const drumLibrary = {
       s("~ [~ rim ~ ~] ~ [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // organichouse_AM
-    organichouse_AM: (opts = {}) => {
+    };
+_patterns.minimalhouse_AM = _patterns.EDM_literature_patterns_minimalhouse_AM;
+_patterns.EDM_literature_patterns_organichouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8120,10 +7459,9 @@ const drumLibrary = {
       s("~ cp ~ cp ~ [cp ~ ~ ~] [~ cp ~ ~] [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // polishedhouse_AM
-    polishedhouse_AM: (opts = {}) => {
+    };
+_patterns.organichouse_AM = _patterns.EDM_literature_patterns_organichouse_AM;
+_patterns.EDM_literature_patterns_polishedhouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8137,10 +7475,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // simplejackinhouse_SA
-    simplejackinhouse_SA: (opts = {}) => {
+    };
+_patterns.polishedhouse_AM = _patterns.EDM_literature_patterns_polishedhouse_AM;
+_patterns.EDM_literature_patterns_simplejackinhouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8154,10 +7491,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // slowdeephouse_SA
-    slowdeephouse_SA: (opts = {}) => {
+    };
+_patterns.simplejackinhouse_SA = _patterns.EDM_literature_patterns_simplejackinhouse_SA;
+_patterns.EDM_literature_patterns_slowdeephouse_SA = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8170,10 +7506,9 @@ const drumLibrary = {
       s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // slowhouse_AM
-    slowhouse_AM: (opts = {}) => {
+    };
+_patterns.slowdeephouse_SA = _patterns.EDM_literature_patterns_slowdeephouse_SA;
+_patterns.EDM_literature_patterns_slowhouse_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8188,10 +7523,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] ~ [~ rim ~ ~] ~ [~ ~ ~ rim] ~ [~ rim ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // techno1_DMM
-    techno1_DMM: (opts = {}) => {
+    };
+_patterns.slowhouse_AM = _patterns.EDM_literature_patterns_slowhouse_AM;
+_patterns.EDM_literature_patterns_techno1_DMM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8205,10 +7539,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technoDMPS_AM
-    technoDMPS_AM: (opts = {}) => {
+    };
+_patterns.techno1_DMM = _patterns.EDM_literature_patterns_techno1_DMM;
+_patterns.EDM_literature_patterns_technoDMPS_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8222,10 +7555,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] [sd ~]*2 [~ sd sd ~] ~ [sd ~ sd sd] ~ [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technochugging_AM
-    technochugging_AM: (opts = {}) => {
+    };
+_patterns.technoDMPS_AM = _patterns.EDM_literature_patterns_technoDMPS_AM;
+_patterns.EDM_literature_patterns_technochugging_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8238,10 +7570,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technodarkberlin_AM
-    technodarkberlin_AM: (opts = {}) => {
+    };
+_patterns.technochugging_AM = _patterns.EDM_literature_patterns_technochugging_AM;
+_patterns.EDM_literature_patterns_technodarkberlin_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8255,10 +7586,9 @@ const drumLibrary = {
       s("~ ~ [rim ~ ~ ~] ~ ~ ~ [rim ~ ~ rim] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technogrindinganalogue_AM
-    technogrindinganalogue_AM: (opts = {}) => {
+    };
+_patterns.technodarkberlin_AM = _patterns.EDM_literature_patterns_technodarkberlin_AM;
+_patterns.EDM_literature_patterns_technogrindinganalogue_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8274,10 +7604,9 @@ const drumLibrary = {
       s("[rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~] [rim rim ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4 [bd ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technohardcore_CCM
-    technohardcore_CCM: (opts = {}) => {
+    };
+_patterns.technogrindinganalogue_AM = _patterns.EDM_literature_patterns_technogrindinganalogue_AM;
+_patterns.EDM_literature_patterns_technohardcore_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8291,10 +7620,9 @@ const drumLibrary = {
       s("[sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~] [sd ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technoindustrial_AM
-    technoindustrial_AM: (opts = {}) => {
+    };
+_patterns.technohardcore_CCM = _patterns.EDM_literature_patterns_technohardcore_CCM;
+_patterns.EDM_literature_patterns_technoindustrial_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8309,10 +7637,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technominimal_CCM
-    technominimal_CCM: (opts = {}) => {
+    };
+_patterns.technoindustrial_AM = _patterns.EDM_literature_patterns_technoindustrial_AM;
+_patterns.EDM_literature_patterns_technominimal_CCM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8328,10 +7655,9 @@ const drumLibrary = {
       s("[~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh] [~ hh hh hh]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // technothumping_AM
-    technothumping_AM: (opts = {}) => {
+    };
+_patterns.technominimal_CCM = _patterns.EDM_literature_patterns_technominimal_CCM;
+_patterns.EDM_literature_patterns_technothumping_AM = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8347,16 +7673,9 @@ const drumLibrary = {
       s("[rim ~]*2 ~ ~ ~ [rim ~]*2 ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    }
-    }
-  ),
-
-  // Category: FR 3 Patterns
-  FR_3_Patterns: Object.assign(
-    (opts = {}) => drumLibrary.FR_3_Patterns.beguine(opts),
-    {
-    // beguine
-    beguine: (opts = {}) => {
+    };
+_patterns.technothumping_AM = _patterns.EDM_literature_patterns_technothumping_AM;
+_patterns.FR_3_Patterns_beguine = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8370,10 +7689,9 @@ const drumLibrary = {
       s("[~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] [hc ~]*2 [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~]").bank(bank).n((typeof n === "object" ? (n.hc ?? 0) : n)),
       s("[~ ~ hh ~] ~ ~ ~ [~ ~ hh ~] ~ ~ ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n))
       );
-    },
-
-    // bossanova
-    bossanova: (opts = {}) => {
+    };
+_patterns.beguine = _patterns.FR_3_Patterns_beguine;
+_patterns.FR_3_Patterns_bossanova = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8386,10 +7704,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ [rim ~ ~ ~] ~ [rim ~ ~ ~] [~ ~ rim ~] ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // foxtrot
-    foxtrot: (opts = {}) => {
+    };
+_patterns.bossanova = _patterns.FR_3_Patterns_bossanova;
+_patterns.FR_3_Patterns_foxtrot = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8402,10 +7719,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~ bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // habanera
-    habanera: (opts = {}) => {
+    };
+_patterns.foxtrot = _patterns.FR_3_Patterns_foxtrot;
+_patterns.FR_3_Patterns_habanera = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8416,10 +7732,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~ bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // mambo
-    mambo: (opts = {}) => {
+    };
+_patterns.habanera = _patterns.FR_3_Patterns_habanera;
+_patterns.FR_3_Patterns_mambo = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8432,10 +7747,9 @@ const drumLibrary = {
       s("~ [~ ~ hc ~] [hc ~ ~ ~] ~ ~ [~ ~ hc ~] [hc ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.hc ?? 0) : n)),
       s("rim*4 rim*4").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n))
       );
-    },
-
-    // march
-    march: (opts = {}) => {
+    };
+_patterns.mambo = _patterns.FR_3_Patterns_mambo;
+_patterns.FR_3_Patterns_march = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8447,10 +7761,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~ bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // rhumba
-    rhumba: (opts = {}) => {
+    };
+_patterns.march = _patterns.FR_3_Patterns_march;
+_patterns.FR_3_Patterns_rhumba = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8464,10 +7777,9 @@ const drumLibrary = {
       s("~ [hc ~ ~ ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~ [~ ~ hc ~] [~ ~ hc ~]").bank(bank).n((typeof n === "object" ? (n.hc ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~]*2 [bd ~]*2 [bd ~ ~ ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // rocknroll
-    rocknroll: (opts = {}) => {
+    };
+_patterns.rhumba = _patterns.FR_3_Patterns_rhumba;
+_patterns.FR_3_Patterns_rocknroll = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8479,10 +7791,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 ~ [sd ~ ~ ~] ~ [sd ~]*2 ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // samba
-    samba: (opts = {}) => {
+    };
+_patterns.rocknroll = _patterns.FR_3_Patterns_rocknroll;
+_patterns.FR_3_Patterns_samba = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8494,10 +7805,9 @@ const drumLibrary = {
       s("~ ~ [lc ~ ~ ~] ~ ~ ~ [lc ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.lc ?? 0) : n)),
       s("[hc ~ ~ ~] [hc ~ ~ ~] ~ [~ ~ hc ~] [~ ~ hc ~] [~ ~ hc ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.hc ?? 0) : n))
       );
-    },
-
-    // swing
-    swing: (opts = {}) => {
+    };
+_patterns.samba = _patterns.FR_3_Patterns_samba;
+_patterns.FR_3_Patterns_swing = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8509,10 +7819,9 @@ const drumLibrary = {
       s("hh ~ hh ~ hh ~ hh ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("bd ~ bd ~ bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // tango
-    tango: (opts = {}) => {
+    };
+_patterns.swing = _patterns.FR_3_Patterns_swing;
+_patterns.FR_3_Patterns_tango = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8524,10 +7833,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd ~]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // waltz
-    waltz: (opts = {}) => {
+    };
+_patterns.tango = _patterns.FR_3_Patterns_tango;
+_patterns.FR_3_Patterns_waltz = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8539,272 +7847,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~] [sd ~]*2 ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    }
-    }
-  ),
-
-  // Category: Hardcore Techno
-  Hardcore_Techno: Object.assign(
-    (opts = {}) => drumLibrary.Hardcore_Techno.Gabber(opts),
-    {
-    // Gabber
-    Gabber: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ ~ ~ ~ [~ ~ ~ cr]").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
-      s("oh*8 oh*8").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
-      s("cp*4 cp*4").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
-      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Hip-Hop
-  Hip_Hop: Object.assign(
-    (opts = {}) => drumLibrary.Hip_Hop.Jul_type_beat(opts),
-    {
-    // Jul type beat
-    Jul_type_beat: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ ~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ ~ [~ ~ hh ~] ~ [~ ~ ~ hh] ~ ~ [hh ~]*2").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Trap
-    Trap: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Hypnotic Techno
-  Hypnotic_Techno: Object.assign(
-    (opts = {}) => drumLibrary.Hypnotic_Techno.Son_Clave(opts),
-    {
-    // Son Clave
-    Son_Clave: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(key).octave(oct).sound(synth),
-      s("x*8").gain("1.0 0.8").note(key).octave(oct).sound(synth),
-      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Tresillo
-    Tresillo: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(key).octave(oct).sound(synth),
-      s("[x ~]*2 [x ~]*2 ~ ~").note(key).octave(oct).sound(synth),
-      s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Metal
-  Metal: Object.assign(
-    (opts = {}) => drumLibrary.Metal.Metal(opts),
-    {
-    // Half time groove
-    Half_time_groove: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("cr*4").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
-      s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Blast beat
-    Blast_beat: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("[~ sd]*2 [~ sd]*2 [~ sd]*2 [~ sd]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("bd*8").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Metal
-    Metal: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("bd*16").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Psytrance
-  Psytrance: Object.assign(
-    (opts = {}) => drumLibrary.Psytrance.Psytrance(opts),
-    {
-    // Psytrance
-    Psytrance: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
-      s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(key).octave(oct).sound(synth)
-      );
-    }
-    }
-  ),
-
-  // Category: Punk
-  Punk: Object.assign(
-    (opts = {}) => drumLibrary.Punk.Eight_note_fill(opts),
-    {
-    // Eight note fill
-    Eight_note_fill: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Quarter note groove variation
-    Quarter_note_groove_variation: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Quarter note groove
-    Quarter_note_groove: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Rock
-  Rock: Object.assign(
-    (opts = {}) => drumLibrary.Rock.Rock(opts),
-    {
-    // Rock
-    Rock: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // Rock variation
-    Rock_variation: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("cr*4").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
-      s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: TB03 Generated Patterns
-  TB03_Generated_Patterns: Object.assign(
-    (opts = {}) => drumLibrary.TB03_Generated_Patterns.TB03_PTN1_01(opts),
-    {
-    // TB03_PTN1_01
-    TB03_PTN1_01: (opts = {}) => {
+    };
+_patterns.waltz = _patterns.FR_3_Patterns_waltz;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8817,10 +7862,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ sd sd] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd bd ~] bd*4 ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_02
-    TB03_PTN1_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_01 = _patterns.TB03_Generated_Patterns_TB03_PTN1_01;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8835,10 +7879,9 @@ const drumLibrary = {
       s("~ [~ ~ cp cp] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] [~ bd bd ~] [bd bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_03
-    TB03_PTN1_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_02 = _patterns.TB03_Generated_Patterns_TB03_PTN1_02;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8850,10 +7893,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ cp ~] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd bd] [bd ~ ~ bd] [bd bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_04
-    TB03_PTN1_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_03 = _patterns.TB03_Generated_Patterns_TB03_PTN1_03;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8867,10 +7909,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd ~ ~] [bd ~ bd bd] [~ ~ bd bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_05
-    TB03_PTN1_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_04 = _patterns.TB03_Generated_Patterns_TB03_PTN1_04;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8886,10 +7927,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_06
-    TB03_PTN1_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_05 = _patterns.TB03_Generated_Patterns_TB03_PTN1_05;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8905,10 +7945,9 @@ const drumLibrary = {
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [~ ~ ~ x]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_07
-    TB03_PTN1_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_06 = _patterns.TB03_Generated_Patterns_TB03_PTN1_06;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8923,10 +7962,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd ~ ~] [~ bd bd bd] [~ bd ~ ~] [bd bd bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_08
-    TB03_PTN1_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_07 = _patterns.TB03_Generated_Patterns_TB03_PTN1_07;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8937,10 +7975,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [bd ~ bd bd] bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_09
-    TB03_PTN1_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_08 = _patterns.TB03_Generated_Patterns_TB03_PTN1_08;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8954,10 +7991,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd bd] [bd ~ ~ ~] ~ [~ bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_10
-    TB03_PTN1_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_09 = _patterns.TB03_Generated_Patterns_TB03_PTN1_09;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8972,10 +8008,9 @@ const drumLibrary = {
       s("[~ bd bd ~] bd*4 [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [~ ~ x ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_11
-    TB03_PTN1_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_10 = _patterns.TB03_Generated_Patterns_TB03_PTN1_10;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -8988,10 +8023,9 @@ const drumLibrary = {
       s("~ [~ cp ~ ~] [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4 [~ ~ ~ bd] [~ ~ ~ bd] [bd ~]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_12
-    TB03_PTN1_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_11 = _patterns.TB03_Generated_Patterns_TB03_PTN1_11;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9006,10 +8040,9 @@ const drumLibrary = {
       s("[cp ~ ~ ~] [~ ~ cp ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd ~ ~] ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_13
-    TB03_PTN1_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_12 = _patterns.TB03_Generated_Patterns_TB03_PTN1_12;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9022,10 +8055,9 @@ const drumLibrary = {
       s("cp*4 [cp ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ [~ bd bd bd] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_14
-    TB03_PTN1_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_13 = _patterns.TB03_Generated_Patterns_TB03_PTN1_13;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9038,10 +8070,9 @@ const drumLibrary = {
       s("[lt ~ ~ ~] [~ ~ lt ~] [lt ~ ~ ~] [~ lt]*2").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ bd]*2 [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_15
-    TB03_PTN1_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_14 = _patterns.TB03_Generated_Patterns_TB03_PTN1_14;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9054,10 +8085,9 @@ const drumLibrary = {
       s("~ [~ cp ~ ~] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd bd] ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_16
-    TB03_PTN1_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_15 = _patterns.TB03_Generated_Patterns_TB03_PTN1_15;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9071,10 +8101,9 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [~ bd bd ~] [bd ~ bd bd] [bd ~ bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_17
-    TB03_PTN1_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_16 = _patterns.TB03_Generated_Patterns_TB03_PTN1_16;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9089,10 +8118,9 @@ const drumLibrary = {
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_18
-    TB03_PTN1_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_17 = _patterns.TB03_Generated_Patterns_TB03_PTN1_17;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9106,10 +8134,9 @@ const drumLibrary = {
       s("[~ lt lt lt] [lt ~ ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ bd ~ ~] [bd bd bd ~] [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_19
-    TB03_PTN1_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_18 = _patterns.TB03_Generated_Patterns_TB03_PTN1_18;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9123,10 +8150,9 @@ const drumLibrary = {
       s("[bd ~ bd bd] [~ bd bd bd] [~ ~ bd bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [x ~ ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_20
-    TB03_PTN1_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_19 = _patterns.TB03_Generated_Patterns_TB03_PTN1_19;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9141,10 +8167,9 @@ const drumLibrary = {
       s("~ [x ~ ~ ~] ~ ~").note(key).octave(oct).transpose(3).sound(synth),
       s("[x ~ ~ ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_21
-    TB03_PTN1_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_20 = _patterns.TB03_Generated_Patterns_TB03_PTN1_20;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9157,10 +8182,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ cp ~] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd ~ ~] [bd ~ ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_22
-    TB03_PTN1_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_21 = _patterns.TB03_Generated_Patterns_TB03_PTN1_21;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9174,10 +8198,9 @@ const drumLibrary = {
       s("~ ~ ~ [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd bd bd] [bd ~ ~ ~] [~ ~ bd ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_23
-    TB03_PTN1_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_22 = _patterns.TB03_Generated_Patterns_TB03_PTN1_22;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9190,10 +8213,9 @@ const drumLibrary = {
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [~ ~ ~ x] ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_24
-    TB03_PTN1_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_23 = _patterns.TB03_Generated_Patterns_TB03_PTN1_23;
+_patterns.TB03_Generated_Patterns_TB03_PTN1_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9209,10 +8231,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ cp] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ ~ bd] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_01
-    TB03_PTN2_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_24 = _patterns.TB03_Generated_Patterns_TB03_PTN1_24;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9223,10 +8244,9 @@ const drumLibrary = {
       s("~ [~ ht ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("bd*4 [bd ~ bd bd] [~ ~ bd bd] bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_02
-    TB03_PTN2_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_01 = _patterns.TB03_Generated_Patterns_TB03_PTN2_01;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9238,10 +8258,9 @@ const drumLibrary = {
       s("~ ~ [lt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [bd bd ~ bd] ~ [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_03
-    TB03_PTN2_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_02 = _patterns.TB03_Generated_Patterns_TB03_PTN2_02;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9256,10 +8275,9 @@ const drumLibrary = {
       s("~ [~ ~ cp ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ [bd ~ ~ ~] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_04
-    TB03_PTN2_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_03 = _patterns.TB03_Generated_Patterns_TB03_PTN2_03;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9272,10 +8290,9 @@ const drumLibrary = {
       s("~ [lt ~ lt lt] [lt lt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_05
-    TB03_PTN2_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_04 = _patterns.TB03_Generated_Patterns_TB03_PTN2_04;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9292,10 +8309,9 @@ const drumLibrary = {
       s("~ ~ ~ [x ~ ~ ~]").note(key).octave(oct).transpose(2).sound(synth),
       s("~ ~ ~ [~ ~ x ~]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_06
-    TB03_PTN2_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_05 = _patterns.TB03_Generated_Patterns_TB03_PTN2_05;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9307,10 +8323,9 @@ const drumLibrary = {
       s("[lt ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd]*2 [bd bd ~ bd] [bd bd ~ ~] [~ bd bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_07
-    TB03_PTN2_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_06 = _patterns.TB03_Generated_Patterns_TB03_PTN2_06;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9322,10 +8337,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ cp cp]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_08
-    TB03_PTN2_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_07 = _patterns.TB03_Generated_Patterns_TB03_PTN2_07;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9337,10 +8351,9 @@ const drumLibrary = {
       s("~ [cp ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_09
-    TB03_PTN2_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_08 = _patterns.TB03_Generated_Patterns_TB03_PTN2_08;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9353,10 +8366,9 @@ const drumLibrary = {
       s("[~ ~ lt ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ ~] [bd bd ~ ~] [~ bd ~ ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_10
-    TB03_PTN2_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_09 = _patterns.TB03_Generated_Patterns_TB03_PTN2_09;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9371,10 +8383,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ bd ~] [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [~ x ~ ~] ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_11
-    TB03_PTN2_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_10 = _patterns.TB03_Generated_Patterns_TB03_PTN2_10;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9391,10 +8402,9 @@ const drumLibrary = {
       s("~ [~ cp]*2 [cp cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd bd] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_12
-    TB03_PTN2_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_11 = _patterns.TB03_Generated_Patterns_TB03_PTN2_11;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9407,10 +8417,9 @@ const drumLibrary = {
       s("[lt ~ ~ ~] ~ [~ ~ lt ~] [~ lt ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd bd] ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_13
-    TB03_PTN2_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_12 = _patterns.TB03_Generated_Patterns_TB03_PTN2_12;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9424,10 +8433,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ cp ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4 ~ [~ ~ ~ bd] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_14
-    TB03_PTN2_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_13 = _patterns.TB03_Generated_Patterns_TB03_PTN2_13;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9440,10 +8448,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ cp] cp*4 ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] ~ [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_15
-    TB03_PTN2_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_14 = _patterns.TB03_Generated_Patterns_TB03_PTN2_14;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9456,10 +8463,9 @@ const drumLibrary = {
       s("[bd bd ~ bd] [bd bd bd ~] [bd bd bd ~] [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_16
-    TB03_PTN2_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_15 = _patterns.TB03_Generated_Patterns_TB03_PTN2_15;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9471,10 +8477,9 @@ const drumLibrary = {
       s("~ [~ lt lt ~] ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd bd ~] [~ ~ ~ bd] bd*4 [bd bd bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_17
-    TB03_PTN2_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_16 = _patterns.TB03_Generated_Patterns_TB03_PTN2_16;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9489,10 +8494,9 @@ const drumLibrary = {
       s("~ [~ cp cp ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_18
-    TB03_PTN2_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_17 = _patterns.TB03_Generated_Patterns_TB03_PTN2_17;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9506,10 +8510,9 @@ const drumLibrary = {
       s("[cp cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ [~ bd bd bd] [~ bd bd bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_19
-    TB03_PTN2_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_18 = _patterns.TB03_Generated_Patterns_TB03_PTN2_18;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9523,10 +8526,9 @@ const drumLibrary = {
       s("~ [~ bd ~ ~] ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ x ~ ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_20
-    TB03_PTN2_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_19 = _patterns.TB03_Generated_Patterns_TB03_PTN2_19;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9542,10 +8544,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_21
-    TB03_PTN2_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_20 = _patterns.TB03_Generated_Patterns_TB03_PTN2_20;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9558,10 +8559,9 @@ const drumLibrary = {
       s("bd*4 [bd ~ ~ ~] ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [~ ~ x ~]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_22
-    TB03_PTN2_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_21 = _patterns.TB03_Generated_Patterns_TB03_PTN2_21;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9574,10 +8574,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ hh] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd bd ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_23
-    TB03_PTN2_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_22 = _patterns.TB03_Generated_Patterns_TB03_PTN2_22;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9590,10 +8589,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ bd] bd*4 [bd bd ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [x ~ ~ ~] ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN2_24
-    TB03_PTN2_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_23 = _patterns.TB03_Generated_Patterns_TB03_PTN2_23;
+_patterns.TB03_Generated_Patterns_TB03_PTN2_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9608,10 +8606,9 @@ const drumLibrary = {
       s("bd*4 [bd ~ ~ ~] [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [~ x ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_01
-    TB03_PTN3_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_24 = _patterns.TB03_Generated_Patterns_TB03_PTN2_24;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9622,10 +8619,9 @@ const drumLibrary = {
       s("~ ~ [~ ht ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("bd*4 [bd bd ~ ~] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_02
-    TB03_PTN3_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_01 = _patterns.TB03_Generated_Patterns_TB03_PTN3_01;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9639,10 +8635,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd bd ~] [bd ~ ~ ~] [~ bd ~ ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_03
-    TB03_PTN3_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_02 = _patterns.TB03_Generated_Patterns_TB03_PTN3_02;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9657,10 +8652,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ cp] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ bd bd] ~ [bd ~ ~ ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_04
-    TB03_PTN3_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_03 = _patterns.TB03_Generated_Patterns_TB03_PTN3_03;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9674,10 +8668,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd ~ ~] ~ bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_05
-    TB03_PTN3_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_04 = _patterns.TB03_Generated_Patterns_TB03_PTN3_04;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9691,10 +8684,9 @@ const drumLibrary = {
       s("[~ bd]*2 [bd ~]*2 ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[x ~ ~ ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_06
-    TB03_PTN3_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_05 = _patterns.TB03_Generated_Patterns_TB03_PTN3_05;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9708,10 +8700,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ bd] [bd ~ ~ ~] [~ bd bd ~] [~ ~ bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_07
-    TB03_PTN3_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_06 = _patterns.TB03_Generated_Patterns_TB03_PTN3_06;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9724,10 +8715,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd]*2 [~ ~ bd ~] [bd bd ~ bd] [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_08
-    TB03_PTN3_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_07 = _patterns.TB03_Generated_Patterns_TB03_PTN3_07;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9740,10 +8730,9 @@ const drumLibrary = {
       s("[~ ~ ~ cp] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd bd ~] [~ bd bd ~] ~ [bd bd bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_09
-    TB03_PTN3_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_08 = _patterns.TB03_Generated_Patterns_TB03_PTN3_08;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9756,10 +8745,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [bd bd bd ~] [~ bd bd bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_10
-    TB03_PTN3_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_09 = _patterns.TB03_Generated_Patterns_TB03_PTN3_09;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9770,10 +8758,9 @@ const drumLibrary = {
       s("~ [~ ~ hh ~] ~ ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd] bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_11
-    TB03_PTN3_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_10 = _patterns.TB03_Generated_Patterns_TB03_PTN3_10;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9788,10 +8775,9 @@ const drumLibrary = {
       s("[bd bd ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [~ x ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_12
-    TB03_PTN3_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_11 = _patterns.TB03_Generated_Patterns_TB03_PTN3_11;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9806,10 +8792,9 @@ const drumLibrary = {
       s("[~ ~ bd bd] [bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[x ~ ~ ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_13
-    TB03_PTN3_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_12 = _patterns.TB03_Generated_Patterns_TB03_PTN3_12;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9821,10 +8806,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ bd bd ~] [bd bd ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_14
-    TB03_PTN3_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_13 = _patterns.TB03_Generated_Patterns_TB03_PTN3_13;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9837,10 +8821,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ ~] [~ bd bd bd] [bd ~]*2 [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_15
-    TB03_PTN3_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_14 = _patterns.TB03_Generated_Patterns_TB03_PTN3_14;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9853,10 +8836,9 @@ const drumLibrary = {
       s("~ ~ [~ lt lt lt] [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ bd] [bd bd ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_16
-    TB03_PTN3_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_15 = _patterns.TB03_Generated_Patterns_TB03_PTN3_15;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9869,10 +8851,9 @@ const drumLibrary = {
       s("[~ bd bd bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[x ~ ~ ~] ~ ~ [x ~ ~ ~]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_17
-    TB03_PTN3_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_16 = _patterns.TB03_Generated_Patterns_TB03_PTN3_16;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9885,10 +8866,9 @@ const drumLibrary = {
       s("[bd bd ~ bd] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_18
-    TB03_PTN3_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_17 = _patterns.TB03_Generated_Patterns_TB03_PTN3_17;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9900,10 +8880,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd bd bd ~] [bd ~ bd bd] [bd bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_19
-    TB03_PTN3_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_18 = _patterns.TB03_Generated_Patterns_TB03_PTN3_18;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9916,10 +8895,9 @@ const drumLibrary = {
       s("[~ bd bd bd] [~ ~ bd bd] bd*4 ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [~ ~ ~ x]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_20
-    TB03_PTN3_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_19 = _patterns.TB03_Generated_Patterns_TB03_PTN3_19;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9932,10 +8910,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_21
-    TB03_PTN3_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_20 = _patterns.TB03_Generated_Patterns_TB03_PTN3_20;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9946,10 +8923,9 @@ const drumLibrary = {
       s("~ [lt ~ ~ ~] [lt lt lt ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 ~ ~ [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_22
-    TB03_PTN3_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_21 = _patterns.TB03_Generated_Patterns_TB03_PTN3_21;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9962,10 +8938,9 @@ const drumLibrary = {
       s("[~ ~ bd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [~ x ~ ~] [~ x ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_23
-    TB03_PTN3_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_22 = _patterns.TB03_Generated_Patterns_TB03_PTN3_22;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9980,10 +8955,9 @@ const drumLibrary = {
       s("~ [~ cp ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_24
-    TB03_PTN3_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_23 = _patterns.TB03_Generated_Patterns_TB03_PTN3_23;
+_patterns.TB03_Generated_Patterns_TB03_PTN3_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -9996,10 +8970,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [bd bd ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_01
-    TB03_PTN4_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_24 = _patterns.TB03_Generated_Patterns_TB03_PTN3_24;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10012,10 +8985,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd bd ~] [bd ~]*2 bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_02
-    TB03_PTN4_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_01 = _patterns.TB03_Generated_Patterns_TB03_PTN4_01;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10027,10 +8999,9 @@ const drumLibrary = {
       s("[lt ~ ~ ~] ~ [~ ~ lt ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd ~] [bd ~]*2 [bd bd ~ bd] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_03
-    TB03_PTN4_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_02 = _patterns.TB03_Generated_Patterns_TB03_PTN4_02;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10043,10 +9014,9 @@ const drumLibrary = {
       s("[~ ~ bd ~] [~ bd bd bd] [bd ~ bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ ~ x] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_04
-    TB03_PTN4_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_03 = _patterns.TB03_Generated_Patterns_TB03_PTN4_03;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10060,10 +9030,9 @@ const drumLibrary = {
       s("[~ cp cp ~] ~ [cp ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ [~ ~ ~ bd] [~ bd ~ ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_05
-    TB03_PTN4_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_04 = _patterns.TB03_Generated_Patterns_TB03_PTN4_04;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10078,10 +9047,9 @@ const drumLibrary = {
       s("~ [~ bd bd bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [~ x ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_06
-    TB03_PTN4_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_05 = _patterns.TB03_Generated_Patterns_TB03_PTN4_05;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10094,10 +9062,9 @@ const drumLibrary = {
       s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ ~ x] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_07
-    TB03_PTN4_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_06 = _patterns.TB03_Generated_Patterns_TB03_PTN4_06;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10110,10 +9077,9 @@ const drumLibrary = {
       s("[bd ~ ~ bd] ~ [bd bd bd ~] [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_08
-    TB03_PTN4_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_07 = _patterns.TB03_Generated_Patterns_TB03_PTN4_07;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10124,10 +9090,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd bd] bd*4 [bd bd ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_09
-    TB03_PTN4_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_08 = _patterns.TB03_Generated_Patterns_TB03_PTN4_08;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10141,10 +9106,9 @@ const drumLibrary = {
       s("~ [~ bd bd bd] [~ bd bd bd] [~ bd bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[~ ~ x ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_10
-    TB03_PTN4_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_09 = _patterns.TB03_Generated_Patterns_TB03_PTN4_09;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10157,10 +9121,9 @@ const drumLibrary = {
       s("[~ cp cp cp] [~ ~ ~ cp] [~ cp ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_11
-    TB03_PTN4_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_10 = _patterns.TB03_Generated_Patterns_TB03_PTN4_10;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10173,10 +9136,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_12
-    TB03_PTN4_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_11 = _patterns.TB03_Generated_Patterns_TB03_PTN4_11;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10193,10 +9155,9 @@ const drumLibrary = {
       s("[bd bd bd ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [~ ~ ~ x] ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_13
-    TB03_PTN4_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_12 = _patterns.TB03_Generated_Patterns_TB03_PTN4_12;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10209,10 +9170,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 [bd bd ~ ~] ~ [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_14
-    TB03_PTN4_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_13 = _patterns.TB03_Generated_Patterns_TB03_PTN4_13;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10229,10 +9189,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_15
-    TB03_PTN4_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_14 = _patterns.TB03_Generated_Patterns_TB03_PTN4_14;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10246,10 +9205,9 @@ const drumLibrary = {
       s("~ ~ [~ bd ~ ~] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [x ~ ~ ~]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_16
-    TB03_PTN4_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_15 = _patterns.TB03_Generated_Patterns_TB03_PTN4_15;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10262,10 +9220,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ [~ ~ lt lt] [lt lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ bd bd] [~ bd bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_17
-    TB03_PTN4_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_16 = _patterns.TB03_Generated_Patterns_TB03_PTN4_16;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10279,10 +9236,9 @@ const drumLibrary = {
       s("~ [~ bd bd bd] [~ bd ~ ~] [bd ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [~ ~ ~ x] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_18
-    TB03_PTN4_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_17 = _patterns.TB03_Generated_Patterns_TB03_PTN4_17;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10297,10 +9253,9 @@ const drumLibrary = {
       s("[~ ~ ~ bd] [~ bd bd bd] [bd ~ ~ ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("[x ~ ~ ~] ~ ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_19
-    TB03_PTN4_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_18 = _patterns.TB03_Generated_Patterns_TB03_PTN4_18;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10315,10 +9270,9 @@ const drumLibrary = {
       s("[~ ~ bd ~] [~ bd bd bd] [~ ~ bd bd] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ [x ~ ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_20
-    TB03_PTN4_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_19 = _patterns.TB03_Generated_Patterns_TB03_PTN4_19;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10332,10 +9286,9 @@ const drumLibrary = {
       s("~ [~ ~ cp ~] ~ [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd ~] ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_21
-    TB03_PTN4_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_20 = _patterns.TB03_Generated_Patterns_TB03_PTN4_20;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10349,10 +9302,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd bd bd] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_22
-    TB03_PTN4_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_21 = _patterns.TB03_Generated_Patterns_TB03_PTN4_21;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10364,10 +9316,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd ~] [~ bd ~ ~] [~ bd bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_23
-    TB03_PTN4_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_22 = _patterns.TB03_Generated_Patterns_TB03_PTN4_22;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10379,10 +9330,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd bd] [bd ~ bd bd] [~ bd]*2 [bd bd ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_24
-    TB03_PTN4_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_23 = _patterns.TB03_Generated_Patterns_TB03_PTN4_23;
+_patterns.TB03_Generated_Patterns_TB03_PTN4_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10396,16 +9346,9 @@ const drumLibrary = {
       s("[~ bd ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ [x ~ ~ ~] [~ ~ ~ x] ~").note(key).octave(oct).sound(synth)
       );
-    }
-    }
-  ),
-
-  // Category: TB03 Patterns
-  TB03_Patterns: Object.assign(
-    (opts = {}) => drumLibrary.TB03_Patterns.TB03_PTN1_01(opts),
-    {
-    // TB03_PTN1_01
-    TB03_PTN1_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_24 = _patterns.TB03_Generated_Patterns_TB03_PTN4_24;
+_patterns.TB03_Patterns_TB03_PTN1_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10415,10 +9358,9 @@ const drumLibrary = {
       return stack(
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_02
-    TB03_PTN1_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_01 = _patterns.TB03_Patterns_TB03_PTN1_01;
+_patterns.TB03_Patterns_TB03_PTN1_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10432,10 +9374,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt lt ~ ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~]*2 [bd ~]*2 ~").gain("1.0 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_03
-    TB03_PTN1_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_02 = _patterns.TB03_Patterns_TB03_PTN1_02;
+_patterns.TB03_Patterns_TB03_PTN1_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10446,10 +9387,9 @@ const drumLibrary = {
       s("[lt lt ~ ~] ~ [~ ~ ~ lt] [~ ~ ~ lt]").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [cp ~ ~ ~] [~ ~ cp ~]").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_04
-    TB03_PTN1_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_03 = _patterns.TB03_Patterns_TB03_PTN1_03;
+_patterns.TB03_Patterns_TB03_PTN1_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10462,10 +9402,9 @@ const drumLibrary = {
       s("~ ~ [x ~ ~ ~] ~").note(key).octave(oct).transpose(7).sound(synth),
       s("x*4 [~ ~ x x] [~ x ~ ~] [~ ~ ~ x]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_05
-    TB03_PTN1_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_04 = _patterns.TB03_Patterns_TB03_PTN1_04;
+_patterns.TB03_Patterns_TB03_PTN1_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10478,10 +9417,9 @@ const drumLibrary = {
       s("[cp ~]*2 ~ ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ ~ ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_06
-    TB03_PTN1_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_05 = _patterns.TB03_Patterns_TB03_PTN1_05;
+_patterns.TB03_Patterns_TB03_PTN1_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10496,10 +9434,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_07
-    TB03_PTN1_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_06 = _patterns.TB03_Patterns_TB03_PTN1_06;
+_patterns.TB03_Patterns_TB03_PTN1_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10510,10 +9447,9 @@ const drumLibrary = {
       s("bd*4 [~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [~ ~ x ~]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN1_08
-    TB03_PTN1_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_07 = _patterns.TB03_Patterns_TB03_PTN1_07;
+_patterns.TB03_Patterns_TB03_PTN1_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10528,10 +9464,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_09
-    TB03_PTN1_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_08 = _patterns.TB03_Patterns_TB03_PTN1_08;
+_patterns.TB03_Patterns_TB03_PTN1_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10541,10 +9476,9 @@ const drumLibrary = {
       return stack(
       s("[~ ~ bd _] [_ bd ~ bd] [_ _ bd bd] [_ bd bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_10
-    TB03_PTN1_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_09 = _patterns.TB03_Patterns_TB03_PTN1_09;
+_patterns.TB03_Patterns_TB03_PTN1_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10555,10 +9489,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt lt] lt*4").gain("0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("bd*4 bd*4 [bd bd ~ ~] ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_11
-    TB03_PTN1_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_10 = _patterns.TB03_Patterns_TB03_PTN1_10;
+_patterns.TB03_Patterns_TB03_PTN1_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10569,10 +9502,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ hh] hh*4").gain("0.6 1.0 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("cp*4 cp*4 [cp cp cp ~] ~").gain("0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_12
-    TB03_PTN1_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_11 = _patterns.TB03_Patterns_TB03_PTN1_11;
+_patterns.TB03_Patterns_TB03_PTN1_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10583,10 +9515,9 @@ const drumLibrary = {
       s("~ ~ [~ oh oh oh] oh*4").gain("1.0 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("lt*4 lt*4 [lt ~ ~ ~] ~").gain("1.0 0.6 1.0 0.6 0.6 1.0 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_13
-    TB03_PTN1_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_12 = _patterns.TB03_Patterns_TB03_PTN1_12;
+_patterns.TB03_Patterns_TB03_PTN1_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10597,10 +9528,9 @@ const drumLibrary = {
       s("lt*4 lt*4 [lt lt lt ~] ~").gain("0.6 0.6 1.0 1.0 0.6 0.6 1.0 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [~ ~ ~ bd] bd*4").gain("0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_14
-    TB03_PTN1_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_13 = _patterns.TB03_Patterns_TB03_PTN1_13;
+_patterns.TB03_Patterns_TB03_PTN1_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10611,10 +9541,9 @@ const drumLibrary = {
       s("~ ~ cp*4 cp*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("bd*4 bd*4 ~ ~").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_15
-    TB03_PTN1_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_14 = _patterns.TB03_Patterns_TB03_PTN1_14;
+_patterns.TB03_Patterns_TB03_PTN1_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10625,10 +9554,9 @@ const drumLibrary = {
       s("~ ~ [~ oh oh oh] oh*4").gain("0.6 1.0 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("cp*4 cp*4 [cp ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_16
-    TB03_PTN1_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_15 = _patterns.TB03_Patterns_TB03_PTN1_15;
+_patterns.TB03_Patterns_TB03_PTN1_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10639,10 +9567,9 @@ const drumLibrary = {
       s("~ ~ [~ _ _ _] [~ _ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd _] [bd _ bd bd] [bd ~ ~ ~] [bd ~ bd bd]").gain("1.0 0.6 1.0 0.6 1.0 1.0 1.0 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_17
-    TB03_PTN1_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_16 = _patterns.TB03_Patterns_TB03_PTN1_16;
+_patterns.TB03_Patterns_TB03_PTN1_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10655,10 +9582,9 @@ const drumLibrary = {
       s("~ [_ _ ~ ~] [~ _ ~ ~] [~ ~ ~ _]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ ~ bd] [~ ~ bd ~] [bd ~]*2 [bd ~]*2").gain("0.6 0.6 1.0 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_18
-    TB03_PTN1_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_17 = _patterns.TB03_Patterns_TB03_PTN1_17;
+_patterns.TB03_Patterns_TB03_PTN1_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10669,10 +9595,9 @@ const drumLibrary = {
       s("~ ~ ~ [ht ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("~ [~ bd bd _] [bd bd bd _] [~ bd _ bd]").gain("0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_19
-    TB03_PTN1_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_18 = _patterns.TB03_Patterns_TB03_PTN1_18;
+_patterns.TB03_Patterns_TB03_PTN1_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10683,10 +9608,9 @@ const drumLibrary = {
       s("~ [~ ~ oh _] [_ _ _ _] [~ oh ~ ~]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("[bd _ _ bd] [_ _ ~ ~] ~ [~ ~ bd _]").gain("0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_20
-    TB03_PTN1_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_19 = _patterns.TB03_Patterns_TB03_PTN1_19;
+_patterns.TB03_Patterns_TB03_PTN1_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10699,10 +9623,9 @@ const drumLibrary = {
       s("~ ~ [cp ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ bd bd ~] [~ ~ ~ bd] [~ ~ ~ bd] [~ bd ~ ~]").gain("0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_21
-    TB03_PTN1_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_20 = _patterns.TB03_Patterns_TB03_PTN1_20;
+_patterns.TB03_Patterns_TB03_PTN1_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10715,10 +9638,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ cp] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd bd] [~ ~ bd ~] [bd bd ~ bd] bd*4").gain("0.6 1.0 0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_22
-    TB03_PTN1_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_21 = _patterns.TB03_Patterns_TB03_PTN1_21;
+_patterns.TB03_Patterns_TB03_PTN1_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10729,10 +9651,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ht _] ~").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("[~ ~ bd bd] [bd _ ~ ~] [bd bd ~ ~] [~ ~ bd _]").gain("0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_23
-    TB03_PTN1_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_22 = _patterns.TB03_Patterns_TB03_PTN1_22;
+_patterns.TB03_Patterns_TB03_PTN1_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10744,10 +9665,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ bd] [bd bd _ ~] [~ ~ bd bd] [~ ~ ~ bd]").gain("0.6 1.0 1.0 1.0 0.6 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN1_24
-    TB03_PTN1_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_23 = _patterns.TB03_Patterns_TB03_PTN1_23;
+_patterns.TB03_Patterns_TB03_PTN1_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10758,10 +9678,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ht ~]").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("[bd _ _ _] [_ _ bd bd] [_ _ _ _] [bd bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_01
-    TB03_PTN2_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN1_24 = _patterns.TB03_Patterns_TB03_PTN1_24;
+_patterns.TB03_Patterns_TB03_PTN2_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10775,10 +9694,9 @@ const drumLibrary = {
       s("~ ~ [cp cp ~ ~] [_ ~ ~ ~]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd _ _] [~ _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_02
-    TB03_PTN2_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_01 = _patterns.TB03_Patterns_TB03_PTN2_01;
+_patterns.TB03_Patterns_TB03_PTN2_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10788,10 +9706,9 @@ const drumLibrary = {
       return stack(
       s("[bd _ _ _] [bd _ _ bd] [_ bd _ _] [_ ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_03
-    TB03_PTN2_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_02 = _patterns.TB03_Patterns_TB03_PTN2_02;
+_patterns.TB03_Patterns_TB03_PTN2_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10802,10 +9719,9 @@ const drumLibrary = {
       s("oh*4 oh*4 [oh ~ ~ ~] ~").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("~ ~ [~ hh hh hh] hh*4").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_04
-    TB03_PTN2_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_03 = _patterns.TB03_Patterns_TB03_PTN2_03;
+_patterns.TB03_Patterns_TB03_PTN2_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10816,10 +9732,9 @@ const drumLibrary = {
       s("~ ~ ht*4 ht*4").gain("0.6 0.6 1.0 0.6 1.0 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("bd*4 bd*4 ~ ~").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_05
-    TB03_PTN2_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_04 = _patterns.TB03_Patterns_TB03_PTN2_04;
+_patterns.TB03_Patterns_TB03_PTN2_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10833,10 +9748,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ cp ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd bd _] [~ bd _ ~] [bd _ ~ bd] [_ ~ bd _]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_06
-    TB03_PTN2_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_05 = _patterns.TB03_Patterns_TB03_PTN2_05;
+_patterns.TB03_Patterns_TB03_PTN2_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10849,10 +9763,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] [~ ~ ~ lt]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd bd ~] [~ bd bd _] [~ bd _ bd] ~").gain("1.0 0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_07
-    TB03_PTN2_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_06 = _patterns.TB03_Patterns_TB03_PTN2_06;
+_patterns.TB03_Patterns_TB03_PTN2_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10863,10 +9776,9 @@ const drumLibrary = {
       s("~ [~ ~ _ ~] [hh ~ ~ ~] [~ ~ ~ hh]").gain("0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd _ bd _] [_ bd ~ ~] [~ _ bd _] [_ bd ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_08
-    TB03_PTN2_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_07 = _patterns.TB03_Patterns_TB03_PTN2_07;
+_patterns.TB03_Patterns_TB03_PTN2_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10880,10 +9792,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ _] ~ ~").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("[bd _ bd ~] [~ bd ~ ~] [bd ~ ~ bd] [_ bd _ bd]").gain("1.0 0.6 0.6 1.0 1.0 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_09
-    TB03_PTN2_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_08 = _patterns.TB03_Patterns_TB03_PTN2_08;
+_patterns.TB03_Patterns_TB03_PTN2_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10895,10 +9806,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] [~ lt ~ ~] [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd _] [_ bd ~ ~] [_ ~ ~ bd] [_ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_10
-    TB03_PTN2_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_09 = _patterns.TB03_Patterns_TB03_PTN2_09;
+_patterns.TB03_Patterns_TB03_PTN2_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10910,10 +9820,9 @@ const drumLibrary = {
       s("~ [~ ~ lt lt] [_ ~ ~ lt] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd]*2 [_ _ ~ ~] [~ bd ~ ~] [~ bd _ _]").gain("1.0 0.6 0.6 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_11
-    TB03_PTN2_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_10 = _patterns.TB03_Patterns_TB03_PTN2_10;
+_patterns.TB03_Patterns_TB03_PTN2_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10925,10 +9834,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] [_ _ lt ~] [~ lt _ ~]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd _] [_ bd ~ ~] ~ [bd ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_12
-    TB03_PTN2_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_11 = _patterns.TB03_Patterns_TB03_PTN2_11;
+_patterns.TB03_Patterns_TB03_PTN2_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10940,10 +9848,9 @@ const drumLibrary = {
       s("[lt ~ ~ lt] [_ _ lt _] [~ ~ lt ~] ~").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ bd bd ~] ~ [bd ~ ~ bd] [_ bd ~ bd]").gain("0.6 0.6 0.6 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_13
-    TB03_PTN2_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_12 = _patterns.TB03_Patterns_TB03_PTN2_12;
+_patterns.TB03_Patterns_TB03_PTN2_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10955,10 +9862,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd bd _] [~ ~ bd bd] [_ bd ~ ~] [_ bd bd bd]").gain("0.6 0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_14
-    TB03_PTN2_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_13 = _patterns.TB03_Patterns_TB03_PTN2_13;
+_patterns.TB03_Patterns_TB03_PTN2_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10974,10 +9880,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ rd] ~").bank(bank).n((typeof n === "object" ? (n.rd ?? 0) : n)),
       s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd ~ ~ ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_15
-    TB03_PTN2_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_14 = _patterns.TB03_Patterns_TB03_PTN2_14;
+_patterns.TB03_Patterns_TB03_PTN2_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -10987,10 +9892,9 @@ const drumLibrary = {
       return stack(
       s("bd*16").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_16
-    TB03_PTN2_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_15 = _patterns.TB03_Patterns_TB03_PTN2_15;
+_patterns.TB03_Patterns_TB03_PTN2_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11003,10 +9907,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ rd] ~").bank(bank).n((typeof n === "object" ? (n.rd ?? 0) : n)),
       s("[bd bd ~ bd] ~ [~ _ bd ~] [bd bd _ _]").gain("1.0 1.0 1.0 0.6 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_17
-    TB03_PTN2_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_16 = _patterns.TB03_Patterns_TB03_PTN2_16;
+_patterns.TB03_Patterns_TB03_PTN2_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11018,10 +9921,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ ~ bd ~] [~ bd ~ ~] [bd ~]*2").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_18
-    TB03_PTN2_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_17 = _patterns.TB03_Patterns_TB03_PTN2_17;
+_patterns.TB03_Patterns_TB03_PTN2_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11033,10 +9935,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ [lt ~ ~ ~] [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [bd bd bd ~] [~ ~ bd bd] [bd bd ~ bd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_19
-    TB03_PTN2_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_18 = _patterns.TB03_Patterns_TB03_PTN2_18;
+_patterns.TB03_Patterns_TB03_PTN2_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11048,10 +9949,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [~ bd _ _] [~ ~ ~ bd] [_ _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_20
-    TB03_PTN2_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_19 = _patterns.TB03_Patterns_TB03_PTN2_19;
+_patterns.TB03_Patterns_TB03_PTN2_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11063,10 +9963,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd ~ ~] [bd bd ~ ~] [_ ~ ~ ~]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_21
-    TB03_PTN2_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_20 = _patterns.TB03_Patterns_TB03_PTN2_20;
+_patterns.TB03_Patterns_TB03_PTN2_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11078,10 +9977,9 @@ const drumLibrary = {
       s("[~ lt ~ ~] ~ ~ [~ lt ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [bd bd bd ~] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_22
-    TB03_PTN2_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_21 = _patterns.TB03_Patterns_TB03_PTN2_21;
+_patterns.TB03_Patterns_TB03_PTN2_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11093,10 +9991,9 @@ const drumLibrary = {
       s("~ ~ [~ lt ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [~ ~ bd ~] [bd bd _ ~]").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_23
-    TB03_PTN2_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_22 = _patterns.TB03_Patterns_TB03_PTN2_22;
+_patterns.TB03_Patterns_TB03_PTN2_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11108,10 +10005,9 @@ const drumLibrary = {
       s("[~ lt _ ~] ~ ~ [~ lt ~ ~]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd bd bd] ~ [~ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN2_24
-    TB03_PTN2_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_23 = _patterns.TB03_Patterns_TB03_PTN2_23;
+_patterns.TB03_Patterns_TB03_PTN2_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11123,10 +10019,9 @@ const drumLibrary = {
       s("~ [lt _ _ _] ~ ~").gain("1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [bd _ _ ~] [~ ~ bd bd]").gain("1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_01
-    TB03_PTN3_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN2_24 = _patterns.TB03_Patterns_TB03_PTN2_24;
+_patterns.TB03_Patterns_TB03_PTN3_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11139,10 +10034,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ x] ~ ~").note(key).octave(oct).transpose(7).sound(synth),
       s("x*4 [~ x x ~] [x ~ ~ ~] [~ x ~ ~]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_02
-    TB03_PTN3_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_01 = _patterns.TB03_Patterns_TB03_PTN3_01;
+_patterns.TB03_Patterns_TB03_PTN3_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11157,10 +10051,9 @@ const drumLibrary = {
       s("~ ~ [lt ~ ~ ~] [lt ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_03
-    TB03_PTN3_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_02 = _patterns.TB03_Patterns_TB03_PTN3_02;
+_patterns.TB03_Patterns_TB03_PTN3_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11175,10 +10068,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd ~ bd] [bd ~ bd bd] [bd bd bd ~] ~").gain("1.0 0.6 1.0 0.6 0.6 0.6 1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_04
-    TB03_PTN3_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_03 = _patterns.TB03_Patterns_TB03_PTN3_03;
+_patterns.TB03_Patterns_TB03_PTN3_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11193,10 +10085,9 @@ const drumLibrary = {
       s("[~ ~ ~ _] [_ ~ ~ ~] [cp ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd _ ~ ~] [~ ~ ~ bd] [~ ~ _ ~] [~ bd _ ~]").gain("1.0 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_05
-    TB03_PTN3_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_04 = _patterns.TB03_Patterns_TB03_PTN3_04;
+_patterns.TB03_Patterns_TB03_PTN3_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11211,10 +10102,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ cp] [~ ~ _ ~]").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd _] [~ ~ bd ~] [~ bd ~ ~]").gain("0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_06
-    TB03_PTN3_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_05 = _patterns.TB03_Patterns_TB03_PTN3_05;
+_patterns.TB03_Patterns_TB03_PTN3_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11225,10 +10115,9 @@ const drumLibrary = {
       s("[~ ~ lt ~] [~ lt ~ ~] [~ ~ ~ lt] [lt ~ ~ ~]").gain("1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [lt lt ~ ~] [~ ~ lt lt]").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_07
-    TB03_PTN3_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_06 = _patterns.TB03_Patterns_TB03_PTN3_06;
+_patterns.TB03_Patterns_TB03_PTN3_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11239,10 +10128,9 @@ const drumLibrary = {
       s("~ [~ ~ _ ~] ~ [~ _ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd]*2 [~ bd bd ~] [bd ~]*2").gain("1.0 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_08
-    TB03_PTN3_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_07 = _patterns.TB03_Patterns_TB03_PTN3_07;
+_patterns.TB03_Patterns_TB03_PTN3_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11252,10 +10140,9 @@ const drumLibrary = {
       return stack(
       s("~ bd*4 ~ bd*4").gain("1.0 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_09
-    TB03_PTN3_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_08 = _patterns.TB03_Patterns_TB03_PTN3_08;
+_patterns.TB03_Patterns_TB03_PTN3_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11269,10 +10156,9 @@ const drumLibrary = {
       s("~ [~ cp ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd bd ~] ~ ~ ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_10
-    TB03_PTN3_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_09 = _patterns.TB03_Patterns_TB03_PTN3_09;
+_patterns.TB03_Patterns_TB03_PTN3_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11285,10 +10171,9 @@ const drumLibrary = {
       s("~ ~ [~ cp cp ~] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("~ ~ ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_11
-    TB03_PTN3_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_10 = _patterns.TB03_Patterns_TB03_PTN3_10;
+_patterns.TB03_Patterns_TB03_PTN3_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11299,10 +10184,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").gain("0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd bd ~] [bd bd bd ~] [bd bd bd ~] [bd bd bd ~]").gain("0.6 1.0 0.6 1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_12
-    TB03_PTN3_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_11 = _patterns.TB03_Patterns_TB03_PTN3_11;
+_patterns.TB03_Patterns_TB03_PTN3_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11314,10 +10198,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ cp] [cp ~ ~ ~] ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~]*2 [~ bd bd ~] [~ ~ bd bd] [~ ~ bd bd]").gain("0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_13
-    TB03_PTN3_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_12 = _patterns.TB03_Patterns_TB03_PTN3_12;
+_patterns.TB03_Patterns_TB03_PTN3_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11330,10 +10213,9 @@ const drumLibrary = {
       s("[~ x _ x] [~ x x _] ~ ~").note(key).octave(oct).transpose(2).sound(synth),
       s("~ ~ [x ~ ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN3_14
-    TB03_PTN3_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_13 = _patterns.TB03_Patterns_TB03_PTN3_13;
+_patterns.TB03_Patterns_TB03_PTN3_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11343,10 +10225,9 @@ const drumLibrary = {
       return stack(
       s("[bd _ _ bd] [_ _ bd _] [_ bd _ _] [bd _ bd bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_15
-    TB03_PTN3_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_14 = _patterns.TB03_Patterns_TB03_PTN3_14;
+_patterns.TB03_Patterns_TB03_PTN3_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11357,10 +10238,9 @@ const drumLibrary = {
       s("~ [~ ~ ht ~] [ht ~ ~ _] [ht ~ ~ ~]").gain("0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("[oh _ _ oh] [_ _ ~ ~] [~ _ oh ~] [~ _ oh oh]").gain("1.0 0.6 0.6 0.6 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_16
-    TB03_PTN3_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_15 = _patterns.TB03_Patterns_TB03_PTN3_15;
+_patterns.TB03_Patterns_TB03_PTN3_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11371,10 +10251,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ht ~] ~").bank(bank).n((typeof n === "object" ? (n.ht ?? 0) : n)),
       s("[lt _ lt _] [_ lt _ _] [lt _ ~ ~] [~ ~ lt lt]").gain("0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_17
-    TB03_PTN3_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_16 = _patterns.TB03_Patterns_TB03_PTN3_16;
+_patterns.TB03_Patterns_TB03_PTN3_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11388,10 +10267,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ cp]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ bd]*2 ~").gain("0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_18
-    TB03_PTN3_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_17 = _patterns.TB03_Patterns_TB03_PTN3_17;
+_patterns.TB03_Patterns_TB03_PTN3_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11402,10 +10280,9 @@ const drumLibrary = {
       s("~ ~ [~ lt ~ ~] [lt ~ ~ lt]").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_19
-    TB03_PTN3_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_18 = _patterns.TB03_Patterns_TB03_PTN3_18;
+_patterns.TB03_Patterns_TB03_PTN3_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11417,10 +10294,9 @@ const drumLibrary = {
       s("[~ ~ hh ~] [~ hh ~ ~] ~ ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("~ ~ [~ ~ ~ bd] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_20
-    TB03_PTN3_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_19 = _patterns.TB03_Patterns_TB03_PTN3_19;
+_patterns.TB03_Patterns_TB03_PTN3_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11433,10 +10309,9 @@ const drumLibrary = {
       s("~ [~ ~ lt lt] [lt ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 [bd ~ ~ ~] ~ [~ ~ bd ~]").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_21
-    TB03_PTN3_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_20 = _patterns.TB03_Patterns_TB03_PTN3_20;
+_patterns.TB03_Patterns_TB03_PTN3_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11447,10 +10322,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ lt] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_22
-    TB03_PTN3_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_21 = _patterns.TB03_Patterns_TB03_PTN3_21;
+_patterns.TB03_Patterns_TB03_PTN3_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11463,10 +10337,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [lt lt ~ ~] ~ [~ ~ lt ~]").gain("1.0 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd bd ~] ~ [~ bd]*2 [bd bd ~ bd]").gain("1.0 1.0 0.6 1.0 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_23
-    TB03_PTN3_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_22 = _patterns.TB03_Patterns_TB03_PTN3_22;
+_patterns.TB03_Patterns_TB03_PTN3_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11478,10 +10351,9 @@ const drumLibrary = {
       s("~ [~ ~ lt ~] [~ lt ~ ~] [lt ~ ~ ~]").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] ~ ~").gain("1.0 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN3_24
-    TB03_PTN3_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_23 = _patterns.TB03_Patterns_TB03_PTN3_23;
+_patterns.TB03_Patterns_TB03_PTN3_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11495,10 +10367,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ lt] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [bd ~]*2 [bd ~]*2 [~ bd ~ ~]").gain("1.0 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_01
-    TB03_PTN4_01: (opts = {}) => {
+    };
+_patterns.TB03_PTN3_24 = _patterns.TB03_Patterns_TB03_PTN3_24;
+_patterns.TB03_Patterns_TB03_PTN4_01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11513,10 +10384,9 @@ const drumLibrary = {
       s("~ ~ [~ cp ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd bd _ bd] [bd _ ~ ~] ~ ~").gain("1.0 0.6 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_02
-    TB03_PTN4_02: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_01 = _patterns.TB03_Patterns_TB03_PTN4_01;
+_patterns.TB03_Patterns_TB03_PTN4_02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11529,10 +10399,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ x] [_ ~ ~ ~] [~ ~ ~ x]").note(key).octave(oct).transpose(1).sound(synth),
       s("~ ~ [~ x ~ ~] ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_03
-    TB03_PTN4_03: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_02 = _patterns.TB03_Patterns_TB03_PTN4_02;
+_patterns.TB03_Patterns_TB03_PTN4_03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11544,10 +10413,9 @@ const drumLibrary = {
       s("[sd _ _ ~] [~ ~ sd _] ~ ~").gain("1.0 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ ~ bd] [_ bd ~ ~] [bd ~ ~ bd] [bd _ ~ bd]").gain("0.6 0.6 1.0 1.0 1.0 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_04
-    TB03_PTN4_04: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_03 = _patterns.TB03_Patterns_TB03_PTN4_03;
+_patterns.TB03_Patterns_TB03_PTN4_04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11559,10 +10427,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ x _]").note(key).octave(oct).transpose(3).sound(synth),
       s("[~ ~ x _] [~ ~ x _] ~ ~").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_05
-    TB03_PTN4_05: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_04 = _patterns.TB03_Patterns_TB03_PTN4_04;
+_patterns.TB03_Patterns_TB03_PTN4_05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11575,10 +10442,9 @@ const drumLibrary = {
       s("~ [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
       s("~ ~ ~ [~ ~ ~ x]").note(key).octave(oct).sound(synth)
       );
-    },
-
-    // TB03_PTN4_06
-    TB03_PTN4_06: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_05 = _patterns.TB03_Patterns_TB03_PTN4_05;
+_patterns.TB03_Patterns_TB03_PTN4_06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11591,10 +10457,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ _]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ _ ~] [~ ~ _ ~] [~ bd _ bd] [bd _ bd ~]").gain("0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_07
-    TB03_PTN4_07: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_06 = _patterns.TB03_Patterns_TB03_PTN4_06;
+_patterns.TB03_Patterns_TB03_PTN4_07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11606,10 +10471,9 @@ const drumLibrary = {
       s("~ [~ cr ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
       s("[bd _ _ bd] [~ ~ bd _] [bd _ ~ ~] [~ bd]*2").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_08
-    TB03_PTN4_08: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_07 = _patterns.TB03_Patterns_TB03_PTN4_07;
+_patterns.TB03_Patterns_TB03_PTN4_08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11622,10 +10486,9 @@ const drumLibrary = {
       s("~ [rd _ ~ ~] ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.rd ?? 0) : n)),
       s("[bd _ _ bd] [~ ~ bd _] [bd bd ~ bd] [_ ~ ~ bd]").gain("1.0 0.6 0.6 0.6 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_09
-    TB03_PTN4_09: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_08 = _patterns.TB03_Patterns_TB03_PTN4_08;
+_patterns.TB03_Patterns_TB03_PTN4_09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11636,10 +10499,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ lt lt lt]").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [bd ~ ~ bd] [_ bd ~ bd] [_ ~ ~ ~]").gain("1.0 0.6 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_10
-    TB03_PTN4_10: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_09 = _patterns.TB03_Patterns_TB03_PTN4_09;
+_patterns.TB03_Patterns_TB03_PTN4_10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11650,10 +10512,9 @@ const drumLibrary = {
       s("hh*4 [_ hh hh ~] [hh hh hh ~] [hh ~ hh hh]").gain("0.6 1.0 1.0 0.6 0.6 0.6 0.6 1.0 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("~ ~ [~ ~ ~ _] ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_11
-    TB03_PTN4_11: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_10 = _patterns.TB03_Patterns_TB03_PTN4_10;
+_patterns.TB03_Patterns_TB03_PTN4_11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11664,10 +10525,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ [sd _ _ sd] [~ ~ sd _] [~ sd sd sd]").gain("1.0 0.6 0.6 0.6 1.0 0.6 1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_12
-    TB03_PTN4_12: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_11 = _patterns.TB03_Patterns_TB03_PTN4_11;
+_patterns.TB03_Patterns_TB03_PTN4_12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11679,10 +10539,9 @@ const drumLibrary = {
       s("~ [~ lt ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ sd ~] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ sd sd]").gain("0.6 1.0 0.6 0.6 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_13
-    TB03_PTN4_13: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_12 = _patterns.TB03_Patterns_TB03_PTN4_12;
+_patterns.TB03_Patterns_TB03_PTN4_13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11695,10 +10554,9 @@ const drumLibrary = {
       s("~ ~ ~ [cp ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [~ ~ bd ~] [~ bd bd ~]").gain("1.0 0.6 1.0 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_14
-    TB03_PTN4_14: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_13 = _patterns.TB03_Patterns_TB03_PTN4_13;
+_patterns.TB03_Patterns_TB03_PTN4_14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11712,10 +10570,9 @@ const drumLibrary = {
       s("[~ ~ cp ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd]*2 [~ bd ~ ~] ~").gain("1.0 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_15
-    TB03_PTN4_15: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_14 = _patterns.TB03_Patterns_TB03_PTN4_14;
+_patterns.TB03_Patterns_TB03_PTN4_15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11727,10 +10584,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ ~ lt]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~]*2 [bd _ bd ~] [~ ~ bd ~] [bd _ bd ~]").gain("0.6 1.0 0.6 0.6 1.0 0.6 1.0 0.6 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_16
-    TB03_PTN4_16: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_15 = _patterns.TB03_Patterns_TB03_PTN4_15;
+_patterns.TB03_Patterns_TB03_PTN4_16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11740,10 +10596,9 @@ const drumLibrary = {
       return stack(
       s("[cp _ cp _] [cp ~ cp _] [cp ~ cp cp] [_ cp ~ cp]").gain("1.0 0.6 0.6 0.6 0.6 1.0 0.6 0.6 0.6 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_17
-    TB03_PTN4_17: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_16 = _patterns.TB03_Patterns_TB03_PTN4_16;
+_patterns.TB03_Patterns_TB03_PTN4_17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11756,10 +10611,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ lt] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [~ ~ bd ~] ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_18
-    TB03_PTN4_18: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_17 = _patterns.TB03_Patterns_TB03_PTN4_17;
+_patterns.TB03_Patterns_TB03_PTN4_18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11771,10 +10625,9 @@ const drumLibrary = {
       s("[~ ~ lt ~] [~ lt]*2 [~ ~ lt ~] [~ lt]*2").gain("0.6 1.0 0.6 0.6 1.0 1.0").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[cp cp ~ ~] [~ ~ cp ~] [cp ~ ~ cp] [~ ~ cp ~]").gain("0.6 0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_19
-    TB03_PTN4_19: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_18 = _patterns.TB03_Patterns_TB03_PTN4_18;
+_patterns.TB03_Patterns_TB03_PTN4_19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11789,10 +10642,9 @@ const drumLibrary = {
       s("~ [lt ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd ~ bd _] [~ bd ~ ~] ~ ~").gain("0.6 0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_20
-    TB03_PTN4_20: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_19 = _patterns.TB03_Patterns_TB03_PTN4_19;
+_patterns.TB03_Patterns_TB03_PTN4_20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11805,10 +10657,9 @@ const drumLibrary = {
       s("~ [~ ~ lt _] ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[~ ~ ~ bd] [~ bd ~ ~] [bd ~ ~ ~] ~").gain("0.6 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_21
-    TB03_PTN4_21: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_20 = _patterns.TB03_Patterns_TB03_PTN4_20;
+_patterns.TB03_Patterns_TB03_PTN4_21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11823,10 +10674,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd bd ~ ~] [~ bd ~ ~] ~ ~").gain("1.0 0.6 1.0").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_22
-    TB03_PTN4_22: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_21 = _patterns.TB03_Patterns_TB03_PTN4_21;
+_patterns.TB03_Patterns_TB03_PTN4_22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11839,10 +10689,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [_ ~ ~ ~] ~ ~").gain("1.0 0.6").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[bd _ bd ~] [~ bd _ ~] ~ ~").gain("0.6 0.6 0.6 1.0 0.6").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_23
-    TB03_PTN4_23: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_22 = _patterns.TB03_Patterns_TB03_PTN4_22;
+_patterns.TB03_Patterns_TB03_PTN4_23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11855,10 +10704,9 @@ const drumLibrary = {
       s("~ ~ [~ hh]*2 ~").gain("0.6 1.0").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("~ ~ ~ [~ ~ lt ~]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // TB03_PTN4_24
-    TB03_PTN4_24: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_23 = _patterns.TB03_Patterns_TB03_PTN4_23;
+_patterns.TB03_Patterns_TB03_PTN4_24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11872,52 +10720,9 @@ const drumLibrary = {
       s("~ ~ [lt lt _ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("~ ~ [~ ~ ~ bd] [_ bd _ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    }
-    }
-  ),
-
-  // Category: Techno
-  Techno: Object.assign(
-    (opts = {}) => drumLibrary.Techno.OffBeat_clap(opts),
-    {
-    // OffBeat clap
-    OffBeat_clap: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~] ~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
-      s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    },
-
-    // 4 on the floor
-    p_4_on_the_floor: (opts = {}) => {
-      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
-      const bank = o.bank || o.kit || kit;
-      const n = o.n ?? 0;
-      const key = o.key || o.bassKey || bass_key;
-      const oct = o.octave || o.bassOctave || bass_octave;
-      const synth = o.synth || o.bassSynth || bass_synth;
-      return stack(
-      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
-      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
-      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
-      );
-    }
-    }
-  ),
-
-  // Category: Tidal patterns
-  Tidal_patterns: Object.assign(
-    (opts = {}) => drumLibrary.Tidal_patterns.Afro6a(opts),
-    {
-    // Afro6a
-    Afro6a: (opts = {}) => {
+    };
+_patterns.TB03_PTN4_24 = _patterns.TB03_Patterns_TB03_PTN4_24;
+_patterns.Tidal_patterns_Afro6a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11929,10 +10734,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [~ ~ rim ~] ~ [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro6b
-    Afro6b: (opts = {}) => {
+    };
+_patterns.Afro6a = _patterns.Tidal_patterns_Afro6a;
+_patterns.Tidal_patterns_Afro6b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11947,10 +10751,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] ~ ~ [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Afro6c
-    Afro6c: (opts = {}) => {
+    };
+_patterns.Afro6b = _patterns.Tidal_patterns_Afro6b;
+_patterns.Tidal_patterns_Afro6c = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11965,10 +10768,9 @@ const drumLibrary = {
       s("~ [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Ageispolis
-    Ageispolis: (opts = {}) => {
+    };
+_patterns.Afro6c = _patterns.Tidal_patterns_Afro6c;
+_patterns.Tidal_patterns_Ageispolis = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11981,10 +10783,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Amen
-    Amen: (opts = {}) => {
+    };
+_patterns.Ageispolis = _patterns.Tidal_patterns_Ageispolis;
+_patterns.Tidal_patterns_Amen = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -11997,10 +10798,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AmenBrother
-    AmenBrother: (opts = {}) => {
+    };
+_patterns.Amen = _patterns.Tidal_patterns_Amen;
+_patterns.Tidal_patterns_AmenBrother = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12013,10 +10813,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd bd] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~ [bd ~]*2 ~ [~ ~ bd ~] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // AshleysRoachClip
-    AshleysRoachClip: (opts = {}) => {
+    };
+_patterns.AmenBrother = _patterns.Tidal_patterns_AmenBrother;
+_patterns.Tidal_patterns_AshleysRoachClip = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12031,10 +10830,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Autobahn1a
-    Autobahn1a: (opts = {}) => {
+    };
+_patterns.AshleysRoachClip = _patterns.Tidal_patterns_AshleysRoachClip;
+_patterns.Tidal_patterns_Autobahn1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12049,10 +10847,9 @@ const drumLibrary = {
       s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Autobahn1b
-    Autobahn1b: (opts = {}) => {
+    };
+_patterns.Autobahn1a = _patterns.Tidal_patterns_Autobahn1a;
+_patterns.Tidal_patterns_Autobahn1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12067,10 +10864,9 @@ const drumLibrary = {
       s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BigBeat
-    BigBeat: (opts = {}) => {
+    };
+_patterns.Autobahn1b = _patterns.Tidal_patterns_Autobahn1b;
+_patterns.Tidal_patterns_BigBeat = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12082,10 +10878,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BillyJean
-    BillyJean: (opts = {}) => {
+    };
+_patterns.BigBeat = _patterns.Tidal_patterns_BigBeat;
+_patterns.Tidal_patterns_BillyJean = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12097,10 +10892,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BlueMonday1a
-    BlueMonday1a: (opts = {}) => {
+    };
+_patterns.BillyJean = _patterns.Tidal_patterns_BillyJean;
+_patterns.Tidal_patterns_BlueMonday1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12113,10 +10907,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BlueMonday2a
-    BlueMonday2a: (opts = {}) => {
+    };
+_patterns.BlueMonday1a = _patterns.Tidal_patterns_BlueMonday1a;
+_patterns.Tidal_patterns_BlueMonday2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12130,10 +10923,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BookOfMoses
-    BookOfMoses: (opts = {}) => {
+    };
+_patterns.BlueMonday2a = _patterns.Tidal_patterns_BlueMonday2a;
+_patterns.Tidal_patterns_BookOfMoses = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12145,10 +10937,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] ~ [bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Break1
-    Break1: (opts = {}) => {
+    };
+_patterns.BookOfMoses = _patterns.Tidal_patterns_BookOfMoses;
+_patterns.Tidal_patterns_Break1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12160,10 +10951,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Break2
-    Break2: (opts = {}) => {
+    };
+_patterns.Break1 = _patterns.Tidal_patterns_Break1;
+_patterns.Tidal_patterns_Break2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12175,10 +10965,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Breakbeat1
-    Breakbeat1: (opts = {}) => {
+    };
+_patterns.Break2 = _patterns.Tidal_patterns_Break2;
+_patterns.Tidal_patterns_Breakbeat1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12189,10 +10978,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Breakbeat2
-    Breakbeat2: (opts = {}) => {
+    };
+_patterns.Breakbeat1 = _patterns.Tidal_patterns_Breakbeat1;
+_patterns.Tidal_patterns_Breakbeat2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12203,10 +10991,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Breakbeat3
-    Breakbeat3: (opts = {}) => {
+    };
+_patterns.Breakbeat2 = _patterns.Tidal_patterns_Breakbeat2;
+_patterns.Tidal_patterns_Breakbeat3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12217,10 +11004,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // BritHouse
-    BritHouse: (opts = {}) => {
+    };
+_patterns.Breakbeat3 = _patterns.Tidal_patterns_Breakbeat3;
+_patterns.Tidal_patterns_BritHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12234,10 +11020,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaChaCha1a
-    ChaChaCha1a: (opts = {}) => {
+    };
+_patterns.BritHouse = _patterns.Tidal_patterns_BritHouse;
+_patterns.Tidal_patterns_ChaChaCha1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12251,10 +11036,9 @@ const drumLibrary = {
       s("~ hh ~ hh").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChaChaCha1b
-    ChaChaCha1b: (opts = {}) => {
+    };
+_patterns.ChaChaCha1a = _patterns.Tidal_patterns_ChaChaCha1a;
+_patterns.Tidal_patterns_ChaChaCha1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12268,10 +11052,9 @@ const drumLibrary = {
       s("~ hh ~ hh").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ChugChugChugaLug
-    ChugChugChugaLug: (opts = {}) => {
+    };
+_patterns.ChaChaCha1b = _patterns.Tidal_patterns_ChaChaCha1b;
+_patterns.Tidal_patterns_ChugChugChugaLug = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12284,10 +11067,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd ~ ~ sd] [~ sd sd ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd]*2 [~ bd]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // CissyStrutLong
-    CissyStrutLong: (opts = {}) => {
+    };
+_patterns.ChugChugChugaLug = _patterns.Tidal_patterns_ChugChugChugaLug;
+_patterns.Tidal_patterns_CissyStrutLong = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12299,10 +11081,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd sd ~] ~ [~ ~ sd ~] [~ sd sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] [~ bd]*2 [bd ~]*2 [bd ~ ~ bd] [~ ~ ~ bd] [~ bd]*2 [bd ~]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // CissyStrutShort
-    CissyStrutShort: (opts = {}) => {
+    };
+_patterns.CissyStrutLong = _patterns.Tidal_patterns_CissyStrutLong;
+_patterns.Tidal_patterns_CissyStrutShort = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12315,10 +11096,9 @@ const drumLibrary = {
       s("[sd sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] [bd bd ~ bd] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ColdSweat
-    ColdSweat: (opts = {}) => {
+    };
+_patterns.CissyStrutShort = _patterns.Tidal_patterns_CissyStrutShort;
+_patterns.Tidal_patterns_ColdSweat = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12331,10 +11111,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ColdSweatOpening
-    ColdSweatOpening: (opts = {}) => {
+    };
+_patterns.ColdSweat = _patterns.Tidal_patterns_ColdSweat;
+_patterns.Tidal_patterns_ColdSweatOpening = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12346,10 +11125,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ComeDancing
-    ComeDancing: (opts = {}) => {
+    };
+_patterns.ColdSweatOpening = _patterns.Tidal_patterns_ColdSweatOpening;
+_patterns.Tidal_patterns_ComeDancing = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12361,10 +11139,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [sd sd sd ~] [~ sd sd ~] [sd sd sd ~] [~ sd ~ ~] [sd sd ~ ~] [~ sd ~ ~] [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd]*2 [bd ~ ~ ~] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick1a
-    ContemporaryKick1a: (opts = {}) => {
+    };
+_patterns.ComeDancing = _patterns.Tidal_patterns_ComeDancing;
+_patterns.Tidal_patterns_ContemporaryKick1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12375,10 +11152,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick1b
-    ContemporaryKick1b: (opts = {}) => {
+    };
+_patterns.ContemporaryKick1a = _patterns.Tidal_patterns_ContemporaryKick1a;
+_patterns.Tidal_patterns_ContemporaryKick1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12389,10 +11165,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick2a
-    ContemporaryKick2a: (opts = {}) => {
+    };
+_patterns.ContemporaryKick1b = _patterns.Tidal_patterns_ContemporaryKick1b;
+_patterns.Tidal_patterns_ContemporaryKick2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12403,10 +11178,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick2b
-    ContemporaryKick2b: (opts = {}) => {
+    };
+_patterns.ContemporaryKick2a = _patterns.Tidal_patterns_ContemporaryKick2a;
+_patterns.Tidal_patterns_ContemporaryKick2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12417,10 +11191,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick3b
-    ContemporaryKick3b: (opts = {}) => {
+    };
+_patterns.ContemporaryKick2b = _patterns.Tidal_patterns_ContemporaryKick2b;
+_patterns.Tidal_patterns_ContemporaryKick3b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12431,10 +11204,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporaryKick4
-    ContemporaryKick4: (opts = {}) => {
+    };
+_patterns.ContemporaryKick3b = _patterns.Tidal_patterns_ContemporaryKick3b;
+_patterns.Tidal_patterns_ContemporaryKick4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12445,10 +11217,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporarySnare1a
-    ContemporarySnare1a: (opts = {}) => {
+    };
+_patterns.ContemporaryKick4 = _patterns.Tidal_patterns_ContemporaryKick4;
+_patterns.Tidal_patterns_ContemporarySnare1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12459,10 +11230,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporarySnare1b
-    ContemporarySnare1b: (opts = {}) => {
+    };
+_patterns.ContemporarySnare1a = _patterns.Tidal_patterns_ContemporarySnare1a;
+_patterns.Tidal_patterns_ContemporarySnare1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12473,10 +11243,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ sd ~ ~] [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporarySnare2b
-    ContemporarySnare2b: (opts = {}) => {
+    };
+_patterns.ContemporarySnare1b = _patterns.Tidal_patterns_ContemporarySnare1b;
+_patterns.Tidal_patterns_ContemporarySnare2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12487,10 +11256,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporarySnare3a
-    ContemporarySnare3a: (opts = {}) => {
+    };
+_patterns.ContemporarySnare2b = _patterns.Tidal_patterns_ContemporarySnare2b;
+_patterns.Tidal_patterns_ContemporarySnare3a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12501,10 +11269,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ sd]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ContemporarySnare3b
-    ContemporarySnare3b: (opts = {}) => {
+    };
+_patterns.ContemporarySnare3a = _patterns.Tidal_patterns_ContemporarySnare3a;
+_patterns.Tidal_patterns_ContemporarySnare3b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12515,10 +11282,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // CowdBell
-    CowdBell: (opts = {}) => {
+    };
+_patterns.ContemporarySnare3b = _patterns.Tidal_patterns_ContemporarySnare3b;
+_patterns.Tidal_patterns_CowdBell = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12531,10 +11297,9 @@ const drumLibrary = {
       s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd bd] [~ ~ bd bd] [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DasModel1b
-    DasModel1b: (opts = {}) => {
+    };
+_patterns.CowdBell = _patterns.Tidal_patterns_CowdBell;
+_patterns.Tidal_patterns_DasModel1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12546,10 +11311,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DeepHouse
-    DeepHouse: (opts = {}) => {
+    };
+_patterns.DasModel1b = _patterns.Tidal_patterns_DasModel1b;
+_patterns.Tidal_patterns_DeepHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12562,10 +11326,9 @@ const drumLibrary = {
       s("[~ hh ~ ~] [~ ~ ~ hh] [~ hh ~ ~] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DeeperHouse
-    DeeperHouse: (opts = {}) => {
+    };
+_patterns.DeepHouse = _patterns.Tidal_patterns_DeepHouse;
+_patterns.Tidal_patterns_DeeperHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12579,10 +11342,9 @@ const drumLibrary = {
       s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh oh] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DirtyHouse
-    DirtyHouse: (opts = {}) => {
+    };
+_patterns.DeeperHouse = _patterns.Tidal_patterns_DeeperHouse;
+_patterns.Tidal_patterns_DirtyHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12596,10 +11358,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [bd ~ ~ ~] [bd ~]*2 [bd ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco2a
-    Disco2a: (opts = {}) => {
+    };
+_patterns.DirtyHouse = _patterns.Tidal_patterns_DirtyHouse;
+_patterns.Tidal_patterns_Disco2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12612,10 +11373,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco2b
-    Disco2b: (opts = {}) => {
+    };
+_patterns.Disco2a = _patterns.Tidal_patterns_Disco2a;
+_patterns.Tidal_patterns_Disco2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12628,10 +11388,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Disco3c
-    Disco3c: (opts = {}) => {
+    };
+_patterns.Disco2b = _patterns.Tidal_patterns_Disco2b;
+_patterns.Tidal_patterns_Disco3c = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12645,10 +11404,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] [~ sd sd ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb1a
-    Dnb1a: (opts = {}) => {
+    };
+_patterns.Disco3c = _patterns.Tidal_patterns_Disco3c;
+_patterns.Tidal_patterns_Dnb1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12660,10 +11418,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb1b
-    Dnb1b: (opts = {}) => {
+    };
+_patterns.Dnb1a = _patterns.Tidal_patterns_Dnb1a;
+_patterns.Tidal_patterns_Dnb1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12675,10 +11432,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb2a
-    Dnb2a: (opts = {}) => {
+    };
+_patterns.Dnb1b = _patterns.Tidal_patterns_Dnb1b;
+_patterns.Tidal_patterns_Dnb2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12690,10 +11446,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb3
-    Dnb3: (opts = {}) => {
+    };
+_patterns.Dnb2a = _patterns.Tidal_patterns_Dnb2a;
+_patterns.Tidal_patterns_Dnb3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12706,10 +11461,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb4a
-    Dnb4a: (opts = {}) => {
+    };
+_patterns.Dnb3 = _patterns.Tidal_patterns_Dnb3;
+_patterns.Tidal_patterns_Dnb4a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12722,10 +11476,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dnb4b
-    Dnb4b: (opts = {}) => {
+    };
+_patterns.Dnb4a = _patterns.Tidal_patterns_Dnb4a;
+_patterns.Tidal_patterns_Dnb4b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12738,10 +11491,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll1
-    Drumroll1: (opts = {}) => {
+    };
+_patterns.Dnb4b = _patterns.Tidal_patterns_Dnb4b;
+_patterns.Tidal_patterns_Drumroll1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12755,10 +11507,9 @@ const drumLibrary = {
       s("[oh ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Drumroll10
-    Drumroll10: (opts = {}) => {
+    };
+_patterns.Drumroll1 = _patterns.Tidal_patterns_Drumroll1;
+_patterns.Tidal_patterns_Drumroll10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12772,10 +11523,9 @@ const drumLibrary = {
       s("[sd ~ ~ sd] [~ ~ sd ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll11
-    Drumroll11: (opts = {}) => {
+    };
+_patterns.Drumroll10 = _patterns.Tidal_patterns_Drumroll10;
+_patterns.Tidal_patterns_Drumroll11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12790,10 +11540,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] ~ [sd ~ ~ ~] [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [bd ~]*2 ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll12
-    Drumroll12: (opts = {}) => {
+    };
+_patterns.Drumroll11 = _patterns.Tidal_patterns_Drumroll11;
+_patterns.Tidal_patterns_Drumroll12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12807,10 +11556,9 @@ const drumLibrary = {
       s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd] [~ ~ bd bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll13
-    Drumroll13: (opts = {}) => {
+    };
+_patterns.Drumroll12 = _patterns.Tidal_patterns_Drumroll12;
+_patterns.Tidal_patterns_Drumroll13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12822,10 +11570,9 @@ const drumLibrary = {
       s("[~ ~ ~ mt] mt*4 [mt ~ ~ ~] [~ mt mt ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("[lt lt lt ~] ~ ~ [~ ~ ~ lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Drumroll14
-    Drumroll14: (opts = {}) => {
+    };
+_patterns.Drumroll13 = _patterns.Tidal_patterns_Drumroll13;
+_patterns.Tidal_patterns_Drumroll14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12837,10 +11584,9 @@ const drumLibrary = {
       s("[~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt] [~ ~ ~ lt]").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll15
-    Drumroll15: (opts = {}) => {
+    };
+_patterns.Drumroll14 = _patterns.Tidal_patterns_Drumroll14;
+_patterns.Tidal_patterns_Drumroll15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12853,10 +11599,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll16
-    Drumroll16: (opts = {}) => {
+    };
+_patterns.Drumroll15 = _patterns.Tidal_patterns_Drumroll15;
+_patterns.Tidal_patterns_Drumroll16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12869,10 +11614,9 @@ const drumLibrary = {
       s("~ ~ [mt mt ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("[sd sd ~ ~] [sd ~ sd sd] [~ ~ sd ~] sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll17
-    Drumroll17: (opts = {}) => {
+    };
+_patterns.Drumroll16 = _patterns.Tidal_patterns_Drumroll16;
+_patterns.Tidal_patterns_Drumroll17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12884,10 +11628,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll18
-    Drumroll18: (opts = {}) => {
+    };
+_patterns.Drumroll17 = _patterns.Tidal_patterns_Drumroll17;
+_patterns.Tidal_patterns_Drumroll18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12899,10 +11642,9 @@ const drumLibrary = {
       s("[sd sd ~ ~] [~ ~ sd sd] ~ [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll19
-    Drumroll19: (opts = {}) => {
+    };
+_patterns.Drumroll18 = _patterns.Tidal_patterns_Drumroll18;
+_patterns.Tidal_patterns_Drumroll19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12917,10 +11659,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] ~ [sd ~]*2 [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd]*2 [~ bd]*2 [~ bd]*2 [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll2
-    Drumroll2: (opts = {}) => {
+    };
+_patterns.Drumroll19 = _patterns.Tidal_patterns_Drumroll19;
+_patterns.Tidal_patterns_Drumroll2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12931,10 +11672,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [sd ~ sd sd] [~ sd sd sd] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ ~ [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll3
-    Drumroll3: (opts = {}) => {
+    };
+_patterns.Drumroll2 = _patterns.Tidal_patterns_Drumroll2;
+_patterns.Tidal_patterns_Drumroll3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12944,10 +11684,9 @@ const drumLibrary = {
       return stack(
       s("[sd sd sd ~] [sd sd sd ~] [sd ~]*2 sd*4").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll4
-    Drumroll4: (opts = {}) => {
+    };
+_patterns.Drumroll3 = _patterns.Tidal_patterns_Drumroll3;
+_patterns.Tidal_patterns_Drumroll4 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12959,10 +11698,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [sd ~ ~ sd] [sd ~ ~ ~] [~ ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Drumroll5
-    Drumroll5: (opts = {}) => {
+    };
+_patterns.Drumroll4 = _patterns.Tidal_patterns_Drumroll4;
+_patterns.Tidal_patterns_Drumroll5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12974,10 +11712,9 @@ const drumLibrary = {
       s("~ [mt ~ ~ ~] [mt ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.mt ?? 0) : n)),
       s("~ ~ ~ [lt ~]*2").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n))
       );
-    },
-
-    // Drumroll6
-    Drumroll6: (opts = {}) => {
+    };
+_patterns.Drumroll5 = _patterns.Tidal_patterns_Drumroll5;
+_patterns.Tidal_patterns_Drumroll6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -12990,10 +11727,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ lt lt] [~ lt ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll7
-    Drumroll7: (opts = {}) => {
+    };
+_patterns.Drumroll6 = _patterns.Tidal_patterns_Drumroll6;
+_patterns.Tidal_patterns_Drumroll7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13006,10 +11742,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[sd ~ ~ ~] [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll8
-    Drumroll8: (opts = {}) => {
+    };
+_patterns.Drumroll7 = _patterns.Tidal_patterns_Drumroll7;
+_patterns.Tidal_patterns_Drumroll8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13022,10 +11757,9 @@ const drumLibrary = {
       s("~ ~ ~ [lt ~]*2").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[sd sd ~ ~] [~ ~ sd ~] [sd sd ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Drumroll9
-    Drumroll9: (opts = {}) => {
+    };
+_patterns.Drumroll8 = _patterns.Tidal_patterns_Drumroll8;
+_patterns.Tidal_patterns_Drumroll9 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13038,10 +11772,9 @@ const drumLibrary = {
       s("~ ~ ~ [~ ~ lt lt]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.lt ?? 0) : n)),
       s("[sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // Dubstep1a
-    Dubstep1a: (opts = {}) => {
+    };
+_patterns.Drumroll9 = _patterns.Tidal_patterns_Drumroll9;
+_patterns.Tidal_patterns_Dubstep1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13054,10 +11787,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Dubstep1b
-    Dubstep1b: (opts = {}) => {
+    };
+_patterns.Dubstep1a = _patterns.Tidal_patterns_Dubstep1a;
+_patterns.Tidal_patterns_Dubstep1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13070,10 +11802,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // DubstepRatcheted
-    DubstepRatcheted: (opts = {}) => {
+    };
+_patterns.Dubstep1b = _patterns.Tidal_patterns_Dubstep1b;
+_patterns.Tidal_patterns_DubstepRatcheted = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13086,10 +11817,9 @@ const drumLibrary = {
       s("[~ ~ sd sd] [sd ~]*2 ~ [~ ~ sd ~] [~ sd ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Electro1a
-    Electro1a: (opts = {}) => {
+    };
+_patterns.DubstepRatcheted = _patterns.Tidal_patterns_DubstepRatcheted;
+_patterns.Tidal_patterns_Electro1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13100,10 +11830,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Electro1b
-    Electro1b: (opts = {}) => {
+    };
+_patterns.Electro1a = _patterns.Tidal_patterns_Electro1a;
+_patterns.Tidal_patterns_Electro1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13114,10 +11843,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Electro2b
-    Electro2b: (opts = {}) => {
+    };
+_patterns.Electro1b = _patterns.Tidal_patterns_Electro1b;
+_patterns.Tidal_patterns_Electro2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13128,10 +11856,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Electro3b
-    Electro3b: (opts = {}) => {
+    };
+_patterns.Electro2b = _patterns.Tidal_patterns_Electro2b;
+_patterns.Tidal_patterns_Electro3b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13142,10 +11869,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ExpensiveShit
-    ExpensiveShit: (opts = {}) => {
+    };
+_patterns.Electro3b = _patterns.Tidal_patterns_Electro3b;
+_patterns.Tidal_patterns_ExpensiveShit = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13158,10 +11884,9 @@ const drumLibrary = {
       s("[sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ ~] [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ ~ bd] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ExpressYourself
-    ExpressYourself: (opts = {}) => {
+    };
+_patterns.ExpensiveShit = _patterns.Tidal_patterns_ExpensiveShit;
+_patterns.Tidal_patterns_ExpressYourself = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13173,10 +11898,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd]*2 [~ sd]*2 ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [bd ~ ~ bd] ~ [bd ~ ~ bd] [~ ~ bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Footwork1
-    Footwork1: (opts = {}) => {
+    };
+_patterns.ExpressYourself = _patterns.Tidal_patterns_ExpressYourself;
+_patterns.Tidal_patterns_Footwork1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13189,10 +11913,9 @@ const drumLibrary = {
       s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Footwork2
-    Footwork2: (opts = {}) => {
+    };
+_patterns.Footwork1 = _patterns.Tidal_patterns_Footwork1;
+_patterns.Tidal_patterns_Footwork2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13205,10 +11928,9 @@ const drumLibrary = {
       s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FourOnTheFloor
-    FourOnTheFloor: (opts = {}) => {
+    };
+_patterns.Footwork2 = _patterns.Tidal_patterns_Footwork2;
+_patterns.Tidal_patterns_FourOnTheFloor = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13219,10 +11941,9 @@ const drumLibrary = {
       s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FrenchHouse
-    FrenchHouse: (opts = {}) => {
+    };
+_patterns.FourOnTheFloor = _patterns.Tidal_patterns_FourOnTheFloor;
+_patterns.Tidal_patterns_FrenchHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13236,10 +11957,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkyDrummer
-    FunkyDrummer: (opts = {}) => {
+    };
+_patterns.FrenchHouse = _patterns.Tidal_patterns_FrenchHouse;
+_patterns.Tidal_patterns_FunkyDrummer = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13251,10 +11971,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkyDrummerAlt
-    FunkyDrummerAlt: (opts = {}) => {
+    };
+_patterns.FunkyDrummer = _patterns.Tidal_patterns_FunkyDrummer;
+_patterns.Tidal_patterns_FunkyDrummerAlt = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13267,10 +11986,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // FunkyPresident
-    FunkyPresident: (opts = {}) => {
+    };
+_patterns.FunkyDrummerAlt = _patterns.Tidal_patterns_FunkyDrummerAlt;
+_patterns.Tidal_patterns_FunkyPresident = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13283,10 +12001,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericBossaNova
-    GenericBossaNova: (opts = {}) => {
+    };
+_patterns.FunkyPresident = _patterns.Tidal_patterns_FunkyPresident;
+_patterns.Tidal_patterns_GenericBossaNova = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13298,10 +12015,9 @@ const drumLibrary = {
       s("[rim ~ ~ rim] [~ ~ rim ~] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericGahu
-    GenericGahu: (opts = {}) => {
+    };
+_patterns.GenericBossaNova = _patterns.Tidal_patterns_GenericBossaNova;
+_patterns.Tidal_patterns_GenericGahu = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13313,10 +12029,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericRock
-    GenericRock: (opts = {}) => {
+    };
+_patterns.GenericGahu = _patterns.Tidal_patterns_GenericGahu;
+_patterns.Tidal_patterns_GenericRock = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13328,10 +12043,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericRumba
-    GenericRumba: (opts = {}) => {
+    };
+_patterns.GenericRock = _patterns.Tidal_patterns_GenericRock;
+_patterns.Tidal_patterns_GenericRumba = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13343,10 +12057,9 @@ const drumLibrary = {
       s("[rim ~ ~ rim] [~ ~ ~ rim] [~ ~ rim ~] [rim ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericShiko
-    GenericShiko: (opts = {}) => {
+    };
+_patterns.GenericRumba = _patterns.Tidal_patterns_GenericRumba;
+_patterns.Tidal_patterns_GenericShiko = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13358,10 +12071,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim] [~ ~ rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~]*2 [bd ~ ~ ~] [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GenericSoukous
-    GenericSoukous: (opts = {}) => {
+    };
+_patterns.GenericShiko = _patterns.Tidal_patterns_GenericShiko;
+_patterns.Tidal_patterns_GenericSoukous = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13373,10 +12085,9 @@ const drumLibrary = {
       s("[rim ~ ~ rim] [~ ~ rim ~] [rim ~ ~ rim] [~ ~ rim ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GetUp
-    GetUp: (opts = {}) => {
+    };
+_patterns.GenericSoukous = _patterns.Tidal_patterns_GenericSoukous;
+_patterns.Tidal_patterns_GetUp = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13389,10 +12100,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] [~ sd ~ ~] [sd ~ ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GhostSnare1a
-    GhostSnare1a: (opts = {}) => {
+    };
+_patterns.GetUp = _patterns.Tidal_patterns_GetUp;
+_patterns.Tidal_patterns_GhostSnare1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13402,10 +12112,9 @@ const drumLibrary = {
       return stack(
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // GhostSnare1b
-    GhostSnare1b: (opts = {}) => {
+    };
+_patterns.GhostSnare1a = _patterns.Tidal_patterns_GhostSnare1a;
+_patterns.Tidal_patterns_GhostSnare1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13415,10 +12124,9 @@ const drumLibrary = {
       return stack(
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // GhostSnare2a
-    GhostSnare2a: (opts = {}) => {
+    };
+_patterns.GhostSnare1b = _patterns.Tidal_patterns_GhostSnare1b;
+_patterns.Tidal_patterns_GhostSnare2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13428,10 +12136,9 @@ const drumLibrary = {
       return stack(
       s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // GhostSnare2b
-    GhostSnare2b: (opts = {}) => {
+    };
+_patterns.GhostSnare2a = _patterns.Tidal_patterns_GhostSnare2a;
+_patterns.Tidal_patterns_GhostSnare2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13441,10 +12148,9 @@ const drumLibrary = {
       return stack(
       s("[~ sd ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n))
       );
-    },
-
-    // GoodToGo
-    GoodToGo: (opts = {}) => {
+    };
+_patterns.GhostSnare2b = _patterns.Tidal_patterns_GhostSnare2b;
+_patterns.Tidal_patterns_GoodToGo = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13455,10 +12161,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // GrooveMe
-    GrooveMe: (opts = {}) => {
+    };
+_patterns.GoodToGo = _patterns.Tidal_patterns_GoodToGo;
+_patterns.Tidal_patterns_GrooveMe = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13470,10 +12175,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HaitianDivorce
-    HaitianDivorce: (opts = {}) => {
+    };
+_patterns.GrooveMe = _patterns.Tidal_patterns_GrooveMe;
+_patterns.Tidal_patterns_HaitianDivorce = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13486,10 +12190,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ sd sd] [~ sd ~ ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HalfDrop
-    HalfDrop: (opts = {}) => {
+    };
+_patterns.HaitianDivorce = _patterns.Tidal_patterns_HaitianDivorce;
+_patterns.Tidal_patterns_HalfDrop = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13501,10 +12204,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Haus
-    Haus: (opts = {}) => {
+    };
+_patterns.HalfDrop = _patterns.Tidal_patterns_HalfDrop;
+_patterns.Tidal_patterns_Haus = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13517,10 +12219,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HipHop
-    HipHop: (opts = {}) => {
+    };
+_patterns.Haus = _patterns.Tidal_patterns_Haus;
+_patterns.Tidal_patterns_HipHop = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13532,10 +12233,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd bd] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop1a
-    Hiphop1a: (opts = {}) => {
+    };
+_patterns.HipHop = _patterns.Tidal_patterns_HipHop;
+_patterns.Tidal_patterns_Hiphop1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13546,10 +12246,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop1b
-    Hiphop1b: (opts = {}) => {
+    };
+_patterns.Hiphop1a = _patterns.Tidal_patterns_Hiphop1a;
+_patterns.Tidal_patterns_Hiphop1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13560,10 +12259,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop1c
-    Hiphop1c: (opts = {}) => {
+    };
+_patterns.Hiphop1b = _patterns.Tidal_patterns_Hiphop1b;
+_patterns.Tidal_patterns_Hiphop1c = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13574,10 +12272,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop2a
-    Hiphop2a: (opts = {}) => {
+    };
+_patterns.Hiphop1c = _patterns.Tidal_patterns_Hiphop1c;
+_patterns.Tidal_patterns_Hiphop2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13588,10 +12285,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd bd ~ ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop2b
-    Hiphop2b: (opts = {}) => {
+    };
+_patterns.Hiphop2a = _patterns.Tidal_patterns_Hiphop2a;
+_patterns.Tidal_patterns_Hiphop2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13602,10 +12298,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop3a
-    Hiphop3a: (opts = {}) => {
+    };
+_patterns.Hiphop2b = _patterns.Tidal_patterns_Hiphop2b;
+_patterns.Tidal_patterns_Hiphop3a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13616,10 +12311,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop3b
-    Hiphop3b: (opts = {}) => {
+    };
+_patterns.Hiphop3a = _patterns.Tidal_patterns_Hiphop3a;
+_patterns.Tidal_patterns_Hiphop3b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13630,10 +12324,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd bd ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop4a
-    Hiphop4a: (opts = {}) => {
+    };
+_patterns.Hiphop3b = _patterns.Tidal_patterns_Hiphop3b;
+_patterns.Tidal_patterns_Hiphop4a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13644,10 +12337,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ bd bd ~] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop4b
-    Hiphop4b: (opts = {}) => {
+    };
+_patterns.Hiphop4a = _patterns.Tidal_patterns_Hiphop4a;
+_patterns.Tidal_patterns_Hiphop4b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13658,10 +12350,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop5
-    Hiphop5: (opts = {}) => {
+    };
+_patterns.Hiphop4b = _patterns.Tidal_patterns_Hiphop4b;
+_patterns.Tidal_patterns_Hiphop5 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13672,10 +12363,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop6
-    Hiphop6: (opts = {}) => {
+    };
+_patterns.Hiphop5 = _patterns.Tidal_patterns_Hiphop5;
+_patterns.Tidal_patterns_Hiphop6 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13687,10 +12377,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ ~ bd] [bd ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop7
-    Hiphop7: (opts = {}) => {
+    };
+_patterns.Hiphop6 = _patterns.Tidal_patterns_Hiphop6;
+_patterns.Tidal_patterns_Hiphop7 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13702,10 +12391,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] [~ bd]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Hiphop8
-    Hiphop8: (opts = {}) => {
+    };
+_patterns.Hiphop7 = _patterns.Tidal_patterns_Hiphop7;
+_patterns.Tidal_patterns_Hiphop8 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13717,10 +12405,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HiphopAlt
-    HiphopAlt: (opts = {}) => {
+    };
+_patterns.Hiphop8 = _patterns.Tidal_patterns_Hiphop8;
+_patterns.Tidal_patterns_HiphopAlt = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13733,10 +12420,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd bd ~ ~] [bd ~ ~ ~] [bd bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HookAndSling
-    HookAndSling: (opts = {}) => {
+    };
+_patterns.HiphopAlt = _patterns.Tidal_patterns_HiphopAlt;
+_patterns.Tidal_patterns_HookAndSling = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13749,10 +12435,9 @@ const drumLibrary = {
       s("~ [sd ~ sd sd] [~ ~ sd ~] [sd ~ ~ ~] [sd ~ ~ ~] [sd sd ~ sd] [~ ~ sd sd] [~ ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ bd ~ ~] [~ bd bd ~] ~ ~ ~ [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HotSweat
-    HotSweat: (opts = {}) => {
+    };
+_patterns.HookAndSling = _patterns.Tidal_patterns_HookAndSling;
+_patterns.Tidal_patterns_HotSweat = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13764,10 +12449,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [sd sd ~ ~] [sd ~ sd sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd bd] ~ [~ ~ bd bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // House1a
-    House1a: (opts = {}) => {
+    };
+_patterns.HotSweat = _patterns.Tidal_patterns_HotSweat;
+_patterns.Tidal_patterns_House1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13781,10 +12465,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // House1b
-    House1b: (opts = {}) => {
+    };
+_patterns.House1a = _patterns.Tidal_patterns_House1a;
+_patterns.Tidal_patterns_House1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13797,10 +12480,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1a
-    HybridKick1a: (opts = {}) => {
+    };
+_patterns.House1b = _patterns.Tidal_patterns_House1b;
+_patterns.Tidal_patterns_HybridKick1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13811,10 +12493,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1b
-    HybridKick1b: (opts = {}) => {
+    };
+_patterns.HybridKick1a = _patterns.Tidal_patterns_HybridKick1a;
+_patterns.Tidal_patterns_HybridKick1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13825,10 +12506,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1c
-    HybridKick1c: (opts = {}) => {
+    };
+_patterns.HybridKick1b = _patterns.Tidal_patterns_HybridKick1b;
+_patterns.Tidal_patterns_HybridKick1c = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13839,10 +12519,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1d
-    HybridKick1d: (opts = {}) => {
+    };
+_patterns.HybridKick1c = _patterns.Tidal_patterns_HybridKick1c;
+_patterns.Tidal_patterns_HybridKick1d = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13853,10 +12532,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1e
-    HybridKick1e: (opts = {}) => {
+    };
+_patterns.HybridKick1d = _patterns.Tidal_patterns_HybridKick1d;
+_patterns.Tidal_patterns_HybridKick1e = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13867,10 +12545,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick1g
-    HybridKick1g: (opts = {}) => {
+    };
+_patterns.HybridKick1e = _patterns.Tidal_patterns_HybridKick1e;
+_patterns.Tidal_patterns_HybridKick1g = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13881,10 +12558,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd]*2 [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // HybridKick2b
-    HybridKick2b: (opts = {}) => {
+    };
+_patterns.HybridKick1g = _patterns.Tidal_patterns_HybridKick1g;
+_patterns.Tidal_patterns_HybridKick2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13895,10 +12571,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // IGotTheFeelin
-    IGotTheFeelin: (opts = {}) => {
+    };
+_patterns.HybridKick2b = _patterns.Tidal_patterns_HybridKick2b;
+_patterns.Tidal_patterns_IGotTheFeelin = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13910,10 +12585,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ sd ~ ~] [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [~ sd sd sd] [~ sd sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] [bd ~]*2").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // IGotYou
-    IGotYou: (opts = {}) => {
+    };
+_patterns.IGotTheFeelin = _patterns.Tidal_patterns_IGotTheFeelin;
+_patterns.Tidal_patterns_IGotYou = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13926,10 +12600,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ImpeachThePresident
-    ImpeachThePresident: (opts = {}) => {
+    };
+_patterns.IGotYou = _patterns.Tidal_patterns_IGotYou;
+_patterns.Tidal_patterns_ImpeachThePresident = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13942,10 +12615,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Irregular1a
-    Irregular1a: (opts = {}) => {
+    };
+_patterns.ImpeachThePresident = _patterns.Tidal_patterns_ImpeachThePresident;
+_patterns.Tidal_patterns_Irregular1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13956,10 +12628,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ bd bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Irregular1b
-    Irregular1b: (opts = {}) => {
+    };
+_patterns.Irregular1a = _patterns.Tidal_patterns_Irregular1a;
+_patterns.Tidal_patterns_Irregular1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13970,10 +12641,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [sd ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Irregular2a
-    Irregular2a: (opts = {}) => {
+    };
+_patterns.Irregular1b = _patterns.Tidal_patterns_Irregular1b;
+_patterns.Tidal_patterns_Irregular2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13984,10 +12654,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Irregular2b
-    Irregular2b: (opts = {}) => {
+    };
+_patterns.Irregular2a = _patterns.Tidal_patterns_Irregular2a;
+_patterns.Tidal_patterns_Irregular2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -13998,10 +12667,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] ~ [sd ~ ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Irregular3
-    Irregular3: (opts = {}) => {
+    };
+_patterns.Irregular2b = _patterns.Tidal_patterns_Irregular2b;
+_patterns.Tidal_patterns_Irregular3 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14012,10 +12680,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ ~] [~ ~ sd ~] [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [bd ~ ~ ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ItaloDisco1a
-    ItaloDisco1a: (opts = {}) => {
+    };
+_patterns.Irregular3 = _patterns.Tidal_patterns_Irregular3;
+_patterns.Tidal_patterns_ItaloDisco1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14034,10 +12701,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ItaloDisco1b
-    ItaloDisco1b: (opts = {}) => {
+    };
+_patterns.ItaloDisco1a = _patterns.Tidal_patterns_ItaloDisco1a;
+_patterns.Tidal_patterns_ItaloDisco1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14056,10 +12722,9 @@ const drumLibrary = {
       s("[~ ~ ~ rim] [rim ~ ~ ~] [rim ~ ~ rim] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // ItsANewDay
-    ItsANewDay: (opts = {}) => {
+    };
+_patterns.ItaloDisco1b = _patterns.Tidal_patterns_ItaloDisco1b;
+_patterns.Tidal_patterns_ItsANewDay = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14071,10 +12736,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd bd] [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Juke
-    Juke: (opts = {}) => {
+    };
+_patterns.ItsANewDay = _patterns.Tidal_patterns_ItsANewDay;
+_patterns.Tidal_patterns_Juke = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14087,10 +12751,9 @@ const drumLibrary = {
       s("[sd ~ sd sd] [~ sd]*2 [~ sd sd ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jungle
-    Jungle: (opts = {}) => {
+    };
+_patterns.Juke = _patterns.Tidal_patterns_Juke;
+_patterns.Tidal_patterns_Jungle = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14103,10 +12766,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ sd ~ ~] [~ sd]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jungle1a
-    Jungle1a: (opts = {}) => {
+    };
+_patterns.Jungle = _patterns.Tidal_patterns_Jungle;
+_patterns.Tidal_patterns_Jungle1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14119,10 +12781,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Jungle1b
-    Jungle1b: (opts = {}) => {
+    };
+_patterns.Jungle1a = _patterns.Tidal_patterns_Jungle1a;
+_patterns.Tidal_patterns_Jungle1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14134,10 +12795,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ bd bd ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // JungleAlt
-    JungleAlt: (opts = {}) => {
+    };
+_patterns.Jungle1b = _patterns.Tidal_patterns_Jungle1b;
+_patterns.Tidal_patterns_JungleAlt = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14150,10 +12810,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd ~ ~] [bd ~ ~ ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Kick
-    Kick: (opts = {}) => {
+    };
+_patterns.JungleAlt = _patterns.Tidal_patterns_JungleAlt;
+_patterns.Tidal_patterns_Kick = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14163,10 +12822,9 @@ const drumLibrary = {
       return stack(
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // KissingMyLove
-    KissingMyLove: (opts = {}) => {
+    };
+_patterns.Kick = _patterns.Tidal_patterns_Kick;
+_patterns.Tidal_patterns_KissingMyLove = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14179,10 +12837,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~] ~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // KnocksOffMyFeet
-    KnocksOffMyFeet: (opts = {}) => {
+    };
+_patterns.KissingMyLove = _patterns.Tidal_patterns_KissingMyLove;
+_patterns.Tidal_patterns_KnocksOffMyFeet = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14195,10 +12852,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [bd ~ ~ bd] [bd ~]*2 [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Lady
-    Lady: (opts = {}) => {
+    };
+_patterns.KnocksOffMyFeet = _patterns.Tidal_patterns_KnocksOffMyFeet;
+_patterns.Tidal_patterns_Lady = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14211,10 +12867,9 @@ const drumLibrary = {
       s("~ [sd sd ~ ~] ~ ~ ~ [sd sd ~ ~] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] ~ [~ ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // LadyMarmalade
-    LadyMarmalade: (opts = {}) => {
+    };
+_patterns.Lady = _patterns.Tidal_patterns_Lady;
+_patterns.Tidal_patterns_LadyMarmalade = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14227,10 +12882,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ [sd ~ ~ ~] [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // LetAWomanBeAWomanLetAManBeAMan
-    LetAWomanBeAWomanLetAManBeAMan: (opts = {}) => {
+    };
+_patterns.LadyMarmalade = _patterns.Tidal_patterns_LadyMarmalade;
+_patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14243,10 +12897,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd sd ~] [sd sd ~ ~] ~ [sd ~ ~ sd] [~ sd]*2 [sd ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [bd ~ bd bd] [~ bd bd ~] [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // LookingForThePerfectBeat1a
-    LookingForThePerfectBeat1a: (opts = {}) => {
+    };
+_patterns.LetAWomanBeAWomanLetAManBeAMan = _patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan;
+_patterns.Tidal_patterns_LookingForThePerfectBeat1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14261,10 +12914,9 @@ const drumLibrary = {
       s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // LookingForThePerfectBeat1b
-    LookingForThePerfectBeat1b: (opts = {}) => {
+    };
+_patterns.LookingForThePerfectBeat1a = _patterns.Tidal_patterns_LookingForThePerfectBeat1a;
+_patterns.Tidal_patterns_LookingForThePerfectBeat1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14279,10 +12931,9 @@ const drumLibrary = {
       s("rim*4 [rim rim ~ ~] ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Lookkapypy
-    Lookkapypy: (opts = {}) => {
+    };
+_patterns.LookingForThePerfectBeat1b = _patterns.Tidal_patterns_LookingForThePerfectBeat1b;
+_patterns.Tidal_patterns_Lookkapypy = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14295,10 +12946,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ sd] [sd ~]*2 [~ ~ sd ~] [~ sd ~ ~] [sd sd ~ sd] [sd ~]*2 [~ ~ sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ bd ~ ~] [~ ~ bd ~] [~ bd bd ~] [bd ~ ~ bd] [~ bd]*2 [bd ~]*2 [~ bd bd ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MiamiBass1
-    MiamiBass1: (opts = {}) => {
+    };
+_patterns.Lookkapypy = _patterns.Tidal_patterns_Lookkapypy;
+_patterns.Tidal_patterns_MiamiBass1 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14310,10 +12960,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MiamiBass2
-    MiamiBass2: (opts = {}) => {
+    };
+_patterns.MiamiBass1 = _patterns.Tidal_patterns_MiamiBass1;
+_patterns.Tidal_patterns_MiamiBass2 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14325,10 +12974,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MoreBounceToTheOunce
-    MoreBounceToTheOunce: (opts = {}) => {
+    };
+_patterns.MiamiBass2 = _patterns.Tidal_patterns_MiamiBass2;
+_patterns.Tidal_patterns_MoreBounceToTheOunce = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14342,10 +12990,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MotherPopcorn
-    MotherPopcorn: (opts = {}) => {
+    };
+_patterns.MoreBounceToTheOunce = _patterns.Tidal_patterns_MoreBounceToTheOunce;
+_patterns.Tidal_patterns_MotherPopcorn = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14357,10 +13004,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [~ ~ bd ~] ~ [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MusicNonStop1a
-    MusicNonStop1a: (opts = {}) => {
+    };
+_patterns.MotherPopcorn = _patterns.Tidal_patterns_MotherPopcorn;
+_patterns.Tidal_patterns_MusicNonStop1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14372,10 +13018,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MusicNonStop2a
-    MusicNonStop2a: (opts = {}) => {
+    };
+_patterns.MusicNonStop1a = _patterns.Tidal_patterns_MusicNonStop1a;
+_patterns.Tidal_patterns_MusicNonStop2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14389,10 +13034,9 @@ const drumLibrary = {
       s("[rim rim rim ~] [~ rim ~ ~] [rim ~ ~ rim] [~ rim rim ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // MusicNonStop2b
-    MusicNonStop2b: (opts = {}) => {
+    };
+_patterns.MusicNonStop2a = _patterns.Tidal_patterns_MusicNonStop2a;
+_patterns.Tidal_patterns_MusicNonStop2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14406,10 +13050,9 @@ const drumLibrary = {
       s("[rim ~]*2 [rim rim ~ ~] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ bd bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // NewWave
-    NewWave: (opts = {}) => {
+    };
+_patterns.MusicNonStop2b = _patterns.Tidal_patterns_MusicNonStop2b;
+_patterns.Tidal_patterns_NewWave = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14423,10 +13066,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [bd bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Nico
-    Nico: (opts = {}) => {
+    };
+_patterns.NewWave = _patterns.Tidal_patterns_NewWave;
+_patterns.Tidal_patterns_Nico = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14438,10 +13080,9 @@ const drumLibrary = {
       s("[~ ~ rim rim] [~ rim rim rim] [rim ~ ~ rim] [~ rim rim rim]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd bd ~ ~] ~ [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Numbers1a
-    Numbers1a: (opts = {}) => {
+    };
+_patterns.Nico = _patterns.Tidal_patterns_Nico;
+_patterns.Tidal_patterns_Numbers1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14453,10 +13094,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Numbers1b
-    Numbers1b: (opts = {}) => {
+    };
+_patterns.Numbers1a = _patterns.Tidal_patterns_Numbers1a;
+_patterns.Tidal_patterns_Numbers1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14468,10 +13108,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // OneDrop
-    OneDrop: (opts = {}) => {
+    };
+_patterns.Numbers1b = _patterns.Tidal_patterns_Numbers1b;
+_patterns.Tidal_patterns_OneDrop = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14483,10 +13122,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // OneSevenFiveThirteen
-    OneSevenFiveThirteen: (opts = {}) => {
+    };
+_patterns.OneDrop = _patterns.Tidal_patterns_OneDrop;
+_patterns.Tidal_patterns_OneSevenFiveThirteen = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14497,10 +13135,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // OohChild
-    OohChild: (opts = {}) => {
+    };
+_patterns.OneSevenFiveThirteen = _patterns.Tidal_patterns_OneSevenFiveThirteen;
+_patterns.Tidal_patterns_OohChild = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14513,10 +13150,9 @@ const drumLibrary = {
       s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd ~ ~] [sd ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~ [bd ~ bd bd] ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PalmGrease
-    PalmGrease: (opts = {}) => {
+    };
+_patterns.OohChild = _patterns.Tidal_patterns_OohChild;
+_patterns.Tidal_patterns_PalmGrease = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14529,10 +13165,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] [~ sd ~ ~] [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PapaWasToo
-    PapaWasToo: (opts = {}) => {
+    };
+_patterns.PalmGrease = _patterns.Tidal_patterns_PalmGrease;
+_patterns.Tidal_patterns_PapaWasToo = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14545,10 +13180,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern00
-    Pattern00: (opts = {}) => {
+    };
+_patterns.PapaWasToo = _patterns.Tidal_patterns_PapaWasToo;
+_patterns.Tidal_patterns_Pattern00 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14560,10 +13194,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern01
-    Pattern01: (opts = {}) => {
+    };
+_patterns.Pattern00 = _patterns.Tidal_patterns_Pattern00;
+_patterns.Tidal_patterns_Pattern01 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14575,10 +13208,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern02
-    Pattern02: (opts = {}) => {
+    };
+_patterns.Pattern01 = _patterns.Tidal_patterns_Pattern01;
+_patterns.Tidal_patterns_Pattern02 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14590,10 +13222,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern03
-    Pattern03: (opts = {}) => {
+    };
+_patterns.Pattern02 = _patterns.Tidal_patterns_Pattern02;
+_patterns.Tidal_patterns_Pattern03 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14605,10 +13236,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern04
-    Pattern04: (opts = {}) => {
+    };
+_patterns.Pattern03 = _patterns.Tidal_patterns_Pattern03;
+_patterns.Tidal_patterns_Pattern04 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14620,10 +13250,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern05
-    Pattern05: (opts = {}) => {
+    };
+_patterns.Pattern04 = _patterns.Tidal_patterns_Pattern04;
+_patterns.Tidal_patterns_Pattern05 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14635,10 +13264,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern06
-    Pattern06: (opts = {}) => {
+    };
+_patterns.Pattern05 = _patterns.Tidal_patterns_Pattern05;
+_patterns.Tidal_patterns_Pattern06 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14650,10 +13278,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern07
-    Pattern07: (opts = {}) => {
+    };
+_patterns.Pattern06 = _patterns.Tidal_patterns_Pattern06;
+_patterns.Tidal_patterns_Pattern07 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14665,10 +13292,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern08
-    Pattern08: (opts = {}) => {
+    };
+_patterns.Pattern07 = _patterns.Tidal_patterns_Pattern07;
+_patterns.Tidal_patterns_Pattern08 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14680,10 +13306,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern09
-    Pattern09: (opts = {}) => {
+    };
+_patterns.Pattern08 = _patterns.Tidal_patterns_Pattern08;
+_patterns.Tidal_patterns_Pattern09 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14695,10 +13320,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern10
-    Pattern10: (opts = {}) => {
+    };
+_patterns.Pattern09 = _patterns.Tidal_patterns_Pattern09;
+_patterns.Tidal_patterns_Pattern10 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14710,10 +13334,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern11
-    Pattern11: (opts = {}) => {
+    };
+_patterns.Pattern10 = _patterns.Tidal_patterns_Pattern10;
+_patterns.Tidal_patterns_Pattern11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14725,10 +13348,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern12
-    Pattern12: (opts = {}) => {
+    };
+_patterns.Pattern11 = _patterns.Tidal_patterns_Pattern11;
+_patterns.Tidal_patterns_Pattern12 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14740,10 +13362,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern13
-    Pattern13: (opts = {}) => {
+    };
+_patterns.Pattern12 = _patterns.Tidal_patterns_Pattern12;
+_patterns.Tidal_patterns_Pattern13 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14755,10 +13376,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern14
-    Pattern14: (opts = {}) => {
+    };
+_patterns.Pattern13 = _patterns.Tidal_patterns_Pattern13;
+_patterns.Tidal_patterns_Pattern14 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14770,10 +13390,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern15
-    Pattern15: (opts = {}) => {
+    };
+_patterns.Pattern14 = _patterns.Tidal_patterns_Pattern14;
+_patterns.Tidal_patterns_Pattern15 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14785,10 +13404,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern16
-    Pattern16: (opts = {}) => {
+    };
+_patterns.Pattern15 = _patterns.Tidal_patterns_Pattern15;
+_patterns.Tidal_patterns_Pattern16 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14800,10 +13418,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern17
-    Pattern17: (opts = {}) => {
+    };
+_patterns.Pattern16 = _patterns.Tidal_patterns_Pattern16;
+_patterns.Tidal_patterns_Pattern17 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14815,10 +13432,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern18
-    Pattern18: (opts = {}) => {
+    };
+_patterns.Pattern17 = _patterns.Tidal_patterns_Pattern17;
+_patterns.Tidal_patterns_Pattern18 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14830,10 +13446,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern19
-    Pattern19: (opts = {}) => {
+    };
+_patterns.Pattern18 = _patterns.Tidal_patterns_Pattern18;
+_patterns.Tidal_patterns_Pattern19 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14845,10 +13460,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern20
-    Pattern20: (opts = {}) => {
+    };
+_patterns.Pattern19 = _patterns.Tidal_patterns_Pattern19;
+_patterns.Tidal_patterns_Pattern20 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14860,10 +13474,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern21
-    Pattern21: (opts = {}) => {
+    };
+_patterns.Pattern20 = _patterns.Tidal_patterns_Pattern20;
+_patterns.Tidal_patterns_Pattern21 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14875,10 +13488,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern22
-    Pattern22: (opts = {}) => {
+    };
+_patterns.Pattern21 = _patterns.Tidal_patterns_Pattern21;
+_patterns.Tidal_patterns_Pattern22 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14890,10 +13502,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern23
-    Pattern23: (opts = {}) => {
+    };
+_patterns.Pattern22 = _patterns.Tidal_patterns_Pattern22;
+_patterns.Tidal_patterns_Pattern23 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14905,10 +13516,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern24
-    Pattern24: (opts = {}) => {
+    };
+_patterns.Pattern23 = _patterns.Tidal_patterns_Pattern23;
+_patterns.Tidal_patterns_Pattern24 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14920,10 +13530,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern25
-    Pattern25: (opts = {}) => {
+    };
+_patterns.Pattern24 = _patterns.Tidal_patterns_Pattern24;
+_patterns.Tidal_patterns_Pattern25 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14935,10 +13544,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern26
-    Pattern26: (opts = {}) => {
+    };
+_patterns.Pattern25 = _patterns.Tidal_patterns_Pattern25;
+_patterns.Tidal_patterns_Pattern26 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14950,10 +13558,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern27
-    Pattern27: (opts = {}) => {
+    };
+_patterns.Pattern26 = _patterns.Tidal_patterns_Pattern26;
+_patterns.Tidal_patterns_Pattern27 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14965,10 +13572,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern28
-    Pattern28: (opts = {}) => {
+    };
+_patterns.Pattern27 = _patterns.Tidal_patterns_Pattern27;
+_patterns.Tidal_patterns_Pattern28 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14980,10 +13586,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern29
-    Pattern29: (opts = {}) => {
+    };
+_patterns.Pattern28 = _patterns.Tidal_patterns_Pattern28;
+_patterns.Tidal_patterns_Pattern29 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -14995,10 +13600,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern30
-    Pattern30: (opts = {}) => {
+    };
+_patterns.Pattern29 = _patterns.Tidal_patterns_Pattern29;
+_patterns.Tidal_patterns_Pattern30 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15010,10 +13614,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern31
-    Pattern31: (opts = {}) => {
+    };
+_patterns.Pattern30 = _patterns.Tidal_patterns_Pattern30;
+_patterns.Tidal_patterns_Pattern31 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15025,10 +13628,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] ~ ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern32
-    Pattern32: (opts = {}) => {
+    };
+_patterns.Pattern31 = _patterns.Tidal_patterns_Pattern31;
+_patterns.Tidal_patterns_Pattern32 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15040,10 +13642,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern33
-    Pattern33: (opts = {}) => {
+    };
+_patterns.Pattern32 = _patterns.Tidal_patterns_Pattern32;
+_patterns.Tidal_patterns_Pattern33 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15055,10 +13656,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern34
-    Pattern34: (opts = {}) => {
+    };
+_patterns.Pattern33 = _patterns.Tidal_patterns_Pattern33;
+_patterns.Tidal_patterns_Pattern34 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15070,10 +13670,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern35
-    Pattern35: (opts = {}) => {
+    };
+_patterns.Pattern34 = _patterns.Tidal_patterns_Pattern34;
+_patterns.Tidal_patterns_Pattern35 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15085,10 +13684,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern36
-    Pattern36: (opts = {}) => {
+    };
+_patterns.Pattern35 = _patterns.Tidal_patterns_Pattern35;
+_patterns.Tidal_patterns_Pattern36 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15100,10 +13698,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern37
-    Pattern37: (opts = {}) => {
+    };
+_patterns.Pattern36 = _patterns.Tidal_patterns_Pattern36;
+_patterns.Tidal_patterns_Pattern37 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15115,10 +13712,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern38
-    Pattern38: (opts = {}) => {
+    };
+_patterns.Pattern37 = _patterns.Tidal_patterns_Pattern37;
+_patterns.Tidal_patterns_Pattern38 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15130,10 +13726,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern39
-    Pattern39: (opts = {}) => {
+    };
+_patterns.Pattern38 = _patterns.Tidal_patterns_Pattern38;
+_patterns.Tidal_patterns_Pattern39 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15145,10 +13740,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern40
-    Pattern40: (opts = {}) => {
+    };
+_patterns.Pattern39 = _patterns.Tidal_patterns_Pattern39;
+_patterns.Tidal_patterns_Pattern40 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15160,10 +13754,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern41
-    Pattern41: (opts = {}) => {
+    };
+_patterns.Pattern40 = _patterns.Tidal_patterns_Pattern40;
+_patterns.Tidal_patterns_Pattern41 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15175,10 +13768,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern42
-    Pattern42: (opts = {}) => {
+    };
+_patterns.Pattern41 = _patterns.Tidal_patterns_Pattern41;
+_patterns.Tidal_patterns_Pattern42 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15190,10 +13782,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern43
-    Pattern43: (opts = {}) => {
+    };
+_patterns.Pattern42 = _patterns.Tidal_patterns_Pattern42;
+_patterns.Tidal_patterns_Pattern43 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15205,10 +13796,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern44
-    Pattern44: (opts = {}) => {
+    };
+_patterns.Pattern43 = _patterns.Tidal_patterns_Pattern43;
+_patterns.Tidal_patterns_Pattern44 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15220,10 +13810,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern45
-    Pattern45: (opts = {}) => {
+    };
+_patterns.Pattern44 = _patterns.Tidal_patterns_Pattern44;
+_patterns.Tidal_patterns_Pattern45 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15235,10 +13824,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern46
-    Pattern46: (opts = {}) => {
+    };
+_patterns.Pattern45 = _patterns.Tidal_patterns_Pattern45;
+_patterns.Tidal_patterns_Pattern46 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15250,10 +13838,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern47
-    Pattern47: (opts = {}) => {
+    };
+_patterns.Pattern46 = _patterns.Tidal_patterns_Pattern46;
+_patterns.Tidal_patterns_Pattern47 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15265,10 +13852,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern48
-    Pattern48: (opts = {}) => {
+    };
+_patterns.Pattern47 = _patterns.Tidal_patterns_Pattern47;
+_patterns.Tidal_patterns_Pattern48 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15280,10 +13866,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern49
-    Pattern49: (opts = {}) => {
+    };
+_patterns.Pattern48 = _patterns.Tidal_patterns_Pattern48;
+_patterns.Tidal_patterns_Pattern49 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15295,10 +13880,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern50
-    Pattern50: (opts = {}) => {
+    };
+_patterns.Pattern49 = _patterns.Tidal_patterns_Pattern49;
+_patterns.Tidal_patterns_Pattern50 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15310,10 +13894,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern51
-    Pattern51: (opts = {}) => {
+    };
+_patterns.Pattern50 = _patterns.Tidal_patterns_Pattern50;
+_patterns.Tidal_patterns_Pattern51 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15325,10 +13908,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern52
-    Pattern52: (opts = {}) => {
+    };
+_patterns.Pattern51 = _patterns.Tidal_patterns_Pattern51;
+_patterns.Tidal_patterns_Pattern52 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15340,10 +13922,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern53
-    Pattern53: (opts = {}) => {
+    };
+_patterns.Pattern52 = _patterns.Tidal_patterns_Pattern52;
+_patterns.Tidal_patterns_Pattern53 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15355,10 +13936,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern54
-    Pattern54: (opts = {}) => {
+    };
+_patterns.Pattern53 = _patterns.Tidal_patterns_Pattern53;
+_patterns.Tidal_patterns_Pattern54 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15370,10 +13950,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern55
-    Pattern55: (opts = {}) => {
+    };
+_patterns.Pattern54 = _patterns.Tidal_patterns_Pattern54;
+_patterns.Tidal_patterns_Pattern55 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15385,10 +13964,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern56
-    Pattern56: (opts = {}) => {
+    };
+_patterns.Pattern55 = _patterns.Tidal_patterns_Pattern55;
+_patterns.Tidal_patterns_Pattern56 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15400,10 +13978,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern57
-    Pattern57: (opts = {}) => {
+    };
+_patterns.Pattern56 = _patterns.Tidal_patterns_Pattern56;
+_patterns.Tidal_patterns_Pattern57 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15415,10 +13992,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern58
-    Pattern58: (opts = {}) => {
+    };
+_patterns.Pattern57 = _patterns.Tidal_patterns_Pattern57;
+_patterns.Tidal_patterns_Pattern58 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15430,10 +14006,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern59
-    Pattern59: (opts = {}) => {
+    };
+_patterns.Pattern58 = _patterns.Tidal_patterns_Pattern58;
+_patterns.Tidal_patterns_Pattern59 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15445,10 +14020,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern60
-    Pattern60: (opts = {}) => {
+    };
+_patterns.Pattern59 = _patterns.Tidal_patterns_Pattern59;
+_patterns.Tidal_patterns_Pattern60 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15460,10 +14034,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern61
-    Pattern61: (opts = {}) => {
+    };
+_patterns.Pattern60 = _patterns.Tidal_patterns_Pattern60;
+_patterns.Tidal_patterns_Pattern61 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15475,10 +14048,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ ~ bd] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern62
-    Pattern62: (opts = {}) => {
+    };
+_patterns.Pattern61 = _patterns.Tidal_patterns_Pattern61;
+_patterns.Tidal_patterns_Pattern62 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15490,10 +14062,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Pattern63
-    Pattern63: (opts = {}) => {
+    };
+_patterns.Pattern62 = _patterns.Tidal_patterns_Pattern62;
+_patterns.Tidal_patterns_Pattern63 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15505,10 +14076,9 @@ const drumLibrary = {
       s("~ [~ ~ sd ~] [~ ~ sd ~] ~ [~ ~ sd ~] [~ ~ sd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] [bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd bd] ~ ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // PlanetRock
-    PlanetRock: (opts = {}) => {
+    };
+_patterns.Pattern63 = _patterns.Tidal_patterns_Pattern63;
+_patterns.Tidal_patterns_PlanetRock = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15523,10 +14093,9 @@ const drumLibrary = {
       s("[rim ~]*2 [rim ~ rim rim] [~ rim]*2 [rim ~]*2").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Poly1a
-    Poly1a: (opts = {}) => {
+    };
+_patterns.PlanetRock = _patterns.Tidal_patterns_PlanetRock;
+_patterns.Tidal_patterns_Poly1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15537,10 +14106,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ ~ sd] [sd sd ~ sd] [sd sd ~ sd] [sd ~ ~ ~] ~ ~ ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Poly1b
-    Poly1b: (opts = {}) => {
+    };
+_patterns.Poly1a = _patterns.Tidal_patterns_Poly1a;
+_patterns.Tidal_patterns_Poly1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15551,10 +14119,9 @@ const drumLibrary = {
       s("~ [sd ~]*2 [~ ~ sd ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Poptech2010
-    Poptech2010: (opts = {}) => {
+    };
+_patterns.Poly1b = _patterns.Tidal_patterns_Poly1b;
+_patterns.Tidal_patterns_Poptech2010 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15567,10 +14134,9 @@ const drumLibrary = {
       s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ ~ [~ bd ~ ~] ~ ~ [~ bd bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggae4a
-    Reggae4a: (opts = {}) => {
+    };
+_patterns.Poptech2010 = _patterns.Tidal_patterns_Poptech2010;
+_patterns.Tidal_patterns_Reggae4a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15585,10 +14151,9 @@ const drumLibrary = {
       s("[rim ~ ~ ~] [~ ~ rim ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[~ ~ ~ bd] ~ [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Reggaeton
-    Reggaeton: (opts = {}) => {
+    };
+_patterns.Reggae4a = _patterns.Tidal_patterns_Reggae4a;
+_patterns.Tidal_patterns_Reggaeton = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15600,10 +14165,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RespectYourself
-    RespectYourself: (opts = {}) => {
+    };
+_patterns.Reggaeton = _patterns.Tidal_patterns_Reggaeton;
+_patterns.Tidal_patterns_RespectYourself = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15615,10 +14179,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] [sd ~ ~ ~] ~ [sd ~ ~ ~] [sd ~]*2 [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockSteady
-    RockSteady: (opts = {}) => {
+    };
+_patterns.RespectYourself = _patterns.Tidal_patterns_RespectYourself;
+_patterns.Tidal_patterns_RockSteady = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15631,10 +14194,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd] [~ sd ~ ~] [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RockThePlanet
-    RockThePlanet: (opts = {}) => {
+    };
+_patterns.RockSteady = _patterns.Tidal_patterns_RockSteady;
+_patterns.Tidal_patterns_RockThePlanet = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15646,10 +14208,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // RollinBreak
-    RollinBreak: (opts = {}) => {
+    };
+_patterns.RockThePlanet = _patterns.Tidal_patterns_RockThePlanet;
+_patterns.Tidal_patterns_RollinBreak = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15661,10 +14222,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling11
-    Rolling11: (opts = {}) => {
+    };
+_patterns.RollinBreak = _patterns.Tidal_patterns_RollinBreak;
+_patterns.Tidal_patterns_Rolling11 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15675,10 +14235,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ bd bd ~] [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling3a
-    Rolling3a: (opts = {}) => {
+    };
+_patterns.Rolling11 = _patterns.Tidal_patterns_Rolling11;
+_patterns.Tidal_patterns_Rolling3a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15689,10 +14248,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling3b
-    Rolling3b: (opts = {}) => {
+    };
+_patterns.Rolling3a = _patterns.Tidal_patterns_Rolling3a;
+_patterns.Tidal_patterns_Rolling3b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15703,10 +14261,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling4a
-    Rolling4a: (opts = {}) => {
+    };
+_patterns.Rolling3b = _patterns.Tidal_patterns_Rolling3b;
+_patterns.Tidal_patterns_Rolling4a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15717,10 +14274,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling4b
-    Rolling4b: (opts = {}) => {
+    };
+_patterns.Rolling4a = _patterns.Tidal_patterns_Rolling4a;
+_patterns.Tidal_patterns_Rolling4b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15731,10 +14287,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [~ bd bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling5b
-    Rolling5b: (opts = {}) => {
+    };
+_patterns.Rolling4b = _patterns.Tidal_patterns_Rolling4b;
+_patterns.Tidal_patterns_Rolling5b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15745,10 +14300,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling6a
-    Rolling6a: (opts = {}) => {
+    };
+_patterns.Rolling5b = _patterns.Tidal_patterns_Rolling5b;
+_patterns.Tidal_patterns_Rolling6a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15759,10 +14313,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling7a
-    Rolling7a: (opts = {}) => {
+    };
+_patterns.Rolling6a = _patterns.Tidal_patterns_Rolling6a;
+_patterns.Tidal_patterns_Rolling7a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15773,10 +14326,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Rolling7b
-    Rolling7b: (opts = {}) => {
+    };
+_patterns.Rolling7a = _patterns.Tidal_patterns_Rolling7a;
+_patterns.Tidal_patterns_Rolling7b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15787,10 +14339,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ ~ bd] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Sally
-    Sally: (opts = {}) => {
+    };
+_patterns.Rolling7b = _patterns.Tidal_patterns_Rolling7b;
+_patterns.Tidal_patterns_Sally = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15803,10 +14354,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba1a
-    Samba1a: (opts = {}) => {
+    };
+_patterns.Sally = _patterns.Tidal_patterns_Sally;
+_patterns.Tidal_patterns_Samba1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15821,10 +14371,9 @@ const drumLibrary = {
       s("~ ~ [~ ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Samba1b
-    Samba1b: (opts = {}) => {
+    };
+_patterns.Samba1a = _patterns.Tidal_patterns_Samba1a;
+_patterns.Tidal_patterns_Samba1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15837,10 +14386,9 @@ const drumLibrary = {
       s("[~ hh]*2 [~ ~ hh ~] [hh ~ ~ ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
       s("[bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd] [bd ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SlowDeepHouse
-    SlowDeepHouse: (opts = {}) => {
+    };
+_patterns.Samba1b = _patterns.Tidal_patterns_Samba1b;
+_patterns.Tidal_patterns_SlowDeepHouse = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15854,10 +14402,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Steppers
-    Steppers: (opts = {}) => {
+    };
+_patterns.SlowDeepHouse = _patterns.Tidal_patterns_SlowDeepHouse;
+_patterns.Tidal_patterns_Steppers = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15869,10 +14416,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Strbtsdcgogo100
-    Strbtsdcgogo100: (opts = {}) => {
+    };
+_patterns.Steppers = _patterns.Tidal_patterns_Steppers;
+_patterns.Tidal_patterns_Strbtsdcgogo100 = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15885,10 +14431,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Supersonic2a
-    Supersonic2a: (opts = {}) => {
+    };
+_patterns.Strbtsdcgogo100 = _patterns.Tidal_patterns_Strbtsdcgogo100;
+_patterns.Tidal_patterns_Supersonic2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15902,10 +14447,9 @@ const drumLibrary = {
       s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Supersonic2b
-    Supersonic2b: (opts = {}) => {
+    };
+_patterns.Supersonic2a = _patterns.Tidal_patterns_Supersonic2a;
+_patterns.Tidal_patterns_Supersonic2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15919,10 +14463,9 @@ const drumLibrary = {
       s("rim*16").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Superstition
-    Superstition: (opts = {}) => {
+    };
+_patterns.Supersonic2b = _patterns.Tidal_patterns_Supersonic2b;
+_patterns.Tidal_patterns_Superstition = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15934,10 +14477,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Swing3a
-    Swing3a: (opts = {}) => {
+    };
+_patterns.Superstition = _patterns.Tidal_patterns_Superstition;
+_patterns.Tidal_patterns_Swing3a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15951,10 +14493,9 @@ const drumLibrary = {
       s("[~ sd sd ~] [~ ~ ~ sd] [sd ~ ~ ~] ~").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SynthWave
-    SynthWave: (opts = {}) => {
+    };
+_patterns.Swing3a = _patterns.Tidal_patterns_Swing3a;
+_patterns.Tidal_patterns_SynthWave = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15966,10 +14507,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // SynthethicSubstitution
-    SynthethicSubstitution: (opts = {}) => {
+    };
+_patterns.SynthWave = _patterns.Tidal_patterns_SynthWave;
+_patterns.Tidal_patterns_SynthethicSubstitution = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15982,10 +14522,9 @@ const drumLibrary = {
       s("~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~] ~ [~ sd ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd] [bd ~]*2 [~ ~ ~ bd] [~ bd bd bd] [~ ~ ~ bd]").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TakeMeToMardiGras
-    TakeMeToMardiGras: (opts = {}) => {
+    };
+_patterns.SynthethicSubstitution = _patterns.Tidal_patterns_SynthethicSubstitution;
+_patterns.Tidal_patterns_TakeMeToMardiGras = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -15999,10 +14538,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] [~ bd ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TakeMeToMardiGrasAlt
-    TakeMeToMardiGrasAlt: (opts = {}) => {
+    };
+_patterns.TakeMeToMardiGras = _patterns.Tidal_patterns_TakeMeToMardiGras;
+_patterns.Tidal_patterns_TakeMeToMardiGrasAlt = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16017,10 +14555,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Techno
-    Techno: (opts = {}) => {
+    };
+_patterns.TakeMeToMardiGrasAlt = _patterns.Tidal_patterns_TakeMeToMardiGrasAlt;
+_patterns.Tidal_patterns_Techno = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16033,10 +14570,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TheFez
-    TheFez: (opts = {}) => {
+    };
+_patterns.Techno = _patterns.Tidal_patterns_Techno;
+_patterns.Tidal_patterns_TheFez = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16048,10 +14584,9 @@ const drumLibrary = {
       s("[~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd] [~ sd]*2 [sd sd ~ sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TheSameBlood
-    TheSameBlood: (opts = {}) => {
+    };
+_patterns.TheFez = _patterns.Tidal_patterns_TheFez;
+_patterns.Tidal_patterns_TheSameBlood = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16063,10 +14598,9 @@ const drumLibrary = {
       s("[~ ~ ~ sd] [~ sd sd ~] ~ [sd sd sd ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TheTrillsGone
-    TheTrillsGone: (opts = {}) => {
+    };
+_patterns.TheSameBlood = _patterns.Tidal_patterns_TheSameBlood;
+_patterns.Tidal_patterns_TheTrillsGone = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16078,10 +14612,9 @@ const drumLibrary = {
       s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("~ [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TransEuroExpress
-    TransEuroExpress: (opts = {}) => {
+    };
+_patterns.TheTrillsGone = _patterns.Tidal_patterns_TheTrillsGone;
+_patterns.Tidal_patterns_TransEuroExpress = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16093,10 +14626,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Trap1a
-    Trap1a: (opts = {}) => {
+    };
+_patterns.TransEuroExpress = _patterns.Tidal_patterns_TransEuroExpress;
+_patterns.Tidal_patterns_Trap1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16108,10 +14640,9 @@ const drumLibrary = {
       s("~ ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // Trap1b
-    Trap1b: (opts = {}) => {
+    };
+_patterns.Trap1a = _patterns.Tidal_patterns_Trap1a;
+_patterns.Tidal_patterns_Trap1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16123,10 +14654,9 @@ const drumLibrary = {
       s("~ ~ [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // TwoDrop
-    TwoDrop: (opts = {}) => {
+    };
+_patterns.Trap1b = _patterns.Tidal_patterns_Trap1b;
+_patterns.Tidal_patterns_TwoDrop = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16138,10 +14668,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UkGarage1a
-    UkGarage1a: (opts = {}) => {
+    };
+_patterns.TwoDrop = _patterns.Tidal_patterns_TwoDrop;
+_patterns.Tidal_patterns_UkGarage1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16155,10 +14684,9 @@ const drumLibrary = {
       s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UkGarage1b
-    UkGarage1b: (opts = {}) => {
+    };
+_patterns.UkGarage1a = _patterns.Tidal_patterns_UkGarage1a;
+_patterns.Tidal_patterns_UkGarage1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16172,10 +14700,9 @@ const drumLibrary = {
       s("[~ rim ~ ~] [~ ~ ~ rim] ~ [~ rim ~ ~]").bank(bank).n((typeof n === "object" ? (n.rim ?? 0) : n)),
       s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare1a
-    UnconventionalSnare1a: (opts = {}) => {
+    };
+_patterns.UkGarage1b = _patterns.Tidal_patterns_UkGarage1b;
+_patterns.Tidal_patterns_UnconventionalSnare1a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16186,10 +14713,9 @@ const drumLibrary = {
       s("~ ~ [sd ~ ~ ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare1b
-    UnconventionalSnare1b: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare1a = _patterns.Tidal_patterns_UnconventionalSnare1a;
+_patterns.Tidal_patterns_UnconventionalSnare1b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16200,10 +14726,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare2a
-    UnconventionalSnare2a: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare1b = _patterns.Tidal_patterns_UnconventionalSnare1b;
+_patterns.Tidal_patterns_UnconventionalSnare2a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16214,10 +14739,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [sd ~ ~ sd] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] ~ ~ [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare2b
-    UnconventionalSnare2b: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare2a = _patterns.Tidal_patterns_UnconventionalSnare2a;
+_patterns.Tidal_patterns_UnconventionalSnare2b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16228,10 +14752,9 @@ const drumLibrary = {
       s("~ [~ ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare3a
-    UnconventionalSnare3a: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare2b = _patterns.Tidal_patterns_UnconventionalSnare2b;
+_patterns.Tidal_patterns_UnconventionalSnare3a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16242,10 +14765,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ bd ~] ~ [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare4a
-    UnconventionalSnare4a: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare3a = _patterns.Tidal_patterns_UnconventionalSnare3a;
+_patterns.Tidal_patterns_UnconventionalSnare4a = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16256,10 +14778,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ ~] [~ ~ sd ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ ~ bd ~] [~ bd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnconventionalSnare4b
-    UnconventionalSnare4b: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare4a = _patterns.Tidal_patterns_UnconventionalSnare4a;
+_patterns.Tidal_patterns_UnconventionalSnare4b = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16270,10 +14791,9 @@ const drumLibrary = {
       s("[sd ~ ~ ~] [sd ~ ~ ~] [~ sd ~ ~] [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[~ ~ bd ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UnknownDrummer
-    UnknownDrummer: (opts = {}) => {
+    };
+_patterns.UnconventionalSnare4b = _patterns.Tidal_patterns_UnconventionalSnare4b;
+_patterns.Tidal_patterns_UnknownDrummer = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16286,10 +14806,9 @@ const drumLibrary = {
       s("[~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ bd] [~ ~ bd ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UseMe
-    UseMe: (opts = {}) => {
+    };
+_patterns.UnknownDrummer = _patterns.Tidal_patterns_UnknownDrummer;
+_patterns.Tidal_patterns_UseMe = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16302,10 +14821,9 @@ const drumLibrary = {
       s("~ [sd ~ ~ sd] [~ sd ~ ~] [sd ~ ~ sd] ~ [sd ~ ~ sd] ~ [~ ~ ~ sd]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~]*2 [~ bd]*2 [bd ~ bd bd] [~ bd]*2 [bd ~]*2 [~ bd ~ ~] [bd bd ~ bd] [~ bd]*2").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // UseMeAlt
-    UseMeAlt: (opts = {}) => {
+    };
+_patterns.UseMe = _patterns.Tidal_patterns_UseMe;
+_patterns.Tidal_patterns_UseMeAlt = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16318,10 +14836,9 @@ const drumLibrary = {
       s("[~ ~ sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd] [~ sd sd ~] [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [bd ~ ~ ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WalkThisWay
-    WalkThisWay: (opts = {}) => {
+    };
+_patterns.UseMeAlt = _patterns.Tidal_patterns_UseMeAlt;
+_patterns.Tidal_patterns_WalkThisWay = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16334,10 +14851,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WeWillRockYou
-    WeWillRockYou: (opts = {}) => {
+    };
+_patterns.WalkThisWay = _patterns.Tidal_patterns_WalkThisWay;
+_patterns.Tidal_patterns_WeWillRockYou = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16348,10 +14864,9 @@ const drumLibrary = {
       s("~ cp ~ cp").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
       s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // WhenTheLeveeBreaks
-    WhenTheLeveeBreaks: (opts = {}) => {
+    };
+_patterns.WeWillRockYou = _patterns.Tidal_patterns_WeWillRockYou;
+_patterns.Tidal_patterns_WhenTheLeveeBreaks = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16363,10 +14878,9 @@ const drumLibrary = {
       s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
       s("[bd bd ~ ~] [~ ~ ~ bd] [~ ~ bd bd] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    },
-
-    // YaMama
-    YaMama: (opts = {}) => {
+    };
+_patterns.WhenTheLeveeBreaks = _patterns.Tidal_patterns_WhenTheLeveeBreaks;
+_patterns.Tidal_patterns_YaMama = (opts = {}) => {
       const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
       const bank = o.bank || o.kit || kit;
       const n = o.n ?? 0;
@@ -16377,10 +14891,2512 @@ const drumLibrary = {
       s("~ cr ~ cr").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
       s("[bd ~ ~ ~] [~ ~ ~ bd] [bd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
       );
-    }
-    }
-  )
-};
+    };
+_patterns.YaMama = _patterns.Tidal_patterns_YaMama;
+_patterns.Dancehall_Modern_Dancehall = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[~ ~ ~ sd] [~ ~ sd ~] ~ [sd ~ ~ ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Modern_Dancehall = _patterns.Dancehall_Modern_Dancehall;
+_patterns.Dancehall_Reggaeton = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Reggaeton = _patterns.Dancehall_Reggaeton;
+_patterns.Dancehall_Standard_dancehall = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*16").gain("0.9 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ [~ ~ sd ~] ~ [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~ ~ bd] [~ ~ bd ~] [bd ~ ~ bd] [~ ~ bd ~]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Standard_dancehall = _patterns.Dancehall_Standard_dancehall;
+_patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ [~ ~ ~ sd] ~ ~ ~ [~ ~ ~ sd] [~ sd ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("~ sd ~ sd ~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("~ ~ ~ [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("hh*8 [hh ~]*2 [hh ~]*2 [hh ~ ~ ~] [hh ~ ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[bd ~ ~ ~] ~ [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.new_Basic_Dnb_Drum_Pattern = _patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern;
+_patterns.Dub_Dub = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("bd ~ bd ~").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
+      s("[x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ [x ~ ~ ~] ~ ~ ~ x ~ x ~").note(key).octave(oct).sound(synth),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("~ [hh ~]*2 ~ [hh ~ ~ ~] ~ [hh hh hh ~] ~ [hh ~ ~ ~] ~ [hh ~]*2 ~ [hh hh ~ ~] ~ [hh ~]*2 ~ [hh ~ hh hh]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[x ~ ~ ~] ~ ~ ~ ~ ~ ~ [~ ~ x ~] ~ ~").note(key).octave(oct).sound(synth)
+      );
+    };
+_patterns.Dub = _patterns.Dub_Dub;
+_patterns.EBM_EBM = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("[~ ~ cp ~] [cp ~]*2 [~ ~ cp ~] [~ ~ cp cp] [~ ~ cp cp] [cp cp ~ ~] [~ cp]*2 [~ ~ cp ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
+      s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
+      s("[hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~] [hh hh ~ ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ sd ~ sd ~ [sd ~ ~ ~] ~ [sd ~ sd sd]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.EBM = _patterns.EBM_EBM;
+_patterns.Hardcore_Techno_Gabber = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ ~ ~ ~ [~ ~ ~ cr]").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
+      s("oh*8 oh*8").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
+      s("cp*4 cp*4").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
+      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Gabber = _patterns.Hardcore_Techno_Gabber;
+_patterns.Hip_Hop_Jul_type_beat = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ ~ ~ [~ ~ hh ~] ~").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ ~ [~ ~ hh ~] ~ [~ ~ ~ hh] ~ ~ [hh ~]*2").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~] [~ ~ ~ sd] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Jul_type_beat = _patterns.Hip_Hop_Jul_type_beat;
+_patterns.Hip_Hop_Trap = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("[hh ~]*2 [hh ~]*2 [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh hh hh ~] [hh ~]*2 [hh ~]*2").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ ~ [sd ~ ~ ~] ~ ~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~ ~ ~] [~ ~ bd ~] ~ [bd ~ ~ ~] ~ [bd ~ ~ ~] [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Trap = _patterns.Hip_Hop_Trap;
+_patterns.Hypnotic_Techno_Son_Clave = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("[x ~ ~ x] [~ ~ x ~] [~ ~ x ~] [x ~ ~ ~]").note(key).octave(oct).sound(synth),
+      s("x*8").gain("1.0 0.8").note(key).octave(oct).sound(synth),
+      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Son_Clave = _patterns.Hypnotic_Techno_Son_Clave;
+_patterns.Hypnotic_Techno_Tresillo = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("[x ~ ~ x] [~ ~ x ~] ~ ~").note(key).octave(oct).sound(synth),
+      s("[x ~]*2 [x ~]*2 ~ ~").note(key).octave(oct).sound(synth),
+      s("[bd ~ ~ ~] [bd ~ ~ ~] ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Tresillo = _patterns.Hypnotic_Techno_Tresillo;
+_patterns.Club_Jersey_club = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("sd*4").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~] [~ ~ sd ~]").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~ ~ ~] [bd ~ ~ ~] [bd ~ ~ bd] [~ ~ bd bd]").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Jersey_club = _patterns.Club_Jersey_club;
+_patterns.Metal_Half_time_groove = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ ~ [sd ~ ~ ~] ~").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("cr*4").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
+      s("[bd ~ ~ ~] ~ ~ ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Half_time_groove = _patterns.Metal_Half_time_groove;
+_patterns.Metal_Blast_beat = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("[~ sd]*2 [~ sd]*2 [~ sd]*2 [~ sd]*2").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("bd*8").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Blast_beat = _patterns.Metal_Blast_beat;
+_patterns.Metal_Metal = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("bd*16").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Metal = _patterns.Metal_Metal;
+_patterns.Psytrance_Psytrance = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~] [~ ~ oh ~]").bank(bank).n((typeof n === "object" ? (n.oh ?? 0) : n)),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n)),
+      s("[~ x x x] [~ x x x] [~ x x x] [~ x x x]").gain("1.0 0.8").note(key).octave(oct).sound(synth)
+      );
+    };
+_patterns.Psytrance = _patterns.Psytrance_Psytrance;
+_patterns.Punk_Eight_note_fill = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~]*2 [~ ~ bd ~] [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Eight_note_fill = _patterns.Punk_Eight_note_fill;
+_patterns.Punk_Quarter_note_groove_variation = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("[bd ~]*2 ~ [bd ~]*2 ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Quarter_note_groove_variation = _patterns.Punk_Quarter_note_groove_variation;
+_patterns.Punk_Quarter_note_groove = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Quarter_note_groove = _patterns.Punk_Quarter_note_groove;
+_patterns.Rock_Rock = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("hh*4").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("[bd ~]*2 ~ [~ ~ bd ~] ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Rock = _patterns.Rock_Rock;
+_patterns.Rock_Rock_variation = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("cr*4").bank(bank).n((typeof n === "object" ? (n.cr ?? 0) : n)),
+      s("bd ~ bd ~").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.Rock_variation = _patterns.Rock_Rock_variation;
+_patterns.Techno_OffBeat_clap = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~] ~ [cp ~ ~ ~] [~ ~ ~ cp] [cp ~ ~ ~]").gain("1.0 0.5 0.7 0.5").bank(bank).n((typeof n === "object" ? (n.cp ?? 0) : n)),
+      s("[~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~] [~ ~ hh ~]").gain("0.85").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("bd*4 bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.OffBeat_clap = _patterns.Techno_OffBeat_clap;
+_patterns.Techno_p_4_on_the_floor = (opts = {}) => {
+      const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
+      const bank = o.bank || o.kit || kit;
+      const n = o.n ?? 0;
+      const key = o.key || o.bassKey || bass_key;
+      const oct = o.octave || o.bassOctave || bass_octave;
+      const synth = o.synth || o.bassSynth || bass_synth;
+      return stack(
+      s("~ sd ~ sd").bank(bank).n((typeof n === "object" ? (n.sd ?? 0) : n)),
+      s("hh*8").gain("0.9 0.6").bank(bank).n((typeof n === "object" ? (n.hh ?? 0) : n)),
+      s("bd*4").gain("1.0 0.8").bank(bank).n((typeof n === "object" ? (n.bd ?? 0) : n))
+      );
+    };
+_patterns.p_4_on_the_floor = _patterns.Techno_p_4_on_the_floor;
+
+const drumLibrary = {};
+drumLibrary.new_Drum_and_Bass = Object.assign(
+  (opts = {}) => _patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern(opts),
+  {
+    new_Basic_Dnb_Drum_Pattern: _patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern
+  }
+);
+if (!drumLibrary.new_Basic_Dnb_Drum_Pattern) drumLibrary.new_Basic_Dnb_Drum_Pattern = _patterns.new_Drum_and_Bass_new_Basic_Dnb_Drum_Pattern;
+drumLibrary.Club = Object.assign(
+  (opts = {}) => _patterns.Club_Jersey_club(opts),
+  {
+    Jersey_club: _patterns.Club_Jersey_club
+  }
+);
+if (!drumLibrary.Jersey_club) drumLibrary.Jersey_club = _patterns.Club_Jersey_club;
+drumLibrary.Dancehall = Object.assign(
+  (opts = {}) => _patterns.Dancehall_Modern_Dancehall(opts),
+  {
+    Modern_Dancehall: _patterns.Dancehall_Modern_Dancehall,
+    Reggaeton: _patterns.Dancehall_Reggaeton,
+    Standard_dancehall: _patterns.Dancehall_Standard_dancehall
+  }
+);
+if (!drumLibrary.Modern_Dancehall) drumLibrary.Modern_Dancehall = _patterns.Dancehall_Modern_Dancehall;
+if (!drumLibrary.Reggaeton) drumLibrary.Reggaeton = _patterns.Dancehall_Reggaeton;
+if (!drumLibrary.Standard_dancehall) drumLibrary.Standard_dancehall = _patterns.Dancehall_Standard_dancehall;
+drumLibrary.Drum_Machine_Patterns = Object.assign(
+  (opts = {}) => _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Break(opts),
+  {
+    Afro_Cuban_1_Break: _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Break,
+    Afro_Cuban_1_Measure_A: _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_A,
+    Afro_Cuban_1_Measure_B: _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_B,
+    Afro_Cuban_2_Break: _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Break,
+    Afro_Cuban_2_Measure_A: _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_A,
+    Afro_Cuban_2_Measure_B: _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_B,
+    Afro_Cuban_3_Break: _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Break,
+    Afro_Cuban_3_Measure_A: _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_A,
+    Afro_Cuban_3_Measure_B: _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_B,
+    Afro_Cuban_4_Break: _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Break,
+    Afro_Cuban_4_Measure_B: _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Measure_B,
+    Afro_Cuban_5_Break: _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Break,
+    Afro_Cuban_5_Measure_A: _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_A,
+    Afro_Cuban_5_Measure_B: _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_B,
+    Ballad_1_Break: _patterns.Drum_Machine_Patterns_Ballad_1_Break,
+    Ballad_1_Measure_A: _patterns.Drum_Machine_Patterns_Ballad_1_Measure_A,
+    Ballad_1_Measure_B: _patterns.Drum_Machine_Patterns_Ballad_1_Measure_B,
+    Ballad_2_Break: _patterns.Drum_Machine_Patterns_Ballad_2_Break,
+    Ballad_2_Measure_A: _patterns.Drum_Machine_Patterns_Ballad_2_Measure_A,
+    Ballad_2_Measure_B: _patterns.Drum_Machine_Patterns_Ballad_2_Measure_B,
+    Ballad_3_Break: _patterns.Drum_Machine_Patterns_Ballad_3_Break,
+    Ballad_3_Measure_A: _patterns.Drum_Machine_Patterns_Ballad_3_Measure_A,
+    Ballad_3_Measure_B: _patterns.Drum_Machine_Patterns_Ballad_3_Measure_B,
+    Ballad_4_Break: _patterns.Drum_Machine_Patterns_Ballad_4_Break,
+    Ballad_4_Measure_A: _patterns.Drum_Machine_Patterns_Ballad_4_Measure_A,
+    Ballad_4_Measure_B: _patterns.Drum_Machine_Patterns_Ballad_4_Measure_B,
+    Ballad_5_Break: _patterns.Drum_Machine_Patterns_Ballad_5_Break,
+    Ballad_5_Measure_A: _patterns.Drum_Machine_Patterns_Ballad_5_Measure_A,
+    Ballad_5_Measure_B: _patterns.Drum_Machine_Patterns_Ballad_5_Measure_B,
+    Blues_1_Break: _patterns.Drum_Machine_Patterns_Blues_1_Break,
+    Blues_1_Measure_A: _patterns.Drum_Machine_Patterns_Blues_1_Measure_A,
+    Blues_1_Measure_B: _patterns.Drum_Machine_Patterns_Blues_1_Measure_B,
+    Blues_2_Break: _patterns.Drum_Machine_Patterns_Blues_2_Break,
+    Blues_2_Measure_A: _patterns.Drum_Machine_Patterns_Blues_2_Measure_A,
+    Blues_2_Measure_B: _patterns.Drum_Machine_Patterns_Blues_2_Measure_B,
+    Bossa_Nova_1_Break: _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Break,
+    Bossa_Nova_1_Measure_A: _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_A,
+    Bossa_Nova_1_Measure_B: _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_B,
+    Bossa_Nova_2_Break: _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Break,
+    Bossa_Nova_2_Measure_A: _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_A,
+    Bossa_Nova_2_Measure_B: _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_B,
+    Cha_Cha_Break: _patterns.Drum_Machine_Patterns_Cha_Cha_Break,
+    Cha_Cha_Measure_A: _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_A,
+    Cha_Cha_Measure_B: _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_B,
+    Disco_1_Break: _patterns.Drum_Machine_Patterns_Disco_1_Break,
+    Disco_1_Measure_A: _patterns.Drum_Machine_Patterns_Disco_1_Measure_A,
+    Disco_1_Measure_B: _patterns.Drum_Machine_Patterns_Disco_1_Measure_B,
+    Disco_2_Break: _patterns.Drum_Machine_Patterns_Disco_2_Break,
+    Disco_2_Measure_A: _patterns.Drum_Machine_Patterns_Disco_2_Measure_A,
+    Disco_2_Measure_B: _patterns.Drum_Machine_Patterns_Disco_2_Measure_B,
+    Disco_3_Break: _patterns.Drum_Machine_Patterns_Disco_3_Break,
+    Disco_3_Measure_A: _patterns.Drum_Machine_Patterns_Disco_3_Measure_A,
+    Disco_3_Measure_B: _patterns.Drum_Machine_Patterns_Disco_3_Measure_B,
+    Disco_4_Break: _patterns.Drum_Machine_Patterns_Disco_4_Break,
+    Disco_4_Measure_A: _patterns.Drum_Machine_Patterns_Disco_4_Measure_A,
+    Disco_4_Measure_B: _patterns.Drum_Machine_Patterns_Disco_4_Measure_B,
+    Disco_5_Break: _patterns.Drum_Machine_Patterns_Disco_5_Break,
+    Disco_5_Measure_A: _patterns.Drum_Machine_Patterns_Disco_5_Measure_A,
+    Disco_5_Measure_B: _patterns.Drum_Machine_Patterns_Disco_5_Measure_B,
+    Endings_Measure_A: _patterns.Drum_Machine_Patterns_Endings_Measure_A,
+    Endings_Measure_B: _patterns.Drum_Machine_Patterns_Endings_Measure_B,
+    Funk_1_Break: _patterns.Drum_Machine_Patterns_Funk_1_Break,
+    Funk_1_Measure_A: _patterns.Drum_Machine_Patterns_Funk_1_Measure_A,
+    Funk_1_Measure_B: _patterns.Drum_Machine_Patterns_Funk_1_Measure_B,
+    Funk_10_Break: _patterns.Drum_Machine_Patterns_Funk_10_Break,
+    Funk_10_Measure_A: _patterns.Drum_Machine_Patterns_Funk_10_Measure_A,
+    Funk_10_Measure_B: _patterns.Drum_Machine_Patterns_Funk_10_Measure_B,
+    Funk_11_Break: _patterns.Drum_Machine_Patterns_Funk_11_Break,
+    Funk_11_Measure_A: _patterns.Drum_Machine_Patterns_Funk_11_Measure_A,
+    Funk_11_Measure_B: _patterns.Drum_Machine_Patterns_Funk_11_Measure_B,
+    Funk_12_Break: _patterns.Drum_Machine_Patterns_Funk_12_Break,
+    Funk_12_Measure_A: _patterns.Drum_Machine_Patterns_Funk_12_Measure_A,
+    Funk_12_Measure_B: _patterns.Drum_Machine_Patterns_Funk_12_Measure_B,
+    Funk_13_Break: _patterns.Drum_Machine_Patterns_Funk_13_Break,
+    Funk_13_Measure_A: _patterns.Drum_Machine_Patterns_Funk_13_Measure_A,
+    Funk_13_Measure_B: _patterns.Drum_Machine_Patterns_Funk_13_Measure_B,
+    Funk_14_Break: _patterns.Drum_Machine_Patterns_Funk_14_Break,
+    Funk_14_Measure_A: _patterns.Drum_Machine_Patterns_Funk_14_Measure_A,
+    Funk_14_Measure_B: _patterns.Drum_Machine_Patterns_Funk_14_Measure_B,
+    Funk_15_Break: _patterns.Drum_Machine_Patterns_Funk_15_Break,
+    Funk_15_Measure_A: _patterns.Drum_Machine_Patterns_Funk_15_Measure_A,
+    Funk_15_Measure_B: _patterns.Drum_Machine_Patterns_Funk_15_Measure_B,
+    Funk_2_Break: _patterns.Drum_Machine_Patterns_Funk_2_Break,
+    Funk_2_Measure_A: _patterns.Drum_Machine_Patterns_Funk_2_Measure_A,
+    Funk_2_Measure_B: _patterns.Drum_Machine_Patterns_Funk_2_Measure_B,
+    Funk_3_Break: _patterns.Drum_Machine_Patterns_Funk_3_Break,
+    Funk_3_Measure_A: _patterns.Drum_Machine_Patterns_Funk_3_Measure_A,
+    Funk_3_Measure_B: _patterns.Drum_Machine_Patterns_Funk_3_Measure_B,
+    Funk_4_Break: _patterns.Drum_Machine_Patterns_Funk_4_Break,
+    Funk_4_Measure_A: _patterns.Drum_Machine_Patterns_Funk_4_Measure_A,
+    Funk_4_Measure_B: _patterns.Drum_Machine_Patterns_Funk_4_Measure_B,
+    Funk_5_Break: _patterns.Drum_Machine_Patterns_Funk_5_Break,
+    Funk_5_Measure_A: _patterns.Drum_Machine_Patterns_Funk_5_Measure_A,
+    Funk_5_Measure_B: _patterns.Drum_Machine_Patterns_Funk_5_Measure_B,
+    Funk_6_Break: _patterns.Drum_Machine_Patterns_Funk_6_Break,
+    Funk_6_Measure_A: _patterns.Drum_Machine_Patterns_Funk_6_Measure_A,
+    Funk_6_Measure_B: _patterns.Drum_Machine_Patterns_Funk_6_Measure_B,
+    Funk_7_Break: _patterns.Drum_Machine_Patterns_Funk_7_Break,
+    Funk_7_Measure_A: _patterns.Drum_Machine_Patterns_Funk_7_Measure_A,
+    Funk_7_Measure_B: _patterns.Drum_Machine_Patterns_Funk_7_Measure_B,
+    Funk_8_Break: _patterns.Drum_Machine_Patterns_Funk_8_Break,
+    Funk_8_Measure_A: _patterns.Drum_Machine_Patterns_Funk_8_Measure_A,
+    Funk_8_Measure_B: _patterns.Drum_Machine_Patterns_Funk_8_Measure_B,
+    Funk_9_Break: _patterns.Drum_Machine_Patterns_Funk_9_Break,
+    Funk_9_Measure_A: _patterns.Drum_Machine_Patterns_Funk_9_Measure_A,
+    Funk_9_Measure_B: _patterns.Drum_Machine_Patterns_Funk_9_Measure_B,
+    Pop_1_Break: _patterns.Drum_Machine_Patterns_Pop_1_Break,
+    Pop_1_Measure_A: _patterns.Drum_Machine_Patterns_Pop_1_Measure_A,
+    Pop_1_Measure_B: _patterns.Drum_Machine_Patterns_Pop_1_Measure_B,
+    Pop_2_Break: _patterns.Drum_Machine_Patterns_Pop_2_Break,
+    Pop_2_Measure_A: _patterns.Drum_Machine_Patterns_Pop_2_Measure_A,
+    Pop_2_Measure_B: _patterns.Drum_Machine_Patterns_Pop_2_Measure_B,
+    Pop_3_Break: _patterns.Drum_Machine_Patterns_Pop_3_Break,
+    Pop_3_Measure_A: _patterns.Drum_Machine_Patterns_Pop_3_Measure_A,
+    Pop_3_Measure_B: _patterns.Drum_Machine_Patterns_Pop_3_Measure_B,
+    Pop_4_Break: _patterns.Drum_Machine_Patterns_Pop_4_Break,
+    Pop_4_Measure_A: _patterns.Drum_Machine_Patterns_Pop_4_Measure_A,
+    Pop_4_Measure_B: _patterns.Drum_Machine_Patterns_Pop_4_Measure_B,
+    Pop_5_Break: _patterns.Drum_Machine_Patterns_Pop_5_Break,
+    Pop_5_Measure_A: _patterns.Drum_Machine_Patterns_Pop_5_Measure_A,
+    Pop_5_Measure_B: _patterns.Drum_Machine_Patterns_Pop_5_Measure_B,
+    Reggae_1_Break: _patterns.Drum_Machine_Patterns_Reggae_1_Break,
+    Reggae_1_Measure_A: _patterns.Drum_Machine_Patterns_Reggae_1_Measure_A,
+    Reggae_1_Measure_B: _patterns.Drum_Machine_Patterns_Reggae_1_Measure_B,
+    Reggae_2_Break: _patterns.Drum_Machine_Patterns_Reggae_2_Break,
+    Reggae_2_Measure_A: _patterns.Drum_Machine_Patterns_Reggae_2_Measure_A,
+    Reggae_2_Measure_B: _patterns.Drum_Machine_Patterns_Reggae_2_Measure_B,
+    Reggae_3_Break: _patterns.Drum_Machine_Patterns_Reggae_3_Break,
+    Reggae_3_Measure_A: _patterns.Drum_Machine_Patterns_Reggae_3_Measure_A,
+    Reggae_3_Measure_B: _patterns.Drum_Machine_Patterns_Reggae_3_Measure_B,
+    Reggae_4_Break: _patterns.Drum_Machine_Patterns_Reggae_4_Break,
+    Reggae_4_Measure_A: _patterns.Drum_Machine_Patterns_Reggae_4_Measure_A,
+    Reggae_4_Measure_B: _patterns.Drum_Machine_Patterns_Reggae_4_Measure_B,
+    Reggae_5_Break: _patterns.Drum_Machine_Patterns_Reggae_5_Break,
+    Reggae_5_Measure_A: _patterns.Drum_Machine_Patterns_Reggae_5_Measure_A,
+    Reggae_5_Measure_B: _patterns.Drum_Machine_Patterns_Reggae_5_Measure_B,
+    Rhythm_Blues_1_Break: _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Break,
+    Rhythm_Blues_1_Measure_A: _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_A,
+    Rhythm_Blues_1_Measure_B: _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_B,
+    Rhythm_Blues_2_Break: _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Break,
+    Rhythm_Blues_2_Measure_A: _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_A,
+    Rhythm_Blues_2_Measure_B: _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_B,
+    Rhythm_Blues_3_Break: _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Break,
+    Rhythm_Blues_3_Measure_A: _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_A,
+    Rhythm_Blues_3_Measure_B: _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_B,
+    Rhythm_Blues_4_Break: _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Break,
+    Rhythm_Blues_4_Measure_A: _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_A,
+    Rhythm_Blues_4_Measure_B: _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_B,
+    Rhythm_Blues_5_Break: _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Break,
+    Rhythm_Blues_5_Measure_A: _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_A,
+    Rhythm_Blues_5_Measure_B: _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_B,
+    Rock_1_Break: _patterns.Drum_Machine_Patterns_Rock_1_Break,
+    Rock_1_Measure_A: _patterns.Drum_Machine_Patterns_Rock_1_Measure_A,
+    Rock_1_Measure_B: _patterns.Drum_Machine_Patterns_Rock_1_Measure_B,
+    Rock_2_Break: _patterns.Drum_Machine_Patterns_Rock_2_Break,
+    Rock_2_Measure_A: _patterns.Drum_Machine_Patterns_Rock_2_Measure_A,
+    Rock_2_Measure_B: _patterns.Drum_Machine_Patterns_Rock_2_Measure_B,
+    Rock_3_Break: _patterns.Drum_Machine_Patterns_Rock_3_Break,
+    Rock_3_Measure_A: _patterns.Drum_Machine_Patterns_Rock_3_Measure_A,
+    Rock_3_Measure_B: _patterns.Drum_Machine_Patterns_Rock_3_Measure_B,
+    Rock_4_Break: _patterns.Drum_Machine_Patterns_Rock_4_Break,
+    Rock_4_Measure_A: _patterns.Drum_Machine_Patterns_Rock_4_Measure_A,
+    Rock_4_Measure_B: _patterns.Drum_Machine_Patterns_Rock_4_Measure_B,
+    Rock_5_Break: _patterns.Drum_Machine_Patterns_Rock_5_Break,
+    Rock_5_Measure_A: _patterns.Drum_Machine_Patterns_Rock_5_Measure_A,
+    Rock_5_Measure_B: _patterns.Drum_Machine_Patterns_Rock_5_Measure_B,
+    Samba_1_Break: _patterns.Drum_Machine_Patterns_Samba_1_Break,
+    Samba_1_Measure_A: _patterns.Drum_Machine_Patterns_Samba_1_Measure_A,
+    Samba_1_Measure_B: _patterns.Drum_Machine_Patterns_Samba_1_Measure_B,
+    Samba_2_Break: _patterns.Drum_Machine_Patterns_Samba_2_Break,
+    Samba_2_Measure_A: _patterns.Drum_Machine_Patterns_Samba_2_Measure_A,
+    Samba_2_Measure_B: _patterns.Drum_Machine_Patterns_Samba_2_Measure_B,
+    Samba_3_Break: _patterns.Drum_Machine_Patterns_Samba_3_Break,
+    Samba_3_Measure_A: _patterns.Drum_Machine_Patterns_Samba_3_Measure_A,
+    Samba_3_Measure_B: _patterns.Drum_Machine_Patterns_Samba_3_Measure_B,
+    Shuffle_1_Break: _patterns.Drum_Machine_Patterns_Shuffle_1_Break,
+    Shuffle_1_Measure_A: _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_A,
+    Shuffle_1_Measure_B: _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_B,
+    Shuffle_2_Break: _patterns.Drum_Machine_Patterns_Shuffle_2_Break,
+    Shuffle_2_Measure_A: _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_A,
+    Shuffle_2_Measure_B: _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_B,
+    Ska_Break: _patterns.Drum_Machine_Patterns_Ska_Break,
+    Ska_Measure_A: _patterns.Drum_Machine_Patterns_Ska_Measure_A,
+    Ska_Measure_B: _patterns.Drum_Machine_Patterns_Ska_Measure_B,
+    Swing_1_Break: _patterns.Drum_Machine_Patterns_Swing_1_Break,
+    Swing_1_Measure_A: _patterns.Drum_Machine_Patterns_Swing_1_Measure_A,
+    Swing_1_Measure_B: _patterns.Drum_Machine_Patterns_Swing_1_Measure_B,
+    Swing_2_Break: _patterns.Drum_Machine_Patterns_Swing_2_Break,
+    Swing_2_Measure_A: _patterns.Drum_Machine_Patterns_Swing_2_Measure_A,
+    Swing_2_Measure_B: _patterns.Drum_Machine_Patterns_Swing_2_Measure_B,
+    Swing_3_Break: _patterns.Drum_Machine_Patterns_Swing_3_Break,
+    Swing_3_Measure_A: _patterns.Drum_Machine_Patterns_Swing_3_Measure_A,
+    Swing_3_Measure_B: _patterns.Drum_Machine_Patterns_Swing_3_Measure_B,
+    Twist_1_Break: _patterns.Drum_Machine_Patterns_Twist_1_Break,
+    Twist_1_Measure_A: _patterns.Drum_Machine_Patterns_Twist_1_Measure_A,
+    Twist_1_Measure_B: _patterns.Drum_Machine_Patterns_Twist_1_Measure_B,
+    Twist_2_Break: _patterns.Drum_Machine_Patterns_Twist_2_Break,
+    Twist_2_Measure_A: _patterns.Drum_Machine_Patterns_Twist_2_Measure_A,
+    Twist_2_Measure_B: _patterns.Drum_Machine_Patterns_Twist_2_Measure_B
+  }
+);
+if (!drumLibrary.Afro_Cuban_1_Break) drumLibrary.Afro_Cuban_1_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Break;
+if (!drumLibrary.Afro_Cuban_1_Measure_A) drumLibrary.Afro_Cuban_1_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_A;
+if (!drumLibrary.Afro_Cuban_1_Measure_B) drumLibrary.Afro_Cuban_1_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_1_Measure_B;
+if (!drumLibrary.Afro_Cuban_2_Break) drumLibrary.Afro_Cuban_2_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Break;
+if (!drumLibrary.Afro_Cuban_2_Measure_A) drumLibrary.Afro_Cuban_2_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_A;
+if (!drumLibrary.Afro_Cuban_2_Measure_B) drumLibrary.Afro_Cuban_2_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_2_Measure_B;
+if (!drumLibrary.Afro_Cuban_3_Break) drumLibrary.Afro_Cuban_3_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Break;
+if (!drumLibrary.Afro_Cuban_3_Measure_A) drumLibrary.Afro_Cuban_3_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_A;
+if (!drumLibrary.Afro_Cuban_3_Measure_B) drumLibrary.Afro_Cuban_3_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_3_Measure_B;
+if (!drumLibrary.Afro_Cuban_4_Break) drumLibrary.Afro_Cuban_4_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Break;
+if (!drumLibrary.Afro_Cuban_4_Measure_B) drumLibrary.Afro_Cuban_4_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_4_Measure_B;
+if (!drumLibrary.Afro_Cuban_5_Break) drumLibrary.Afro_Cuban_5_Break = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Break;
+if (!drumLibrary.Afro_Cuban_5_Measure_A) drumLibrary.Afro_Cuban_5_Measure_A = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_A;
+if (!drumLibrary.Afro_Cuban_5_Measure_B) drumLibrary.Afro_Cuban_5_Measure_B = _patterns.Drum_Machine_Patterns_Afro_Cuban_5_Measure_B;
+if (!drumLibrary.Ballad_1_Break) drumLibrary.Ballad_1_Break = _patterns.Drum_Machine_Patterns_Ballad_1_Break;
+if (!drumLibrary.Ballad_1_Measure_A) drumLibrary.Ballad_1_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_1_Measure_A;
+if (!drumLibrary.Ballad_1_Measure_B) drumLibrary.Ballad_1_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_1_Measure_B;
+if (!drumLibrary.Ballad_2_Break) drumLibrary.Ballad_2_Break = _patterns.Drum_Machine_Patterns_Ballad_2_Break;
+if (!drumLibrary.Ballad_2_Measure_A) drumLibrary.Ballad_2_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_2_Measure_A;
+if (!drumLibrary.Ballad_2_Measure_B) drumLibrary.Ballad_2_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_2_Measure_B;
+if (!drumLibrary.Ballad_3_Break) drumLibrary.Ballad_3_Break = _patterns.Drum_Machine_Patterns_Ballad_3_Break;
+if (!drumLibrary.Ballad_3_Measure_A) drumLibrary.Ballad_3_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_3_Measure_A;
+if (!drumLibrary.Ballad_3_Measure_B) drumLibrary.Ballad_3_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_3_Measure_B;
+if (!drumLibrary.Ballad_4_Break) drumLibrary.Ballad_4_Break = _patterns.Drum_Machine_Patterns_Ballad_4_Break;
+if (!drumLibrary.Ballad_4_Measure_A) drumLibrary.Ballad_4_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_4_Measure_A;
+if (!drumLibrary.Ballad_4_Measure_B) drumLibrary.Ballad_4_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_4_Measure_B;
+if (!drumLibrary.Ballad_5_Break) drumLibrary.Ballad_5_Break = _patterns.Drum_Machine_Patterns_Ballad_5_Break;
+if (!drumLibrary.Ballad_5_Measure_A) drumLibrary.Ballad_5_Measure_A = _patterns.Drum_Machine_Patterns_Ballad_5_Measure_A;
+if (!drumLibrary.Ballad_5_Measure_B) drumLibrary.Ballad_5_Measure_B = _patterns.Drum_Machine_Patterns_Ballad_5_Measure_B;
+if (!drumLibrary.Blues_1_Break) drumLibrary.Blues_1_Break = _patterns.Drum_Machine_Patterns_Blues_1_Break;
+if (!drumLibrary.Blues_1_Measure_A) drumLibrary.Blues_1_Measure_A = _patterns.Drum_Machine_Patterns_Blues_1_Measure_A;
+if (!drumLibrary.Blues_1_Measure_B) drumLibrary.Blues_1_Measure_B = _patterns.Drum_Machine_Patterns_Blues_1_Measure_B;
+if (!drumLibrary.Blues_2_Break) drumLibrary.Blues_2_Break = _patterns.Drum_Machine_Patterns_Blues_2_Break;
+if (!drumLibrary.Blues_2_Measure_A) drumLibrary.Blues_2_Measure_A = _patterns.Drum_Machine_Patterns_Blues_2_Measure_A;
+if (!drumLibrary.Blues_2_Measure_B) drumLibrary.Blues_2_Measure_B = _patterns.Drum_Machine_Patterns_Blues_2_Measure_B;
+if (!drumLibrary.Bossa_Nova_1_Break) drumLibrary.Bossa_Nova_1_Break = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Break;
+if (!drumLibrary.Bossa_Nova_1_Measure_A) drumLibrary.Bossa_Nova_1_Measure_A = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_A;
+if (!drumLibrary.Bossa_Nova_1_Measure_B) drumLibrary.Bossa_Nova_1_Measure_B = _patterns.Drum_Machine_Patterns_Bossa_Nova_1_Measure_B;
+if (!drumLibrary.Bossa_Nova_2_Break) drumLibrary.Bossa_Nova_2_Break = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Break;
+if (!drumLibrary.Bossa_Nova_2_Measure_A) drumLibrary.Bossa_Nova_2_Measure_A = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_A;
+if (!drumLibrary.Bossa_Nova_2_Measure_B) drumLibrary.Bossa_Nova_2_Measure_B = _patterns.Drum_Machine_Patterns_Bossa_Nova_2_Measure_B;
+if (!drumLibrary.Cha_Cha_Break) drumLibrary.Cha_Cha_Break = _patterns.Drum_Machine_Patterns_Cha_Cha_Break;
+if (!drumLibrary.Cha_Cha_Measure_A) drumLibrary.Cha_Cha_Measure_A = _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_A;
+if (!drumLibrary.Cha_Cha_Measure_B) drumLibrary.Cha_Cha_Measure_B = _patterns.Drum_Machine_Patterns_Cha_Cha_Measure_B;
+if (!drumLibrary.Disco_1_Break) drumLibrary.Disco_1_Break = _patterns.Drum_Machine_Patterns_Disco_1_Break;
+if (!drumLibrary.Disco_1_Measure_A) drumLibrary.Disco_1_Measure_A = _patterns.Drum_Machine_Patterns_Disco_1_Measure_A;
+if (!drumLibrary.Disco_1_Measure_B) drumLibrary.Disco_1_Measure_B = _patterns.Drum_Machine_Patterns_Disco_1_Measure_B;
+if (!drumLibrary.Disco_2_Break) drumLibrary.Disco_2_Break = _patterns.Drum_Machine_Patterns_Disco_2_Break;
+if (!drumLibrary.Disco_2_Measure_A) drumLibrary.Disco_2_Measure_A = _patterns.Drum_Machine_Patterns_Disco_2_Measure_A;
+if (!drumLibrary.Disco_2_Measure_B) drumLibrary.Disco_2_Measure_B = _patterns.Drum_Machine_Patterns_Disco_2_Measure_B;
+if (!drumLibrary.Disco_3_Break) drumLibrary.Disco_3_Break = _patterns.Drum_Machine_Patterns_Disco_3_Break;
+if (!drumLibrary.Disco_3_Measure_A) drumLibrary.Disco_3_Measure_A = _patterns.Drum_Machine_Patterns_Disco_3_Measure_A;
+if (!drumLibrary.Disco_3_Measure_B) drumLibrary.Disco_3_Measure_B = _patterns.Drum_Machine_Patterns_Disco_3_Measure_B;
+if (!drumLibrary.Disco_4_Break) drumLibrary.Disco_4_Break = _patterns.Drum_Machine_Patterns_Disco_4_Break;
+if (!drumLibrary.Disco_4_Measure_A) drumLibrary.Disco_4_Measure_A = _patterns.Drum_Machine_Patterns_Disco_4_Measure_A;
+if (!drumLibrary.Disco_4_Measure_B) drumLibrary.Disco_4_Measure_B = _patterns.Drum_Machine_Patterns_Disco_4_Measure_B;
+if (!drumLibrary.Disco_5_Break) drumLibrary.Disco_5_Break = _patterns.Drum_Machine_Patterns_Disco_5_Break;
+if (!drumLibrary.Disco_5_Measure_A) drumLibrary.Disco_5_Measure_A = _patterns.Drum_Machine_Patterns_Disco_5_Measure_A;
+if (!drumLibrary.Disco_5_Measure_B) drumLibrary.Disco_5_Measure_B = _patterns.Drum_Machine_Patterns_Disco_5_Measure_B;
+if (!drumLibrary.Endings_Measure_A) drumLibrary.Endings_Measure_A = _patterns.Drum_Machine_Patterns_Endings_Measure_A;
+if (!drumLibrary.Endings_Measure_B) drumLibrary.Endings_Measure_B = _patterns.Drum_Machine_Patterns_Endings_Measure_B;
+if (!drumLibrary.Funk_1_Break) drumLibrary.Funk_1_Break = _patterns.Drum_Machine_Patterns_Funk_1_Break;
+if (!drumLibrary.Funk_1_Measure_A) drumLibrary.Funk_1_Measure_A = _patterns.Drum_Machine_Patterns_Funk_1_Measure_A;
+if (!drumLibrary.Funk_1_Measure_B) drumLibrary.Funk_1_Measure_B = _patterns.Drum_Machine_Patterns_Funk_1_Measure_B;
+if (!drumLibrary.Funk_10_Break) drumLibrary.Funk_10_Break = _patterns.Drum_Machine_Patterns_Funk_10_Break;
+if (!drumLibrary.Funk_10_Measure_A) drumLibrary.Funk_10_Measure_A = _patterns.Drum_Machine_Patterns_Funk_10_Measure_A;
+if (!drumLibrary.Funk_10_Measure_B) drumLibrary.Funk_10_Measure_B = _patterns.Drum_Machine_Patterns_Funk_10_Measure_B;
+if (!drumLibrary.Funk_11_Break) drumLibrary.Funk_11_Break = _patterns.Drum_Machine_Patterns_Funk_11_Break;
+if (!drumLibrary.Funk_11_Measure_A) drumLibrary.Funk_11_Measure_A = _patterns.Drum_Machine_Patterns_Funk_11_Measure_A;
+if (!drumLibrary.Funk_11_Measure_B) drumLibrary.Funk_11_Measure_B = _patterns.Drum_Machine_Patterns_Funk_11_Measure_B;
+if (!drumLibrary.Funk_12_Break) drumLibrary.Funk_12_Break = _patterns.Drum_Machine_Patterns_Funk_12_Break;
+if (!drumLibrary.Funk_12_Measure_A) drumLibrary.Funk_12_Measure_A = _patterns.Drum_Machine_Patterns_Funk_12_Measure_A;
+if (!drumLibrary.Funk_12_Measure_B) drumLibrary.Funk_12_Measure_B = _patterns.Drum_Machine_Patterns_Funk_12_Measure_B;
+if (!drumLibrary.Funk_13_Break) drumLibrary.Funk_13_Break = _patterns.Drum_Machine_Patterns_Funk_13_Break;
+if (!drumLibrary.Funk_13_Measure_A) drumLibrary.Funk_13_Measure_A = _patterns.Drum_Machine_Patterns_Funk_13_Measure_A;
+if (!drumLibrary.Funk_13_Measure_B) drumLibrary.Funk_13_Measure_B = _patterns.Drum_Machine_Patterns_Funk_13_Measure_B;
+if (!drumLibrary.Funk_14_Break) drumLibrary.Funk_14_Break = _patterns.Drum_Machine_Patterns_Funk_14_Break;
+if (!drumLibrary.Funk_14_Measure_A) drumLibrary.Funk_14_Measure_A = _patterns.Drum_Machine_Patterns_Funk_14_Measure_A;
+if (!drumLibrary.Funk_14_Measure_B) drumLibrary.Funk_14_Measure_B = _patterns.Drum_Machine_Patterns_Funk_14_Measure_B;
+if (!drumLibrary.Funk_15_Break) drumLibrary.Funk_15_Break = _patterns.Drum_Machine_Patterns_Funk_15_Break;
+if (!drumLibrary.Funk_15_Measure_A) drumLibrary.Funk_15_Measure_A = _patterns.Drum_Machine_Patterns_Funk_15_Measure_A;
+if (!drumLibrary.Funk_15_Measure_B) drumLibrary.Funk_15_Measure_B = _patterns.Drum_Machine_Patterns_Funk_15_Measure_B;
+if (!drumLibrary.Funk_2_Break) drumLibrary.Funk_2_Break = _patterns.Drum_Machine_Patterns_Funk_2_Break;
+if (!drumLibrary.Funk_2_Measure_A) drumLibrary.Funk_2_Measure_A = _patterns.Drum_Machine_Patterns_Funk_2_Measure_A;
+if (!drumLibrary.Funk_2_Measure_B) drumLibrary.Funk_2_Measure_B = _patterns.Drum_Machine_Patterns_Funk_2_Measure_B;
+if (!drumLibrary.Funk_3_Break) drumLibrary.Funk_3_Break = _patterns.Drum_Machine_Patterns_Funk_3_Break;
+if (!drumLibrary.Funk_3_Measure_A) drumLibrary.Funk_3_Measure_A = _patterns.Drum_Machine_Patterns_Funk_3_Measure_A;
+if (!drumLibrary.Funk_3_Measure_B) drumLibrary.Funk_3_Measure_B = _patterns.Drum_Machine_Patterns_Funk_3_Measure_B;
+if (!drumLibrary.Funk_4_Break) drumLibrary.Funk_4_Break = _patterns.Drum_Machine_Patterns_Funk_4_Break;
+if (!drumLibrary.Funk_4_Measure_A) drumLibrary.Funk_4_Measure_A = _patterns.Drum_Machine_Patterns_Funk_4_Measure_A;
+if (!drumLibrary.Funk_4_Measure_B) drumLibrary.Funk_4_Measure_B = _patterns.Drum_Machine_Patterns_Funk_4_Measure_B;
+if (!drumLibrary.Funk_5_Break) drumLibrary.Funk_5_Break = _patterns.Drum_Machine_Patterns_Funk_5_Break;
+if (!drumLibrary.Funk_5_Measure_A) drumLibrary.Funk_5_Measure_A = _patterns.Drum_Machine_Patterns_Funk_5_Measure_A;
+if (!drumLibrary.Funk_5_Measure_B) drumLibrary.Funk_5_Measure_B = _patterns.Drum_Machine_Patterns_Funk_5_Measure_B;
+if (!drumLibrary.Funk_6_Break) drumLibrary.Funk_6_Break = _patterns.Drum_Machine_Patterns_Funk_6_Break;
+if (!drumLibrary.Funk_6_Measure_A) drumLibrary.Funk_6_Measure_A = _patterns.Drum_Machine_Patterns_Funk_6_Measure_A;
+if (!drumLibrary.Funk_6_Measure_B) drumLibrary.Funk_6_Measure_B = _patterns.Drum_Machine_Patterns_Funk_6_Measure_B;
+if (!drumLibrary.Funk_7_Break) drumLibrary.Funk_7_Break = _patterns.Drum_Machine_Patterns_Funk_7_Break;
+if (!drumLibrary.Funk_7_Measure_A) drumLibrary.Funk_7_Measure_A = _patterns.Drum_Machine_Patterns_Funk_7_Measure_A;
+if (!drumLibrary.Funk_7_Measure_B) drumLibrary.Funk_7_Measure_B = _patterns.Drum_Machine_Patterns_Funk_7_Measure_B;
+if (!drumLibrary.Funk_8_Break) drumLibrary.Funk_8_Break = _patterns.Drum_Machine_Patterns_Funk_8_Break;
+if (!drumLibrary.Funk_8_Measure_A) drumLibrary.Funk_8_Measure_A = _patterns.Drum_Machine_Patterns_Funk_8_Measure_A;
+if (!drumLibrary.Funk_8_Measure_B) drumLibrary.Funk_8_Measure_B = _patterns.Drum_Machine_Patterns_Funk_8_Measure_B;
+if (!drumLibrary.Funk_9_Break) drumLibrary.Funk_9_Break = _patterns.Drum_Machine_Patterns_Funk_9_Break;
+if (!drumLibrary.Funk_9_Measure_A) drumLibrary.Funk_9_Measure_A = _patterns.Drum_Machine_Patterns_Funk_9_Measure_A;
+if (!drumLibrary.Funk_9_Measure_B) drumLibrary.Funk_9_Measure_B = _patterns.Drum_Machine_Patterns_Funk_9_Measure_B;
+if (!drumLibrary.Pop_1_Break) drumLibrary.Pop_1_Break = _patterns.Drum_Machine_Patterns_Pop_1_Break;
+if (!drumLibrary.Pop_1_Measure_A) drumLibrary.Pop_1_Measure_A = _patterns.Drum_Machine_Patterns_Pop_1_Measure_A;
+if (!drumLibrary.Pop_1_Measure_B) drumLibrary.Pop_1_Measure_B = _patterns.Drum_Machine_Patterns_Pop_1_Measure_B;
+if (!drumLibrary.Pop_2_Break) drumLibrary.Pop_2_Break = _patterns.Drum_Machine_Patterns_Pop_2_Break;
+if (!drumLibrary.Pop_2_Measure_A) drumLibrary.Pop_2_Measure_A = _patterns.Drum_Machine_Patterns_Pop_2_Measure_A;
+if (!drumLibrary.Pop_2_Measure_B) drumLibrary.Pop_2_Measure_B = _patterns.Drum_Machine_Patterns_Pop_2_Measure_B;
+if (!drumLibrary.Pop_3_Break) drumLibrary.Pop_3_Break = _patterns.Drum_Machine_Patterns_Pop_3_Break;
+if (!drumLibrary.Pop_3_Measure_A) drumLibrary.Pop_3_Measure_A = _patterns.Drum_Machine_Patterns_Pop_3_Measure_A;
+if (!drumLibrary.Pop_3_Measure_B) drumLibrary.Pop_3_Measure_B = _patterns.Drum_Machine_Patterns_Pop_3_Measure_B;
+if (!drumLibrary.Pop_4_Break) drumLibrary.Pop_4_Break = _patterns.Drum_Machine_Patterns_Pop_4_Break;
+if (!drumLibrary.Pop_4_Measure_A) drumLibrary.Pop_4_Measure_A = _patterns.Drum_Machine_Patterns_Pop_4_Measure_A;
+if (!drumLibrary.Pop_4_Measure_B) drumLibrary.Pop_4_Measure_B = _patterns.Drum_Machine_Patterns_Pop_4_Measure_B;
+if (!drumLibrary.Pop_5_Break) drumLibrary.Pop_5_Break = _patterns.Drum_Machine_Patterns_Pop_5_Break;
+if (!drumLibrary.Pop_5_Measure_A) drumLibrary.Pop_5_Measure_A = _patterns.Drum_Machine_Patterns_Pop_5_Measure_A;
+if (!drumLibrary.Pop_5_Measure_B) drumLibrary.Pop_5_Measure_B = _patterns.Drum_Machine_Patterns_Pop_5_Measure_B;
+if (!drumLibrary.Reggae_1_Break) drumLibrary.Reggae_1_Break = _patterns.Drum_Machine_Patterns_Reggae_1_Break;
+if (!drumLibrary.Reggae_1_Measure_A) drumLibrary.Reggae_1_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_1_Measure_A;
+if (!drumLibrary.Reggae_1_Measure_B) drumLibrary.Reggae_1_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_1_Measure_B;
+if (!drumLibrary.Reggae_2_Break) drumLibrary.Reggae_2_Break = _patterns.Drum_Machine_Patterns_Reggae_2_Break;
+if (!drumLibrary.Reggae_2_Measure_A) drumLibrary.Reggae_2_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_2_Measure_A;
+if (!drumLibrary.Reggae_2_Measure_B) drumLibrary.Reggae_2_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_2_Measure_B;
+if (!drumLibrary.Reggae_3_Break) drumLibrary.Reggae_3_Break = _patterns.Drum_Machine_Patterns_Reggae_3_Break;
+if (!drumLibrary.Reggae_3_Measure_A) drumLibrary.Reggae_3_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_3_Measure_A;
+if (!drumLibrary.Reggae_3_Measure_B) drumLibrary.Reggae_3_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_3_Measure_B;
+if (!drumLibrary.Reggae_4_Break) drumLibrary.Reggae_4_Break = _patterns.Drum_Machine_Patterns_Reggae_4_Break;
+if (!drumLibrary.Reggae_4_Measure_A) drumLibrary.Reggae_4_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_4_Measure_A;
+if (!drumLibrary.Reggae_4_Measure_B) drumLibrary.Reggae_4_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_4_Measure_B;
+if (!drumLibrary.Reggae_5_Break) drumLibrary.Reggae_5_Break = _patterns.Drum_Machine_Patterns_Reggae_5_Break;
+if (!drumLibrary.Reggae_5_Measure_A) drumLibrary.Reggae_5_Measure_A = _patterns.Drum_Machine_Patterns_Reggae_5_Measure_A;
+if (!drumLibrary.Reggae_5_Measure_B) drumLibrary.Reggae_5_Measure_B = _patterns.Drum_Machine_Patterns_Reggae_5_Measure_B;
+if (!drumLibrary.Rhythm_Blues_1_Break) drumLibrary.Rhythm_Blues_1_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Break;
+if (!drumLibrary.Rhythm_Blues_1_Measure_A) drumLibrary.Rhythm_Blues_1_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_A;
+if (!drumLibrary.Rhythm_Blues_1_Measure_B) drumLibrary.Rhythm_Blues_1_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_1_Measure_B;
+if (!drumLibrary.Rhythm_Blues_2_Break) drumLibrary.Rhythm_Blues_2_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Break;
+if (!drumLibrary.Rhythm_Blues_2_Measure_A) drumLibrary.Rhythm_Blues_2_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_A;
+if (!drumLibrary.Rhythm_Blues_2_Measure_B) drumLibrary.Rhythm_Blues_2_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_2_Measure_B;
+if (!drumLibrary.Rhythm_Blues_3_Break) drumLibrary.Rhythm_Blues_3_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Break;
+if (!drumLibrary.Rhythm_Blues_3_Measure_A) drumLibrary.Rhythm_Blues_3_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_A;
+if (!drumLibrary.Rhythm_Blues_3_Measure_B) drumLibrary.Rhythm_Blues_3_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_3_Measure_B;
+if (!drumLibrary.Rhythm_Blues_4_Break) drumLibrary.Rhythm_Blues_4_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Break;
+if (!drumLibrary.Rhythm_Blues_4_Measure_A) drumLibrary.Rhythm_Blues_4_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_A;
+if (!drumLibrary.Rhythm_Blues_4_Measure_B) drumLibrary.Rhythm_Blues_4_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_4_Measure_B;
+if (!drumLibrary.Rhythm_Blues_5_Break) drumLibrary.Rhythm_Blues_5_Break = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Break;
+if (!drumLibrary.Rhythm_Blues_5_Measure_A) drumLibrary.Rhythm_Blues_5_Measure_A = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_A;
+if (!drumLibrary.Rhythm_Blues_5_Measure_B) drumLibrary.Rhythm_Blues_5_Measure_B = _patterns.Drum_Machine_Patterns_Rhythm_Blues_5_Measure_B;
+if (!drumLibrary.Rock_1_Break) drumLibrary.Rock_1_Break = _patterns.Drum_Machine_Patterns_Rock_1_Break;
+if (!drumLibrary.Rock_1_Measure_A) drumLibrary.Rock_1_Measure_A = _patterns.Drum_Machine_Patterns_Rock_1_Measure_A;
+if (!drumLibrary.Rock_1_Measure_B) drumLibrary.Rock_1_Measure_B = _patterns.Drum_Machine_Patterns_Rock_1_Measure_B;
+if (!drumLibrary.Rock_2_Break) drumLibrary.Rock_2_Break = _patterns.Drum_Machine_Patterns_Rock_2_Break;
+if (!drumLibrary.Rock_2_Measure_A) drumLibrary.Rock_2_Measure_A = _patterns.Drum_Machine_Patterns_Rock_2_Measure_A;
+if (!drumLibrary.Rock_2_Measure_B) drumLibrary.Rock_2_Measure_B = _patterns.Drum_Machine_Patterns_Rock_2_Measure_B;
+if (!drumLibrary.Rock_3_Break) drumLibrary.Rock_3_Break = _patterns.Drum_Machine_Patterns_Rock_3_Break;
+if (!drumLibrary.Rock_3_Measure_A) drumLibrary.Rock_3_Measure_A = _patterns.Drum_Machine_Patterns_Rock_3_Measure_A;
+if (!drumLibrary.Rock_3_Measure_B) drumLibrary.Rock_3_Measure_B = _patterns.Drum_Machine_Patterns_Rock_3_Measure_B;
+if (!drumLibrary.Rock_4_Break) drumLibrary.Rock_4_Break = _patterns.Drum_Machine_Patterns_Rock_4_Break;
+if (!drumLibrary.Rock_4_Measure_A) drumLibrary.Rock_4_Measure_A = _patterns.Drum_Machine_Patterns_Rock_4_Measure_A;
+if (!drumLibrary.Rock_4_Measure_B) drumLibrary.Rock_4_Measure_B = _patterns.Drum_Machine_Patterns_Rock_4_Measure_B;
+if (!drumLibrary.Rock_5_Break) drumLibrary.Rock_5_Break = _patterns.Drum_Machine_Patterns_Rock_5_Break;
+if (!drumLibrary.Rock_5_Measure_A) drumLibrary.Rock_5_Measure_A = _patterns.Drum_Machine_Patterns_Rock_5_Measure_A;
+if (!drumLibrary.Rock_5_Measure_B) drumLibrary.Rock_5_Measure_B = _patterns.Drum_Machine_Patterns_Rock_5_Measure_B;
+if (!drumLibrary.Samba_1_Break) drumLibrary.Samba_1_Break = _patterns.Drum_Machine_Patterns_Samba_1_Break;
+if (!drumLibrary.Samba_1_Measure_A) drumLibrary.Samba_1_Measure_A = _patterns.Drum_Machine_Patterns_Samba_1_Measure_A;
+if (!drumLibrary.Samba_1_Measure_B) drumLibrary.Samba_1_Measure_B = _patterns.Drum_Machine_Patterns_Samba_1_Measure_B;
+if (!drumLibrary.Samba_2_Break) drumLibrary.Samba_2_Break = _patterns.Drum_Machine_Patterns_Samba_2_Break;
+if (!drumLibrary.Samba_2_Measure_A) drumLibrary.Samba_2_Measure_A = _patterns.Drum_Machine_Patterns_Samba_2_Measure_A;
+if (!drumLibrary.Samba_2_Measure_B) drumLibrary.Samba_2_Measure_B = _patterns.Drum_Machine_Patterns_Samba_2_Measure_B;
+if (!drumLibrary.Samba_3_Break) drumLibrary.Samba_3_Break = _patterns.Drum_Machine_Patterns_Samba_3_Break;
+if (!drumLibrary.Samba_3_Measure_A) drumLibrary.Samba_3_Measure_A = _patterns.Drum_Machine_Patterns_Samba_3_Measure_A;
+if (!drumLibrary.Samba_3_Measure_B) drumLibrary.Samba_3_Measure_B = _patterns.Drum_Machine_Patterns_Samba_3_Measure_B;
+if (!drumLibrary.Shuffle_1_Break) drumLibrary.Shuffle_1_Break = _patterns.Drum_Machine_Patterns_Shuffle_1_Break;
+if (!drumLibrary.Shuffle_1_Measure_A) drumLibrary.Shuffle_1_Measure_A = _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_A;
+if (!drumLibrary.Shuffle_1_Measure_B) drumLibrary.Shuffle_1_Measure_B = _patterns.Drum_Machine_Patterns_Shuffle_1_Measure_B;
+if (!drumLibrary.Shuffle_2_Break) drumLibrary.Shuffle_2_Break = _patterns.Drum_Machine_Patterns_Shuffle_2_Break;
+if (!drumLibrary.Shuffle_2_Measure_A) drumLibrary.Shuffle_2_Measure_A = _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_A;
+if (!drumLibrary.Shuffle_2_Measure_B) drumLibrary.Shuffle_2_Measure_B = _patterns.Drum_Machine_Patterns_Shuffle_2_Measure_B;
+if (!drumLibrary.Ska_Break) drumLibrary.Ska_Break = _patterns.Drum_Machine_Patterns_Ska_Break;
+if (!drumLibrary.Ska_Measure_A) drumLibrary.Ska_Measure_A = _patterns.Drum_Machine_Patterns_Ska_Measure_A;
+if (!drumLibrary.Ska_Measure_B) drumLibrary.Ska_Measure_B = _patterns.Drum_Machine_Patterns_Ska_Measure_B;
+if (!drumLibrary.Swing_1_Break) drumLibrary.Swing_1_Break = _patterns.Drum_Machine_Patterns_Swing_1_Break;
+if (!drumLibrary.Swing_1_Measure_A) drumLibrary.Swing_1_Measure_A = _patterns.Drum_Machine_Patterns_Swing_1_Measure_A;
+if (!drumLibrary.Swing_1_Measure_B) drumLibrary.Swing_1_Measure_B = _patterns.Drum_Machine_Patterns_Swing_1_Measure_B;
+if (!drumLibrary.Swing_2_Break) drumLibrary.Swing_2_Break = _patterns.Drum_Machine_Patterns_Swing_2_Break;
+if (!drumLibrary.Swing_2_Measure_A) drumLibrary.Swing_2_Measure_A = _patterns.Drum_Machine_Patterns_Swing_2_Measure_A;
+if (!drumLibrary.Swing_2_Measure_B) drumLibrary.Swing_2_Measure_B = _patterns.Drum_Machine_Patterns_Swing_2_Measure_B;
+if (!drumLibrary.Swing_3_Break) drumLibrary.Swing_3_Break = _patterns.Drum_Machine_Patterns_Swing_3_Break;
+if (!drumLibrary.Swing_3_Measure_A) drumLibrary.Swing_3_Measure_A = _patterns.Drum_Machine_Patterns_Swing_3_Measure_A;
+if (!drumLibrary.Swing_3_Measure_B) drumLibrary.Swing_3_Measure_B = _patterns.Drum_Machine_Patterns_Swing_3_Measure_B;
+if (!drumLibrary.Twist_1_Break) drumLibrary.Twist_1_Break = _patterns.Drum_Machine_Patterns_Twist_1_Break;
+if (!drumLibrary.Twist_1_Measure_A) drumLibrary.Twist_1_Measure_A = _patterns.Drum_Machine_Patterns_Twist_1_Measure_A;
+if (!drumLibrary.Twist_1_Measure_B) drumLibrary.Twist_1_Measure_B = _patterns.Drum_Machine_Patterns_Twist_1_Measure_B;
+if (!drumLibrary.Twist_2_Break) drumLibrary.Twist_2_Break = _patterns.Drum_Machine_Patterns_Twist_2_Break;
+if (!drumLibrary.Twist_2_Measure_A) drumLibrary.Twist_2_Measure_A = _patterns.Drum_Machine_Patterns_Twist_2_Measure_A;
+if (!drumLibrary.Twist_2_Measure_B) drumLibrary.Twist_2_Measure_B = _patterns.Drum_Machine_Patterns_Twist_2_Measure_B;
+drumLibrary.Drum_Machine_Patterns_260 = Object.assign(
+  (opts = {}) => _patterns.Drum_Machine_Patterns_260_AfroCub1(opts),
+  {
+    AfroCub1: _patterns.Drum_Machine_Patterns_260_AfroCub1,
+    AfroCub2: _patterns.Drum_Machine_Patterns_260_AfroCub2,
+    AfroCub3: _patterns.Drum_Machine_Patterns_260_AfroCub3,
+    AfroCub4: _patterns.Drum_Machine_Patterns_260_AfroCub4,
+    AfroCub5: _patterns.Drum_Machine_Patterns_260_AfroCub5,
+    AfroCub6: _patterns.Drum_Machine_Patterns_260_AfroCub6,
+    AfroCub7: _patterns.Drum_Machine_Patterns_260_AfroCub7,
+    AfroCub8: _patterns.Drum_Machine_Patterns_260_AfroCub8,
+    AfroCub9: _patterns.Drum_Machine_Patterns_260_AfroCub9,
+    AfroCubBreak1: _patterns.Drum_Machine_Patterns_260_AfroCubBreak1,
+    AfroCubBreak2: _patterns.Drum_Machine_Patterns_260_AfroCubBreak2,
+    AfroCubBreak3: _patterns.Drum_Machine_Patterns_260_AfroCubBreak3,
+    AfroCubBreak4: _patterns.Drum_Machine_Patterns_260_AfroCubBreak4,
+    AfroCubBreak5: _patterns.Drum_Machine_Patterns_260_AfroCubBreak5,
+    AfroCubBreak6: _patterns.Drum_Machine_Patterns_260_AfroCubBreak6,
+    Blues1: _patterns.Drum_Machine_Patterns_260_Blues1,
+    Blues2: _patterns.Drum_Machine_Patterns_260_Blues2,
+    Blues3: _patterns.Drum_Machine_Patterns_260_Blues3,
+    Blues4: _patterns.Drum_Machine_Patterns_260_Blues4,
+    Blues5: _patterns.Drum_Machine_Patterns_260_Blues5,
+    Blues6: _patterns.Drum_Machine_Patterns_260_Blues6,
+    BluesBreak1: _patterns.Drum_Machine_Patterns_260_BluesBreak1,
+    BluesBreak2: _patterns.Drum_Machine_Patterns_260_BluesBreak2,
+    BluesBreak3: _patterns.Drum_Machine_Patterns_260_BluesBreak3,
+    Boogie1: _patterns.Drum_Machine_Patterns_260_Boogie1,
+    Boogie2: _patterns.Drum_Machine_Patterns_260_Boogie2,
+    Boogie3: _patterns.Drum_Machine_Patterns_260_Boogie3,
+    BoogieBreak1: _patterns.Drum_Machine_Patterns_260_BoogieBreak1,
+    BoogieBreak2: _patterns.Drum_Machine_Patterns_260_BoogieBreak2,
+    BoogieBreak3: _patterns.Drum_Machine_Patterns_260_BoogieBreak3,
+    Bossa1: _patterns.Drum_Machine_Patterns_260_Bossa1,
+    Bossa2: _patterns.Drum_Machine_Patterns_260_Bossa2,
+    Bossa3: _patterns.Drum_Machine_Patterns_260_Bossa3,
+    Bossa4: _patterns.Drum_Machine_Patterns_260_Bossa4,
+    Bossa5: _patterns.Drum_Machine_Patterns_260_Bossa5,
+    Bossa6: _patterns.Drum_Machine_Patterns_260_Bossa6,
+    BossaBreak1: _patterns.Drum_Machine_Patterns_260_BossaBreak1,
+    BossaBreak2: _patterns.Drum_Machine_Patterns_260_BossaBreak2,
+    BossaBreak3: _patterns.Drum_Machine_Patterns_260_BossaBreak3,
+    ChaCha1: _patterns.Drum_Machine_Patterns_260_ChaCha1,
+    ChaCha2: _patterns.Drum_Machine_Patterns_260_ChaCha2,
+    ChaCha3: _patterns.Drum_Machine_Patterns_260_ChaCha3,
+    ChaChaBreak1: _patterns.Drum_Machine_Patterns_260_ChaChaBreak1,
+    ChaChaBreak2: _patterns.Drum_Machine_Patterns_260_ChaChaBreak2,
+    ChaChaBreak3: _patterns.Drum_Machine_Patterns_260_ChaChaBreak3,
+    Charleston1: _patterns.Drum_Machine_Patterns_260_Charleston1,
+    CharlestonBreak1: _patterns.Drum_Machine_Patterns_260_CharlestonBreak1,
+    Disco1: _patterns.Drum_Machine_Patterns_260_Disco1,
+    Disco10: _patterns.Drum_Machine_Patterns_260_Disco10,
+    Disco11: _patterns.Drum_Machine_Patterns_260_Disco11,
+    Disco12: _patterns.Drum_Machine_Patterns_260_Disco12,
+    Disco2: _patterns.Drum_Machine_Patterns_260_Disco2,
+    Disco3: _patterns.Drum_Machine_Patterns_260_Disco3,
+    Disco4: _patterns.Drum_Machine_Patterns_260_Disco4,
+    Disco5: _patterns.Drum_Machine_Patterns_260_Disco5,
+    Disco6: _patterns.Drum_Machine_Patterns_260_Disco6,
+    Disco7: _patterns.Drum_Machine_Patterns_260_Disco7,
+    Disco8: _patterns.Drum_Machine_Patterns_260_Disco8,
+    Disco9: _patterns.Drum_Machine_Patterns_260_Disco9,
+    DiscoBreak1: _patterns.Drum_Machine_Patterns_260_DiscoBreak1,
+    DiscoBreak2: _patterns.Drum_Machine_Patterns_260_DiscoBreak2,
+    DiscoBreak3: _patterns.Drum_Machine_Patterns_260_DiscoBreak3,
+    DiscoBreak4: _patterns.Drum_Machine_Patterns_260_DiscoBreak4,
+    DiscoBreak5: _patterns.Drum_Machine_Patterns_260_DiscoBreak5,
+    DiscoBreak6: _patterns.Drum_Machine_Patterns_260_DiscoBreak6,
+    DiscoBreak7: _patterns.Drum_Machine_Patterns_260_DiscoBreak7,
+    DiscoBreak8: _patterns.Drum_Machine_Patterns_260_DiscoBreak8,
+    DiscoBreak9: _patterns.Drum_Machine_Patterns_260_DiscoBreak9,
+    Ending1: _patterns.Drum_Machine_Patterns_260_Ending1,
+    Ending2: _patterns.Drum_Machine_Patterns_260_Ending2,
+    Ending3: _patterns.Drum_Machine_Patterns_260_Ending3,
+    Funk1: _patterns.Drum_Machine_Patterns_260_Funk1,
+    Funk10: _patterns.Drum_Machine_Patterns_260_Funk10,
+    Funk11: _patterns.Drum_Machine_Patterns_260_Funk11,
+    Funk12: _patterns.Drum_Machine_Patterns_260_Funk12,
+    Funk13: _patterns.Drum_Machine_Patterns_260_Funk13,
+    Funk14: _patterns.Drum_Machine_Patterns_260_Funk14,
+    Funk15: _patterns.Drum_Machine_Patterns_260_Funk15,
+    Funk2: _patterns.Drum_Machine_Patterns_260_Funk2,
+    Funk3: _patterns.Drum_Machine_Patterns_260_Funk3,
+    Funk4: _patterns.Drum_Machine_Patterns_260_Funk4,
+    Funk5: _patterns.Drum_Machine_Patterns_260_Funk5,
+    Funk6: _patterns.Drum_Machine_Patterns_260_Funk6,
+    Funk7: _patterns.Drum_Machine_Patterns_260_Funk7,
+    Funk8: _patterns.Drum_Machine_Patterns_260_Funk8,
+    Funk9: _patterns.Drum_Machine_Patterns_260_Funk9,
+    FunkBreak1: _patterns.Drum_Machine_Patterns_260_FunkBreak1,
+    FunkBreak10: _patterns.Drum_Machine_Patterns_260_FunkBreak10,
+    FunkBreak11: _patterns.Drum_Machine_Patterns_260_FunkBreak11,
+    FunkBreak12: _patterns.Drum_Machine_Patterns_260_FunkBreak12,
+    FunkBreak13: _patterns.Drum_Machine_Patterns_260_FunkBreak13,
+    FunkBreak14: _patterns.Drum_Machine_Patterns_260_FunkBreak14,
+    FunkBreak15: _patterns.Drum_Machine_Patterns_260_FunkBreak15,
+    FunkBreak2: _patterns.Drum_Machine_Patterns_260_FunkBreak2,
+    FunkBreak3: _patterns.Drum_Machine_Patterns_260_FunkBreak3,
+    FunkBreak4: _patterns.Drum_Machine_Patterns_260_FunkBreak4,
+    FunkBreak5: _patterns.Drum_Machine_Patterns_260_FunkBreak5,
+    FunkBreak6: _patterns.Drum_Machine_Patterns_260_FunkBreak6,
+    FunkBreak7: _patterns.Drum_Machine_Patterns_260_FunkBreak7,
+    FunkBreak8: _patterns.Drum_Machine_Patterns_260_FunkBreak8,
+    FunkBreak9: _patterns.Drum_Machine_Patterns_260_FunkBreak9,
+    Jazz1: _patterns.Drum_Machine_Patterns_260_Jazz1,
+    Jazz2: _patterns.Drum_Machine_Patterns_260_Jazz2,
+    Jazz3: _patterns.Drum_Machine_Patterns_260_Jazz3,
+    Jazz4: _patterns.Drum_Machine_Patterns_260_Jazz4,
+    Jazz5: _patterns.Drum_Machine_Patterns_260_Jazz5,
+    Jazz6: _patterns.Drum_Machine_Patterns_260_Jazz6,
+    JazzBreak1: _patterns.Drum_Machine_Patterns_260_JazzBreak1,
+    JazzBreak2: _patterns.Drum_Machine_Patterns_260_JazzBreak2,
+    JazzBreak3: _patterns.Drum_Machine_Patterns_260_JazzBreak3,
+    March1: _patterns.Drum_Machine_Patterns_260_March1,
+    March2: _patterns.Drum_Machine_Patterns_260_March2,
+    MarchBreak1: _patterns.Drum_Machine_Patterns_260_MarchBreak1,
+    MarchBreak2: _patterns.Drum_Machine_Patterns_260_MarchBreak2,
+    Paso1: _patterns.Drum_Machine_Patterns_260_Paso1,
+    Paso2: _patterns.Drum_Machine_Patterns_260_Paso2,
+    PasoBreak1: _patterns.Drum_Machine_Patterns_260_PasoBreak1,
+    PasoBreak2: _patterns.Drum_Machine_Patterns_260_PasoBreak2,
+    Pop1: _patterns.Drum_Machine_Patterns_260_Pop1,
+    Pop10: _patterns.Drum_Machine_Patterns_260_Pop10,
+    Pop11: _patterns.Drum_Machine_Patterns_260_Pop11,
+    Pop12: _patterns.Drum_Machine_Patterns_260_Pop12,
+    Pop2: _patterns.Drum_Machine_Patterns_260_Pop2,
+    Pop3: _patterns.Drum_Machine_Patterns_260_Pop3,
+    Pop4: _patterns.Drum_Machine_Patterns_260_Pop4,
+    Pop5: _patterns.Drum_Machine_Patterns_260_Pop5,
+    Pop6: _patterns.Drum_Machine_Patterns_260_Pop6,
+    Pop7: _patterns.Drum_Machine_Patterns_260_Pop7,
+    Pop8: _patterns.Drum_Machine_Patterns_260_Pop8,
+    Pop9: _patterns.Drum_Machine_Patterns_260_Pop9,
+    PopBreak1: _patterns.Drum_Machine_Patterns_260_PopBreak1,
+    PopBreak2: _patterns.Drum_Machine_Patterns_260_PopBreak2,
+    PopBreak3: _patterns.Drum_Machine_Patterns_260_PopBreak3,
+    PopBreak4: _patterns.Drum_Machine_Patterns_260_PopBreak4,
+    PopBreak5: _patterns.Drum_Machine_Patterns_260_PopBreak5,
+    PopBreak6: _patterns.Drum_Machine_Patterns_260_PopBreak6,
+    Reggae1: _patterns.Drum_Machine_Patterns_260_Reggae1,
+    Reggae10: _patterns.Drum_Machine_Patterns_260_Reggae10,
+    Reggae11: _patterns.Drum_Machine_Patterns_260_Reggae11,
+    Reggae12: _patterns.Drum_Machine_Patterns_260_Reggae12,
+    Reggae2: _patterns.Drum_Machine_Patterns_260_Reggae2,
+    Reggae3: _patterns.Drum_Machine_Patterns_260_Reggae3,
+    Reggae4: _patterns.Drum_Machine_Patterns_260_Reggae4,
+    Reggae5: _patterns.Drum_Machine_Patterns_260_Reggae5,
+    Reggae6: _patterns.Drum_Machine_Patterns_260_Reggae6,
+    Reggae7: _patterns.Drum_Machine_Patterns_260_Reggae7,
+    Reggae8: _patterns.Drum_Machine_Patterns_260_Reggae8,
+    Reggae9: _patterns.Drum_Machine_Patterns_260_Reggae9,
+    ReggaeBreak1: _patterns.Drum_Machine_Patterns_260_ReggaeBreak1,
+    ReggaeBreak2: _patterns.Drum_Machine_Patterns_260_ReggaeBreak2,
+    ReggaeBreak3: _patterns.Drum_Machine_Patterns_260_ReggaeBreak3,
+    ReggaeBreak4: _patterns.Drum_Machine_Patterns_260_ReggaeBreak4,
+    ReggaeBreak5: _patterns.Drum_Machine_Patterns_260_ReggaeBreak5,
+    ReggaeBreak6: _patterns.Drum_Machine_Patterns_260_ReggaeBreak6,
+    ReggaeBreak7: _patterns.Drum_Machine_Patterns_260_ReggaeBreak7,
+    ReggaeBreak8: _patterns.Drum_Machine_Patterns_260_ReggaeBreak8,
+    ReggaeBreak9: _patterns.Drum_Machine_Patterns_260_ReggaeBreak9,
+    Rnb1: _patterns.Drum_Machine_Patterns_260_Rnb1,
+    Rnb10: _patterns.Drum_Machine_Patterns_260_Rnb10,
+    Rnb11: _patterns.Drum_Machine_Patterns_260_Rnb11,
+    Rnb12: _patterns.Drum_Machine_Patterns_260_Rnb12,
+    Rnb2: _patterns.Drum_Machine_Patterns_260_Rnb2,
+    Rnb3: _patterns.Drum_Machine_Patterns_260_Rnb3,
+    Rnb4: _patterns.Drum_Machine_Patterns_260_Rnb4,
+    Rnb5: _patterns.Drum_Machine_Patterns_260_Rnb5,
+    Rnb6: _patterns.Drum_Machine_Patterns_260_Rnb6,
+    Rnb7: _patterns.Drum_Machine_Patterns_260_Rnb7,
+    Rnb8: _patterns.Drum_Machine_Patterns_260_Rnb8,
+    Rnb9: _patterns.Drum_Machine_Patterns_260_Rnb9,
+    RnbBreak1: _patterns.Drum_Machine_Patterns_260_RnbBreak1,
+    RnbBreak2: _patterns.Drum_Machine_Patterns_260_RnbBreak2,
+    RnbBreak3: _patterns.Drum_Machine_Patterns_260_RnbBreak3,
+    RnbBreak4: _patterns.Drum_Machine_Patterns_260_RnbBreak4,
+    RnbBreak5: _patterns.Drum_Machine_Patterns_260_RnbBreak5,
+    RnbBreak6: _patterns.Drum_Machine_Patterns_260_RnbBreak6,
+    Rock1: _patterns.Drum_Machine_Patterns_260_Rock1,
+    Rock10: _patterns.Drum_Machine_Patterns_260_Rock10,
+    Rock11: _patterns.Drum_Machine_Patterns_260_Rock11,
+    Rock12: _patterns.Drum_Machine_Patterns_260_Rock12,
+    Rock13: _patterns.Drum_Machine_Patterns_260_Rock13,
+    Rock14: _patterns.Drum_Machine_Patterns_260_Rock14,
+    Rock2: _patterns.Drum_Machine_Patterns_260_Rock2,
+    Rock3: _patterns.Drum_Machine_Patterns_260_Rock3,
+    Rock4: _patterns.Drum_Machine_Patterns_260_Rock4,
+    Rock5: _patterns.Drum_Machine_Patterns_260_Rock5,
+    Rock6: _patterns.Drum_Machine_Patterns_260_Rock6,
+    Rock7: _patterns.Drum_Machine_Patterns_260_Rock7,
+    Rock8: _patterns.Drum_Machine_Patterns_260_Rock8,
+    Rock9: _patterns.Drum_Machine_Patterns_260_Rock9,
+    RockBreak1: _patterns.Drum_Machine_Patterns_260_RockBreak1,
+    RockBreak10: _patterns.Drum_Machine_Patterns_260_RockBreak10,
+    RockBreak11: _patterns.Drum_Machine_Patterns_260_RockBreak11,
+    RockBreak12: _patterns.Drum_Machine_Patterns_260_RockBreak12,
+    RockBreak2: _patterns.Drum_Machine_Patterns_260_RockBreak2,
+    RockBreak3: _patterns.Drum_Machine_Patterns_260_RockBreak3,
+    RockBreak4: _patterns.Drum_Machine_Patterns_260_RockBreak4,
+    RockBreak5: _patterns.Drum_Machine_Patterns_260_RockBreak5,
+    RockBreak6: _patterns.Drum_Machine_Patterns_260_RockBreak6,
+    RockBreak7: _patterns.Drum_Machine_Patterns_260_RockBreak7,
+    RockBreak8: _patterns.Drum_Machine_Patterns_260_RockBreak8,
+    RockBreak9: _patterns.Drum_Machine_Patterns_260_RockBreak9,
+    Samba1: _patterns.Drum_Machine_Patterns_260_Samba1,
+    Samba2: _patterns.Drum_Machine_Patterns_260_Samba2,
+    Samba3: _patterns.Drum_Machine_Patterns_260_Samba3,
+    Samba4: _patterns.Drum_Machine_Patterns_260_Samba4,
+    Samba5: _patterns.Drum_Machine_Patterns_260_Samba5,
+    Samba6: _patterns.Drum_Machine_Patterns_260_Samba6,
+    SambaBreak1: _patterns.Drum_Machine_Patterns_260_SambaBreak1,
+    SambaBreak2: _patterns.Drum_Machine_Patterns_260_SambaBreak2,
+    SambaBreak3: _patterns.Drum_Machine_Patterns_260_SambaBreak3,
+    Shuffle1: _patterns.Drum_Machine_Patterns_260_Shuffle1,
+    Shuffle2: _patterns.Drum_Machine_Patterns_260_Shuffle2,
+    Shuffle3: _patterns.Drum_Machine_Patterns_260_Shuffle3,
+    Shuffle4: _patterns.Drum_Machine_Patterns_260_Shuffle4,
+    Shuffle5: _patterns.Drum_Machine_Patterns_260_Shuffle5,
+    Shuffle6: _patterns.Drum_Machine_Patterns_260_Shuffle6,
+    ShuffleBreak1: _patterns.Drum_Machine_Patterns_260_ShuffleBreak1,
+    ShuffleBreak2: _patterns.Drum_Machine_Patterns_260_ShuffleBreak2,
+    ShuffleBreak3: _patterns.Drum_Machine_Patterns_260_ShuffleBreak3,
+    Ska1: _patterns.Drum_Machine_Patterns_260_Ska1,
+    Ska2: _patterns.Drum_Machine_Patterns_260_Ska2,
+    Ska3: _patterns.Drum_Machine_Patterns_260_Ska3,
+    SkaBreak1: _patterns.Drum_Machine_Patterns_260_SkaBreak1,
+    SkaBreak2: _patterns.Drum_Machine_Patterns_260_SkaBreak2,
+    SkaBreak3: _patterns.Drum_Machine_Patterns_260_SkaBreak3,
+    Slow1: _patterns.Drum_Machine_Patterns_260_Slow1,
+    Slow10: _patterns.Drum_Machine_Patterns_260_Slow10,
+    Slow11: _patterns.Drum_Machine_Patterns_260_Slow11,
+    Slow12: _patterns.Drum_Machine_Patterns_260_Slow12,
+    Slow2: _patterns.Drum_Machine_Patterns_260_Slow2,
+    Slow3: _patterns.Drum_Machine_Patterns_260_Slow3,
+    Slow4: _patterns.Drum_Machine_Patterns_260_Slow4,
+    Slow5: _patterns.Drum_Machine_Patterns_260_Slow5,
+    Slow6: _patterns.Drum_Machine_Patterns_260_Slow6,
+    Slow7: _patterns.Drum_Machine_Patterns_260_Slow7,
+    Slow8: _patterns.Drum_Machine_Patterns_260_Slow8,
+    Slow9: _patterns.Drum_Machine_Patterns_260_Slow9,
+    SlowBreak1: _patterns.Drum_Machine_Patterns_260_SlowBreak1,
+    SlowBreak2: _patterns.Drum_Machine_Patterns_260_SlowBreak2,
+    SlowBreak3: _patterns.Drum_Machine_Patterns_260_SlowBreak3,
+    SlowBreak4: _patterns.Drum_Machine_Patterns_260_SlowBreak4,
+    SlowBreak5: _patterns.Drum_Machine_Patterns_260_SlowBreak5,
+    SlowBreak6: _patterns.Drum_Machine_Patterns_260_SlowBreak6,
+    Swing1: _patterns.Drum_Machine_Patterns_260_Swing1,
+    Swing2: _patterns.Drum_Machine_Patterns_260_Swing2,
+    Swing3: _patterns.Drum_Machine_Patterns_260_Swing3,
+    Swing5: _patterns.Drum_Machine_Patterns_260_Swing5,
+    Swing6: _patterns.Drum_Machine_Patterns_260_Swing6,
+    SwingBreak1: _patterns.Drum_Machine_Patterns_260_SwingBreak1,
+    SwingBreak2: _patterns.Drum_Machine_Patterns_260_SwingBreak2,
+    SwingBreak3: _patterns.Drum_Machine_Patterns_260_SwingBreak3,
+    Tango1: _patterns.Drum_Machine_Patterns_260_Tango1,
+    TangoBreak1: _patterns.Drum_Machine_Patterns_260_TangoBreak1,
+    Twist1: _patterns.Drum_Machine_Patterns_260_Twist1,
+    Twist2: _patterns.Drum_Machine_Patterns_260_Twist2,
+    Twist3: _patterns.Drum_Machine_Patterns_260_Twist3,
+    TwistBreak1: _patterns.Drum_Machine_Patterns_260_TwistBreak1,
+    TwistBreak2: _patterns.Drum_Machine_Patterns_260_TwistBreak2,
+    TwistBreak3: _patterns.Drum_Machine_Patterns_260_TwistBreak3,
+    Waltz1: _patterns.Drum_Machine_Patterns_260_Waltz1,
+    Waltz2: _patterns.Drum_Machine_Patterns_260_Waltz2,
+    Waltz3: _patterns.Drum_Machine_Patterns_260_Waltz3,
+    WaltzBreak1: _patterns.Drum_Machine_Patterns_260_WaltzBreak1,
+    WaltzBreak2: _patterns.Drum_Machine_Patterns_260_WaltzBreak2,
+    WaltzBreak3: _patterns.Drum_Machine_Patterns_260_WaltzBreak3
+  }
+);
+if (!drumLibrary.AfroCub1) drumLibrary.AfroCub1 = _patterns.Drum_Machine_Patterns_260_AfroCub1;
+if (!drumLibrary.AfroCub2) drumLibrary.AfroCub2 = _patterns.Drum_Machine_Patterns_260_AfroCub2;
+if (!drumLibrary.AfroCub3) drumLibrary.AfroCub3 = _patterns.Drum_Machine_Patterns_260_AfroCub3;
+if (!drumLibrary.AfroCub4) drumLibrary.AfroCub4 = _patterns.Drum_Machine_Patterns_260_AfroCub4;
+if (!drumLibrary.AfroCub5) drumLibrary.AfroCub5 = _patterns.Drum_Machine_Patterns_260_AfroCub5;
+if (!drumLibrary.AfroCub6) drumLibrary.AfroCub6 = _patterns.Drum_Machine_Patterns_260_AfroCub6;
+if (!drumLibrary.AfroCub7) drumLibrary.AfroCub7 = _patterns.Drum_Machine_Patterns_260_AfroCub7;
+if (!drumLibrary.AfroCub8) drumLibrary.AfroCub8 = _patterns.Drum_Machine_Patterns_260_AfroCub8;
+if (!drumLibrary.AfroCub9) drumLibrary.AfroCub9 = _patterns.Drum_Machine_Patterns_260_AfroCub9;
+if (!drumLibrary.AfroCubBreak1) drumLibrary.AfroCubBreak1 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak1;
+if (!drumLibrary.AfroCubBreak2) drumLibrary.AfroCubBreak2 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak2;
+if (!drumLibrary.AfroCubBreak3) drumLibrary.AfroCubBreak3 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak3;
+if (!drumLibrary.AfroCubBreak4) drumLibrary.AfroCubBreak4 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak4;
+if (!drumLibrary.AfroCubBreak5) drumLibrary.AfroCubBreak5 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak5;
+if (!drumLibrary.AfroCubBreak6) drumLibrary.AfroCubBreak6 = _patterns.Drum_Machine_Patterns_260_AfroCubBreak6;
+if (!drumLibrary.Blues1) drumLibrary.Blues1 = _patterns.Drum_Machine_Patterns_260_Blues1;
+if (!drumLibrary.Blues2) drumLibrary.Blues2 = _patterns.Drum_Machine_Patterns_260_Blues2;
+if (!drumLibrary.Blues3) drumLibrary.Blues3 = _patterns.Drum_Machine_Patterns_260_Blues3;
+if (!drumLibrary.Blues4) drumLibrary.Blues4 = _patterns.Drum_Machine_Patterns_260_Blues4;
+if (!drumLibrary.Blues5) drumLibrary.Blues5 = _patterns.Drum_Machine_Patterns_260_Blues5;
+if (!drumLibrary.Blues6) drumLibrary.Blues6 = _patterns.Drum_Machine_Patterns_260_Blues6;
+if (!drumLibrary.BluesBreak1) drumLibrary.BluesBreak1 = _patterns.Drum_Machine_Patterns_260_BluesBreak1;
+if (!drumLibrary.BluesBreak2) drumLibrary.BluesBreak2 = _patterns.Drum_Machine_Patterns_260_BluesBreak2;
+if (!drumLibrary.BluesBreak3) drumLibrary.BluesBreak3 = _patterns.Drum_Machine_Patterns_260_BluesBreak3;
+if (!drumLibrary.Boogie1) drumLibrary.Boogie1 = _patterns.Drum_Machine_Patterns_260_Boogie1;
+if (!drumLibrary.Boogie2) drumLibrary.Boogie2 = _patterns.Drum_Machine_Patterns_260_Boogie2;
+if (!drumLibrary.Boogie3) drumLibrary.Boogie3 = _patterns.Drum_Machine_Patterns_260_Boogie3;
+if (!drumLibrary.BoogieBreak1) drumLibrary.BoogieBreak1 = _patterns.Drum_Machine_Patterns_260_BoogieBreak1;
+if (!drumLibrary.BoogieBreak2) drumLibrary.BoogieBreak2 = _patterns.Drum_Machine_Patterns_260_BoogieBreak2;
+if (!drumLibrary.BoogieBreak3) drumLibrary.BoogieBreak3 = _patterns.Drum_Machine_Patterns_260_BoogieBreak3;
+if (!drumLibrary.Bossa1) drumLibrary.Bossa1 = _patterns.Drum_Machine_Patterns_260_Bossa1;
+if (!drumLibrary.Bossa2) drumLibrary.Bossa2 = _patterns.Drum_Machine_Patterns_260_Bossa2;
+if (!drumLibrary.Bossa3) drumLibrary.Bossa3 = _patterns.Drum_Machine_Patterns_260_Bossa3;
+if (!drumLibrary.Bossa4) drumLibrary.Bossa4 = _patterns.Drum_Machine_Patterns_260_Bossa4;
+if (!drumLibrary.Bossa5) drumLibrary.Bossa5 = _patterns.Drum_Machine_Patterns_260_Bossa5;
+if (!drumLibrary.Bossa6) drumLibrary.Bossa6 = _patterns.Drum_Machine_Patterns_260_Bossa6;
+if (!drumLibrary.BossaBreak1) drumLibrary.BossaBreak1 = _patterns.Drum_Machine_Patterns_260_BossaBreak1;
+if (!drumLibrary.BossaBreak2) drumLibrary.BossaBreak2 = _patterns.Drum_Machine_Patterns_260_BossaBreak2;
+if (!drumLibrary.BossaBreak3) drumLibrary.BossaBreak3 = _patterns.Drum_Machine_Patterns_260_BossaBreak3;
+if (!drumLibrary.ChaCha1) drumLibrary.ChaCha1 = _patterns.Drum_Machine_Patterns_260_ChaCha1;
+if (!drumLibrary.ChaCha2) drumLibrary.ChaCha2 = _patterns.Drum_Machine_Patterns_260_ChaCha2;
+if (!drumLibrary.ChaCha3) drumLibrary.ChaCha3 = _patterns.Drum_Machine_Patterns_260_ChaCha3;
+if (!drumLibrary.ChaChaBreak1) drumLibrary.ChaChaBreak1 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak1;
+if (!drumLibrary.ChaChaBreak2) drumLibrary.ChaChaBreak2 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak2;
+if (!drumLibrary.ChaChaBreak3) drumLibrary.ChaChaBreak3 = _patterns.Drum_Machine_Patterns_260_ChaChaBreak3;
+if (!drumLibrary.Charleston1) drumLibrary.Charleston1 = _patterns.Drum_Machine_Patterns_260_Charleston1;
+if (!drumLibrary.CharlestonBreak1) drumLibrary.CharlestonBreak1 = _patterns.Drum_Machine_Patterns_260_CharlestonBreak1;
+if (!drumLibrary.Disco1) drumLibrary.Disco1 = _patterns.Drum_Machine_Patterns_260_Disco1;
+if (!drumLibrary.Disco10) drumLibrary.Disco10 = _patterns.Drum_Machine_Patterns_260_Disco10;
+if (!drumLibrary.Disco11) drumLibrary.Disco11 = _patterns.Drum_Machine_Patterns_260_Disco11;
+if (!drumLibrary.Disco12) drumLibrary.Disco12 = _patterns.Drum_Machine_Patterns_260_Disco12;
+if (!drumLibrary.Disco2) drumLibrary.Disco2 = _patterns.Drum_Machine_Patterns_260_Disco2;
+if (!drumLibrary.Disco3) drumLibrary.Disco3 = _patterns.Drum_Machine_Patterns_260_Disco3;
+if (!drumLibrary.Disco4) drumLibrary.Disco4 = _patterns.Drum_Machine_Patterns_260_Disco4;
+if (!drumLibrary.Disco5) drumLibrary.Disco5 = _patterns.Drum_Machine_Patterns_260_Disco5;
+if (!drumLibrary.Disco6) drumLibrary.Disco6 = _patterns.Drum_Machine_Patterns_260_Disco6;
+if (!drumLibrary.Disco7) drumLibrary.Disco7 = _patterns.Drum_Machine_Patterns_260_Disco7;
+if (!drumLibrary.Disco8) drumLibrary.Disco8 = _patterns.Drum_Machine_Patterns_260_Disco8;
+if (!drumLibrary.Disco9) drumLibrary.Disco9 = _patterns.Drum_Machine_Patterns_260_Disco9;
+if (!drumLibrary.DiscoBreak1) drumLibrary.DiscoBreak1 = _patterns.Drum_Machine_Patterns_260_DiscoBreak1;
+if (!drumLibrary.DiscoBreak2) drumLibrary.DiscoBreak2 = _patterns.Drum_Machine_Patterns_260_DiscoBreak2;
+if (!drumLibrary.DiscoBreak3) drumLibrary.DiscoBreak3 = _patterns.Drum_Machine_Patterns_260_DiscoBreak3;
+if (!drumLibrary.DiscoBreak4) drumLibrary.DiscoBreak4 = _patterns.Drum_Machine_Patterns_260_DiscoBreak4;
+if (!drumLibrary.DiscoBreak5) drumLibrary.DiscoBreak5 = _patterns.Drum_Machine_Patterns_260_DiscoBreak5;
+if (!drumLibrary.DiscoBreak6) drumLibrary.DiscoBreak6 = _patterns.Drum_Machine_Patterns_260_DiscoBreak6;
+if (!drumLibrary.DiscoBreak7) drumLibrary.DiscoBreak7 = _patterns.Drum_Machine_Patterns_260_DiscoBreak7;
+if (!drumLibrary.DiscoBreak8) drumLibrary.DiscoBreak8 = _patterns.Drum_Machine_Patterns_260_DiscoBreak8;
+if (!drumLibrary.DiscoBreak9) drumLibrary.DiscoBreak9 = _patterns.Drum_Machine_Patterns_260_DiscoBreak9;
+if (!drumLibrary.Ending1) drumLibrary.Ending1 = _patterns.Drum_Machine_Patterns_260_Ending1;
+if (!drumLibrary.Ending2) drumLibrary.Ending2 = _patterns.Drum_Machine_Patterns_260_Ending2;
+if (!drumLibrary.Ending3) drumLibrary.Ending3 = _patterns.Drum_Machine_Patterns_260_Ending3;
+if (!drumLibrary.Funk1) drumLibrary.Funk1 = _patterns.Drum_Machine_Patterns_260_Funk1;
+if (!drumLibrary.Funk10) drumLibrary.Funk10 = _patterns.Drum_Machine_Patterns_260_Funk10;
+if (!drumLibrary.Funk11) drumLibrary.Funk11 = _patterns.Drum_Machine_Patterns_260_Funk11;
+if (!drumLibrary.Funk12) drumLibrary.Funk12 = _patterns.Drum_Machine_Patterns_260_Funk12;
+if (!drumLibrary.Funk13) drumLibrary.Funk13 = _patterns.Drum_Machine_Patterns_260_Funk13;
+if (!drumLibrary.Funk14) drumLibrary.Funk14 = _patterns.Drum_Machine_Patterns_260_Funk14;
+if (!drumLibrary.Funk15) drumLibrary.Funk15 = _patterns.Drum_Machine_Patterns_260_Funk15;
+if (!drumLibrary.Funk2) drumLibrary.Funk2 = _patterns.Drum_Machine_Patterns_260_Funk2;
+if (!drumLibrary.Funk3) drumLibrary.Funk3 = _patterns.Drum_Machine_Patterns_260_Funk3;
+if (!drumLibrary.Funk4) drumLibrary.Funk4 = _patterns.Drum_Machine_Patterns_260_Funk4;
+if (!drumLibrary.Funk5) drumLibrary.Funk5 = _patterns.Drum_Machine_Patterns_260_Funk5;
+if (!drumLibrary.Funk6) drumLibrary.Funk6 = _patterns.Drum_Machine_Patterns_260_Funk6;
+if (!drumLibrary.Funk7) drumLibrary.Funk7 = _patterns.Drum_Machine_Patterns_260_Funk7;
+if (!drumLibrary.Funk8) drumLibrary.Funk8 = _patterns.Drum_Machine_Patterns_260_Funk8;
+if (!drumLibrary.Funk9) drumLibrary.Funk9 = _patterns.Drum_Machine_Patterns_260_Funk9;
+if (!drumLibrary.FunkBreak1) drumLibrary.FunkBreak1 = _patterns.Drum_Machine_Patterns_260_FunkBreak1;
+if (!drumLibrary.FunkBreak10) drumLibrary.FunkBreak10 = _patterns.Drum_Machine_Patterns_260_FunkBreak10;
+if (!drumLibrary.FunkBreak11) drumLibrary.FunkBreak11 = _patterns.Drum_Machine_Patterns_260_FunkBreak11;
+if (!drumLibrary.FunkBreak12) drumLibrary.FunkBreak12 = _patterns.Drum_Machine_Patterns_260_FunkBreak12;
+if (!drumLibrary.FunkBreak13) drumLibrary.FunkBreak13 = _patterns.Drum_Machine_Patterns_260_FunkBreak13;
+if (!drumLibrary.FunkBreak14) drumLibrary.FunkBreak14 = _patterns.Drum_Machine_Patterns_260_FunkBreak14;
+if (!drumLibrary.FunkBreak15) drumLibrary.FunkBreak15 = _patterns.Drum_Machine_Patterns_260_FunkBreak15;
+if (!drumLibrary.FunkBreak2) drumLibrary.FunkBreak2 = _patterns.Drum_Machine_Patterns_260_FunkBreak2;
+if (!drumLibrary.FunkBreak3) drumLibrary.FunkBreak3 = _patterns.Drum_Machine_Patterns_260_FunkBreak3;
+if (!drumLibrary.FunkBreak4) drumLibrary.FunkBreak4 = _patterns.Drum_Machine_Patterns_260_FunkBreak4;
+if (!drumLibrary.FunkBreak5) drumLibrary.FunkBreak5 = _patterns.Drum_Machine_Patterns_260_FunkBreak5;
+if (!drumLibrary.FunkBreak6) drumLibrary.FunkBreak6 = _patterns.Drum_Machine_Patterns_260_FunkBreak6;
+if (!drumLibrary.FunkBreak7) drumLibrary.FunkBreak7 = _patterns.Drum_Machine_Patterns_260_FunkBreak7;
+if (!drumLibrary.FunkBreak8) drumLibrary.FunkBreak8 = _patterns.Drum_Machine_Patterns_260_FunkBreak8;
+if (!drumLibrary.FunkBreak9) drumLibrary.FunkBreak9 = _patterns.Drum_Machine_Patterns_260_FunkBreak9;
+if (!drumLibrary.Jazz1) drumLibrary.Jazz1 = _patterns.Drum_Machine_Patterns_260_Jazz1;
+if (!drumLibrary.Jazz2) drumLibrary.Jazz2 = _patterns.Drum_Machine_Patterns_260_Jazz2;
+if (!drumLibrary.Jazz3) drumLibrary.Jazz3 = _patterns.Drum_Machine_Patterns_260_Jazz3;
+if (!drumLibrary.Jazz4) drumLibrary.Jazz4 = _patterns.Drum_Machine_Patterns_260_Jazz4;
+if (!drumLibrary.Jazz5) drumLibrary.Jazz5 = _patterns.Drum_Machine_Patterns_260_Jazz5;
+if (!drumLibrary.Jazz6) drumLibrary.Jazz6 = _patterns.Drum_Machine_Patterns_260_Jazz6;
+if (!drumLibrary.JazzBreak1) drumLibrary.JazzBreak1 = _patterns.Drum_Machine_Patterns_260_JazzBreak1;
+if (!drumLibrary.JazzBreak2) drumLibrary.JazzBreak2 = _patterns.Drum_Machine_Patterns_260_JazzBreak2;
+if (!drumLibrary.JazzBreak3) drumLibrary.JazzBreak3 = _patterns.Drum_Machine_Patterns_260_JazzBreak3;
+if (!drumLibrary.March1) drumLibrary.March1 = _patterns.Drum_Machine_Patterns_260_March1;
+if (!drumLibrary.March2) drumLibrary.March2 = _patterns.Drum_Machine_Patterns_260_March2;
+if (!drumLibrary.MarchBreak1) drumLibrary.MarchBreak1 = _patterns.Drum_Machine_Patterns_260_MarchBreak1;
+if (!drumLibrary.MarchBreak2) drumLibrary.MarchBreak2 = _patterns.Drum_Machine_Patterns_260_MarchBreak2;
+if (!drumLibrary.Paso1) drumLibrary.Paso1 = _patterns.Drum_Machine_Patterns_260_Paso1;
+if (!drumLibrary.Paso2) drumLibrary.Paso2 = _patterns.Drum_Machine_Patterns_260_Paso2;
+if (!drumLibrary.PasoBreak1) drumLibrary.PasoBreak1 = _patterns.Drum_Machine_Patterns_260_PasoBreak1;
+if (!drumLibrary.PasoBreak2) drumLibrary.PasoBreak2 = _patterns.Drum_Machine_Patterns_260_PasoBreak2;
+if (!drumLibrary.Pop1) drumLibrary.Pop1 = _patterns.Drum_Machine_Patterns_260_Pop1;
+if (!drumLibrary.Pop10) drumLibrary.Pop10 = _patterns.Drum_Machine_Patterns_260_Pop10;
+if (!drumLibrary.Pop11) drumLibrary.Pop11 = _patterns.Drum_Machine_Patterns_260_Pop11;
+if (!drumLibrary.Pop12) drumLibrary.Pop12 = _patterns.Drum_Machine_Patterns_260_Pop12;
+if (!drumLibrary.Pop2) drumLibrary.Pop2 = _patterns.Drum_Machine_Patterns_260_Pop2;
+if (!drumLibrary.Pop3) drumLibrary.Pop3 = _patterns.Drum_Machine_Patterns_260_Pop3;
+if (!drumLibrary.Pop4) drumLibrary.Pop4 = _patterns.Drum_Machine_Patterns_260_Pop4;
+if (!drumLibrary.Pop5) drumLibrary.Pop5 = _patterns.Drum_Machine_Patterns_260_Pop5;
+if (!drumLibrary.Pop6) drumLibrary.Pop6 = _patterns.Drum_Machine_Patterns_260_Pop6;
+if (!drumLibrary.Pop7) drumLibrary.Pop7 = _patterns.Drum_Machine_Patterns_260_Pop7;
+if (!drumLibrary.Pop8) drumLibrary.Pop8 = _patterns.Drum_Machine_Patterns_260_Pop8;
+if (!drumLibrary.Pop9) drumLibrary.Pop9 = _patterns.Drum_Machine_Patterns_260_Pop9;
+if (!drumLibrary.PopBreak1) drumLibrary.PopBreak1 = _patterns.Drum_Machine_Patterns_260_PopBreak1;
+if (!drumLibrary.PopBreak2) drumLibrary.PopBreak2 = _patterns.Drum_Machine_Patterns_260_PopBreak2;
+if (!drumLibrary.PopBreak3) drumLibrary.PopBreak3 = _patterns.Drum_Machine_Patterns_260_PopBreak3;
+if (!drumLibrary.PopBreak4) drumLibrary.PopBreak4 = _patterns.Drum_Machine_Patterns_260_PopBreak4;
+if (!drumLibrary.PopBreak5) drumLibrary.PopBreak5 = _patterns.Drum_Machine_Patterns_260_PopBreak5;
+if (!drumLibrary.PopBreak6) drumLibrary.PopBreak6 = _patterns.Drum_Machine_Patterns_260_PopBreak6;
+if (!drumLibrary.Reggae1) drumLibrary.Reggae1 = _patterns.Drum_Machine_Patterns_260_Reggae1;
+if (!drumLibrary.Reggae10) drumLibrary.Reggae10 = _patterns.Drum_Machine_Patterns_260_Reggae10;
+if (!drumLibrary.Reggae11) drumLibrary.Reggae11 = _patterns.Drum_Machine_Patterns_260_Reggae11;
+if (!drumLibrary.Reggae12) drumLibrary.Reggae12 = _patterns.Drum_Machine_Patterns_260_Reggae12;
+if (!drumLibrary.Reggae2) drumLibrary.Reggae2 = _patterns.Drum_Machine_Patterns_260_Reggae2;
+if (!drumLibrary.Reggae3) drumLibrary.Reggae3 = _patterns.Drum_Machine_Patterns_260_Reggae3;
+if (!drumLibrary.Reggae4) drumLibrary.Reggae4 = _patterns.Drum_Machine_Patterns_260_Reggae4;
+if (!drumLibrary.Reggae5) drumLibrary.Reggae5 = _patterns.Drum_Machine_Patterns_260_Reggae5;
+if (!drumLibrary.Reggae6) drumLibrary.Reggae6 = _patterns.Drum_Machine_Patterns_260_Reggae6;
+if (!drumLibrary.Reggae7) drumLibrary.Reggae7 = _patterns.Drum_Machine_Patterns_260_Reggae7;
+if (!drumLibrary.Reggae8) drumLibrary.Reggae8 = _patterns.Drum_Machine_Patterns_260_Reggae8;
+if (!drumLibrary.Reggae9) drumLibrary.Reggae9 = _patterns.Drum_Machine_Patterns_260_Reggae9;
+if (!drumLibrary.ReggaeBreak1) drumLibrary.ReggaeBreak1 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak1;
+if (!drumLibrary.ReggaeBreak2) drumLibrary.ReggaeBreak2 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak2;
+if (!drumLibrary.ReggaeBreak3) drumLibrary.ReggaeBreak3 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak3;
+if (!drumLibrary.ReggaeBreak4) drumLibrary.ReggaeBreak4 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak4;
+if (!drumLibrary.ReggaeBreak5) drumLibrary.ReggaeBreak5 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak5;
+if (!drumLibrary.ReggaeBreak6) drumLibrary.ReggaeBreak6 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak6;
+if (!drumLibrary.ReggaeBreak7) drumLibrary.ReggaeBreak7 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak7;
+if (!drumLibrary.ReggaeBreak8) drumLibrary.ReggaeBreak8 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak8;
+if (!drumLibrary.ReggaeBreak9) drumLibrary.ReggaeBreak9 = _patterns.Drum_Machine_Patterns_260_ReggaeBreak9;
+if (!drumLibrary.Rnb1) drumLibrary.Rnb1 = _patterns.Drum_Machine_Patterns_260_Rnb1;
+if (!drumLibrary.Rnb10) drumLibrary.Rnb10 = _patterns.Drum_Machine_Patterns_260_Rnb10;
+if (!drumLibrary.Rnb11) drumLibrary.Rnb11 = _patterns.Drum_Machine_Patterns_260_Rnb11;
+if (!drumLibrary.Rnb12) drumLibrary.Rnb12 = _patterns.Drum_Machine_Patterns_260_Rnb12;
+if (!drumLibrary.Rnb2) drumLibrary.Rnb2 = _patterns.Drum_Machine_Patterns_260_Rnb2;
+if (!drumLibrary.Rnb3) drumLibrary.Rnb3 = _patterns.Drum_Machine_Patterns_260_Rnb3;
+if (!drumLibrary.Rnb4) drumLibrary.Rnb4 = _patterns.Drum_Machine_Patterns_260_Rnb4;
+if (!drumLibrary.Rnb5) drumLibrary.Rnb5 = _patterns.Drum_Machine_Patterns_260_Rnb5;
+if (!drumLibrary.Rnb6) drumLibrary.Rnb6 = _patterns.Drum_Machine_Patterns_260_Rnb6;
+if (!drumLibrary.Rnb7) drumLibrary.Rnb7 = _patterns.Drum_Machine_Patterns_260_Rnb7;
+if (!drumLibrary.Rnb8) drumLibrary.Rnb8 = _patterns.Drum_Machine_Patterns_260_Rnb8;
+if (!drumLibrary.Rnb9) drumLibrary.Rnb9 = _patterns.Drum_Machine_Patterns_260_Rnb9;
+if (!drumLibrary.RnbBreak1) drumLibrary.RnbBreak1 = _patterns.Drum_Machine_Patterns_260_RnbBreak1;
+if (!drumLibrary.RnbBreak2) drumLibrary.RnbBreak2 = _patterns.Drum_Machine_Patterns_260_RnbBreak2;
+if (!drumLibrary.RnbBreak3) drumLibrary.RnbBreak3 = _patterns.Drum_Machine_Patterns_260_RnbBreak3;
+if (!drumLibrary.RnbBreak4) drumLibrary.RnbBreak4 = _patterns.Drum_Machine_Patterns_260_RnbBreak4;
+if (!drumLibrary.RnbBreak5) drumLibrary.RnbBreak5 = _patterns.Drum_Machine_Patterns_260_RnbBreak5;
+if (!drumLibrary.RnbBreak6) drumLibrary.RnbBreak6 = _patterns.Drum_Machine_Patterns_260_RnbBreak6;
+if (!drumLibrary.Rock1) drumLibrary.Rock1 = _patterns.Drum_Machine_Patterns_260_Rock1;
+if (!drumLibrary.Rock10) drumLibrary.Rock10 = _patterns.Drum_Machine_Patterns_260_Rock10;
+if (!drumLibrary.Rock11) drumLibrary.Rock11 = _patterns.Drum_Machine_Patterns_260_Rock11;
+if (!drumLibrary.Rock12) drumLibrary.Rock12 = _patterns.Drum_Machine_Patterns_260_Rock12;
+if (!drumLibrary.Rock13) drumLibrary.Rock13 = _patterns.Drum_Machine_Patterns_260_Rock13;
+if (!drumLibrary.Rock14) drumLibrary.Rock14 = _patterns.Drum_Machine_Patterns_260_Rock14;
+if (!drumLibrary.Rock2) drumLibrary.Rock2 = _patterns.Drum_Machine_Patterns_260_Rock2;
+if (!drumLibrary.Rock3) drumLibrary.Rock3 = _patterns.Drum_Machine_Patterns_260_Rock3;
+if (!drumLibrary.Rock4) drumLibrary.Rock4 = _patterns.Drum_Machine_Patterns_260_Rock4;
+if (!drumLibrary.Rock5) drumLibrary.Rock5 = _patterns.Drum_Machine_Patterns_260_Rock5;
+if (!drumLibrary.Rock6) drumLibrary.Rock6 = _patterns.Drum_Machine_Patterns_260_Rock6;
+if (!drumLibrary.Rock7) drumLibrary.Rock7 = _patterns.Drum_Machine_Patterns_260_Rock7;
+if (!drumLibrary.Rock8) drumLibrary.Rock8 = _patterns.Drum_Machine_Patterns_260_Rock8;
+if (!drumLibrary.Rock9) drumLibrary.Rock9 = _patterns.Drum_Machine_Patterns_260_Rock9;
+if (!drumLibrary.RockBreak1) drumLibrary.RockBreak1 = _patterns.Drum_Machine_Patterns_260_RockBreak1;
+if (!drumLibrary.RockBreak10) drumLibrary.RockBreak10 = _patterns.Drum_Machine_Patterns_260_RockBreak10;
+if (!drumLibrary.RockBreak11) drumLibrary.RockBreak11 = _patterns.Drum_Machine_Patterns_260_RockBreak11;
+if (!drumLibrary.RockBreak12) drumLibrary.RockBreak12 = _patterns.Drum_Machine_Patterns_260_RockBreak12;
+if (!drumLibrary.RockBreak2) drumLibrary.RockBreak2 = _patterns.Drum_Machine_Patterns_260_RockBreak2;
+if (!drumLibrary.RockBreak3) drumLibrary.RockBreak3 = _patterns.Drum_Machine_Patterns_260_RockBreak3;
+if (!drumLibrary.RockBreak4) drumLibrary.RockBreak4 = _patterns.Drum_Machine_Patterns_260_RockBreak4;
+if (!drumLibrary.RockBreak5) drumLibrary.RockBreak5 = _patterns.Drum_Machine_Patterns_260_RockBreak5;
+if (!drumLibrary.RockBreak6) drumLibrary.RockBreak6 = _patterns.Drum_Machine_Patterns_260_RockBreak6;
+if (!drumLibrary.RockBreak7) drumLibrary.RockBreak7 = _patterns.Drum_Machine_Patterns_260_RockBreak7;
+if (!drumLibrary.RockBreak8) drumLibrary.RockBreak8 = _patterns.Drum_Machine_Patterns_260_RockBreak8;
+if (!drumLibrary.RockBreak9) drumLibrary.RockBreak9 = _patterns.Drum_Machine_Patterns_260_RockBreak9;
+if (!drumLibrary.Samba1) drumLibrary.Samba1 = _patterns.Drum_Machine_Patterns_260_Samba1;
+if (!drumLibrary.Samba2) drumLibrary.Samba2 = _patterns.Drum_Machine_Patterns_260_Samba2;
+if (!drumLibrary.Samba3) drumLibrary.Samba3 = _patterns.Drum_Machine_Patterns_260_Samba3;
+if (!drumLibrary.Samba4) drumLibrary.Samba4 = _patterns.Drum_Machine_Patterns_260_Samba4;
+if (!drumLibrary.Samba5) drumLibrary.Samba5 = _patterns.Drum_Machine_Patterns_260_Samba5;
+if (!drumLibrary.Samba6) drumLibrary.Samba6 = _patterns.Drum_Machine_Patterns_260_Samba6;
+if (!drumLibrary.SambaBreak1) drumLibrary.SambaBreak1 = _patterns.Drum_Machine_Patterns_260_SambaBreak1;
+if (!drumLibrary.SambaBreak2) drumLibrary.SambaBreak2 = _patterns.Drum_Machine_Patterns_260_SambaBreak2;
+if (!drumLibrary.SambaBreak3) drumLibrary.SambaBreak3 = _patterns.Drum_Machine_Patterns_260_SambaBreak3;
+if (!drumLibrary.Shuffle1) drumLibrary.Shuffle1 = _patterns.Drum_Machine_Patterns_260_Shuffle1;
+if (!drumLibrary.Shuffle2) drumLibrary.Shuffle2 = _patterns.Drum_Machine_Patterns_260_Shuffle2;
+if (!drumLibrary.Shuffle3) drumLibrary.Shuffle3 = _patterns.Drum_Machine_Patterns_260_Shuffle3;
+if (!drumLibrary.Shuffle4) drumLibrary.Shuffle4 = _patterns.Drum_Machine_Patterns_260_Shuffle4;
+if (!drumLibrary.Shuffle5) drumLibrary.Shuffle5 = _patterns.Drum_Machine_Patterns_260_Shuffle5;
+if (!drumLibrary.Shuffle6) drumLibrary.Shuffle6 = _patterns.Drum_Machine_Patterns_260_Shuffle6;
+if (!drumLibrary.ShuffleBreak1) drumLibrary.ShuffleBreak1 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak1;
+if (!drumLibrary.ShuffleBreak2) drumLibrary.ShuffleBreak2 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak2;
+if (!drumLibrary.ShuffleBreak3) drumLibrary.ShuffleBreak3 = _patterns.Drum_Machine_Patterns_260_ShuffleBreak3;
+if (!drumLibrary.Ska1) drumLibrary.Ska1 = _patterns.Drum_Machine_Patterns_260_Ska1;
+if (!drumLibrary.Ska2) drumLibrary.Ska2 = _patterns.Drum_Machine_Patterns_260_Ska2;
+if (!drumLibrary.Ska3) drumLibrary.Ska3 = _patterns.Drum_Machine_Patterns_260_Ska3;
+if (!drumLibrary.SkaBreak1) drumLibrary.SkaBreak1 = _patterns.Drum_Machine_Patterns_260_SkaBreak1;
+if (!drumLibrary.SkaBreak2) drumLibrary.SkaBreak2 = _patterns.Drum_Machine_Patterns_260_SkaBreak2;
+if (!drumLibrary.SkaBreak3) drumLibrary.SkaBreak3 = _patterns.Drum_Machine_Patterns_260_SkaBreak3;
+if (!drumLibrary.Slow1) drumLibrary.Slow1 = _patterns.Drum_Machine_Patterns_260_Slow1;
+if (!drumLibrary.Slow10) drumLibrary.Slow10 = _patterns.Drum_Machine_Patterns_260_Slow10;
+if (!drumLibrary.Slow11) drumLibrary.Slow11 = _patterns.Drum_Machine_Patterns_260_Slow11;
+if (!drumLibrary.Slow12) drumLibrary.Slow12 = _patterns.Drum_Machine_Patterns_260_Slow12;
+if (!drumLibrary.Slow2) drumLibrary.Slow2 = _patterns.Drum_Machine_Patterns_260_Slow2;
+if (!drumLibrary.Slow3) drumLibrary.Slow3 = _patterns.Drum_Machine_Patterns_260_Slow3;
+if (!drumLibrary.Slow4) drumLibrary.Slow4 = _patterns.Drum_Machine_Patterns_260_Slow4;
+if (!drumLibrary.Slow5) drumLibrary.Slow5 = _patterns.Drum_Machine_Patterns_260_Slow5;
+if (!drumLibrary.Slow6) drumLibrary.Slow6 = _patterns.Drum_Machine_Patterns_260_Slow6;
+if (!drumLibrary.Slow7) drumLibrary.Slow7 = _patterns.Drum_Machine_Patterns_260_Slow7;
+if (!drumLibrary.Slow8) drumLibrary.Slow8 = _patterns.Drum_Machine_Patterns_260_Slow8;
+if (!drumLibrary.Slow9) drumLibrary.Slow9 = _patterns.Drum_Machine_Patterns_260_Slow9;
+if (!drumLibrary.SlowBreak1) drumLibrary.SlowBreak1 = _patterns.Drum_Machine_Patterns_260_SlowBreak1;
+if (!drumLibrary.SlowBreak2) drumLibrary.SlowBreak2 = _patterns.Drum_Machine_Patterns_260_SlowBreak2;
+if (!drumLibrary.SlowBreak3) drumLibrary.SlowBreak3 = _patterns.Drum_Machine_Patterns_260_SlowBreak3;
+if (!drumLibrary.SlowBreak4) drumLibrary.SlowBreak4 = _patterns.Drum_Machine_Patterns_260_SlowBreak4;
+if (!drumLibrary.SlowBreak5) drumLibrary.SlowBreak5 = _patterns.Drum_Machine_Patterns_260_SlowBreak5;
+if (!drumLibrary.SlowBreak6) drumLibrary.SlowBreak6 = _patterns.Drum_Machine_Patterns_260_SlowBreak6;
+if (!drumLibrary.Swing1) drumLibrary.Swing1 = _patterns.Drum_Machine_Patterns_260_Swing1;
+if (!drumLibrary.Swing2) drumLibrary.Swing2 = _patterns.Drum_Machine_Patterns_260_Swing2;
+if (!drumLibrary.Swing3) drumLibrary.Swing3 = _patterns.Drum_Machine_Patterns_260_Swing3;
+if (!drumLibrary.Swing5) drumLibrary.Swing5 = _patterns.Drum_Machine_Patterns_260_Swing5;
+if (!drumLibrary.Swing6) drumLibrary.Swing6 = _patterns.Drum_Machine_Patterns_260_Swing6;
+if (!drumLibrary.SwingBreak1) drumLibrary.SwingBreak1 = _patterns.Drum_Machine_Patterns_260_SwingBreak1;
+if (!drumLibrary.SwingBreak2) drumLibrary.SwingBreak2 = _patterns.Drum_Machine_Patterns_260_SwingBreak2;
+if (!drumLibrary.SwingBreak3) drumLibrary.SwingBreak3 = _patterns.Drum_Machine_Patterns_260_SwingBreak3;
+if (!drumLibrary.Tango1) drumLibrary.Tango1 = _patterns.Drum_Machine_Patterns_260_Tango1;
+if (!drumLibrary.TangoBreak1) drumLibrary.TangoBreak1 = _patterns.Drum_Machine_Patterns_260_TangoBreak1;
+if (!drumLibrary.Twist1) drumLibrary.Twist1 = _patterns.Drum_Machine_Patterns_260_Twist1;
+if (!drumLibrary.Twist2) drumLibrary.Twist2 = _patterns.Drum_Machine_Patterns_260_Twist2;
+if (!drumLibrary.Twist3) drumLibrary.Twist3 = _patterns.Drum_Machine_Patterns_260_Twist3;
+if (!drumLibrary.TwistBreak1) drumLibrary.TwistBreak1 = _patterns.Drum_Machine_Patterns_260_TwistBreak1;
+if (!drumLibrary.TwistBreak2) drumLibrary.TwistBreak2 = _patterns.Drum_Machine_Patterns_260_TwistBreak2;
+if (!drumLibrary.TwistBreak3) drumLibrary.TwistBreak3 = _patterns.Drum_Machine_Patterns_260_TwistBreak3;
+if (!drumLibrary.Waltz1) drumLibrary.Waltz1 = _patterns.Drum_Machine_Patterns_260_Waltz1;
+if (!drumLibrary.Waltz2) drumLibrary.Waltz2 = _patterns.Drum_Machine_Patterns_260_Waltz2;
+if (!drumLibrary.Waltz3) drumLibrary.Waltz3 = _patterns.Drum_Machine_Patterns_260_Waltz3;
+if (!drumLibrary.WaltzBreak1) drumLibrary.WaltzBreak1 = _patterns.Drum_Machine_Patterns_260_WaltzBreak1;
+if (!drumLibrary.WaltzBreak2) drumLibrary.WaltzBreak2 = _patterns.Drum_Machine_Patterns_260_WaltzBreak2;
+if (!drumLibrary.WaltzBreak3) drumLibrary.WaltzBreak3 = _patterns.Drum_Machine_Patterns_260_WaltzBreak3;
+drumLibrary.Dub = Object.assign(
+  (opts = {}) => _patterns.Dub_Dub(opts),
+  {
+    Dub: _patterns.Dub_Dub
+  }
+);
+if (!drumLibrary.Dub) drumLibrary.Dub = _patterns.Dub_Dub;
+drumLibrary.EBM = Object.assign(
+  (opts = {}) => _patterns.EBM_EBM(opts),
+  {
+    EBM: _patterns.EBM_EBM
+  }
+);
+if (!drumLibrary.EBM) drumLibrary.EBM = _patterns.EBM_EBM;
+drumLibrary.EDM_literature_patterns = Object.assign(
+  (opts = {}) => _patterns.EDM_literature_patterns_bighouse_AM(opts),
+  {
+    bighouse_AM: _patterns.EDM_literature_patterns_bighouse_AM,
+    bigroomhouse_AM: _patterns.EDM_literature_patterns_bigroomhouse_AM,
+    breakashleysroach_EH: _patterns.EDM_literature_patterns_breakashleysroach_EH,
+    breakbeat_SA: _patterns.EDM_literature_patterns_breakbeat_SA,
+    breakbreaks_standard_DMR: _patterns.EDM_literature_patterns_breakbreaks_standard_DMR,
+    breakcontemporarykick_DMR: _patterns.EDM_literature_patterns_breakcontemporarykick_DMR,
+    breakcontemporarysnare_DMR: _patterns.EDM_literature_patterns_breakcontemporarysnare_DMR,
+    breakelectro_standard_DMR: _patterns.EDM_literature_patterns_breakelectro_standard_DMR,
+    breakfunkbreak_SA: _patterns.EDM_literature_patterns_breakfunkbreak_SA,
+    breakfunkydrummer_EH: _patterns.EDM_literature_patterns_breakfunkydrummer_EH,
+    breakhybrid_DMR: _patterns.EDM_literature_patterns_breakhybrid_DMR,
+    breakimpeach_EH: _patterns.EDM_literature_patterns_breakimpeach_EH,
+    breakirregular_DMR: _patterns.EDM_literature_patterns_breakirregular_DMR,
+    breakitsanewday_EH: _patterns.EDM_literature_patterns_breakitsanewday_EH,
+    breakpapawastoo_EH: _patterns.EDM_literature_patterns_breakpapawastoo_EH,
+    breakpolyrhythmic_DMR: _patterns.EDM_literature_patterns_breakpolyrhythmic_DMR,
+    breakrolling_DMR: _patterns.EDM_literature_patterns_breakrolling_DMR,
+    breaksyntheticsubs_EH: _patterns.EDM_literature_patterns_breaksyntheticsubs_EH,
+    breaktakemetomardigras_EH: _patterns.EDM_literature_patterns_breaktakemetomardigras_EH,
+    breakthebigbeat_EH: _patterns.EDM_literature_patterns_breakthebigbeat_EH,
+    breakunconventional_DMR: _patterns.EDM_literature_patterns_breakunconventional_DMR,
+    breakwalkthisway_EH: _patterns.EDM_literature_patterns_breakwalkthisway_EH,
+    breakwhenthelevee_EH: _patterns.EDM_literature_patterns_breakwhenthelevee_EH,
+    brithouse_SA: _patterns.EDM_literature_patterns_brithouse_SA,
+    chicagohouse_SA: _patterns.EDM_literature_patterns_chicagohouse_SA,
+    classichouse_CCM: _patterns.EDM_literature_patterns_classichouse_CCM,
+    deephouse_CCM: _patterns.EDM_literature_patterns_deephouse_CCM,
+    deephouse_SA: _patterns.EDM_literature_patterns_deephouse_SA,
+    deeptechhouse_AM: _patterns.EDM_literature_patterns_deeptechhouse_AM,
+    dirtyhouse_SA: _patterns.EDM_literature_patterns_dirtyhouse_SA,
+    frenchhouse_SA: _patterns.EDM_literature_patterns_frenchhouse_SA,
+    house_CCM: _patterns.EDM_literature_patterns_house_CCM,
+    house_DMM: _patterns.EDM_literature_patterns_house_DMM,
+    house_DMPS: _patterns.EDM_literature_patterns_house_DMPS,
+    house_SA: _patterns.EDM_literature_patterns_house_SA,
+    housewithchords_CCM: _patterns.EDM_literature_patterns_housewithchords_CCM,
+    minimalhouse_AM: _patterns.EDM_literature_patterns_minimalhouse_AM,
+    organichouse_AM: _patterns.EDM_literature_patterns_organichouse_AM,
+    polishedhouse_AM: _patterns.EDM_literature_patterns_polishedhouse_AM,
+    simplejackinhouse_SA: _patterns.EDM_literature_patterns_simplejackinhouse_SA,
+    slowdeephouse_SA: _patterns.EDM_literature_patterns_slowdeephouse_SA,
+    slowhouse_AM: _patterns.EDM_literature_patterns_slowhouse_AM,
+    techno1_DMM: _patterns.EDM_literature_patterns_techno1_DMM,
+    technoDMPS_AM: _patterns.EDM_literature_patterns_technoDMPS_AM,
+    technochugging_AM: _patterns.EDM_literature_patterns_technochugging_AM,
+    technodarkberlin_AM: _patterns.EDM_literature_patterns_technodarkberlin_AM,
+    technogrindinganalogue_AM: _patterns.EDM_literature_patterns_technogrindinganalogue_AM,
+    technohardcore_CCM: _patterns.EDM_literature_patterns_technohardcore_CCM,
+    technoindustrial_AM: _patterns.EDM_literature_patterns_technoindustrial_AM,
+    technominimal_CCM: _patterns.EDM_literature_patterns_technominimal_CCM,
+    technothumping_AM: _patterns.EDM_literature_patterns_technothumping_AM
+  }
+);
+if (!drumLibrary.bighouse_AM) drumLibrary.bighouse_AM = _patterns.EDM_literature_patterns_bighouse_AM;
+if (!drumLibrary.bigroomhouse_AM) drumLibrary.bigroomhouse_AM = _patterns.EDM_literature_patterns_bigroomhouse_AM;
+if (!drumLibrary.breakashleysroach_EH) drumLibrary.breakashleysroach_EH = _patterns.EDM_literature_patterns_breakashleysroach_EH;
+if (!drumLibrary.breakbeat_SA) drumLibrary.breakbeat_SA = _patterns.EDM_literature_patterns_breakbeat_SA;
+if (!drumLibrary.breakbreaks_standard_DMR) drumLibrary.breakbreaks_standard_DMR = _patterns.EDM_literature_patterns_breakbreaks_standard_DMR;
+if (!drumLibrary.breakcontemporarykick_DMR) drumLibrary.breakcontemporarykick_DMR = _patterns.EDM_literature_patterns_breakcontemporarykick_DMR;
+if (!drumLibrary.breakcontemporarysnare_DMR) drumLibrary.breakcontemporarysnare_DMR = _patterns.EDM_literature_patterns_breakcontemporarysnare_DMR;
+if (!drumLibrary.breakelectro_standard_DMR) drumLibrary.breakelectro_standard_DMR = _patterns.EDM_literature_patterns_breakelectro_standard_DMR;
+if (!drumLibrary.breakfunkbreak_SA) drumLibrary.breakfunkbreak_SA = _patterns.EDM_literature_patterns_breakfunkbreak_SA;
+if (!drumLibrary.breakfunkydrummer_EH) drumLibrary.breakfunkydrummer_EH = _patterns.EDM_literature_patterns_breakfunkydrummer_EH;
+if (!drumLibrary.breakhybrid_DMR) drumLibrary.breakhybrid_DMR = _patterns.EDM_literature_patterns_breakhybrid_DMR;
+if (!drumLibrary.breakimpeach_EH) drumLibrary.breakimpeach_EH = _patterns.EDM_literature_patterns_breakimpeach_EH;
+if (!drumLibrary.breakirregular_DMR) drumLibrary.breakirregular_DMR = _patterns.EDM_literature_patterns_breakirregular_DMR;
+if (!drumLibrary.breakitsanewday_EH) drumLibrary.breakitsanewday_EH = _patterns.EDM_literature_patterns_breakitsanewday_EH;
+if (!drumLibrary.breakpapawastoo_EH) drumLibrary.breakpapawastoo_EH = _patterns.EDM_literature_patterns_breakpapawastoo_EH;
+if (!drumLibrary.breakpolyrhythmic_DMR) drumLibrary.breakpolyrhythmic_DMR = _patterns.EDM_literature_patterns_breakpolyrhythmic_DMR;
+if (!drumLibrary.breakrolling_DMR) drumLibrary.breakrolling_DMR = _patterns.EDM_literature_patterns_breakrolling_DMR;
+if (!drumLibrary.breaksyntheticsubs_EH) drumLibrary.breaksyntheticsubs_EH = _patterns.EDM_literature_patterns_breaksyntheticsubs_EH;
+if (!drumLibrary.breaktakemetomardigras_EH) drumLibrary.breaktakemetomardigras_EH = _patterns.EDM_literature_patterns_breaktakemetomardigras_EH;
+if (!drumLibrary.breakthebigbeat_EH) drumLibrary.breakthebigbeat_EH = _patterns.EDM_literature_patterns_breakthebigbeat_EH;
+if (!drumLibrary.breakunconventional_DMR) drumLibrary.breakunconventional_DMR = _patterns.EDM_literature_patterns_breakunconventional_DMR;
+if (!drumLibrary.breakwalkthisway_EH) drumLibrary.breakwalkthisway_EH = _patterns.EDM_literature_patterns_breakwalkthisway_EH;
+if (!drumLibrary.breakwhenthelevee_EH) drumLibrary.breakwhenthelevee_EH = _patterns.EDM_literature_patterns_breakwhenthelevee_EH;
+if (!drumLibrary.brithouse_SA) drumLibrary.brithouse_SA = _patterns.EDM_literature_patterns_brithouse_SA;
+if (!drumLibrary.chicagohouse_SA) drumLibrary.chicagohouse_SA = _patterns.EDM_literature_patterns_chicagohouse_SA;
+if (!drumLibrary.classichouse_CCM) drumLibrary.classichouse_CCM = _patterns.EDM_literature_patterns_classichouse_CCM;
+if (!drumLibrary.deephouse_CCM) drumLibrary.deephouse_CCM = _patterns.EDM_literature_patterns_deephouse_CCM;
+if (!drumLibrary.deephouse_SA) drumLibrary.deephouse_SA = _patterns.EDM_literature_patterns_deephouse_SA;
+if (!drumLibrary.deeptechhouse_AM) drumLibrary.deeptechhouse_AM = _patterns.EDM_literature_patterns_deeptechhouse_AM;
+if (!drumLibrary.dirtyhouse_SA) drumLibrary.dirtyhouse_SA = _patterns.EDM_literature_patterns_dirtyhouse_SA;
+if (!drumLibrary.frenchhouse_SA) drumLibrary.frenchhouse_SA = _patterns.EDM_literature_patterns_frenchhouse_SA;
+if (!drumLibrary.house_CCM) drumLibrary.house_CCM = _patterns.EDM_literature_patterns_house_CCM;
+if (!drumLibrary.house_DMM) drumLibrary.house_DMM = _patterns.EDM_literature_patterns_house_DMM;
+if (!drumLibrary.house_DMPS) drumLibrary.house_DMPS = _patterns.EDM_literature_patterns_house_DMPS;
+if (!drumLibrary.house_SA) drumLibrary.house_SA = _patterns.EDM_literature_patterns_house_SA;
+if (!drumLibrary.housewithchords_CCM) drumLibrary.housewithchords_CCM = _patterns.EDM_literature_patterns_housewithchords_CCM;
+if (!drumLibrary.minimalhouse_AM) drumLibrary.minimalhouse_AM = _patterns.EDM_literature_patterns_minimalhouse_AM;
+if (!drumLibrary.organichouse_AM) drumLibrary.organichouse_AM = _patterns.EDM_literature_patterns_organichouse_AM;
+if (!drumLibrary.polishedhouse_AM) drumLibrary.polishedhouse_AM = _patterns.EDM_literature_patterns_polishedhouse_AM;
+if (!drumLibrary.simplejackinhouse_SA) drumLibrary.simplejackinhouse_SA = _patterns.EDM_literature_patterns_simplejackinhouse_SA;
+if (!drumLibrary.slowdeephouse_SA) drumLibrary.slowdeephouse_SA = _patterns.EDM_literature_patterns_slowdeephouse_SA;
+if (!drumLibrary.slowhouse_AM) drumLibrary.slowhouse_AM = _patterns.EDM_literature_patterns_slowhouse_AM;
+if (!drumLibrary.techno1_DMM) drumLibrary.techno1_DMM = _patterns.EDM_literature_patterns_techno1_DMM;
+if (!drumLibrary.technoDMPS_AM) drumLibrary.technoDMPS_AM = _patterns.EDM_literature_patterns_technoDMPS_AM;
+if (!drumLibrary.technochugging_AM) drumLibrary.technochugging_AM = _patterns.EDM_literature_patterns_technochugging_AM;
+if (!drumLibrary.technodarkberlin_AM) drumLibrary.technodarkberlin_AM = _patterns.EDM_literature_patterns_technodarkberlin_AM;
+if (!drumLibrary.technogrindinganalogue_AM) drumLibrary.technogrindinganalogue_AM = _patterns.EDM_literature_patterns_technogrindinganalogue_AM;
+if (!drumLibrary.technohardcore_CCM) drumLibrary.technohardcore_CCM = _patterns.EDM_literature_patterns_technohardcore_CCM;
+if (!drumLibrary.technoindustrial_AM) drumLibrary.technoindustrial_AM = _patterns.EDM_literature_patterns_technoindustrial_AM;
+if (!drumLibrary.technominimal_CCM) drumLibrary.technominimal_CCM = _patterns.EDM_literature_patterns_technominimal_CCM;
+if (!drumLibrary.technothumping_AM) drumLibrary.technothumping_AM = _patterns.EDM_literature_patterns_technothumping_AM;
+drumLibrary.FR_3_Patterns = Object.assign(
+  (opts = {}) => _patterns.FR_3_Patterns_beguine(opts),
+  {
+    beguine: _patterns.FR_3_Patterns_beguine,
+    bossanova: _patterns.FR_3_Patterns_bossanova,
+    foxtrot: _patterns.FR_3_Patterns_foxtrot,
+    habanera: _patterns.FR_3_Patterns_habanera,
+    mambo: _patterns.FR_3_Patterns_mambo,
+    march: _patterns.FR_3_Patterns_march,
+    rhumba: _patterns.FR_3_Patterns_rhumba,
+    rocknroll: _patterns.FR_3_Patterns_rocknroll,
+    samba: _patterns.FR_3_Patterns_samba,
+    swing: _patterns.FR_3_Patterns_swing,
+    tango: _patterns.FR_3_Patterns_tango,
+    waltz: _patterns.FR_3_Patterns_waltz
+  }
+);
+if (!drumLibrary.beguine) drumLibrary.beguine = _patterns.FR_3_Patterns_beguine;
+if (!drumLibrary.bossanova) drumLibrary.bossanova = _patterns.FR_3_Patterns_bossanova;
+if (!drumLibrary.foxtrot) drumLibrary.foxtrot = _patterns.FR_3_Patterns_foxtrot;
+if (!drumLibrary.habanera) drumLibrary.habanera = _patterns.FR_3_Patterns_habanera;
+if (!drumLibrary.mambo) drumLibrary.mambo = _patterns.FR_3_Patterns_mambo;
+if (!drumLibrary.march) drumLibrary.march = _patterns.FR_3_Patterns_march;
+if (!drumLibrary.rhumba) drumLibrary.rhumba = _patterns.FR_3_Patterns_rhumba;
+if (!drumLibrary.rocknroll) drumLibrary.rocknroll = _patterns.FR_3_Patterns_rocknroll;
+if (!drumLibrary.samba) drumLibrary.samba = _patterns.FR_3_Patterns_samba;
+if (!drumLibrary.swing) drumLibrary.swing = _patterns.FR_3_Patterns_swing;
+if (!drumLibrary.tango) drumLibrary.tango = _patterns.FR_3_Patterns_tango;
+if (!drumLibrary.waltz) drumLibrary.waltz = _patterns.FR_3_Patterns_waltz;
+drumLibrary.Hardcore_Techno = Object.assign(
+  (opts = {}) => _patterns.Hardcore_Techno_Gabber(opts),
+  {
+    Gabber: _patterns.Hardcore_Techno_Gabber
+  }
+);
+if (!drumLibrary.Gabber) drumLibrary.Gabber = _patterns.Hardcore_Techno_Gabber;
+drumLibrary.Hip_Hop = Object.assign(
+  (opts = {}) => _patterns.Hip_Hop_Jul_type_beat(opts),
+  {
+    Jul_type_beat: _patterns.Hip_Hop_Jul_type_beat,
+    Trap: _patterns.Hip_Hop_Trap
+  }
+);
+if (!drumLibrary.Jul_type_beat) drumLibrary.Jul_type_beat = _patterns.Hip_Hop_Jul_type_beat;
+if (!drumLibrary.Trap) drumLibrary.Trap = _patterns.Hip_Hop_Trap;
+drumLibrary.Hypnotic_Techno = Object.assign(
+  (opts = {}) => _patterns.Hypnotic_Techno_Son_Clave(opts),
+  {
+    Son_Clave: _patterns.Hypnotic_Techno_Son_Clave,
+    Tresillo: _patterns.Hypnotic_Techno_Tresillo
+  }
+);
+if (!drumLibrary.Son_Clave) drumLibrary.Son_Clave = _patterns.Hypnotic_Techno_Son_Clave;
+if (!drumLibrary.Tresillo) drumLibrary.Tresillo = _patterns.Hypnotic_Techno_Tresillo;
+drumLibrary.Metal = Object.assign(
+  (opts = {}) => _patterns.Metal_Metal(opts),
+  {
+    Half_time_groove: _patterns.Metal_Half_time_groove,
+    Blast_beat: _patterns.Metal_Blast_beat,
+    Metal: _patterns.Metal_Metal
+  }
+);
+if (!drumLibrary.Half_time_groove) drumLibrary.Half_time_groove = _patterns.Metal_Half_time_groove;
+if (!drumLibrary.Blast_beat) drumLibrary.Blast_beat = _patterns.Metal_Blast_beat;
+if (!drumLibrary.Metal) drumLibrary.Metal = _patterns.Metal_Metal;
+drumLibrary.Psytrance = Object.assign(
+  (opts = {}) => _patterns.Psytrance_Psytrance(opts),
+  {
+    Psytrance: _patterns.Psytrance_Psytrance
+  }
+);
+if (!drumLibrary.Psytrance) drumLibrary.Psytrance = _patterns.Psytrance_Psytrance;
+drumLibrary.Punk = Object.assign(
+  (opts = {}) => _patterns.Punk_Eight_note_fill(opts),
+  {
+    Eight_note_fill: _patterns.Punk_Eight_note_fill,
+    Quarter_note_groove_variation: _patterns.Punk_Quarter_note_groove_variation,
+    Quarter_note_groove: _patterns.Punk_Quarter_note_groove
+  }
+);
+if (!drumLibrary.Eight_note_fill) drumLibrary.Eight_note_fill = _patterns.Punk_Eight_note_fill;
+if (!drumLibrary.Quarter_note_groove_variation) drumLibrary.Quarter_note_groove_variation = _patterns.Punk_Quarter_note_groove_variation;
+if (!drumLibrary.Quarter_note_groove) drumLibrary.Quarter_note_groove = _patterns.Punk_Quarter_note_groove;
+drumLibrary.Rock = Object.assign(
+  (opts = {}) => _patterns.Rock_Rock(opts),
+  {
+    Rock: _patterns.Rock_Rock,
+    Rock_variation: _patterns.Rock_Rock_variation
+  }
+);
+if (!drumLibrary.Rock) drumLibrary.Rock = _patterns.Rock_Rock;
+if (!drumLibrary.Rock_variation) drumLibrary.Rock_variation = _patterns.Rock_Rock_variation;
+drumLibrary.TB03_Generated_Patterns = Object.assign(
+  (opts = {}) => _patterns.TB03_Generated_Patterns_TB03_PTN1_01(opts),
+  {
+    TB03_PTN1_01: _patterns.TB03_Generated_Patterns_TB03_PTN1_01,
+    TB03_PTN1_02: _patterns.TB03_Generated_Patterns_TB03_PTN1_02,
+    TB03_PTN1_03: _patterns.TB03_Generated_Patterns_TB03_PTN1_03,
+    TB03_PTN1_04: _patterns.TB03_Generated_Patterns_TB03_PTN1_04,
+    TB03_PTN1_05: _patterns.TB03_Generated_Patterns_TB03_PTN1_05,
+    TB03_PTN1_06: _patterns.TB03_Generated_Patterns_TB03_PTN1_06,
+    TB03_PTN1_07: _patterns.TB03_Generated_Patterns_TB03_PTN1_07,
+    TB03_PTN1_08: _patterns.TB03_Generated_Patterns_TB03_PTN1_08,
+    TB03_PTN1_09: _patterns.TB03_Generated_Patterns_TB03_PTN1_09,
+    TB03_PTN1_10: _patterns.TB03_Generated_Patterns_TB03_PTN1_10,
+    TB03_PTN1_11: _patterns.TB03_Generated_Patterns_TB03_PTN1_11,
+    TB03_PTN1_12: _patterns.TB03_Generated_Patterns_TB03_PTN1_12,
+    TB03_PTN1_13: _patterns.TB03_Generated_Patterns_TB03_PTN1_13,
+    TB03_PTN1_14: _patterns.TB03_Generated_Patterns_TB03_PTN1_14,
+    TB03_PTN1_15: _patterns.TB03_Generated_Patterns_TB03_PTN1_15,
+    TB03_PTN1_16: _patterns.TB03_Generated_Patterns_TB03_PTN1_16,
+    TB03_PTN1_17: _patterns.TB03_Generated_Patterns_TB03_PTN1_17,
+    TB03_PTN1_18: _patterns.TB03_Generated_Patterns_TB03_PTN1_18,
+    TB03_PTN1_19: _patterns.TB03_Generated_Patterns_TB03_PTN1_19,
+    TB03_PTN1_20: _patterns.TB03_Generated_Patterns_TB03_PTN1_20,
+    TB03_PTN1_21: _patterns.TB03_Generated_Patterns_TB03_PTN1_21,
+    TB03_PTN1_22: _patterns.TB03_Generated_Patterns_TB03_PTN1_22,
+    TB03_PTN1_23: _patterns.TB03_Generated_Patterns_TB03_PTN1_23,
+    TB03_PTN1_24: _patterns.TB03_Generated_Patterns_TB03_PTN1_24,
+    TB03_PTN2_01: _patterns.TB03_Generated_Patterns_TB03_PTN2_01,
+    TB03_PTN2_02: _patterns.TB03_Generated_Patterns_TB03_PTN2_02,
+    TB03_PTN2_03: _patterns.TB03_Generated_Patterns_TB03_PTN2_03,
+    TB03_PTN2_04: _patterns.TB03_Generated_Patterns_TB03_PTN2_04,
+    TB03_PTN2_05: _patterns.TB03_Generated_Patterns_TB03_PTN2_05,
+    TB03_PTN2_06: _patterns.TB03_Generated_Patterns_TB03_PTN2_06,
+    TB03_PTN2_07: _patterns.TB03_Generated_Patterns_TB03_PTN2_07,
+    TB03_PTN2_08: _patterns.TB03_Generated_Patterns_TB03_PTN2_08,
+    TB03_PTN2_09: _patterns.TB03_Generated_Patterns_TB03_PTN2_09,
+    TB03_PTN2_10: _patterns.TB03_Generated_Patterns_TB03_PTN2_10,
+    TB03_PTN2_11: _patterns.TB03_Generated_Patterns_TB03_PTN2_11,
+    TB03_PTN2_12: _patterns.TB03_Generated_Patterns_TB03_PTN2_12,
+    TB03_PTN2_13: _patterns.TB03_Generated_Patterns_TB03_PTN2_13,
+    TB03_PTN2_14: _patterns.TB03_Generated_Patterns_TB03_PTN2_14,
+    TB03_PTN2_15: _patterns.TB03_Generated_Patterns_TB03_PTN2_15,
+    TB03_PTN2_16: _patterns.TB03_Generated_Patterns_TB03_PTN2_16,
+    TB03_PTN2_17: _patterns.TB03_Generated_Patterns_TB03_PTN2_17,
+    TB03_PTN2_18: _patterns.TB03_Generated_Patterns_TB03_PTN2_18,
+    TB03_PTN2_19: _patterns.TB03_Generated_Patterns_TB03_PTN2_19,
+    TB03_PTN2_20: _patterns.TB03_Generated_Patterns_TB03_PTN2_20,
+    TB03_PTN2_21: _patterns.TB03_Generated_Patterns_TB03_PTN2_21,
+    TB03_PTN2_22: _patterns.TB03_Generated_Patterns_TB03_PTN2_22,
+    TB03_PTN2_23: _patterns.TB03_Generated_Patterns_TB03_PTN2_23,
+    TB03_PTN2_24: _patterns.TB03_Generated_Patterns_TB03_PTN2_24,
+    TB03_PTN3_01: _patterns.TB03_Generated_Patterns_TB03_PTN3_01,
+    TB03_PTN3_02: _patterns.TB03_Generated_Patterns_TB03_PTN3_02,
+    TB03_PTN3_03: _patterns.TB03_Generated_Patterns_TB03_PTN3_03,
+    TB03_PTN3_04: _patterns.TB03_Generated_Patterns_TB03_PTN3_04,
+    TB03_PTN3_05: _patterns.TB03_Generated_Patterns_TB03_PTN3_05,
+    TB03_PTN3_06: _patterns.TB03_Generated_Patterns_TB03_PTN3_06,
+    TB03_PTN3_07: _patterns.TB03_Generated_Patterns_TB03_PTN3_07,
+    TB03_PTN3_08: _patterns.TB03_Generated_Patterns_TB03_PTN3_08,
+    TB03_PTN3_09: _patterns.TB03_Generated_Patterns_TB03_PTN3_09,
+    TB03_PTN3_10: _patterns.TB03_Generated_Patterns_TB03_PTN3_10,
+    TB03_PTN3_11: _patterns.TB03_Generated_Patterns_TB03_PTN3_11,
+    TB03_PTN3_12: _patterns.TB03_Generated_Patterns_TB03_PTN3_12,
+    TB03_PTN3_13: _patterns.TB03_Generated_Patterns_TB03_PTN3_13,
+    TB03_PTN3_14: _patterns.TB03_Generated_Patterns_TB03_PTN3_14,
+    TB03_PTN3_15: _patterns.TB03_Generated_Patterns_TB03_PTN3_15,
+    TB03_PTN3_16: _patterns.TB03_Generated_Patterns_TB03_PTN3_16,
+    TB03_PTN3_17: _patterns.TB03_Generated_Patterns_TB03_PTN3_17,
+    TB03_PTN3_18: _patterns.TB03_Generated_Patterns_TB03_PTN3_18,
+    TB03_PTN3_19: _patterns.TB03_Generated_Patterns_TB03_PTN3_19,
+    TB03_PTN3_20: _patterns.TB03_Generated_Patterns_TB03_PTN3_20,
+    TB03_PTN3_21: _patterns.TB03_Generated_Patterns_TB03_PTN3_21,
+    TB03_PTN3_22: _patterns.TB03_Generated_Patterns_TB03_PTN3_22,
+    TB03_PTN3_23: _patterns.TB03_Generated_Patterns_TB03_PTN3_23,
+    TB03_PTN3_24: _patterns.TB03_Generated_Patterns_TB03_PTN3_24,
+    TB03_PTN4_01: _patterns.TB03_Generated_Patterns_TB03_PTN4_01,
+    TB03_PTN4_02: _patterns.TB03_Generated_Patterns_TB03_PTN4_02,
+    TB03_PTN4_03: _patterns.TB03_Generated_Patterns_TB03_PTN4_03,
+    TB03_PTN4_04: _patterns.TB03_Generated_Patterns_TB03_PTN4_04,
+    TB03_PTN4_05: _patterns.TB03_Generated_Patterns_TB03_PTN4_05,
+    TB03_PTN4_06: _patterns.TB03_Generated_Patterns_TB03_PTN4_06,
+    TB03_PTN4_07: _patterns.TB03_Generated_Patterns_TB03_PTN4_07,
+    TB03_PTN4_08: _patterns.TB03_Generated_Patterns_TB03_PTN4_08,
+    TB03_PTN4_09: _patterns.TB03_Generated_Patterns_TB03_PTN4_09,
+    TB03_PTN4_10: _patterns.TB03_Generated_Patterns_TB03_PTN4_10,
+    TB03_PTN4_11: _patterns.TB03_Generated_Patterns_TB03_PTN4_11,
+    TB03_PTN4_12: _patterns.TB03_Generated_Patterns_TB03_PTN4_12,
+    TB03_PTN4_13: _patterns.TB03_Generated_Patterns_TB03_PTN4_13,
+    TB03_PTN4_14: _patterns.TB03_Generated_Patterns_TB03_PTN4_14,
+    TB03_PTN4_15: _patterns.TB03_Generated_Patterns_TB03_PTN4_15,
+    TB03_PTN4_16: _patterns.TB03_Generated_Patterns_TB03_PTN4_16,
+    TB03_PTN4_17: _patterns.TB03_Generated_Patterns_TB03_PTN4_17,
+    TB03_PTN4_18: _patterns.TB03_Generated_Patterns_TB03_PTN4_18,
+    TB03_PTN4_19: _patterns.TB03_Generated_Patterns_TB03_PTN4_19,
+    TB03_PTN4_20: _patterns.TB03_Generated_Patterns_TB03_PTN4_20,
+    TB03_PTN4_21: _patterns.TB03_Generated_Patterns_TB03_PTN4_21,
+    TB03_PTN4_22: _patterns.TB03_Generated_Patterns_TB03_PTN4_22,
+    TB03_PTN4_23: _patterns.TB03_Generated_Patterns_TB03_PTN4_23,
+    TB03_PTN4_24: _patterns.TB03_Generated_Patterns_TB03_PTN4_24
+  }
+);
+if (!drumLibrary.TB03_PTN1_01) drumLibrary.TB03_PTN1_01 = _patterns.TB03_Generated_Patterns_TB03_PTN1_01;
+if (!drumLibrary.TB03_PTN1_02) drumLibrary.TB03_PTN1_02 = _patterns.TB03_Generated_Patterns_TB03_PTN1_02;
+if (!drumLibrary.TB03_PTN1_03) drumLibrary.TB03_PTN1_03 = _patterns.TB03_Generated_Patterns_TB03_PTN1_03;
+if (!drumLibrary.TB03_PTN1_04) drumLibrary.TB03_PTN1_04 = _patterns.TB03_Generated_Patterns_TB03_PTN1_04;
+if (!drumLibrary.TB03_PTN1_05) drumLibrary.TB03_PTN1_05 = _patterns.TB03_Generated_Patterns_TB03_PTN1_05;
+if (!drumLibrary.TB03_PTN1_06) drumLibrary.TB03_PTN1_06 = _patterns.TB03_Generated_Patterns_TB03_PTN1_06;
+if (!drumLibrary.TB03_PTN1_07) drumLibrary.TB03_PTN1_07 = _patterns.TB03_Generated_Patterns_TB03_PTN1_07;
+if (!drumLibrary.TB03_PTN1_08) drumLibrary.TB03_PTN1_08 = _patterns.TB03_Generated_Patterns_TB03_PTN1_08;
+if (!drumLibrary.TB03_PTN1_09) drumLibrary.TB03_PTN1_09 = _patterns.TB03_Generated_Patterns_TB03_PTN1_09;
+if (!drumLibrary.TB03_PTN1_10) drumLibrary.TB03_PTN1_10 = _patterns.TB03_Generated_Patterns_TB03_PTN1_10;
+if (!drumLibrary.TB03_PTN1_11) drumLibrary.TB03_PTN1_11 = _patterns.TB03_Generated_Patterns_TB03_PTN1_11;
+if (!drumLibrary.TB03_PTN1_12) drumLibrary.TB03_PTN1_12 = _patterns.TB03_Generated_Patterns_TB03_PTN1_12;
+if (!drumLibrary.TB03_PTN1_13) drumLibrary.TB03_PTN1_13 = _patterns.TB03_Generated_Patterns_TB03_PTN1_13;
+if (!drumLibrary.TB03_PTN1_14) drumLibrary.TB03_PTN1_14 = _patterns.TB03_Generated_Patterns_TB03_PTN1_14;
+if (!drumLibrary.TB03_PTN1_15) drumLibrary.TB03_PTN1_15 = _patterns.TB03_Generated_Patterns_TB03_PTN1_15;
+if (!drumLibrary.TB03_PTN1_16) drumLibrary.TB03_PTN1_16 = _patterns.TB03_Generated_Patterns_TB03_PTN1_16;
+if (!drumLibrary.TB03_PTN1_17) drumLibrary.TB03_PTN1_17 = _patterns.TB03_Generated_Patterns_TB03_PTN1_17;
+if (!drumLibrary.TB03_PTN1_18) drumLibrary.TB03_PTN1_18 = _patterns.TB03_Generated_Patterns_TB03_PTN1_18;
+if (!drumLibrary.TB03_PTN1_19) drumLibrary.TB03_PTN1_19 = _patterns.TB03_Generated_Patterns_TB03_PTN1_19;
+if (!drumLibrary.TB03_PTN1_20) drumLibrary.TB03_PTN1_20 = _patterns.TB03_Generated_Patterns_TB03_PTN1_20;
+if (!drumLibrary.TB03_PTN1_21) drumLibrary.TB03_PTN1_21 = _patterns.TB03_Generated_Patterns_TB03_PTN1_21;
+if (!drumLibrary.TB03_PTN1_22) drumLibrary.TB03_PTN1_22 = _patterns.TB03_Generated_Patterns_TB03_PTN1_22;
+if (!drumLibrary.TB03_PTN1_23) drumLibrary.TB03_PTN1_23 = _patterns.TB03_Generated_Patterns_TB03_PTN1_23;
+if (!drumLibrary.TB03_PTN1_24) drumLibrary.TB03_PTN1_24 = _patterns.TB03_Generated_Patterns_TB03_PTN1_24;
+if (!drumLibrary.TB03_PTN2_01) drumLibrary.TB03_PTN2_01 = _patterns.TB03_Generated_Patterns_TB03_PTN2_01;
+if (!drumLibrary.TB03_PTN2_02) drumLibrary.TB03_PTN2_02 = _patterns.TB03_Generated_Patterns_TB03_PTN2_02;
+if (!drumLibrary.TB03_PTN2_03) drumLibrary.TB03_PTN2_03 = _patterns.TB03_Generated_Patterns_TB03_PTN2_03;
+if (!drumLibrary.TB03_PTN2_04) drumLibrary.TB03_PTN2_04 = _patterns.TB03_Generated_Patterns_TB03_PTN2_04;
+if (!drumLibrary.TB03_PTN2_05) drumLibrary.TB03_PTN2_05 = _patterns.TB03_Generated_Patterns_TB03_PTN2_05;
+if (!drumLibrary.TB03_PTN2_06) drumLibrary.TB03_PTN2_06 = _patterns.TB03_Generated_Patterns_TB03_PTN2_06;
+if (!drumLibrary.TB03_PTN2_07) drumLibrary.TB03_PTN2_07 = _patterns.TB03_Generated_Patterns_TB03_PTN2_07;
+if (!drumLibrary.TB03_PTN2_08) drumLibrary.TB03_PTN2_08 = _patterns.TB03_Generated_Patterns_TB03_PTN2_08;
+if (!drumLibrary.TB03_PTN2_09) drumLibrary.TB03_PTN2_09 = _patterns.TB03_Generated_Patterns_TB03_PTN2_09;
+if (!drumLibrary.TB03_PTN2_10) drumLibrary.TB03_PTN2_10 = _patterns.TB03_Generated_Patterns_TB03_PTN2_10;
+if (!drumLibrary.TB03_PTN2_11) drumLibrary.TB03_PTN2_11 = _patterns.TB03_Generated_Patterns_TB03_PTN2_11;
+if (!drumLibrary.TB03_PTN2_12) drumLibrary.TB03_PTN2_12 = _patterns.TB03_Generated_Patterns_TB03_PTN2_12;
+if (!drumLibrary.TB03_PTN2_13) drumLibrary.TB03_PTN2_13 = _patterns.TB03_Generated_Patterns_TB03_PTN2_13;
+if (!drumLibrary.TB03_PTN2_14) drumLibrary.TB03_PTN2_14 = _patterns.TB03_Generated_Patterns_TB03_PTN2_14;
+if (!drumLibrary.TB03_PTN2_15) drumLibrary.TB03_PTN2_15 = _patterns.TB03_Generated_Patterns_TB03_PTN2_15;
+if (!drumLibrary.TB03_PTN2_16) drumLibrary.TB03_PTN2_16 = _patterns.TB03_Generated_Patterns_TB03_PTN2_16;
+if (!drumLibrary.TB03_PTN2_17) drumLibrary.TB03_PTN2_17 = _patterns.TB03_Generated_Patterns_TB03_PTN2_17;
+if (!drumLibrary.TB03_PTN2_18) drumLibrary.TB03_PTN2_18 = _patterns.TB03_Generated_Patterns_TB03_PTN2_18;
+if (!drumLibrary.TB03_PTN2_19) drumLibrary.TB03_PTN2_19 = _patterns.TB03_Generated_Patterns_TB03_PTN2_19;
+if (!drumLibrary.TB03_PTN2_20) drumLibrary.TB03_PTN2_20 = _patterns.TB03_Generated_Patterns_TB03_PTN2_20;
+if (!drumLibrary.TB03_PTN2_21) drumLibrary.TB03_PTN2_21 = _patterns.TB03_Generated_Patterns_TB03_PTN2_21;
+if (!drumLibrary.TB03_PTN2_22) drumLibrary.TB03_PTN2_22 = _patterns.TB03_Generated_Patterns_TB03_PTN2_22;
+if (!drumLibrary.TB03_PTN2_23) drumLibrary.TB03_PTN2_23 = _patterns.TB03_Generated_Patterns_TB03_PTN2_23;
+if (!drumLibrary.TB03_PTN2_24) drumLibrary.TB03_PTN2_24 = _patterns.TB03_Generated_Patterns_TB03_PTN2_24;
+if (!drumLibrary.TB03_PTN3_01) drumLibrary.TB03_PTN3_01 = _patterns.TB03_Generated_Patterns_TB03_PTN3_01;
+if (!drumLibrary.TB03_PTN3_02) drumLibrary.TB03_PTN3_02 = _patterns.TB03_Generated_Patterns_TB03_PTN3_02;
+if (!drumLibrary.TB03_PTN3_03) drumLibrary.TB03_PTN3_03 = _patterns.TB03_Generated_Patterns_TB03_PTN3_03;
+if (!drumLibrary.TB03_PTN3_04) drumLibrary.TB03_PTN3_04 = _patterns.TB03_Generated_Patterns_TB03_PTN3_04;
+if (!drumLibrary.TB03_PTN3_05) drumLibrary.TB03_PTN3_05 = _patterns.TB03_Generated_Patterns_TB03_PTN3_05;
+if (!drumLibrary.TB03_PTN3_06) drumLibrary.TB03_PTN3_06 = _patterns.TB03_Generated_Patterns_TB03_PTN3_06;
+if (!drumLibrary.TB03_PTN3_07) drumLibrary.TB03_PTN3_07 = _patterns.TB03_Generated_Patterns_TB03_PTN3_07;
+if (!drumLibrary.TB03_PTN3_08) drumLibrary.TB03_PTN3_08 = _patterns.TB03_Generated_Patterns_TB03_PTN3_08;
+if (!drumLibrary.TB03_PTN3_09) drumLibrary.TB03_PTN3_09 = _patterns.TB03_Generated_Patterns_TB03_PTN3_09;
+if (!drumLibrary.TB03_PTN3_10) drumLibrary.TB03_PTN3_10 = _patterns.TB03_Generated_Patterns_TB03_PTN3_10;
+if (!drumLibrary.TB03_PTN3_11) drumLibrary.TB03_PTN3_11 = _patterns.TB03_Generated_Patterns_TB03_PTN3_11;
+if (!drumLibrary.TB03_PTN3_12) drumLibrary.TB03_PTN3_12 = _patterns.TB03_Generated_Patterns_TB03_PTN3_12;
+if (!drumLibrary.TB03_PTN3_13) drumLibrary.TB03_PTN3_13 = _patterns.TB03_Generated_Patterns_TB03_PTN3_13;
+if (!drumLibrary.TB03_PTN3_14) drumLibrary.TB03_PTN3_14 = _patterns.TB03_Generated_Patterns_TB03_PTN3_14;
+if (!drumLibrary.TB03_PTN3_15) drumLibrary.TB03_PTN3_15 = _patterns.TB03_Generated_Patterns_TB03_PTN3_15;
+if (!drumLibrary.TB03_PTN3_16) drumLibrary.TB03_PTN3_16 = _patterns.TB03_Generated_Patterns_TB03_PTN3_16;
+if (!drumLibrary.TB03_PTN3_17) drumLibrary.TB03_PTN3_17 = _patterns.TB03_Generated_Patterns_TB03_PTN3_17;
+if (!drumLibrary.TB03_PTN3_18) drumLibrary.TB03_PTN3_18 = _patterns.TB03_Generated_Patterns_TB03_PTN3_18;
+if (!drumLibrary.TB03_PTN3_19) drumLibrary.TB03_PTN3_19 = _patterns.TB03_Generated_Patterns_TB03_PTN3_19;
+if (!drumLibrary.TB03_PTN3_20) drumLibrary.TB03_PTN3_20 = _patterns.TB03_Generated_Patterns_TB03_PTN3_20;
+if (!drumLibrary.TB03_PTN3_21) drumLibrary.TB03_PTN3_21 = _patterns.TB03_Generated_Patterns_TB03_PTN3_21;
+if (!drumLibrary.TB03_PTN3_22) drumLibrary.TB03_PTN3_22 = _patterns.TB03_Generated_Patterns_TB03_PTN3_22;
+if (!drumLibrary.TB03_PTN3_23) drumLibrary.TB03_PTN3_23 = _patterns.TB03_Generated_Patterns_TB03_PTN3_23;
+if (!drumLibrary.TB03_PTN3_24) drumLibrary.TB03_PTN3_24 = _patterns.TB03_Generated_Patterns_TB03_PTN3_24;
+if (!drumLibrary.TB03_PTN4_01) drumLibrary.TB03_PTN4_01 = _patterns.TB03_Generated_Patterns_TB03_PTN4_01;
+if (!drumLibrary.TB03_PTN4_02) drumLibrary.TB03_PTN4_02 = _patterns.TB03_Generated_Patterns_TB03_PTN4_02;
+if (!drumLibrary.TB03_PTN4_03) drumLibrary.TB03_PTN4_03 = _patterns.TB03_Generated_Patterns_TB03_PTN4_03;
+if (!drumLibrary.TB03_PTN4_04) drumLibrary.TB03_PTN4_04 = _patterns.TB03_Generated_Patterns_TB03_PTN4_04;
+if (!drumLibrary.TB03_PTN4_05) drumLibrary.TB03_PTN4_05 = _patterns.TB03_Generated_Patterns_TB03_PTN4_05;
+if (!drumLibrary.TB03_PTN4_06) drumLibrary.TB03_PTN4_06 = _patterns.TB03_Generated_Patterns_TB03_PTN4_06;
+if (!drumLibrary.TB03_PTN4_07) drumLibrary.TB03_PTN4_07 = _patterns.TB03_Generated_Patterns_TB03_PTN4_07;
+if (!drumLibrary.TB03_PTN4_08) drumLibrary.TB03_PTN4_08 = _patterns.TB03_Generated_Patterns_TB03_PTN4_08;
+if (!drumLibrary.TB03_PTN4_09) drumLibrary.TB03_PTN4_09 = _patterns.TB03_Generated_Patterns_TB03_PTN4_09;
+if (!drumLibrary.TB03_PTN4_10) drumLibrary.TB03_PTN4_10 = _patterns.TB03_Generated_Patterns_TB03_PTN4_10;
+if (!drumLibrary.TB03_PTN4_11) drumLibrary.TB03_PTN4_11 = _patterns.TB03_Generated_Patterns_TB03_PTN4_11;
+if (!drumLibrary.TB03_PTN4_12) drumLibrary.TB03_PTN4_12 = _patterns.TB03_Generated_Patterns_TB03_PTN4_12;
+if (!drumLibrary.TB03_PTN4_13) drumLibrary.TB03_PTN4_13 = _patterns.TB03_Generated_Patterns_TB03_PTN4_13;
+if (!drumLibrary.TB03_PTN4_14) drumLibrary.TB03_PTN4_14 = _patterns.TB03_Generated_Patterns_TB03_PTN4_14;
+if (!drumLibrary.TB03_PTN4_15) drumLibrary.TB03_PTN4_15 = _patterns.TB03_Generated_Patterns_TB03_PTN4_15;
+if (!drumLibrary.TB03_PTN4_16) drumLibrary.TB03_PTN4_16 = _patterns.TB03_Generated_Patterns_TB03_PTN4_16;
+if (!drumLibrary.TB03_PTN4_17) drumLibrary.TB03_PTN4_17 = _patterns.TB03_Generated_Patterns_TB03_PTN4_17;
+if (!drumLibrary.TB03_PTN4_18) drumLibrary.TB03_PTN4_18 = _patterns.TB03_Generated_Patterns_TB03_PTN4_18;
+if (!drumLibrary.TB03_PTN4_19) drumLibrary.TB03_PTN4_19 = _patterns.TB03_Generated_Patterns_TB03_PTN4_19;
+if (!drumLibrary.TB03_PTN4_20) drumLibrary.TB03_PTN4_20 = _patterns.TB03_Generated_Patterns_TB03_PTN4_20;
+if (!drumLibrary.TB03_PTN4_21) drumLibrary.TB03_PTN4_21 = _patterns.TB03_Generated_Patterns_TB03_PTN4_21;
+if (!drumLibrary.TB03_PTN4_22) drumLibrary.TB03_PTN4_22 = _patterns.TB03_Generated_Patterns_TB03_PTN4_22;
+if (!drumLibrary.TB03_PTN4_23) drumLibrary.TB03_PTN4_23 = _patterns.TB03_Generated_Patterns_TB03_PTN4_23;
+if (!drumLibrary.TB03_PTN4_24) drumLibrary.TB03_PTN4_24 = _patterns.TB03_Generated_Patterns_TB03_PTN4_24;
+drumLibrary.TB03_Patterns = Object.assign(
+  (opts = {}) => _patterns.TB03_Patterns_TB03_PTN1_01(opts),
+  {
+    TB03_PTN1_01: _patterns.TB03_Patterns_TB03_PTN1_01,
+    TB03_PTN1_02: _patterns.TB03_Patterns_TB03_PTN1_02,
+    TB03_PTN1_03: _patterns.TB03_Patterns_TB03_PTN1_03,
+    TB03_PTN1_04: _patterns.TB03_Patterns_TB03_PTN1_04,
+    TB03_PTN1_05: _patterns.TB03_Patterns_TB03_PTN1_05,
+    TB03_PTN1_06: _patterns.TB03_Patterns_TB03_PTN1_06,
+    TB03_PTN1_07: _patterns.TB03_Patterns_TB03_PTN1_07,
+    TB03_PTN1_08: _patterns.TB03_Patterns_TB03_PTN1_08,
+    TB03_PTN1_09: _patterns.TB03_Patterns_TB03_PTN1_09,
+    TB03_PTN1_10: _patterns.TB03_Patterns_TB03_PTN1_10,
+    TB03_PTN1_11: _patterns.TB03_Patterns_TB03_PTN1_11,
+    TB03_PTN1_12: _patterns.TB03_Patterns_TB03_PTN1_12,
+    TB03_PTN1_13: _patterns.TB03_Patterns_TB03_PTN1_13,
+    TB03_PTN1_14: _patterns.TB03_Patterns_TB03_PTN1_14,
+    TB03_PTN1_15: _patterns.TB03_Patterns_TB03_PTN1_15,
+    TB03_PTN1_16: _patterns.TB03_Patterns_TB03_PTN1_16,
+    TB03_PTN1_17: _patterns.TB03_Patterns_TB03_PTN1_17,
+    TB03_PTN1_18: _patterns.TB03_Patterns_TB03_PTN1_18,
+    TB03_PTN1_19: _patterns.TB03_Patterns_TB03_PTN1_19,
+    TB03_PTN1_20: _patterns.TB03_Patterns_TB03_PTN1_20,
+    TB03_PTN1_21: _patterns.TB03_Patterns_TB03_PTN1_21,
+    TB03_PTN1_22: _patterns.TB03_Patterns_TB03_PTN1_22,
+    TB03_PTN1_23: _patterns.TB03_Patterns_TB03_PTN1_23,
+    TB03_PTN1_24: _patterns.TB03_Patterns_TB03_PTN1_24,
+    TB03_PTN2_01: _patterns.TB03_Patterns_TB03_PTN2_01,
+    TB03_PTN2_02: _patterns.TB03_Patterns_TB03_PTN2_02,
+    TB03_PTN2_03: _patterns.TB03_Patterns_TB03_PTN2_03,
+    TB03_PTN2_04: _patterns.TB03_Patterns_TB03_PTN2_04,
+    TB03_PTN2_05: _patterns.TB03_Patterns_TB03_PTN2_05,
+    TB03_PTN2_06: _patterns.TB03_Patterns_TB03_PTN2_06,
+    TB03_PTN2_07: _patterns.TB03_Patterns_TB03_PTN2_07,
+    TB03_PTN2_08: _patterns.TB03_Patterns_TB03_PTN2_08,
+    TB03_PTN2_09: _patterns.TB03_Patterns_TB03_PTN2_09,
+    TB03_PTN2_10: _patterns.TB03_Patterns_TB03_PTN2_10,
+    TB03_PTN2_11: _patterns.TB03_Patterns_TB03_PTN2_11,
+    TB03_PTN2_12: _patterns.TB03_Patterns_TB03_PTN2_12,
+    TB03_PTN2_13: _patterns.TB03_Patterns_TB03_PTN2_13,
+    TB03_PTN2_14: _patterns.TB03_Patterns_TB03_PTN2_14,
+    TB03_PTN2_15: _patterns.TB03_Patterns_TB03_PTN2_15,
+    TB03_PTN2_16: _patterns.TB03_Patterns_TB03_PTN2_16,
+    TB03_PTN2_17: _patterns.TB03_Patterns_TB03_PTN2_17,
+    TB03_PTN2_18: _patterns.TB03_Patterns_TB03_PTN2_18,
+    TB03_PTN2_19: _patterns.TB03_Patterns_TB03_PTN2_19,
+    TB03_PTN2_20: _patterns.TB03_Patterns_TB03_PTN2_20,
+    TB03_PTN2_21: _patterns.TB03_Patterns_TB03_PTN2_21,
+    TB03_PTN2_22: _patterns.TB03_Patterns_TB03_PTN2_22,
+    TB03_PTN2_23: _patterns.TB03_Patterns_TB03_PTN2_23,
+    TB03_PTN2_24: _patterns.TB03_Patterns_TB03_PTN2_24,
+    TB03_PTN3_01: _patterns.TB03_Patterns_TB03_PTN3_01,
+    TB03_PTN3_02: _patterns.TB03_Patterns_TB03_PTN3_02,
+    TB03_PTN3_03: _patterns.TB03_Patterns_TB03_PTN3_03,
+    TB03_PTN3_04: _patterns.TB03_Patterns_TB03_PTN3_04,
+    TB03_PTN3_05: _patterns.TB03_Patterns_TB03_PTN3_05,
+    TB03_PTN3_06: _patterns.TB03_Patterns_TB03_PTN3_06,
+    TB03_PTN3_07: _patterns.TB03_Patterns_TB03_PTN3_07,
+    TB03_PTN3_08: _patterns.TB03_Patterns_TB03_PTN3_08,
+    TB03_PTN3_09: _patterns.TB03_Patterns_TB03_PTN3_09,
+    TB03_PTN3_10: _patterns.TB03_Patterns_TB03_PTN3_10,
+    TB03_PTN3_11: _patterns.TB03_Patterns_TB03_PTN3_11,
+    TB03_PTN3_12: _patterns.TB03_Patterns_TB03_PTN3_12,
+    TB03_PTN3_13: _patterns.TB03_Patterns_TB03_PTN3_13,
+    TB03_PTN3_14: _patterns.TB03_Patterns_TB03_PTN3_14,
+    TB03_PTN3_15: _patterns.TB03_Patterns_TB03_PTN3_15,
+    TB03_PTN3_16: _patterns.TB03_Patterns_TB03_PTN3_16,
+    TB03_PTN3_17: _patterns.TB03_Patterns_TB03_PTN3_17,
+    TB03_PTN3_18: _patterns.TB03_Patterns_TB03_PTN3_18,
+    TB03_PTN3_19: _patterns.TB03_Patterns_TB03_PTN3_19,
+    TB03_PTN3_20: _patterns.TB03_Patterns_TB03_PTN3_20,
+    TB03_PTN3_21: _patterns.TB03_Patterns_TB03_PTN3_21,
+    TB03_PTN3_22: _patterns.TB03_Patterns_TB03_PTN3_22,
+    TB03_PTN3_23: _patterns.TB03_Patterns_TB03_PTN3_23,
+    TB03_PTN3_24: _patterns.TB03_Patterns_TB03_PTN3_24,
+    TB03_PTN4_01: _patterns.TB03_Patterns_TB03_PTN4_01,
+    TB03_PTN4_02: _patterns.TB03_Patterns_TB03_PTN4_02,
+    TB03_PTN4_03: _patterns.TB03_Patterns_TB03_PTN4_03,
+    TB03_PTN4_04: _patterns.TB03_Patterns_TB03_PTN4_04,
+    TB03_PTN4_05: _patterns.TB03_Patterns_TB03_PTN4_05,
+    TB03_PTN4_06: _patterns.TB03_Patterns_TB03_PTN4_06,
+    TB03_PTN4_07: _patterns.TB03_Patterns_TB03_PTN4_07,
+    TB03_PTN4_08: _patterns.TB03_Patterns_TB03_PTN4_08,
+    TB03_PTN4_09: _patterns.TB03_Patterns_TB03_PTN4_09,
+    TB03_PTN4_10: _patterns.TB03_Patterns_TB03_PTN4_10,
+    TB03_PTN4_11: _patterns.TB03_Patterns_TB03_PTN4_11,
+    TB03_PTN4_12: _patterns.TB03_Patterns_TB03_PTN4_12,
+    TB03_PTN4_13: _patterns.TB03_Patterns_TB03_PTN4_13,
+    TB03_PTN4_14: _patterns.TB03_Patterns_TB03_PTN4_14,
+    TB03_PTN4_15: _patterns.TB03_Patterns_TB03_PTN4_15,
+    TB03_PTN4_16: _patterns.TB03_Patterns_TB03_PTN4_16,
+    TB03_PTN4_17: _patterns.TB03_Patterns_TB03_PTN4_17,
+    TB03_PTN4_18: _patterns.TB03_Patterns_TB03_PTN4_18,
+    TB03_PTN4_19: _patterns.TB03_Patterns_TB03_PTN4_19,
+    TB03_PTN4_20: _patterns.TB03_Patterns_TB03_PTN4_20,
+    TB03_PTN4_21: _patterns.TB03_Patterns_TB03_PTN4_21,
+    TB03_PTN4_22: _patterns.TB03_Patterns_TB03_PTN4_22,
+    TB03_PTN4_23: _patterns.TB03_Patterns_TB03_PTN4_23,
+    TB03_PTN4_24: _patterns.TB03_Patterns_TB03_PTN4_24
+  }
+);
+if (!drumLibrary.TB03_PTN1_01) drumLibrary.TB03_PTN1_01 = _patterns.TB03_Patterns_TB03_PTN1_01;
+if (!drumLibrary.TB03_PTN1_02) drumLibrary.TB03_PTN1_02 = _patterns.TB03_Patterns_TB03_PTN1_02;
+if (!drumLibrary.TB03_PTN1_03) drumLibrary.TB03_PTN1_03 = _patterns.TB03_Patterns_TB03_PTN1_03;
+if (!drumLibrary.TB03_PTN1_04) drumLibrary.TB03_PTN1_04 = _patterns.TB03_Patterns_TB03_PTN1_04;
+if (!drumLibrary.TB03_PTN1_05) drumLibrary.TB03_PTN1_05 = _patterns.TB03_Patterns_TB03_PTN1_05;
+if (!drumLibrary.TB03_PTN1_06) drumLibrary.TB03_PTN1_06 = _patterns.TB03_Patterns_TB03_PTN1_06;
+if (!drumLibrary.TB03_PTN1_07) drumLibrary.TB03_PTN1_07 = _patterns.TB03_Patterns_TB03_PTN1_07;
+if (!drumLibrary.TB03_PTN1_08) drumLibrary.TB03_PTN1_08 = _patterns.TB03_Patterns_TB03_PTN1_08;
+if (!drumLibrary.TB03_PTN1_09) drumLibrary.TB03_PTN1_09 = _patterns.TB03_Patterns_TB03_PTN1_09;
+if (!drumLibrary.TB03_PTN1_10) drumLibrary.TB03_PTN1_10 = _patterns.TB03_Patterns_TB03_PTN1_10;
+if (!drumLibrary.TB03_PTN1_11) drumLibrary.TB03_PTN1_11 = _patterns.TB03_Patterns_TB03_PTN1_11;
+if (!drumLibrary.TB03_PTN1_12) drumLibrary.TB03_PTN1_12 = _patterns.TB03_Patterns_TB03_PTN1_12;
+if (!drumLibrary.TB03_PTN1_13) drumLibrary.TB03_PTN1_13 = _patterns.TB03_Patterns_TB03_PTN1_13;
+if (!drumLibrary.TB03_PTN1_14) drumLibrary.TB03_PTN1_14 = _patterns.TB03_Patterns_TB03_PTN1_14;
+if (!drumLibrary.TB03_PTN1_15) drumLibrary.TB03_PTN1_15 = _patterns.TB03_Patterns_TB03_PTN1_15;
+if (!drumLibrary.TB03_PTN1_16) drumLibrary.TB03_PTN1_16 = _patterns.TB03_Patterns_TB03_PTN1_16;
+if (!drumLibrary.TB03_PTN1_17) drumLibrary.TB03_PTN1_17 = _patterns.TB03_Patterns_TB03_PTN1_17;
+if (!drumLibrary.TB03_PTN1_18) drumLibrary.TB03_PTN1_18 = _patterns.TB03_Patterns_TB03_PTN1_18;
+if (!drumLibrary.TB03_PTN1_19) drumLibrary.TB03_PTN1_19 = _patterns.TB03_Patterns_TB03_PTN1_19;
+if (!drumLibrary.TB03_PTN1_20) drumLibrary.TB03_PTN1_20 = _patterns.TB03_Patterns_TB03_PTN1_20;
+if (!drumLibrary.TB03_PTN1_21) drumLibrary.TB03_PTN1_21 = _patterns.TB03_Patterns_TB03_PTN1_21;
+if (!drumLibrary.TB03_PTN1_22) drumLibrary.TB03_PTN1_22 = _patterns.TB03_Patterns_TB03_PTN1_22;
+if (!drumLibrary.TB03_PTN1_23) drumLibrary.TB03_PTN1_23 = _patterns.TB03_Patterns_TB03_PTN1_23;
+if (!drumLibrary.TB03_PTN1_24) drumLibrary.TB03_PTN1_24 = _patterns.TB03_Patterns_TB03_PTN1_24;
+if (!drumLibrary.TB03_PTN2_01) drumLibrary.TB03_PTN2_01 = _patterns.TB03_Patterns_TB03_PTN2_01;
+if (!drumLibrary.TB03_PTN2_02) drumLibrary.TB03_PTN2_02 = _patterns.TB03_Patterns_TB03_PTN2_02;
+if (!drumLibrary.TB03_PTN2_03) drumLibrary.TB03_PTN2_03 = _patterns.TB03_Patterns_TB03_PTN2_03;
+if (!drumLibrary.TB03_PTN2_04) drumLibrary.TB03_PTN2_04 = _patterns.TB03_Patterns_TB03_PTN2_04;
+if (!drumLibrary.TB03_PTN2_05) drumLibrary.TB03_PTN2_05 = _patterns.TB03_Patterns_TB03_PTN2_05;
+if (!drumLibrary.TB03_PTN2_06) drumLibrary.TB03_PTN2_06 = _patterns.TB03_Patterns_TB03_PTN2_06;
+if (!drumLibrary.TB03_PTN2_07) drumLibrary.TB03_PTN2_07 = _patterns.TB03_Patterns_TB03_PTN2_07;
+if (!drumLibrary.TB03_PTN2_08) drumLibrary.TB03_PTN2_08 = _patterns.TB03_Patterns_TB03_PTN2_08;
+if (!drumLibrary.TB03_PTN2_09) drumLibrary.TB03_PTN2_09 = _patterns.TB03_Patterns_TB03_PTN2_09;
+if (!drumLibrary.TB03_PTN2_10) drumLibrary.TB03_PTN2_10 = _patterns.TB03_Patterns_TB03_PTN2_10;
+if (!drumLibrary.TB03_PTN2_11) drumLibrary.TB03_PTN2_11 = _patterns.TB03_Patterns_TB03_PTN2_11;
+if (!drumLibrary.TB03_PTN2_12) drumLibrary.TB03_PTN2_12 = _patterns.TB03_Patterns_TB03_PTN2_12;
+if (!drumLibrary.TB03_PTN2_13) drumLibrary.TB03_PTN2_13 = _patterns.TB03_Patterns_TB03_PTN2_13;
+if (!drumLibrary.TB03_PTN2_14) drumLibrary.TB03_PTN2_14 = _patterns.TB03_Patterns_TB03_PTN2_14;
+if (!drumLibrary.TB03_PTN2_15) drumLibrary.TB03_PTN2_15 = _patterns.TB03_Patterns_TB03_PTN2_15;
+if (!drumLibrary.TB03_PTN2_16) drumLibrary.TB03_PTN2_16 = _patterns.TB03_Patterns_TB03_PTN2_16;
+if (!drumLibrary.TB03_PTN2_17) drumLibrary.TB03_PTN2_17 = _patterns.TB03_Patterns_TB03_PTN2_17;
+if (!drumLibrary.TB03_PTN2_18) drumLibrary.TB03_PTN2_18 = _patterns.TB03_Patterns_TB03_PTN2_18;
+if (!drumLibrary.TB03_PTN2_19) drumLibrary.TB03_PTN2_19 = _patterns.TB03_Patterns_TB03_PTN2_19;
+if (!drumLibrary.TB03_PTN2_20) drumLibrary.TB03_PTN2_20 = _patterns.TB03_Patterns_TB03_PTN2_20;
+if (!drumLibrary.TB03_PTN2_21) drumLibrary.TB03_PTN2_21 = _patterns.TB03_Patterns_TB03_PTN2_21;
+if (!drumLibrary.TB03_PTN2_22) drumLibrary.TB03_PTN2_22 = _patterns.TB03_Patterns_TB03_PTN2_22;
+if (!drumLibrary.TB03_PTN2_23) drumLibrary.TB03_PTN2_23 = _patterns.TB03_Patterns_TB03_PTN2_23;
+if (!drumLibrary.TB03_PTN2_24) drumLibrary.TB03_PTN2_24 = _patterns.TB03_Patterns_TB03_PTN2_24;
+if (!drumLibrary.TB03_PTN3_01) drumLibrary.TB03_PTN3_01 = _patterns.TB03_Patterns_TB03_PTN3_01;
+if (!drumLibrary.TB03_PTN3_02) drumLibrary.TB03_PTN3_02 = _patterns.TB03_Patterns_TB03_PTN3_02;
+if (!drumLibrary.TB03_PTN3_03) drumLibrary.TB03_PTN3_03 = _patterns.TB03_Patterns_TB03_PTN3_03;
+if (!drumLibrary.TB03_PTN3_04) drumLibrary.TB03_PTN3_04 = _patterns.TB03_Patterns_TB03_PTN3_04;
+if (!drumLibrary.TB03_PTN3_05) drumLibrary.TB03_PTN3_05 = _patterns.TB03_Patterns_TB03_PTN3_05;
+if (!drumLibrary.TB03_PTN3_06) drumLibrary.TB03_PTN3_06 = _patterns.TB03_Patterns_TB03_PTN3_06;
+if (!drumLibrary.TB03_PTN3_07) drumLibrary.TB03_PTN3_07 = _patterns.TB03_Patterns_TB03_PTN3_07;
+if (!drumLibrary.TB03_PTN3_08) drumLibrary.TB03_PTN3_08 = _patterns.TB03_Patterns_TB03_PTN3_08;
+if (!drumLibrary.TB03_PTN3_09) drumLibrary.TB03_PTN3_09 = _patterns.TB03_Patterns_TB03_PTN3_09;
+if (!drumLibrary.TB03_PTN3_10) drumLibrary.TB03_PTN3_10 = _patterns.TB03_Patterns_TB03_PTN3_10;
+if (!drumLibrary.TB03_PTN3_11) drumLibrary.TB03_PTN3_11 = _patterns.TB03_Patterns_TB03_PTN3_11;
+if (!drumLibrary.TB03_PTN3_12) drumLibrary.TB03_PTN3_12 = _patterns.TB03_Patterns_TB03_PTN3_12;
+if (!drumLibrary.TB03_PTN3_13) drumLibrary.TB03_PTN3_13 = _patterns.TB03_Patterns_TB03_PTN3_13;
+if (!drumLibrary.TB03_PTN3_14) drumLibrary.TB03_PTN3_14 = _patterns.TB03_Patterns_TB03_PTN3_14;
+if (!drumLibrary.TB03_PTN3_15) drumLibrary.TB03_PTN3_15 = _patterns.TB03_Patterns_TB03_PTN3_15;
+if (!drumLibrary.TB03_PTN3_16) drumLibrary.TB03_PTN3_16 = _patterns.TB03_Patterns_TB03_PTN3_16;
+if (!drumLibrary.TB03_PTN3_17) drumLibrary.TB03_PTN3_17 = _patterns.TB03_Patterns_TB03_PTN3_17;
+if (!drumLibrary.TB03_PTN3_18) drumLibrary.TB03_PTN3_18 = _patterns.TB03_Patterns_TB03_PTN3_18;
+if (!drumLibrary.TB03_PTN3_19) drumLibrary.TB03_PTN3_19 = _patterns.TB03_Patterns_TB03_PTN3_19;
+if (!drumLibrary.TB03_PTN3_20) drumLibrary.TB03_PTN3_20 = _patterns.TB03_Patterns_TB03_PTN3_20;
+if (!drumLibrary.TB03_PTN3_21) drumLibrary.TB03_PTN3_21 = _patterns.TB03_Patterns_TB03_PTN3_21;
+if (!drumLibrary.TB03_PTN3_22) drumLibrary.TB03_PTN3_22 = _patterns.TB03_Patterns_TB03_PTN3_22;
+if (!drumLibrary.TB03_PTN3_23) drumLibrary.TB03_PTN3_23 = _patterns.TB03_Patterns_TB03_PTN3_23;
+if (!drumLibrary.TB03_PTN3_24) drumLibrary.TB03_PTN3_24 = _patterns.TB03_Patterns_TB03_PTN3_24;
+if (!drumLibrary.TB03_PTN4_01) drumLibrary.TB03_PTN4_01 = _patterns.TB03_Patterns_TB03_PTN4_01;
+if (!drumLibrary.TB03_PTN4_02) drumLibrary.TB03_PTN4_02 = _patterns.TB03_Patterns_TB03_PTN4_02;
+if (!drumLibrary.TB03_PTN4_03) drumLibrary.TB03_PTN4_03 = _patterns.TB03_Patterns_TB03_PTN4_03;
+if (!drumLibrary.TB03_PTN4_04) drumLibrary.TB03_PTN4_04 = _patterns.TB03_Patterns_TB03_PTN4_04;
+if (!drumLibrary.TB03_PTN4_05) drumLibrary.TB03_PTN4_05 = _patterns.TB03_Patterns_TB03_PTN4_05;
+if (!drumLibrary.TB03_PTN4_06) drumLibrary.TB03_PTN4_06 = _patterns.TB03_Patterns_TB03_PTN4_06;
+if (!drumLibrary.TB03_PTN4_07) drumLibrary.TB03_PTN4_07 = _patterns.TB03_Patterns_TB03_PTN4_07;
+if (!drumLibrary.TB03_PTN4_08) drumLibrary.TB03_PTN4_08 = _patterns.TB03_Patterns_TB03_PTN4_08;
+if (!drumLibrary.TB03_PTN4_09) drumLibrary.TB03_PTN4_09 = _patterns.TB03_Patterns_TB03_PTN4_09;
+if (!drumLibrary.TB03_PTN4_10) drumLibrary.TB03_PTN4_10 = _patterns.TB03_Patterns_TB03_PTN4_10;
+if (!drumLibrary.TB03_PTN4_11) drumLibrary.TB03_PTN4_11 = _patterns.TB03_Patterns_TB03_PTN4_11;
+if (!drumLibrary.TB03_PTN4_12) drumLibrary.TB03_PTN4_12 = _patterns.TB03_Patterns_TB03_PTN4_12;
+if (!drumLibrary.TB03_PTN4_13) drumLibrary.TB03_PTN4_13 = _patterns.TB03_Patterns_TB03_PTN4_13;
+if (!drumLibrary.TB03_PTN4_14) drumLibrary.TB03_PTN4_14 = _patterns.TB03_Patterns_TB03_PTN4_14;
+if (!drumLibrary.TB03_PTN4_15) drumLibrary.TB03_PTN4_15 = _patterns.TB03_Patterns_TB03_PTN4_15;
+if (!drumLibrary.TB03_PTN4_16) drumLibrary.TB03_PTN4_16 = _patterns.TB03_Patterns_TB03_PTN4_16;
+if (!drumLibrary.TB03_PTN4_17) drumLibrary.TB03_PTN4_17 = _patterns.TB03_Patterns_TB03_PTN4_17;
+if (!drumLibrary.TB03_PTN4_18) drumLibrary.TB03_PTN4_18 = _patterns.TB03_Patterns_TB03_PTN4_18;
+if (!drumLibrary.TB03_PTN4_19) drumLibrary.TB03_PTN4_19 = _patterns.TB03_Patterns_TB03_PTN4_19;
+if (!drumLibrary.TB03_PTN4_20) drumLibrary.TB03_PTN4_20 = _patterns.TB03_Patterns_TB03_PTN4_20;
+if (!drumLibrary.TB03_PTN4_21) drumLibrary.TB03_PTN4_21 = _patterns.TB03_Patterns_TB03_PTN4_21;
+if (!drumLibrary.TB03_PTN4_22) drumLibrary.TB03_PTN4_22 = _patterns.TB03_Patterns_TB03_PTN4_22;
+if (!drumLibrary.TB03_PTN4_23) drumLibrary.TB03_PTN4_23 = _patterns.TB03_Patterns_TB03_PTN4_23;
+if (!drumLibrary.TB03_PTN4_24) drumLibrary.TB03_PTN4_24 = _patterns.TB03_Patterns_TB03_PTN4_24;
+drumLibrary.Techno = Object.assign(
+  (opts = {}) => _patterns.Techno_OffBeat_clap(opts),
+  {
+    OffBeat_clap: _patterns.Techno_OffBeat_clap,
+    p_4_on_the_floor: _patterns.Techno_p_4_on_the_floor
+  }
+);
+if (!drumLibrary.OffBeat_clap) drumLibrary.OffBeat_clap = _patterns.Techno_OffBeat_clap;
+if (!drumLibrary.p_4_on_the_floor) drumLibrary.p_4_on_the_floor = _patterns.Techno_p_4_on_the_floor;
+drumLibrary.Tidal_patterns = Object.assign(
+  (opts = {}) => _patterns.Tidal_patterns_Afro6a(opts),
+  {
+    Afro6a: _patterns.Tidal_patterns_Afro6a,
+    Afro6b: _patterns.Tidal_patterns_Afro6b,
+    Afro6c: _patterns.Tidal_patterns_Afro6c,
+    Ageispolis: _patterns.Tidal_patterns_Ageispolis,
+    Amen: _patterns.Tidal_patterns_Amen,
+    AmenBrother: _patterns.Tidal_patterns_AmenBrother,
+    AshleysRoachClip: _patterns.Tidal_patterns_AshleysRoachClip,
+    Autobahn1a: _patterns.Tidal_patterns_Autobahn1a,
+    Autobahn1b: _patterns.Tidal_patterns_Autobahn1b,
+    BigBeat: _patterns.Tidal_patterns_BigBeat,
+    BillyJean: _patterns.Tidal_patterns_BillyJean,
+    BlueMonday1a: _patterns.Tidal_patterns_BlueMonday1a,
+    BlueMonday2a: _patterns.Tidal_patterns_BlueMonday2a,
+    BookOfMoses: _patterns.Tidal_patterns_BookOfMoses,
+    Break1: _patterns.Tidal_patterns_Break1,
+    Break2: _patterns.Tidal_patterns_Break2,
+    Breakbeat1: _patterns.Tidal_patterns_Breakbeat1,
+    Breakbeat2: _patterns.Tidal_patterns_Breakbeat2,
+    Breakbeat3: _patterns.Tidal_patterns_Breakbeat3,
+    BritHouse: _patterns.Tidal_patterns_BritHouse,
+    ChaChaCha1a: _patterns.Tidal_patterns_ChaChaCha1a,
+    ChaChaCha1b: _patterns.Tidal_patterns_ChaChaCha1b,
+    ChugChugChugaLug: _patterns.Tidal_patterns_ChugChugChugaLug,
+    CissyStrutLong: _patterns.Tidal_patterns_CissyStrutLong,
+    CissyStrutShort: _patterns.Tidal_patterns_CissyStrutShort,
+    ColdSweat: _patterns.Tidal_patterns_ColdSweat,
+    ColdSweatOpening: _patterns.Tidal_patterns_ColdSweatOpening,
+    ComeDancing: _patterns.Tidal_patterns_ComeDancing,
+    ContemporaryKick1a: _patterns.Tidal_patterns_ContemporaryKick1a,
+    ContemporaryKick1b: _patterns.Tidal_patterns_ContemporaryKick1b,
+    ContemporaryKick2a: _patterns.Tidal_patterns_ContemporaryKick2a,
+    ContemporaryKick2b: _patterns.Tidal_patterns_ContemporaryKick2b,
+    ContemporaryKick3b: _patterns.Tidal_patterns_ContemporaryKick3b,
+    ContemporaryKick4: _patterns.Tidal_patterns_ContemporaryKick4,
+    ContemporarySnare1a: _patterns.Tidal_patterns_ContemporarySnare1a,
+    ContemporarySnare1b: _patterns.Tidal_patterns_ContemporarySnare1b,
+    ContemporarySnare2b: _patterns.Tidal_patterns_ContemporarySnare2b,
+    ContemporarySnare3a: _patterns.Tidal_patterns_ContemporarySnare3a,
+    ContemporarySnare3b: _patterns.Tidal_patterns_ContemporarySnare3b,
+    CowdBell: _patterns.Tidal_patterns_CowdBell,
+    DasModel1b: _patterns.Tidal_patterns_DasModel1b,
+    DeepHouse: _patterns.Tidal_patterns_DeepHouse,
+    DeeperHouse: _patterns.Tidal_patterns_DeeperHouse,
+    DirtyHouse: _patterns.Tidal_patterns_DirtyHouse,
+    Disco2a: _patterns.Tidal_patterns_Disco2a,
+    Disco2b: _patterns.Tidal_patterns_Disco2b,
+    Disco3c: _patterns.Tidal_patterns_Disco3c,
+    Dnb1a: _patterns.Tidal_patterns_Dnb1a,
+    Dnb1b: _patterns.Tidal_patterns_Dnb1b,
+    Dnb2a: _patterns.Tidal_patterns_Dnb2a,
+    Dnb3: _patterns.Tidal_patterns_Dnb3,
+    Dnb4a: _patterns.Tidal_patterns_Dnb4a,
+    Dnb4b: _patterns.Tidal_patterns_Dnb4b,
+    Drumroll1: _patterns.Tidal_patterns_Drumroll1,
+    Drumroll10: _patterns.Tidal_patterns_Drumroll10,
+    Drumroll11: _patterns.Tidal_patterns_Drumroll11,
+    Drumroll12: _patterns.Tidal_patterns_Drumroll12,
+    Drumroll13: _patterns.Tidal_patterns_Drumroll13,
+    Drumroll14: _patterns.Tidal_patterns_Drumroll14,
+    Drumroll15: _patterns.Tidal_patterns_Drumroll15,
+    Drumroll16: _patterns.Tidal_patterns_Drumroll16,
+    Drumroll17: _patterns.Tidal_patterns_Drumroll17,
+    Drumroll18: _patterns.Tidal_patterns_Drumroll18,
+    Drumroll19: _patterns.Tidal_patterns_Drumroll19,
+    Drumroll2: _patterns.Tidal_patterns_Drumroll2,
+    Drumroll3: _patterns.Tidal_patterns_Drumroll3,
+    Drumroll4: _patterns.Tidal_patterns_Drumroll4,
+    Drumroll5: _patterns.Tidal_patterns_Drumroll5,
+    Drumroll6: _patterns.Tidal_patterns_Drumroll6,
+    Drumroll7: _patterns.Tidal_patterns_Drumroll7,
+    Drumroll8: _patterns.Tidal_patterns_Drumroll8,
+    Drumroll9: _patterns.Tidal_patterns_Drumroll9,
+    Dubstep1a: _patterns.Tidal_patterns_Dubstep1a,
+    Dubstep1b: _patterns.Tidal_patterns_Dubstep1b,
+    DubstepRatcheted: _patterns.Tidal_patterns_DubstepRatcheted,
+    Electro1a: _patterns.Tidal_patterns_Electro1a,
+    Electro1b: _patterns.Tidal_patterns_Electro1b,
+    Electro2b: _patterns.Tidal_patterns_Electro2b,
+    Electro3b: _patterns.Tidal_patterns_Electro3b,
+    ExpensiveShit: _patterns.Tidal_patterns_ExpensiveShit,
+    ExpressYourself: _patterns.Tidal_patterns_ExpressYourself,
+    Footwork1: _patterns.Tidal_patterns_Footwork1,
+    Footwork2: _patterns.Tidal_patterns_Footwork2,
+    FourOnTheFloor: _patterns.Tidal_patterns_FourOnTheFloor,
+    FrenchHouse: _patterns.Tidal_patterns_FrenchHouse,
+    FunkyDrummer: _patterns.Tidal_patterns_FunkyDrummer,
+    FunkyDrummerAlt: _patterns.Tidal_patterns_FunkyDrummerAlt,
+    FunkyPresident: _patterns.Tidal_patterns_FunkyPresident,
+    GenericBossaNova: _patterns.Tidal_patterns_GenericBossaNova,
+    GenericGahu: _patterns.Tidal_patterns_GenericGahu,
+    GenericRock: _patterns.Tidal_patterns_GenericRock,
+    GenericRumba: _patterns.Tidal_patterns_GenericRumba,
+    GenericShiko: _patterns.Tidal_patterns_GenericShiko,
+    GenericSoukous: _patterns.Tidal_patterns_GenericSoukous,
+    GetUp: _patterns.Tidal_patterns_GetUp,
+    GhostSnare1a: _patterns.Tidal_patterns_GhostSnare1a,
+    GhostSnare1b: _patterns.Tidal_patterns_GhostSnare1b,
+    GhostSnare2a: _patterns.Tidal_patterns_GhostSnare2a,
+    GhostSnare2b: _patterns.Tidal_patterns_GhostSnare2b,
+    GoodToGo: _patterns.Tidal_patterns_GoodToGo,
+    GrooveMe: _patterns.Tidal_patterns_GrooveMe,
+    HaitianDivorce: _patterns.Tidal_patterns_HaitianDivorce,
+    HalfDrop: _patterns.Tidal_patterns_HalfDrop,
+    Haus: _patterns.Tidal_patterns_Haus,
+    HipHop: _patterns.Tidal_patterns_HipHop,
+    Hiphop1a: _patterns.Tidal_patterns_Hiphop1a,
+    Hiphop1b: _patterns.Tidal_patterns_Hiphop1b,
+    Hiphop1c: _patterns.Tidal_patterns_Hiphop1c,
+    Hiphop2a: _patterns.Tidal_patterns_Hiphop2a,
+    Hiphop2b: _patterns.Tidal_patterns_Hiphop2b,
+    Hiphop3a: _patterns.Tidal_patterns_Hiphop3a,
+    Hiphop3b: _patterns.Tidal_patterns_Hiphop3b,
+    Hiphop4a: _patterns.Tidal_patterns_Hiphop4a,
+    Hiphop4b: _patterns.Tidal_patterns_Hiphop4b,
+    Hiphop5: _patterns.Tidal_patterns_Hiphop5,
+    Hiphop6: _patterns.Tidal_patterns_Hiphop6,
+    Hiphop7: _patterns.Tidal_patterns_Hiphop7,
+    Hiphop8: _patterns.Tidal_patterns_Hiphop8,
+    HiphopAlt: _patterns.Tidal_patterns_HiphopAlt,
+    HookAndSling: _patterns.Tidal_patterns_HookAndSling,
+    HotSweat: _patterns.Tidal_patterns_HotSweat,
+    House1a: _patterns.Tidal_patterns_House1a,
+    House1b: _patterns.Tidal_patterns_House1b,
+    HybridKick1a: _patterns.Tidal_patterns_HybridKick1a,
+    HybridKick1b: _patterns.Tidal_patterns_HybridKick1b,
+    HybridKick1c: _patterns.Tidal_patterns_HybridKick1c,
+    HybridKick1d: _patterns.Tidal_patterns_HybridKick1d,
+    HybridKick1e: _patterns.Tidal_patterns_HybridKick1e,
+    HybridKick1g: _patterns.Tidal_patterns_HybridKick1g,
+    HybridKick2b: _patterns.Tidal_patterns_HybridKick2b,
+    IGotTheFeelin: _patterns.Tidal_patterns_IGotTheFeelin,
+    IGotYou: _patterns.Tidal_patterns_IGotYou,
+    ImpeachThePresident: _patterns.Tidal_patterns_ImpeachThePresident,
+    Irregular1a: _patterns.Tidal_patterns_Irregular1a,
+    Irregular1b: _patterns.Tidal_patterns_Irregular1b,
+    Irregular2a: _patterns.Tidal_patterns_Irregular2a,
+    Irregular2b: _patterns.Tidal_patterns_Irregular2b,
+    Irregular3: _patterns.Tidal_patterns_Irregular3,
+    ItaloDisco1a: _patterns.Tidal_patterns_ItaloDisco1a,
+    ItaloDisco1b: _patterns.Tidal_patterns_ItaloDisco1b,
+    ItsANewDay: _patterns.Tidal_patterns_ItsANewDay,
+    Juke: _patterns.Tidal_patterns_Juke,
+    Jungle: _patterns.Tidal_patterns_Jungle,
+    Jungle1a: _patterns.Tidal_patterns_Jungle1a,
+    Jungle1b: _patterns.Tidal_patterns_Jungle1b,
+    JungleAlt: _patterns.Tidal_patterns_JungleAlt,
+    Kick: _patterns.Tidal_patterns_Kick,
+    KissingMyLove: _patterns.Tidal_patterns_KissingMyLove,
+    KnocksOffMyFeet: _patterns.Tidal_patterns_KnocksOffMyFeet,
+    Lady: _patterns.Tidal_patterns_Lady,
+    LadyMarmalade: _patterns.Tidal_patterns_LadyMarmalade,
+    LetAWomanBeAWomanLetAManBeAMan: _patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan,
+    LookingForThePerfectBeat1a: _patterns.Tidal_patterns_LookingForThePerfectBeat1a,
+    LookingForThePerfectBeat1b: _patterns.Tidal_patterns_LookingForThePerfectBeat1b,
+    Lookkapypy: _patterns.Tidal_patterns_Lookkapypy,
+    MiamiBass1: _patterns.Tidal_patterns_MiamiBass1,
+    MiamiBass2: _patterns.Tidal_patterns_MiamiBass2,
+    MoreBounceToTheOunce: _patterns.Tidal_patterns_MoreBounceToTheOunce,
+    MotherPopcorn: _patterns.Tidal_patterns_MotherPopcorn,
+    MusicNonStop1a: _patterns.Tidal_patterns_MusicNonStop1a,
+    MusicNonStop2a: _patterns.Tidal_patterns_MusicNonStop2a,
+    MusicNonStop2b: _patterns.Tidal_patterns_MusicNonStop2b,
+    NewWave: _patterns.Tidal_patterns_NewWave,
+    Nico: _patterns.Tidal_patterns_Nico,
+    Numbers1a: _patterns.Tidal_patterns_Numbers1a,
+    Numbers1b: _patterns.Tidal_patterns_Numbers1b,
+    OneDrop: _patterns.Tidal_patterns_OneDrop,
+    OneSevenFiveThirteen: _patterns.Tidal_patterns_OneSevenFiveThirteen,
+    OohChild: _patterns.Tidal_patterns_OohChild,
+    PalmGrease: _patterns.Tidal_patterns_PalmGrease,
+    PapaWasToo: _patterns.Tidal_patterns_PapaWasToo,
+    Pattern00: _patterns.Tidal_patterns_Pattern00,
+    Pattern01: _patterns.Tidal_patterns_Pattern01,
+    Pattern02: _patterns.Tidal_patterns_Pattern02,
+    Pattern03: _patterns.Tidal_patterns_Pattern03,
+    Pattern04: _patterns.Tidal_patterns_Pattern04,
+    Pattern05: _patterns.Tidal_patterns_Pattern05,
+    Pattern06: _patterns.Tidal_patterns_Pattern06,
+    Pattern07: _patterns.Tidal_patterns_Pattern07,
+    Pattern08: _patterns.Tidal_patterns_Pattern08,
+    Pattern09: _patterns.Tidal_patterns_Pattern09,
+    Pattern10: _patterns.Tidal_patterns_Pattern10,
+    Pattern11: _patterns.Tidal_patterns_Pattern11,
+    Pattern12: _patterns.Tidal_patterns_Pattern12,
+    Pattern13: _patterns.Tidal_patterns_Pattern13,
+    Pattern14: _patterns.Tidal_patterns_Pattern14,
+    Pattern15: _patterns.Tidal_patterns_Pattern15,
+    Pattern16: _patterns.Tidal_patterns_Pattern16,
+    Pattern17: _patterns.Tidal_patterns_Pattern17,
+    Pattern18: _patterns.Tidal_patterns_Pattern18,
+    Pattern19: _patterns.Tidal_patterns_Pattern19,
+    Pattern20: _patterns.Tidal_patterns_Pattern20,
+    Pattern21: _patterns.Tidal_patterns_Pattern21,
+    Pattern22: _patterns.Tidal_patterns_Pattern22,
+    Pattern23: _patterns.Tidal_patterns_Pattern23,
+    Pattern24: _patterns.Tidal_patterns_Pattern24,
+    Pattern25: _patterns.Tidal_patterns_Pattern25,
+    Pattern26: _patterns.Tidal_patterns_Pattern26,
+    Pattern27: _patterns.Tidal_patterns_Pattern27,
+    Pattern28: _patterns.Tidal_patterns_Pattern28,
+    Pattern29: _patterns.Tidal_patterns_Pattern29,
+    Pattern30: _patterns.Tidal_patterns_Pattern30,
+    Pattern31: _patterns.Tidal_patterns_Pattern31,
+    Pattern32: _patterns.Tidal_patterns_Pattern32,
+    Pattern33: _patterns.Tidal_patterns_Pattern33,
+    Pattern34: _patterns.Tidal_patterns_Pattern34,
+    Pattern35: _patterns.Tidal_patterns_Pattern35,
+    Pattern36: _patterns.Tidal_patterns_Pattern36,
+    Pattern37: _patterns.Tidal_patterns_Pattern37,
+    Pattern38: _patterns.Tidal_patterns_Pattern38,
+    Pattern39: _patterns.Tidal_patterns_Pattern39,
+    Pattern40: _patterns.Tidal_patterns_Pattern40,
+    Pattern41: _patterns.Tidal_patterns_Pattern41,
+    Pattern42: _patterns.Tidal_patterns_Pattern42,
+    Pattern43: _patterns.Tidal_patterns_Pattern43,
+    Pattern44: _patterns.Tidal_patterns_Pattern44,
+    Pattern45: _patterns.Tidal_patterns_Pattern45,
+    Pattern46: _patterns.Tidal_patterns_Pattern46,
+    Pattern47: _patterns.Tidal_patterns_Pattern47,
+    Pattern48: _patterns.Tidal_patterns_Pattern48,
+    Pattern49: _patterns.Tidal_patterns_Pattern49,
+    Pattern50: _patterns.Tidal_patterns_Pattern50,
+    Pattern51: _patterns.Tidal_patterns_Pattern51,
+    Pattern52: _patterns.Tidal_patterns_Pattern52,
+    Pattern53: _patterns.Tidal_patterns_Pattern53,
+    Pattern54: _patterns.Tidal_patterns_Pattern54,
+    Pattern55: _patterns.Tidal_patterns_Pattern55,
+    Pattern56: _patterns.Tidal_patterns_Pattern56,
+    Pattern57: _patterns.Tidal_patterns_Pattern57,
+    Pattern58: _patterns.Tidal_patterns_Pattern58,
+    Pattern59: _patterns.Tidal_patterns_Pattern59,
+    Pattern60: _patterns.Tidal_patterns_Pattern60,
+    Pattern61: _patterns.Tidal_patterns_Pattern61,
+    Pattern62: _patterns.Tidal_patterns_Pattern62,
+    Pattern63: _patterns.Tidal_patterns_Pattern63,
+    PlanetRock: _patterns.Tidal_patterns_PlanetRock,
+    Poly1a: _patterns.Tidal_patterns_Poly1a,
+    Poly1b: _patterns.Tidal_patterns_Poly1b,
+    Poptech2010: _patterns.Tidal_patterns_Poptech2010,
+    Reggae4a: _patterns.Tidal_patterns_Reggae4a,
+    Reggaeton: _patterns.Tidal_patterns_Reggaeton,
+    RespectYourself: _patterns.Tidal_patterns_RespectYourself,
+    RockSteady: _patterns.Tidal_patterns_RockSteady,
+    RockThePlanet: _patterns.Tidal_patterns_RockThePlanet,
+    RollinBreak: _patterns.Tidal_patterns_RollinBreak,
+    Rolling11: _patterns.Tidal_patterns_Rolling11,
+    Rolling3a: _patterns.Tidal_patterns_Rolling3a,
+    Rolling3b: _patterns.Tidal_patterns_Rolling3b,
+    Rolling4a: _patterns.Tidal_patterns_Rolling4a,
+    Rolling4b: _patterns.Tidal_patterns_Rolling4b,
+    Rolling5b: _patterns.Tidal_patterns_Rolling5b,
+    Rolling6a: _patterns.Tidal_patterns_Rolling6a,
+    Rolling7a: _patterns.Tidal_patterns_Rolling7a,
+    Rolling7b: _patterns.Tidal_patterns_Rolling7b,
+    Sally: _patterns.Tidal_patterns_Sally,
+    Samba1a: _patterns.Tidal_patterns_Samba1a,
+    Samba1b: _patterns.Tidal_patterns_Samba1b,
+    SlowDeepHouse: _patterns.Tidal_patterns_SlowDeepHouse,
+    Steppers: _patterns.Tidal_patterns_Steppers,
+    Strbtsdcgogo100: _patterns.Tidal_patterns_Strbtsdcgogo100,
+    Supersonic2a: _patterns.Tidal_patterns_Supersonic2a,
+    Supersonic2b: _patterns.Tidal_patterns_Supersonic2b,
+    Superstition: _patterns.Tidal_patterns_Superstition,
+    Swing3a: _patterns.Tidal_patterns_Swing3a,
+    SynthWave: _patterns.Tidal_patterns_SynthWave,
+    SynthethicSubstitution: _patterns.Tidal_patterns_SynthethicSubstitution,
+    TakeMeToMardiGras: _patterns.Tidal_patterns_TakeMeToMardiGras,
+    TakeMeToMardiGrasAlt: _patterns.Tidal_patterns_TakeMeToMardiGrasAlt,
+    Techno: _patterns.Tidal_patterns_Techno,
+    TheFez: _patterns.Tidal_patterns_TheFez,
+    TheSameBlood: _patterns.Tidal_patterns_TheSameBlood,
+    TheTrillsGone: _patterns.Tidal_patterns_TheTrillsGone,
+    TransEuroExpress: _patterns.Tidal_patterns_TransEuroExpress,
+    Trap1a: _patterns.Tidal_patterns_Trap1a,
+    Trap1b: _patterns.Tidal_patterns_Trap1b,
+    TwoDrop: _patterns.Tidal_patterns_TwoDrop,
+    UkGarage1a: _patterns.Tidal_patterns_UkGarage1a,
+    UkGarage1b: _patterns.Tidal_patterns_UkGarage1b,
+    UnconventionalSnare1a: _patterns.Tidal_patterns_UnconventionalSnare1a,
+    UnconventionalSnare1b: _patterns.Tidal_patterns_UnconventionalSnare1b,
+    UnconventionalSnare2a: _patterns.Tidal_patterns_UnconventionalSnare2a,
+    UnconventionalSnare2b: _patterns.Tidal_patterns_UnconventionalSnare2b,
+    UnconventionalSnare3a: _patterns.Tidal_patterns_UnconventionalSnare3a,
+    UnconventionalSnare4a: _patterns.Tidal_patterns_UnconventionalSnare4a,
+    UnconventionalSnare4b: _patterns.Tidal_patterns_UnconventionalSnare4b,
+    UnknownDrummer: _patterns.Tidal_patterns_UnknownDrummer,
+    UseMe: _patterns.Tidal_patterns_UseMe,
+    UseMeAlt: _patterns.Tidal_patterns_UseMeAlt,
+    WalkThisWay: _patterns.Tidal_patterns_WalkThisWay,
+    WeWillRockYou: _patterns.Tidal_patterns_WeWillRockYou,
+    WhenTheLeveeBreaks: _patterns.Tidal_patterns_WhenTheLeveeBreaks,
+    YaMama: _patterns.Tidal_patterns_YaMama
+  }
+);
+if (!drumLibrary.Afro6a) drumLibrary.Afro6a = _patterns.Tidal_patterns_Afro6a;
+if (!drumLibrary.Afro6b) drumLibrary.Afro6b = _patterns.Tidal_patterns_Afro6b;
+if (!drumLibrary.Afro6c) drumLibrary.Afro6c = _patterns.Tidal_patterns_Afro6c;
+if (!drumLibrary.Ageispolis) drumLibrary.Ageispolis = _patterns.Tidal_patterns_Ageispolis;
+if (!drumLibrary.Amen) drumLibrary.Amen = _patterns.Tidal_patterns_Amen;
+if (!drumLibrary.AmenBrother) drumLibrary.AmenBrother = _patterns.Tidal_patterns_AmenBrother;
+if (!drumLibrary.AshleysRoachClip) drumLibrary.AshleysRoachClip = _patterns.Tidal_patterns_AshleysRoachClip;
+if (!drumLibrary.Autobahn1a) drumLibrary.Autobahn1a = _patterns.Tidal_patterns_Autobahn1a;
+if (!drumLibrary.Autobahn1b) drumLibrary.Autobahn1b = _patterns.Tidal_patterns_Autobahn1b;
+if (!drumLibrary.BigBeat) drumLibrary.BigBeat = _patterns.Tidal_patterns_BigBeat;
+if (!drumLibrary.BillyJean) drumLibrary.BillyJean = _patterns.Tidal_patterns_BillyJean;
+if (!drumLibrary.BlueMonday1a) drumLibrary.BlueMonday1a = _patterns.Tidal_patterns_BlueMonday1a;
+if (!drumLibrary.BlueMonday2a) drumLibrary.BlueMonday2a = _patterns.Tidal_patterns_BlueMonday2a;
+if (!drumLibrary.BookOfMoses) drumLibrary.BookOfMoses = _patterns.Tidal_patterns_BookOfMoses;
+if (!drumLibrary.Break1) drumLibrary.Break1 = _patterns.Tidal_patterns_Break1;
+if (!drumLibrary.Break2) drumLibrary.Break2 = _patterns.Tidal_patterns_Break2;
+if (!drumLibrary.Breakbeat1) drumLibrary.Breakbeat1 = _patterns.Tidal_patterns_Breakbeat1;
+if (!drumLibrary.Breakbeat2) drumLibrary.Breakbeat2 = _patterns.Tidal_patterns_Breakbeat2;
+if (!drumLibrary.Breakbeat3) drumLibrary.Breakbeat3 = _patterns.Tidal_patterns_Breakbeat3;
+if (!drumLibrary.BritHouse) drumLibrary.BritHouse = _patterns.Tidal_patterns_BritHouse;
+if (!drumLibrary.ChaChaCha1a) drumLibrary.ChaChaCha1a = _patterns.Tidal_patterns_ChaChaCha1a;
+if (!drumLibrary.ChaChaCha1b) drumLibrary.ChaChaCha1b = _patterns.Tidal_patterns_ChaChaCha1b;
+if (!drumLibrary.ChugChugChugaLug) drumLibrary.ChugChugChugaLug = _patterns.Tidal_patterns_ChugChugChugaLug;
+if (!drumLibrary.CissyStrutLong) drumLibrary.CissyStrutLong = _patterns.Tidal_patterns_CissyStrutLong;
+if (!drumLibrary.CissyStrutShort) drumLibrary.CissyStrutShort = _patterns.Tidal_patterns_CissyStrutShort;
+if (!drumLibrary.ColdSweat) drumLibrary.ColdSweat = _patterns.Tidal_patterns_ColdSweat;
+if (!drumLibrary.ColdSweatOpening) drumLibrary.ColdSweatOpening = _patterns.Tidal_patterns_ColdSweatOpening;
+if (!drumLibrary.ComeDancing) drumLibrary.ComeDancing = _patterns.Tidal_patterns_ComeDancing;
+if (!drumLibrary.ContemporaryKick1a) drumLibrary.ContemporaryKick1a = _patterns.Tidal_patterns_ContemporaryKick1a;
+if (!drumLibrary.ContemporaryKick1b) drumLibrary.ContemporaryKick1b = _patterns.Tidal_patterns_ContemporaryKick1b;
+if (!drumLibrary.ContemporaryKick2a) drumLibrary.ContemporaryKick2a = _patterns.Tidal_patterns_ContemporaryKick2a;
+if (!drumLibrary.ContemporaryKick2b) drumLibrary.ContemporaryKick2b = _patterns.Tidal_patterns_ContemporaryKick2b;
+if (!drumLibrary.ContemporaryKick3b) drumLibrary.ContemporaryKick3b = _patterns.Tidal_patterns_ContemporaryKick3b;
+if (!drumLibrary.ContemporaryKick4) drumLibrary.ContemporaryKick4 = _patterns.Tidal_patterns_ContemporaryKick4;
+if (!drumLibrary.ContemporarySnare1a) drumLibrary.ContemporarySnare1a = _patterns.Tidal_patterns_ContemporarySnare1a;
+if (!drumLibrary.ContemporarySnare1b) drumLibrary.ContemporarySnare1b = _patterns.Tidal_patterns_ContemporarySnare1b;
+if (!drumLibrary.ContemporarySnare2b) drumLibrary.ContemporarySnare2b = _patterns.Tidal_patterns_ContemporarySnare2b;
+if (!drumLibrary.ContemporarySnare3a) drumLibrary.ContemporarySnare3a = _patterns.Tidal_patterns_ContemporarySnare3a;
+if (!drumLibrary.ContemporarySnare3b) drumLibrary.ContemporarySnare3b = _patterns.Tidal_patterns_ContemporarySnare3b;
+if (!drumLibrary.CowdBell) drumLibrary.CowdBell = _patterns.Tidal_patterns_CowdBell;
+if (!drumLibrary.DasModel1b) drumLibrary.DasModel1b = _patterns.Tidal_patterns_DasModel1b;
+if (!drumLibrary.DeepHouse) drumLibrary.DeepHouse = _patterns.Tidal_patterns_DeepHouse;
+if (!drumLibrary.DeeperHouse) drumLibrary.DeeperHouse = _patterns.Tidal_patterns_DeeperHouse;
+if (!drumLibrary.DirtyHouse) drumLibrary.DirtyHouse = _patterns.Tidal_patterns_DirtyHouse;
+if (!drumLibrary.Disco2a) drumLibrary.Disco2a = _patterns.Tidal_patterns_Disco2a;
+if (!drumLibrary.Disco2b) drumLibrary.Disco2b = _patterns.Tidal_patterns_Disco2b;
+if (!drumLibrary.Disco3c) drumLibrary.Disco3c = _patterns.Tidal_patterns_Disco3c;
+if (!drumLibrary.Dnb1a) drumLibrary.Dnb1a = _patterns.Tidal_patterns_Dnb1a;
+if (!drumLibrary.Dnb1b) drumLibrary.Dnb1b = _patterns.Tidal_patterns_Dnb1b;
+if (!drumLibrary.Dnb2a) drumLibrary.Dnb2a = _patterns.Tidal_patterns_Dnb2a;
+if (!drumLibrary.Dnb3) drumLibrary.Dnb3 = _patterns.Tidal_patterns_Dnb3;
+if (!drumLibrary.Dnb4a) drumLibrary.Dnb4a = _patterns.Tidal_patterns_Dnb4a;
+if (!drumLibrary.Dnb4b) drumLibrary.Dnb4b = _patterns.Tidal_patterns_Dnb4b;
+if (!drumLibrary.Drumroll1) drumLibrary.Drumroll1 = _patterns.Tidal_patterns_Drumroll1;
+if (!drumLibrary.Drumroll10) drumLibrary.Drumroll10 = _patterns.Tidal_patterns_Drumroll10;
+if (!drumLibrary.Drumroll11) drumLibrary.Drumroll11 = _patterns.Tidal_patterns_Drumroll11;
+if (!drumLibrary.Drumroll12) drumLibrary.Drumroll12 = _patterns.Tidal_patterns_Drumroll12;
+if (!drumLibrary.Drumroll13) drumLibrary.Drumroll13 = _patterns.Tidal_patterns_Drumroll13;
+if (!drumLibrary.Drumroll14) drumLibrary.Drumroll14 = _patterns.Tidal_patterns_Drumroll14;
+if (!drumLibrary.Drumroll15) drumLibrary.Drumroll15 = _patterns.Tidal_patterns_Drumroll15;
+if (!drumLibrary.Drumroll16) drumLibrary.Drumroll16 = _patterns.Tidal_patterns_Drumroll16;
+if (!drumLibrary.Drumroll17) drumLibrary.Drumroll17 = _patterns.Tidal_patterns_Drumroll17;
+if (!drumLibrary.Drumroll18) drumLibrary.Drumroll18 = _patterns.Tidal_patterns_Drumroll18;
+if (!drumLibrary.Drumroll19) drumLibrary.Drumroll19 = _patterns.Tidal_patterns_Drumroll19;
+if (!drumLibrary.Drumroll2) drumLibrary.Drumroll2 = _patterns.Tidal_patterns_Drumroll2;
+if (!drumLibrary.Drumroll3) drumLibrary.Drumroll3 = _patterns.Tidal_patterns_Drumroll3;
+if (!drumLibrary.Drumroll4) drumLibrary.Drumroll4 = _patterns.Tidal_patterns_Drumroll4;
+if (!drumLibrary.Drumroll5) drumLibrary.Drumroll5 = _patterns.Tidal_patterns_Drumroll5;
+if (!drumLibrary.Drumroll6) drumLibrary.Drumroll6 = _patterns.Tidal_patterns_Drumroll6;
+if (!drumLibrary.Drumroll7) drumLibrary.Drumroll7 = _patterns.Tidal_patterns_Drumroll7;
+if (!drumLibrary.Drumroll8) drumLibrary.Drumroll8 = _patterns.Tidal_patterns_Drumroll8;
+if (!drumLibrary.Drumroll9) drumLibrary.Drumroll9 = _patterns.Tidal_patterns_Drumroll9;
+if (!drumLibrary.Dubstep1a) drumLibrary.Dubstep1a = _patterns.Tidal_patterns_Dubstep1a;
+if (!drumLibrary.Dubstep1b) drumLibrary.Dubstep1b = _patterns.Tidal_patterns_Dubstep1b;
+if (!drumLibrary.DubstepRatcheted) drumLibrary.DubstepRatcheted = _patterns.Tidal_patterns_DubstepRatcheted;
+if (!drumLibrary.Electro1a) drumLibrary.Electro1a = _patterns.Tidal_patterns_Electro1a;
+if (!drumLibrary.Electro1b) drumLibrary.Electro1b = _patterns.Tidal_patterns_Electro1b;
+if (!drumLibrary.Electro2b) drumLibrary.Electro2b = _patterns.Tidal_patterns_Electro2b;
+if (!drumLibrary.Electro3b) drumLibrary.Electro3b = _patterns.Tidal_patterns_Electro3b;
+if (!drumLibrary.ExpensiveShit) drumLibrary.ExpensiveShit = _patterns.Tidal_patterns_ExpensiveShit;
+if (!drumLibrary.ExpressYourself) drumLibrary.ExpressYourself = _patterns.Tidal_patterns_ExpressYourself;
+if (!drumLibrary.Footwork1) drumLibrary.Footwork1 = _patterns.Tidal_patterns_Footwork1;
+if (!drumLibrary.Footwork2) drumLibrary.Footwork2 = _patterns.Tidal_patterns_Footwork2;
+if (!drumLibrary.FourOnTheFloor) drumLibrary.FourOnTheFloor = _patterns.Tidal_patterns_FourOnTheFloor;
+if (!drumLibrary.FrenchHouse) drumLibrary.FrenchHouse = _patterns.Tidal_patterns_FrenchHouse;
+if (!drumLibrary.FunkyDrummer) drumLibrary.FunkyDrummer = _patterns.Tidal_patterns_FunkyDrummer;
+if (!drumLibrary.FunkyDrummerAlt) drumLibrary.FunkyDrummerAlt = _patterns.Tidal_patterns_FunkyDrummerAlt;
+if (!drumLibrary.FunkyPresident) drumLibrary.FunkyPresident = _patterns.Tidal_patterns_FunkyPresident;
+if (!drumLibrary.GenericBossaNova) drumLibrary.GenericBossaNova = _patterns.Tidal_patterns_GenericBossaNova;
+if (!drumLibrary.GenericGahu) drumLibrary.GenericGahu = _patterns.Tidal_patterns_GenericGahu;
+if (!drumLibrary.GenericRock) drumLibrary.GenericRock = _patterns.Tidal_patterns_GenericRock;
+if (!drumLibrary.GenericRumba) drumLibrary.GenericRumba = _patterns.Tidal_patterns_GenericRumba;
+if (!drumLibrary.GenericShiko) drumLibrary.GenericShiko = _patterns.Tidal_patterns_GenericShiko;
+if (!drumLibrary.GenericSoukous) drumLibrary.GenericSoukous = _patterns.Tidal_patterns_GenericSoukous;
+if (!drumLibrary.GetUp) drumLibrary.GetUp = _patterns.Tidal_patterns_GetUp;
+if (!drumLibrary.GhostSnare1a) drumLibrary.GhostSnare1a = _patterns.Tidal_patterns_GhostSnare1a;
+if (!drumLibrary.GhostSnare1b) drumLibrary.GhostSnare1b = _patterns.Tidal_patterns_GhostSnare1b;
+if (!drumLibrary.GhostSnare2a) drumLibrary.GhostSnare2a = _patterns.Tidal_patterns_GhostSnare2a;
+if (!drumLibrary.GhostSnare2b) drumLibrary.GhostSnare2b = _patterns.Tidal_patterns_GhostSnare2b;
+if (!drumLibrary.GoodToGo) drumLibrary.GoodToGo = _patterns.Tidal_patterns_GoodToGo;
+if (!drumLibrary.GrooveMe) drumLibrary.GrooveMe = _patterns.Tidal_patterns_GrooveMe;
+if (!drumLibrary.HaitianDivorce) drumLibrary.HaitianDivorce = _patterns.Tidal_patterns_HaitianDivorce;
+if (!drumLibrary.HalfDrop) drumLibrary.HalfDrop = _patterns.Tidal_patterns_HalfDrop;
+if (!drumLibrary.Haus) drumLibrary.Haus = _patterns.Tidal_patterns_Haus;
+if (!drumLibrary.HipHop) drumLibrary.HipHop = _patterns.Tidal_patterns_HipHop;
+if (!drumLibrary.Hiphop1a) drumLibrary.Hiphop1a = _patterns.Tidal_patterns_Hiphop1a;
+if (!drumLibrary.Hiphop1b) drumLibrary.Hiphop1b = _patterns.Tidal_patterns_Hiphop1b;
+if (!drumLibrary.Hiphop1c) drumLibrary.Hiphop1c = _patterns.Tidal_patterns_Hiphop1c;
+if (!drumLibrary.Hiphop2a) drumLibrary.Hiphop2a = _patterns.Tidal_patterns_Hiphop2a;
+if (!drumLibrary.Hiphop2b) drumLibrary.Hiphop2b = _patterns.Tidal_patterns_Hiphop2b;
+if (!drumLibrary.Hiphop3a) drumLibrary.Hiphop3a = _patterns.Tidal_patterns_Hiphop3a;
+if (!drumLibrary.Hiphop3b) drumLibrary.Hiphop3b = _patterns.Tidal_patterns_Hiphop3b;
+if (!drumLibrary.Hiphop4a) drumLibrary.Hiphop4a = _patterns.Tidal_patterns_Hiphop4a;
+if (!drumLibrary.Hiphop4b) drumLibrary.Hiphop4b = _patterns.Tidal_patterns_Hiphop4b;
+if (!drumLibrary.Hiphop5) drumLibrary.Hiphop5 = _patterns.Tidal_patterns_Hiphop5;
+if (!drumLibrary.Hiphop6) drumLibrary.Hiphop6 = _patterns.Tidal_patterns_Hiphop6;
+if (!drumLibrary.Hiphop7) drumLibrary.Hiphop7 = _patterns.Tidal_patterns_Hiphop7;
+if (!drumLibrary.Hiphop8) drumLibrary.Hiphop8 = _patterns.Tidal_patterns_Hiphop8;
+if (!drumLibrary.HiphopAlt) drumLibrary.HiphopAlt = _patterns.Tidal_patterns_HiphopAlt;
+if (!drumLibrary.HookAndSling) drumLibrary.HookAndSling = _patterns.Tidal_patterns_HookAndSling;
+if (!drumLibrary.HotSweat) drumLibrary.HotSweat = _patterns.Tidal_patterns_HotSweat;
+if (!drumLibrary.House1a) drumLibrary.House1a = _patterns.Tidal_patterns_House1a;
+if (!drumLibrary.House1b) drumLibrary.House1b = _patterns.Tidal_patterns_House1b;
+if (!drumLibrary.HybridKick1a) drumLibrary.HybridKick1a = _patterns.Tidal_patterns_HybridKick1a;
+if (!drumLibrary.HybridKick1b) drumLibrary.HybridKick1b = _patterns.Tidal_patterns_HybridKick1b;
+if (!drumLibrary.HybridKick1c) drumLibrary.HybridKick1c = _patterns.Tidal_patterns_HybridKick1c;
+if (!drumLibrary.HybridKick1d) drumLibrary.HybridKick1d = _patterns.Tidal_patterns_HybridKick1d;
+if (!drumLibrary.HybridKick1e) drumLibrary.HybridKick1e = _patterns.Tidal_patterns_HybridKick1e;
+if (!drumLibrary.HybridKick1g) drumLibrary.HybridKick1g = _patterns.Tidal_patterns_HybridKick1g;
+if (!drumLibrary.HybridKick2b) drumLibrary.HybridKick2b = _patterns.Tidal_patterns_HybridKick2b;
+if (!drumLibrary.IGotTheFeelin) drumLibrary.IGotTheFeelin = _patterns.Tidal_patterns_IGotTheFeelin;
+if (!drumLibrary.IGotYou) drumLibrary.IGotYou = _patterns.Tidal_patterns_IGotYou;
+if (!drumLibrary.ImpeachThePresident) drumLibrary.ImpeachThePresident = _patterns.Tidal_patterns_ImpeachThePresident;
+if (!drumLibrary.Irregular1a) drumLibrary.Irregular1a = _patterns.Tidal_patterns_Irregular1a;
+if (!drumLibrary.Irregular1b) drumLibrary.Irregular1b = _patterns.Tidal_patterns_Irregular1b;
+if (!drumLibrary.Irregular2a) drumLibrary.Irregular2a = _patterns.Tidal_patterns_Irregular2a;
+if (!drumLibrary.Irregular2b) drumLibrary.Irregular2b = _patterns.Tidal_patterns_Irregular2b;
+if (!drumLibrary.Irregular3) drumLibrary.Irregular3 = _patterns.Tidal_patterns_Irregular3;
+if (!drumLibrary.ItaloDisco1a) drumLibrary.ItaloDisco1a = _patterns.Tidal_patterns_ItaloDisco1a;
+if (!drumLibrary.ItaloDisco1b) drumLibrary.ItaloDisco1b = _patterns.Tidal_patterns_ItaloDisco1b;
+if (!drumLibrary.ItsANewDay) drumLibrary.ItsANewDay = _patterns.Tidal_patterns_ItsANewDay;
+if (!drumLibrary.Juke) drumLibrary.Juke = _patterns.Tidal_patterns_Juke;
+if (!drumLibrary.Jungle) drumLibrary.Jungle = _patterns.Tidal_patterns_Jungle;
+if (!drumLibrary.Jungle1a) drumLibrary.Jungle1a = _patterns.Tidal_patterns_Jungle1a;
+if (!drumLibrary.Jungle1b) drumLibrary.Jungle1b = _patterns.Tidal_patterns_Jungle1b;
+if (!drumLibrary.JungleAlt) drumLibrary.JungleAlt = _patterns.Tidal_patterns_JungleAlt;
+if (!drumLibrary.Kick) drumLibrary.Kick = _patterns.Tidal_patterns_Kick;
+if (!drumLibrary.KissingMyLove) drumLibrary.KissingMyLove = _patterns.Tidal_patterns_KissingMyLove;
+if (!drumLibrary.KnocksOffMyFeet) drumLibrary.KnocksOffMyFeet = _patterns.Tidal_patterns_KnocksOffMyFeet;
+if (!drumLibrary.Lady) drumLibrary.Lady = _patterns.Tidal_patterns_Lady;
+if (!drumLibrary.LadyMarmalade) drumLibrary.LadyMarmalade = _patterns.Tidal_patterns_LadyMarmalade;
+if (!drumLibrary.LetAWomanBeAWomanLetAManBeAMan) drumLibrary.LetAWomanBeAWomanLetAManBeAMan = _patterns.Tidal_patterns_LetAWomanBeAWomanLetAManBeAMan;
+if (!drumLibrary.LookingForThePerfectBeat1a) drumLibrary.LookingForThePerfectBeat1a = _patterns.Tidal_patterns_LookingForThePerfectBeat1a;
+if (!drumLibrary.LookingForThePerfectBeat1b) drumLibrary.LookingForThePerfectBeat1b = _patterns.Tidal_patterns_LookingForThePerfectBeat1b;
+if (!drumLibrary.Lookkapypy) drumLibrary.Lookkapypy = _patterns.Tidal_patterns_Lookkapypy;
+if (!drumLibrary.MiamiBass1) drumLibrary.MiamiBass1 = _patterns.Tidal_patterns_MiamiBass1;
+if (!drumLibrary.MiamiBass2) drumLibrary.MiamiBass2 = _patterns.Tidal_patterns_MiamiBass2;
+if (!drumLibrary.MoreBounceToTheOunce) drumLibrary.MoreBounceToTheOunce = _patterns.Tidal_patterns_MoreBounceToTheOunce;
+if (!drumLibrary.MotherPopcorn) drumLibrary.MotherPopcorn = _patterns.Tidal_patterns_MotherPopcorn;
+if (!drumLibrary.MusicNonStop1a) drumLibrary.MusicNonStop1a = _patterns.Tidal_patterns_MusicNonStop1a;
+if (!drumLibrary.MusicNonStop2a) drumLibrary.MusicNonStop2a = _patterns.Tidal_patterns_MusicNonStop2a;
+if (!drumLibrary.MusicNonStop2b) drumLibrary.MusicNonStop2b = _patterns.Tidal_patterns_MusicNonStop2b;
+if (!drumLibrary.NewWave) drumLibrary.NewWave = _patterns.Tidal_patterns_NewWave;
+if (!drumLibrary.Nico) drumLibrary.Nico = _patterns.Tidal_patterns_Nico;
+if (!drumLibrary.Numbers1a) drumLibrary.Numbers1a = _patterns.Tidal_patterns_Numbers1a;
+if (!drumLibrary.Numbers1b) drumLibrary.Numbers1b = _patterns.Tidal_patterns_Numbers1b;
+if (!drumLibrary.OneDrop) drumLibrary.OneDrop = _patterns.Tidal_patterns_OneDrop;
+if (!drumLibrary.OneSevenFiveThirteen) drumLibrary.OneSevenFiveThirteen = _patterns.Tidal_patterns_OneSevenFiveThirteen;
+if (!drumLibrary.OohChild) drumLibrary.OohChild = _patterns.Tidal_patterns_OohChild;
+if (!drumLibrary.PalmGrease) drumLibrary.PalmGrease = _patterns.Tidal_patterns_PalmGrease;
+if (!drumLibrary.PapaWasToo) drumLibrary.PapaWasToo = _patterns.Tidal_patterns_PapaWasToo;
+if (!drumLibrary.Pattern00) drumLibrary.Pattern00 = _patterns.Tidal_patterns_Pattern00;
+if (!drumLibrary.Pattern01) drumLibrary.Pattern01 = _patterns.Tidal_patterns_Pattern01;
+if (!drumLibrary.Pattern02) drumLibrary.Pattern02 = _patterns.Tidal_patterns_Pattern02;
+if (!drumLibrary.Pattern03) drumLibrary.Pattern03 = _patterns.Tidal_patterns_Pattern03;
+if (!drumLibrary.Pattern04) drumLibrary.Pattern04 = _patterns.Tidal_patterns_Pattern04;
+if (!drumLibrary.Pattern05) drumLibrary.Pattern05 = _patterns.Tidal_patterns_Pattern05;
+if (!drumLibrary.Pattern06) drumLibrary.Pattern06 = _patterns.Tidal_patterns_Pattern06;
+if (!drumLibrary.Pattern07) drumLibrary.Pattern07 = _patterns.Tidal_patterns_Pattern07;
+if (!drumLibrary.Pattern08) drumLibrary.Pattern08 = _patterns.Tidal_patterns_Pattern08;
+if (!drumLibrary.Pattern09) drumLibrary.Pattern09 = _patterns.Tidal_patterns_Pattern09;
+if (!drumLibrary.Pattern10) drumLibrary.Pattern10 = _patterns.Tidal_patterns_Pattern10;
+if (!drumLibrary.Pattern11) drumLibrary.Pattern11 = _patterns.Tidal_patterns_Pattern11;
+if (!drumLibrary.Pattern12) drumLibrary.Pattern12 = _patterns.Tidal_patterns_Pattern12;
+if (!drumLibrary.Pattern13) drumLibrary.Pattern13 = _patterns.Tidal_patterns_Pattern13;
+if (!drumLibrary.Pattern14) drumLibrary.Pattern14 = _patterns.Tidal_patterns_Pattern14;
+if (!drumLibrary.Pattern15) drumLibrary.Pattern15 = _patterns.Tidal_patterns_Pattern15;
+if (!drumLibrary.Pattern16) drumLibrary.Pattern16 = _patterns.Tidal_patterns_Pattern16;
+if (!drumLibrary.Pattern17) drumLibrary.Pattern17 = _patterns.Tidal_patterns_Pattern17;
+if (!drumLibrary.Pattern18) drumLibrary.Pattern18 = _patterns.Tidal_patterns_Pattern18;
+if (!drumLibrary.Pattern19) drumLibrary.Pattern19 = _patterns.Tidal_patterns_Pattern19;
+if (!drumLibrary.Pattern20) drumLibrary.Pattern20 = _patterns.Tidal_patterns_Pattern20;
+if (!drumLibrary.Pattern21) drumLibrary.Pattern21 = _patterns.Tidal_patterns_Pattern21;
+if (!drumLibrary.Pattern22) drumLibrary.Pattern22 = _patterns.Tidal_patterns_Pattern22;
+if (!drumLibrary.Pattern23) drumLibrary.Pattern23 = _patterns.Tidal_patterns_Pattern23;
+if (!drumLibrary.Pattern24) drumLibrary.Pattern24 = _patterns.Tidal_patterns_Pattern24;
+if (!drumLibrary.Pattern25) drumLibrary.Pattern25 = _patterns.Tidal_patterns_Pattern25;
+if (!drumLibrary.Pattern26) drumLibrary.Pattern26 = _patterns.Tidal_patterns_Pattern26;
+if (!drumLibrary.Pattern27) drumLibrary.Pattern27 = _patterns.Tidal_patterns_Pattern27;
+if (!drumLibrary.Pattern28) drumLibrary.Pattern28 = _patterns.Tidal_patterns_Pattern28;
+if (!drumLibrary.Pattern29) drumLibrary.Pattern29 = _patterns.Tidal_patterns_Pattern29;
+if (!drumLibrary.Pattern30) drumLibrary.Pattern30 = _patterns.Tidal_patterns_Pattern30;
+if (!drumLibrary.Pattern31) drumLibrary.Pattern31 = _patterns.Tidal_patterns_Pattern31;
+if (!drumLibrary.Pattern32) drumLibrary.Pattern32 = _patterns.Tidal_patterns_Pattern32;
+if (!drumLibrary.Pattern33) drumLibrary.Pattern33 = _patterns.Tidal_patterns_Pattern33;
+if (!drumLibrary.Pattern34) drumLibrary.Pattern34 = _patterns.Tidal_patterns_Pattern34;
+if (!drumLibrary.Pattern35) drumLibrary.Pattern35 = _patterns.Tidal_patterns_Pattern35;
+if (!drumLibrary.Pattern36) drumLibrary.Pattern36 = _patterns.Tidal_patterns_Pattern36;
+if (!drumLibrary.Pattern37) drumLibrary.Pattern37 = _patterns.Tidal_patterns_Pattern37;
+if (!drumLibrary.Pattern38) drumLibrary.Pattern38 = _patterns.Tidal_patterns_Pattern38;
+if (!drumLibrary.Pattern39) drumLibrary.Pattern39 = _patterns.Tidal_patterns_Pattern39;
+if (!drumLibrary.Pattern40) drumLibrary.Pattern40 = _patterns.Tidal_patterns_Pattern40;
+if (!drumLibrary.Pattern41) drumLibrary.Pattern41 = _patterns.Tidal_patterns_Pattern41;
+if (!drumLibrary.Pattern42) drumLibrary.Pattern42 = _patterns.Tidal_patterns_Pattern42;
+if (!drumLibrary.Pattern43) drumLibrary.Pattern43 = _patterns.Tidal_patterns_Pattern43;
+if (!drumLibrary.Pattern44) drumLibrary.Pattern44 = _patterns.Tidal_patterns_Pattern44;
+if (!drumLibrary.Pattern45) drumLibrary.Pattern45 = _patterns.Tidal_patterns_Pattern45;
+if (!drumLibrary.Pattern46) drumLibrary.Pattern46 = _patterns.Tidal_patterns_Pattern46;
+if (!drumLibrary.Pattern47) drumLibrary.Pattern47 = _patterns.Tidal_patterns_Pattern47;
+if (!drumLibrary.Pattern48) drumLibrary.Pattern48 = _patterns.Tidal_patterns_Pattern48;
+if (!drumLibrary.Pattern49) drumLibrary.Pattern49 = _patterns.Tidal_patterns_Pattern49;
+if (!drumLibrary.Pattern50) drumLibrary.Pattern50 = _patterns.Tidal_patterns_Pattern50;
+if (!drumLibrary.Pattern51) drumLibrary.Pattern51 = _patterns.Tidal_patterns_Pattern51;
+if (!drumLibrary.Pattern52) drumLibrary.Pattern52 = _patterns.Tidal_patterns_Pattern52;
+if (!drumLibrary.Pattern53) drumLibrary.Pattern53 = _patterns.Tidal_patterns_Pattern53;
+if (!drumLibrary.Pattern54) drumLibrary.Pattern54 = _patterns.Tidal_patterns_Pattern54;
+if (!drumLibrary.Pattern55) drumLibrary.Pattern55 = _patterns.Tidal_patterns_Pattern55;
+if (!drumLibrary.Pattern56) drumLibrary.Pattern56 = _patterns.Tidal_patterns_Pattern56;
+if (!drumLibrary.Pattern57) drumLibrary.Pattern57 = _patterns.Tidal_patterns_Pattern57;
+if (!drumLibrary.Pattern58) drumLibrary.Pattern58 = _patterns.Tidal_patterns_Pattern58;
+if (!drumLibrary.Pattern59) drumLibrary.Pattern59 = _patterns.Tidal_patterns_Pattern59;
+if (!drumLibrary.Pattern60) drumLibrary.Pattern60 = _patterns.Tidal_patterns_Pattern60;
+if (!drumLibrary.Pattern61) drumLibrary.Pattern61 = _patterns.Tidal_patterns_Pattern61;
+if (!drumLibrary.Pattern62) drumLibrary.Pattern62 = _patterns.Tidal_patterns_Pattern62;
+if (!drumLibrary.Pattern63) drumLibrary.Pattern63 = _patterns.Tidal_patterns_Pattern63;
+if (!drumLibrary.PlanetRock) drumLibrary.PlanetRock = _patterns.Tidal_patterns_PlanetRock;
+if (!drumLibrary.Poly1a) drumLibrary.Poly1a = _patterns.Tidal_patterns_Poly1a;
+if (!drumLibrary.Poly1b) drumLibrary.Poly1b = _patterns.Tidal_patterns_Poly1b;
+if (!drumLibrary.Poptech2010) drumLibrary.Poptech2010 = _patterns.Tidal_patterns_Poptech2010;
+if (!drumLibrary.Reggae4a) drumLibrary.Reggae4a = _patterns.Tidal_patterns_Reggae4a;
+if (!drumLibrary.Reggaeton) drumLibrary.Reggaeton = _patterns.Tidal_patterns_Reggaeton;
+if (!drumLibrary.RespectYourself) drumLibrary.RespectYourself = _patterns.Tidal_patterns_RespectYourself;
+if (!drumLibrary.RockSteady) drumLibrary.RockSteady = _patterns.Tidal_patterns_RockSteady;
+if (!drumLibrary.RockThePlanet) drumLibrary.RockThePlanet = _patterns.Tidal_patterns_RockThePlanet;
+if (!drumLibrary.RollinBreak) drumLibrary.RollinBreak = _patterns.Tidal_patterns_RollinBreak;
+if (!drumLibrary.Rolling11) drumLibrary.Rolling11 = _patterns.Tidal_patterns_Rolling11;
+if (!drumLibrary.Rolling3a) drumLibrary.Rolling3a = _patterns.Tidal_patterns_Rolling3a;
+if (!drumLibrary.Rolling3b) drumLibrary.Rolling3b = _patterns.Tidal_patterns_Rolling3b;
+if (!drumLibrary.Rolling4a) drumLibrary.Rolling4a = _patterns.Tidal_patterns_Rolling4a;
+if (!drumLibrary.Rolling4b) drumLibrary.Rolling4b = _patterns.Tidal_patterns_Rolling4b;
+if (!drumLibrary.Rolling5b) drumLibrary.Rolling5b = _patterns.Tidal_patterns_Rolling5b;
+if (!drumLibrary.Rolling6a) drumLibrary.Rolling6a = _patterns.Tidal_patterns_Rolling6a;
+if (!drumLibrary.Rolling7a) drumLibrary.Rolling7a = _patterns.Tidal_patterns_Rolling7a;
+if (!drumLibrary.Rolling7b) drumLibrary.Rolling7b = _patterns.Tidal_patterns_Rolling7b;
+if (!drumLibrary.Sally) drumLibrary.Sally = _patterns.Tidal_patterns_Sally;
+if (!drumLibrary.Samba1a) drumLibrary.Samba1a = _patterns.Tidal_patterns_Samba1a;
+if (!drumLibrary.Samba1b) drumLibrary.Samba1b = _patterns.Tidal_patterns_Samba1b;
+if (!drumLibrary.SlowDeepHouse) drumLibrary.SlowDeepHouse = _patterns.Tidal_patterns_SlowDeepHouse;
+if (!drumLibrary.Steppers) drumLibrary.Steppers = _patterns.Tidal_patterns_Steppers;
+if (!drumLibrary.Strbtsdcgogo100) drumLibrary.Strbtsdcgogo100 = _patterns.Tidal_patterns_Strbtsdcgogo100;
+if (!drumLibrary.Supersonic2a) drumLibrary.Supersonic2a = _patterns.Tidal_patterns_Supersonic2a;
+if (!drumLibrary.Supersonic2b) drumLibrary.Supersonic2b = _patterns.Tidal_patterns_Supersonic2b;
+if (!drumLibrary.Superstition) drumLibrary.Superstition = _patterns.Tidal_patterns_Superstition;
+if (!drumLibrary.Swing3a) drumLibrary.Swing3a = _patterns.Tidal_patterns_Swing3a;
+if (!drumLibrary.SynthWave) drumLibrary.SynthWave = _patterns.Tidal_patterns_SynthWave;
+if (!drumLibrary.SynthethicSubstitution) drumLibrary.SynthethicSubstitution = _patterns.Tidal_patterns_SynthethicSubstitution;
+if (!drumLibrary.TakeMeToMardiGras) drumLibrary.TakeMeToMardiGras = _patterns.Tidal_patterns_TakeMeToMardiGras;
+if (!drumLibrary.TakeMeToMardiGrasAlt) drumLibrary.TakeMeToMardiGrasAlt = _patterns.Tidal_patterns_TakeMeToMardiGrasAlt;
+if (!drumLibrary.Techno) drumLibrary.Techno = _patterns.Tidal_patterns_Techno;
+if (!drumLibrary.TheFez) drumLibrary.TheFez = _patterns.Tidal_patterns_TheFez;
+if (!drumLibrary.TheSameBlood) drumLibrary.TheSameBlood = _patterns.Tidal_patterns_TheSameBlood;
+if (!drumLibrary.TheTrillsGone) drumLibrary.TheTrillsGone = _patterns.Tidal_patterns_TheTrillsGone;
+if (!drumLibrary.TransEuroExpress) drumLibrary.TransEuroExpress = _patterns.Tidal_patterns_TransEuroExpress;
+if (!drumLibrary.Trap1a) drumLibrary.Trap1a = _patterns.Tidal_patterns_Trap1a;
+if (!drumLibrary.Trap1b) drumLibrary.Trap1b = _patterns.Tidal_patterns_Trap1b;
+if (!drumLibrary.TwoDrop) drumLibrary.TwoDrop = _patterns.Tidal_patterns_TwoDrop;
+if (!drumLibrary.UkGarage1a) drumLibrary.UkGarage1a = _patterns.Tidal_patterns_UkGarage1a;
+if (!drumLibrary.UkGarage1b) drumLibrary.UkGarage1b = _patterns.Tidal_patterns_UkGarage1b;
+if (!drumLibrary.UnconventionalSnare1a) drumLibrary.UnconventionalSnare1a = _patterns.Tidal_patterns_UnconventionalSnare1a;
+if (!drumLibrary.UnconventionalSnare1b) drumLibrary.UnconventionalSnare1b = _patterns.Tidal_patterns_UnconventionalSnare1b;
+if (!drumLibrary.UnconventionalSnare2a) drumLibrary.UnconventionalSnare2a = _patterns.Tidal_patterns_UnconventionalSnare2a;
+if (!drumLibrary.UnconventionalSnare2b) drumLibrary.UnconventionalSnare2b = _patterns.Tidal_patterns_UnconventionalSnare2b;
+if (!drumLibrary.UnconventionalSnare3a) drumLibrary.UnconventionalSnare3a = _patterns.Tidal_patterns_UnconventionalSnare3a;
+if (!drumLibrary.UnconventionalSnare4a) drumLibrary.UnconventionalSnare4a = _patterns.Tidal_patterns_UnconventionalSnare4a;
+if (!drumLibrary.UnconventionalSnare4b) drumLibrary.UnconventionalSnare4b = _patterns.Tidal_patterns_UnconventionalSnare4b;
+if (!drumLibrary.UnknownDrummer) drumLibrary.UnknownDrummer = _patterns.Tidal_patterns_UnknownDrummer;
+if (!drumLibrary.UseMe) drumLibrary.UseMe = _patterns.Tidal_patterns_UseMe;
+if (!drumLibrary.UseMeAlt) drumLibrary.UseMeAlt = _patterns.Tidal_patterns_UseMeAlt;
+if (!drumLibrary.WalkThisWay) drumLibrary.WalkThisWay = _patterns.Tidal_patterns_WalkThisWay;
+if (!drumLibrary.WeWillRockYou) drumLibrary.WeWillRockYou = _patterns.Tidal_patterns_WeWillRockYou;
+if (!drumLibrary.WhenTheLeveeBreaks) drumLibrary.WhenTheLeveeBreaks = _patterns.Tidal_patterns_WhenTheLeveeBreaks;
+if (!drumLibrary.YaMama) drumLibrary.YaMama = _patterns.Tidal_patterns_YaMama;
 
 // Helper function to play any pattern with a given bank
 function playPattern(pattern, bank = kit) {
