@@ -71,17 +71,17 @@ def generate_strudel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
         transpose = tr.get("transpose", 0)
         
         if is_bass:
-            mini_pat = optimize_track_pattern(steps_str, "x")
+            mini_pat = optimize_track_pattern(steps_str)
             transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            track_expr = f's("{mini_pat}"){gain_part}.note(bass_key).octave(bass_octave){transpose_part}.decay(0.2).sustain(0).sound(bass_synth)'
+            track_expr = f's(bass_synth).note(bass_key).octave(bass_octave){transpose_part}.decay(0.2).sustain(0).struct("{mini_pat}"){gain_part}'
         else:
             s_name = tr["sample"]
-            mini_pat = optimize_track_pattern(steps_str, s_name)
+            mini_pat = optimize_track_pattern(steps_str)
             gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            track_expr = f's("{mini_pat}"){gain_part}.bank(bank_{s_name})'
+            track_expr = f's("{s_name}").struct("{mini_pat}"){gain_part}.bank(bank_{s_name})'
             
         stack_lines.append(f"  {track_expr}")
         
@@ -113,17 +113,17 @@ def generate_channel_snippet(pattern_data: Dict[str, Any], default_bank: str = "
         transpose = tr.get("transpose", 0)
         
         if is_bass:
-            mini_pat = optimize_track_pattern(steps_str, "x")
+            mini_pat = optimize_track_pattern(steps_str)
             transpose_part = f".transpose({transpose})" if transpose > 0 else ""
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            lines.append(f'$: s("{mini_pat}"){gain_part}.note("c").octave(1){transpose_part}.decay(0.2).sustain(0).sound("sawtooth")')
+            lines.append(f'$: s("sawtooth").note("c").octave(1){transpose_part}.decay(0.2).sustain(0).struct("{mini_pat}"){gain_part}')
         else:
             s_name = tr["sample"]
-            mini_pat = optimize_track_pattern(steps_str, s_name)
+            mini_pat = optimize_track_pattern(steps_str)
             gain_str = get_expressive_gain(s_name, steps_str, accent_grid=accent_grid)
             gain_part = f'.gain("{gain_str}")' if gain_str else ""
-            lines.append(f'$: s("{mini_pat}"){gain_part}.bank(kit)')
+            lines.append(f'$: s("{s_name}").struct("{mini_pat}"){gain_part}.bank(kit)')
         
     return "\n".join(lines)
 
@@ -148,11 +148,11 @@ def extract_pattern_tracks_dict(pattern_data: Dict[str, Any]) -> Dict[str, Any]:
         
         if is_bass:
             key_name = "bass"
-            mini_pat = optimize_track_pattern(steps_str, "x")
+            mini_pat = optimize_track_pattern(steps_str)
             gain_str = get_expressive_gain("bd", steps_str, accent_grid=accent_grid)
         else:
             key_name = tr["sample"]
-            mini_pat = optimize_track_pattern(steps_str, key_name)
+            mini_pat = optimize_track_pattern(steps_str)
             gain_str = get_expressive_gain(key_name, steps_str, accent_grid=accent_grid)
             
         tracks_dict[key_name] = mini_pat
