@@ -135,6 +135,16 @@ def build_library(
             js_lines.append(f"if (!drumLibrary.{pat_key}) drumLibrary.{pat_key} = _patterns.{u_key};")
             
     js_lines.append("")
+    js_lines.append("// Helper function to load sample manifest asynchronously")
+    js_lines.append("async function init() {")
+    js_lines.append("  const sLoad = typeof samples === 'function' ? samples : (typeof globalThis.samples === 'function' ? globalThis.samples : null);")
+    js_lines.append("  if (sLoad) {")
+    js_lines.append("    try {")
+    js_lines.append("      await sLoad('github:tidalcycles/dirt-samples');")
+    js_lines.append("    } catch (e) { console.warn('Failed to load dirt-samples:', e); }")
+    js_lines.append("  }")
+    js_lines.append("}")
+    js_lines.append("")
     js_lines.append("// Helper function to play any pattern in Strudel REPL environment")
     js_lines.append("function play(pattern, opts = {}) {")
     js_lines.append("  const o = typeof opts === 'string' ? { bank: opts } : (opts || {});")
@@ -180,9 +190,10 @@ def build_library(
     js_lines.append("if (typeof globalThis !== 'undefined') {")
     js_lines.append("  globalThis.drumLibrary = drumLibrary;")
     js_lines.append("  globalThis.play = play;")
+    js_lines.append("  globalThis.initStrudelDrums = init;")
     js_lines.append("}")
     js_lines.append("")
-    js_lines.append("export { drumLibrary, play };")
+    js_lines.append("export { drumLibrary, play, init };")
     
     with open(js_output_path, "w", encoding="utf-8") as f:
         f.write("\n".join(js_lines))

@@ -6291,6 +6291,16 @@ if (!drumLibrary.WeWillRockYou) drumLibrary.WeWillRockYou = _patterns.Tidal_patt
 if (!drumLibrary.WhenTheLeveeBreaks) drumLibrary.WhenTheLeveeBreaks = _patterns.Tidal_patterns_WhenTheLeveeBreaks;
 if (!drumLibrary.YaMama) drumLibrary.YaMama = _patterns.Tidal_patterns_YaMama;
 
+// Helper function to load sample manifest asynchronously
+async function init() {
+  const sLoad = typeof samples === 'function' ? samples : (typeof globalThis.samples === 'function' ? globalThis.samples : null);
+  if (sLoad) {
+    try {
+      await sLoad('github:tidalcycles/dirt-samples');
+    } catch (e) { console.warn('Failed to load dirt-samples:', e); }
+  }
+}
+
 // Helper function to play any pattern in Strudel REPL environment
 function play(pattern, opts = {}) {
   const o = typeof opts === 'string' ? { bank: opts } : (opts || {});
@@ -6336,6 +6346,7 @@ function play(pattern, opts = {}) {
 if (typeof globalThis !== 'undefined') {
   globalThis.drumLibrary = drumLibrary;
   globalThis.play = play;
+  globalThis.initStrudelDrums = init;
 }
 
-export { drumLibrary, play };
+export { drumLibrary, play, init };
