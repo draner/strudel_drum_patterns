@@ -17,16 +17,16 @@ An automated Python converter and pattern library that transforms drum pattern r
 
 ## 🌐 Remote Import in Strudel.cc REPL
 
-Because the online Strudel REPL parses main editor code as a standard JavaScript script rather than a static ES module, static `import { ... } from '...'` syntax will trigger `Error: 'import' and 'export' may appear only with 'sourceType: module'`.
+To load the library in [Strudel.cc](https://strudel.cc), use top-level **`await import(...)`**:
 
-To import the library in Strudel REPL, use **dynamic `await import(...)`**:
+### 1. Remote Import via jsDelivr CDN (Recommended)
+Works immediately once pushed to GitHub (no GitHub Pages setup required):
 
-### 1. Remote Import via jsDelivr CDN
 ```js
-// Dynamic Remote Import in Strudel REPL
-const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/YOUR_USERNAME/drum_patterns_generator@main/dist/strudel_library.js')
+// Import remotely via jsDelivr CDN
+const { drumLibrary } = await import('https://cdn.jsdelivr.net/gh/draner/strudel_drum_patterns@main/dist/strudel_library.js')
 
-// 1. Play with default settings
+// 1. Play with default settings (TR-808, n=0, Key C, Octave 1)
 drumLibrary.Dancehall.Reggaeton()
 
 // 2. Play with custom drum bank
@@ -36,28 +36,30 @@ drumLibrary.Dancehall.Reggaeton("RolandTR909")
 drumLibrary.Dub({ bank: "RolandTR909", n: 1, key: "eb", octave: 2, synth: "tb303" })
 ```
 
-### 2. Remote Import via GitHub Pages
+### 2. Remote Import via RawGithack CDN
 ```js
-const { drumLibrary } = await import('https://YOUR_USERNAME.github.io/drum_patterns_generator/dist/strudel_library.js')
+const { drumLibrary } = await import('https://raw.githack.com/draner/strudel_drum_patterns/main/dist/strudel_library.js')
 
 drumLibrary.Rock.Rock1_MeasureA()
 ```
 
----
+### 3. Remote Import via GitHub Pages
+If GitHub Pages is enabled in your repository settings (Settings -> Pages -> Branch: `main`):
 
-## 🚀 How to Use in Strudel.cc (Local / Snippets)
-
-### Method 1: Local Import
-If hosting locally:
 ```js
-const { drumLibrary } = await import('./dist/strudel_library.js')
+const { drumLibrary } = await import('https://draner.github.io/strudel_drum_patterns/dist/strudel_library.js')
 
-drumLibrary.Dancehall.Reggaeton()
+drumLibrary.Rock.Rock1_MeasureA()
 ```
 
+> ⚠️ **Troubleshooting `Failed to fetch dynamically imported module`**:
+> - Ensure you pushed your commits including `dist/` to GitHub (`git add . && git commit -m "Build dist" && git push`).
+> - Ensure the repository name in the URL matches your GitHub repo name (`strudel_drum_patterns`).
+> - Use the **jsDelivr** or **RawGithack** CDN URLs above, as they include mandatory CORS headers and work instantly.
+
 ---
 
-### Method 2: Copy & Paste Snippets from `dist/CATALOG.md`
+## 🚀 How to Use Snippets from `dist/CATALOG.md`
 
 Browse [`dist/CATALOG.md`](./dist/CATALOG.md) to find copy-pasteable snippets formatted for standalone execution or live performance:
 
@@ -110,12 +112,12 @@ To set up this project locally and convert the pattern repositories:
 
 ### 1. Clone the Generator Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/drum_patterns_generator.git
-cd drum_patterns_generator
+git clone https://github.com/draner/strudel_drum_patterns.git
+cd strudel_drum_patterns
 ```
 
 ### 2. Clone the Pattern Source Repositories
-Clone the two source pattern repositories into the root of `drum_patterns_generator`:
+Clone the two source pattern repositories into the root of `strudel_drum_patterns`:
 
 ```bash
 # Clone the drum-patterns repo
@@ -151,7 +153,7 @@ python -m unittest discover -s tests
 ## 📁 Repository & Output Artifacts
 
 ```
-drum_patterns_generator/
+strudel_drum_patterns/
 ├── drum-patterns/           # Cloned source repo (jcelerier/drum-patterns)
 ├── DrumBeatRepo/            # Cloned source repo (Babali42/DrumBeatRepo)
 ├── strudel_converter/       # Python converter package
